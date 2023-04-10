@@ -1,5 +1,6 @@
+import "./Navbar.css";
 import { useState } from "react";
-import Logo from "../../images/logo/logo.svg";
+import Logo from "../../images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
 import { Link } from "react-router-dom";
 import LogoSide from "../../images/logo/logo-footer.svg";
@@ -26,7 +27,7 @@ function Navbar() {
 
   // sticky navbar - bg black
   const handleScroll = () => {
-    if (window.scrollY > 10) {
+    if (window.scrollY > 900) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -56,8 +57,8 @@ function Navbar() {
   return (
     <>
       <nav
-        className={`flex flex-row bg-transparent items-center justify-between py-8 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
-          sticky ? "shadow-xl !bg-black" : ""
+        className={`flex flex-row items-center justify-between py-7 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
+          sticky ? "shadow-xl bg-[rgb(255,255,255,0.95)]" : "bg-transparent"
         }`}
       >
         <Link to="/">
@@ -65,11 +66,11 @@ function Navbar() {
             src={Logo}
             alt="logo_img"
             onClick={goTop}
-            className="w-full h-auto"
+            className="nav-logo h-20 w-auto"
           />
         </Link>
         <div className="navlist-nav">
-          <NavList />
+          <NavList sticky={sticky} />
         </div>
         <div className="flex items-center gap-10">
           <div className="flex gap-10">
@@ -83,7 +84,7 @@ function Navbar() {
             >
               <i
                 onClick={hamburgerMenu}
-                className="fa-solid fa-xmark text-[#ff0336] text-[3.3rem] cursor-pointer self-end"
+                className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer self-end"
               ></i>
 
               {/* links */}
@@ -91,43 +92,43 @@ function Navbar() {
                 <li onClick={hamburgerMenu}>
                   <a
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     href="/#home"
                   >
-                    Home
+                    Inicio
                   </a>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/about"
                   >
-                    About
+                    Sobre
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/schedule/monday"
                   >
-                    Schedule
+                    Agende
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/gallery/page-1"
                   >
-                    Gallery
+                    Galeria
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/blog"
                   >
                     Blog
@@ -136,28 +137,28 @@ function Navbar() {
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/contact"
                   >
-                    Contact
+                    Contato
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/pricing"
                   >
-                    Pricing
+                    Preços
                   </Link>
                 </li>
                 <li onClick={hamburgerMenu}>
                   <Link
                     onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-[#ff0336] ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/classes"
                   >
-                    Classes
+                    Serviços
                   </Link>
                 </li>
               </ul>
@@ -176,7 +177,7 @@ function Navbar() {
                   <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
                   <i
                     onClick={sideBar}
-                    className="fa-solid fa-xmark text-[#ff0336] text-[3.3rem] cursor-pointer"
+                    className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
                   ></i>
                 </div>
                 {/* about us */}
@@ -228,16 +229,16 @@ function Navbar() {
                 {/* contact */}
                 <div className="flex flex-col gap-6">
                   <h3 className="text-[2rem] font-bold">Contact Info</h3>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-[#ff0336] cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-location-dot text-[#ff0336]"></i>
+                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                    <i className="fa-solid fa-location-dot text-signature-gold"></i>
                     &nbsp; 59 Street, House Newyork City
                   </p>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-[#ff0336] cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-phone text-[#ff0336]"></i>&nbsp;
-                    +123-678800090
+                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                    <i className="fa-solid fa-phone text-signature-gold"></i>
+                    &nbsp; +123-678800090
                   </p>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-[#ff0336] cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-envelope text-[#ff0336]"></i>
+                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                    <i className="fa-solid fa-envelope text-signature-gold"></i>
                     &nbsp; gymate@gymail.com
                   </p>
                 </div>
@@ -245,13 +246,13 @@ function Navbar() {
                 <div className="flex flex-col gap-6">
                   <h3 className="text-[2rem] font-bold">Follow Us</h3>
                   <div className="flex gap-5">
-                    <span className="bg-[#ff0336] rounded-full py-[12px] px-[17px] cursor-pointer">
+                    <span className="bg-signature-gold rounded-full py-[12px] px-[17px] cursor-pointer">
                       <i className="fa-brands fa-facebook-f text-[2.2rem] text-white"></i>
                     </span>
-                    <span className="bg-[#ff0336] rounded-full py-[12px] px-[12px] cursor-pointer">
+                    <span className="bg-signature-gold rounded-full py-[12px] px-[12px] cursor-pointer">
                       <i className="fa-brands fa-twitter text-[2.2rem] text-white"></i>
                     </span>
-                    <span className="bg-[#ff0336] rounded-full py-[10px] px-[13px] cursor-pointer">
+                    <span className="bg-signature-gold rounded-full py-[10px] px-[13px] cursor-pointer">
                       <i className="fa-brands fa-instagram text-[2.2rem] text-white"></i>
                     </span>
                   </div>
@@ -262,20 +263,34 @@ function Navbar() {
             {/* hamburger */}
             <i
               onClick={hamburgerMenu}
-              className="fa-bars fa-solid hidden text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
+              className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
+                sticky ? "text-gray" : "text-white"
+              }`}
             ></i>
             {/* account */}
             <Link onClick={goTop} to="/signup" title="signup_button">
-              <i className="fa-regular fa-user  text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"></i>
+              <i
+                className={`fa-regular fa-user text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
+                  sticky ? "text-gray" : "text-white"
+                }`}
+              ></i>
             </Link>
             {/* sidebar */}
             <i
               onClick={sideBar}
-              className="fa-regular fa-chart-bar text-white text-4xl cursor-pointer hover:text-[#FF0336] ease-in duration-200"
+              className={`fa-regular fa-chart-bar text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
+                sticky ? "text-gray" : "text-white"
+              }`}
             ></i>
           </div>
           {/* spin box */}
-          <div className="border-[rgb(255,255,255,0.3)] border-solid border-2  p-2 rounded-md min620:hidden">
+          <div
+            className={`border-solid border-2  p-2 rounded-md min620:hidden ${
+              sticky
+                ? "border-[rgb(81,82,91,0.3)]"
+                : "border-[rgb(255,255,255,0.3)]"
+            }`}
+          >
             <Link
               onClick={goTop}
               to={"/contact"}
@@ -284,12 +299,16 @@ function Navbar() {
               className="flex items-center "
             >
               <i
-                className={`fa-solid fa-plus bg-[#FF0336] text-white text-2xl py-3 px-4 rounded-md ${
+                className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md ${
                   spin ? "nav-btn-hover" : ""
-                }`}
+                } ${sticky ? "text-gray" : "text-white"}`}
               ></i>
-              <h3 className="text-white text-[14px] font-bold uppercase ml-4 mr-8 tracking-wider">
-                join class now
+              <h3
+                className={`text-[14px] font-bold uppercase ml-4 mr-8 tracking-wider ${
+                  sticky ? "text-gray" : "text-white"
+                }`}
+              >
+                agende sua visita
               </h3>
             </Link>
           </div>

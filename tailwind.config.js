@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "signature-gold": "#CBA135",
+        gray: "#52525b",
+      },
+    },
     screens: {
       md1200: { max: "1200px" },
       md1000: { max: "1000px" },
