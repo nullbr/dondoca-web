@@ -1,5 +1,5 @@
 import TitleRed from "../../images/who-we-are/title-bg.svg";
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 
 function Featured() {
   const goTop = () => {

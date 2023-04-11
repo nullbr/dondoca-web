@@ -5,7 +5,7 @@ import EquipmentsIcon from "../../images/choose-us/bench-press.png";
 import BagIcon from "../../images/choose-us/gym-bag.png";
 import BottleIcon from "../../images/choose-us/bottle-of-water.png";
 import PlayImg from "../../images/choose-us/play.png";
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 
 function ChooseUs() {
   return (

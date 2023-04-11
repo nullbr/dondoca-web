@@ -1,5 +1,5 @@
 import TitleBg from "../../images/background/background_logo.png";
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 import "./Hero.css";
 
 function Hero() {

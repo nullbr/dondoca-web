@@ -7,7 +7,7 @@ import GirlRunning from "../../images/who-we-are/girl-run.png";
 import GirlRedBg from "../../images/who-we-are/girl-redbg.svg";
 import GirlText from "../../images/who-we-are/girl-side-text.png";
 import GirlWind from "../../images/who-we-are/wind.png";
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 
 function About() {
   return (

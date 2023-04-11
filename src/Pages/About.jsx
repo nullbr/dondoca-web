@@ -4,7 +4,7 @@ import GirlRedBg from "../images/who-we-are/girl-redbg.svg";
 import GirlText from "../images/who-we-are/girl-side-text.png";
 import GirlWind from "../images/who-we-are/wind.png";
 import TitleRed from "../images/who-we-are/title-bg.svg";
-import MainButton from "../components/MainButton";
+import MainButton from "../components/MainButton/MainButton";
 import Img3 from "../images/AboutPage/3.jpg";
 import Img4 from "../images/AboutPage/4.jpg";
 import Target from "../images/AboutPage/target.png";

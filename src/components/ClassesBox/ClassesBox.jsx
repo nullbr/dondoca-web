@@ -1,4 +1,4 @@
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 
 function ClassesBox({ bgImg, title, trainer, date }) {
   return (
