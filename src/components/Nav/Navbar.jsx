@@ -66,7 +66,7 @@ function Navbar() {
             src={Logo}
             alt="logo_img"
             onClick={goTop}
-            className="nav-logo h-20 w-auto"
+            className="nav-logo max-h-20 w-auto pr-5"
           />
         </Link>
         <div className="navlist-nav">
