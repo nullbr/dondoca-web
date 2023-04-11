@@ -12,18 +12,9 @@ import SideImg5 from "../../images/sidebar/5.jpg";
 import SideImg6 from "../../images/sidebar/6.jpg";
 
 function Navbar() {
-  const [spin, setSpin] = useState(false);
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
-
-  const joinSpin = () => {
-    setSpin(true);
-  };
-
-  const stopSpin = () => {
-    setSpin(false);
-  };
 
   // logo
   const goTop = () => {
@@ -300,14 +291,12 @@ function Navbar() {
             <Link
               onClick={goTop}
               to={"/contact"}
-              onMouseEnter={joinSpin}
-              onMouseLeave={stopSpin}
               className="flex items-center "
             >
               <i
-                className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md ${
-                  spin ? "nav-btn-hover" : ""
-                } ${sticky ? "text-gray" : "text-white"}`}
+                className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md nav-btn-hover ${
+                  sticky ? "text-gray" : "text-white"
+                }`}
               ></i>
               <h3
                 className={`text-[14px] font-bold uppercase ml-4 mr-8 tracking-wider ${

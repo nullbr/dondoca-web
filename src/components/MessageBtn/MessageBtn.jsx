@@ -20,15 +20,7 @@ const MessageBtn = () => {
   }, []);
 
   return (
-    <div
-      hidden={!show}
-      onMouseEnter={(e) => {
-        setText("Como podemos ajudar?");
-      }}
-      onMouseLeave={(e) => {
-        setText(null);
-      }}
-    >
+    <div hidden={!show}>
       <div
         className={`fixed bottom-[29px] right-[29px] bg-white rounded-full shadow-lg ${
           text ? "pr-[40px]" : "pr-[15px]"
@@ -37,7 +29,13 @@ const MessageBtn = () => {
         <p className="h-[40px] text-xl p-5 text-gray">{text}</p>
       </div>
       <a
-        className="fixed bottom-10 right-10"
+        onMouseEnter={(e) => {
+          setText("Como podemos ajudar?");
+        }}
+        onMouseLeave={(e) => {
+          setText(null);
+        }}
+        className="fixed bottom-10 right-10 nav-btn-hover"
         href="https://wa.me/5511978228466?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita."
         target="_blank"
         rel="noopener noreferrer"

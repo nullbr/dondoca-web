@@ -10,7 +10,7 @@ function Login() {
           </h1>
         </div>
         {/* contact */}
-        <div className="bg-white py-[12rem] page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1 ">
+        <div className="bg-white py-[12rem] page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
           {/* first col */}
           <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%] min620:w-full">
             <h2 className="text-black text-[36px] font-bold leading-[1.2]">
@@ -66,7 +66,7 @@ function Login() {
           </div>
 
           {/* second col ---*/}
-          <form className="flex flex-col pt-[30px] pr-[50px] pb-[50px] pl-[45px] bg-[#f8f8f8] relative md1000:w-[65%] md1000:flex md1000:flex-col md1000:mx-auto md1000:mt-14 min800:w-[90%] min620:w-full">
+          <form className="flex flex-col pt-[30px] pr-[50px] pb-[50px] pl-[45px] bg-[#f8f8f8] md1000:w-[65%] md1000:flex md1000:flex-col md1000:mx-auto md1000:mt-14 min800:w-[90%] min620:w-full">
             <h3 className="text-[28px] font-bold mb-14">Leave Us Your Info</h3>
             <span className="bg-signature-gold w-[50px] h-[4px] absolute top-[77px]"></span>
             <input
