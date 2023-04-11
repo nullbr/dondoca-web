@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "signature-gold": "#CBA135",
         gray: "#52525b",
+        "light-gray": "#DAE7E1",
       },
     },
     screens: {

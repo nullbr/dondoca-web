@@ -21,12 +21,14 @@ import Gallery from "./Pages/Gallery/Gallery";
 import GalleryPage1 from "./Pages/Gallery/GalleryPage1";
 import GalleryPage2 from "./Pages/Gallery/GalleryPage2";
 import About from "./Pages/About";
+import MessageBtn from "./components/MessageBtn/MessageBtn";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
         <Navbar />
+        <MessageBtn />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="contact" element={<Contact />} />

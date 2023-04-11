@@ -25,17 +25,6 @@ function Navbar() {
     setSpin(false);
   };
 
-  // sticky navbar - bg black
-  const handleScroll = () => {
-    if (window.scrollY > 900) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-
   // logo
   const goTop = () => {
     window.scrollTo({
@@ -53,6 +42,23 @@ function Navbar() {
   const hamburgerMenu = () => {
     setHamburger(!hamburger);
   };
+
+  // sticky navbar - bg black
+  const handleScroll = () => {
+    if (window.scrollY > 900) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
+
+  useState(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
