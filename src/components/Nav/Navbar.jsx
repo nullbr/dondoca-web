@@ -29,11 +29,6 @@ function Navbar() {
     setSideBar(!sidebar);
   };
 
-  // hamburger menu
-  const hamburgerMenu = () => {
-    setHamburger(!hamburger);
-  };
-
   // sticky navbar - bg black
   const handleScroll = () => {
     if (window.scrollY > 900) {
@@ -55,7 +50,7 @@ function Navbar() {
     <>
       <nav
         className={`flex flex-row items-center justify-between py-7 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
-          sticky ? "shadow-xl bg-[rgb(255,255,255,0.95)]" : "bg-transparent"
+          sticky ? "shadow-xl bg-slightly-transparent" : "bg-transparent"
         }`}
       >
         <Link to="/">
@@ -69,24 +64,26 @@ function Navbar() {
         <div className="navlist-nav">
           <NavList sticky={sticky} />
         </div>
+
         <div className="flex items-center gap-10">
           <div className="flex gap-10">
             {/* mobile menu -------------- */}
 
             {/* hamburger menu */}
             <div
-              className={`flex top-0 flex-col fixed w-full left-0 h-screen bg-white z-[9999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
-                hamburger ? "left-0" : "-left-[100%]"
+              className={`top-0 flex-col fixed w-[40rem] min450:w-full right-0 h-screen bg-slightly-transparent z-[9999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
+                hamburger ? "right-0" : "-right-[100%]"
               }`}
+              id="mobile-menu"
             >
               <i
-                onClick={hamburgerMenu}
-                className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer self-end"
+                onClick={() => setHamburger(!hamburger)}
+                className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer float-right"
               ></i>
 
               {/* links */}
               <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <a
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -95,7 +92,7 @@ function Navbar() {
                     Inicio
                   </a>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -104,7 +101,7 @@ function Navbar() {
                     Sobre
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -113,7 +110,7 @@ function Navbar() {
                     Agende
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -122,7 +119,7 @@ function Navbar() {
                     Galeria
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -131,7 +128,7 @@ function Navbar() {
                     Blog
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -140,7 +137,7 @@ function Navbar() {
                     Contato
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -149,7 +146,7 @@ function Navbar() {
                     Preços
                   </Link>
                 </li>
-                <li onClick={hamburgerMenu}>
+                <li onClick={() => setHamburger(!hamburger)}>
                   <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -165,7 +162,7 @@ function Navbar() {
 
             <div>
               <div
-                className={`flex flex-col fixed w-[40rem] min450:w-full h-[100vh] bg-white top-0 left-0 z-[9999999999] p-[45px] gap-24 overflow-x-hidden ease-in-out duration-[0.5s] ${
+                className={`flex flex-col fixed w-[40rem] min450:w-full h-[100vh] bg-slightly-transparent top-0 left-0 z-[9999999999] p-[45px] gap-24 overflow-x-hidden ease-in-out duration-[0.5s] ${
                   sidebar ? "left-0" : "-left-[100%]"
                 }`}
               >
@@ -259,7 +256,7 @@ function Navbar() {
 
             {/* hamburger */}
             <i
-              onClick={hamburgerMenu}
+              onClick={() => setHamburger(!hamburger)}
               className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                 sticky ? "text-gray" : "text-white"
               }`}

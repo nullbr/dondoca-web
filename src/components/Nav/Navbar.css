@@ -12,4 +12,8 @@
   .nav-logo {
     content: url("/src/images/logo/logo-mobile.png");
   }
+
+  .fa-bars {
+    display: flex;
+  }
 }
