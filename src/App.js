@@ -19,6 +19,7 @@ import GalleryPage1 from "./Pages/Gallery/GalleryPage1";
 import GalleryPage2 from "./Pages/Gallery/GalleryPage2";
 import About from "./Pages/About";
 import Layout from "./components/Layout/Layout";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
             <Route path="page-1" element={<GalleryPage1 />} />
             <Route path="page-2" element={<GalleryPage2 />} />
           </Route>
+
+          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </>
