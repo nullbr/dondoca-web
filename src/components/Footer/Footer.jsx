@@ -1,4 +1,4 @@
-import FooterLogo from "../../assets/images/logo/logo-footer.svg";
+import FooterLogo from "../../assets/images/logo/logo-footer.png";
 
 function Footer() {
   return (
