@@ -38,6 +38,8 @@ function Navbar() {
     } else {
       setSticky(false);
     }
+
+    setHamburger(false);
   };
 
   useState(() => {
@@ -73,91 +75,100 @@ function Navbar() {
 
             {/* hamburger menu */}
             <div
-              className={`top-0 flex-col fixed w-[40rem] min450:w-full right-0 h-screen bg-slightly-transparent z-[9999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
+              className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
                 hamburger ? "right-0" : "-right-[100%]"
               }`}
-              id="mobile-menu"
             >
-              <i
-                onClick={() => setHamburger(!hamburger)}
-                className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer float-right"
-              ></i>
-
-              {/* links */}
-              <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/home"
-                  >
-                    {t("nav.home")}
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/about"
-                  >
-                    Sobre
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/schedule/monday"
-                  >
-                    Agende
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/gallery/page-1"
-                  >
-                    Galeria
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/blog"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/contact"
-                  >
-                    Contato
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/pricing"
-                  >
-                    Preços
-                  </Link>
-                </li>
-                <li onClick={() => setHamburger(!hamburger)}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/classes"
-                  >
-                    Serviços
-                  </Link>
-                </li>
-              </ul>
+              <div className="flex">
+                <div
+                  className="close-nav-div"
+                  onClick={() => setHamburger(!hamburger)}
+                ></div>
+                <div
+                  className="flex w-[20rem] max-w-full justify-end h-screen bg-slightly-transparent py-[3rem] pr-[3rem]"
+                  id="mobile-menu"
+                >
+                  {/* links */}
+                  <ul className="flex flex-col gap-10 text-end">
+                    <i
+                      onClick={() => setHamburger(!hamburger)}
+                      className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
+                    ></i>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/home"
+                      >
+                        {t("nav.home")}
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/about"
+                      >
+                        Sobre
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/schedule/monday"
+                      >
+                        Agende
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/gallery/page-1"
+                      >
+                        Galeria
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/blog"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/contact"
+                      >
+                        Contato
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/pricing"
+                      >
+                        Preços
+                      </Link>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <Link
+                        onClick={() => window.top(0, 0)}
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/classes"
+                      >
+                        Serviços
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             {/* sidebar */}
