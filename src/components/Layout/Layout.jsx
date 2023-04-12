@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Nav/Navbar";
-import MessageBtn from "./MessageBtn/MessageBtn";
+import UtilityBtn from "./UtilityBtn";
 import Footer from "../Footer/Footer";
 
 const Layout = () => {
   return (
     <>
       <Navbar />
-      <MessageBtn />
       <Outlet />
+      <UtilityBtn />
       <Footer />
     </>
   );
