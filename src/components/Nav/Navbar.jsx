@@ -130,7 +130,7 @@ function Navbar() {
                         Galeria
                       </Link>
                     </li>
-                    <li onClick={() => setHamburger(!hamburger)}>
+                    {/* <li onClick={() => setHamburger(!hamburger)}>
                       <Link
                         onClick={() => window.top(0, 0)}
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -138,7 +138,7 @@ function Navbar() {
                       >
                         Blog
                       </Link>
-                    </li>
+                    </li> */}
                     <li onClick={() => setHamburger(!hamburger)}>
                       <Link
                         onClick={() => window.top(0, 0)}
@@ -148,7 +148,7 @@ function Navbar() {
                         Contato
                       </Link>
                     </li>
-                    <li onClick={() => setHamburger(!hamburger)}>
+                    {/* <li onClick={() => setHamburger(!hamburger)}>
                       <Link
                         onClick={() => window.top(0, 0)}
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -156,7 +156,7 @@ function Navbar() {
                       >
                         Preços
                       </Link>
-                    </li>
+                    </li> */}
                     <li onClick={() => setHamburger(!hamburger)}>
                       <Link
                         onClick={() => window.top(0, 0)}

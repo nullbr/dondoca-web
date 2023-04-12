@@ -44,14 +44,14 @@ function NavList({ sticky }) {
             Schedule
           </Link>
         </li>
-        <li
+        {/* <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
           <Link onClick={goTop} to={"/blog"}>
             Blog
           </Link>
-        </li>
+        </li> 
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
@@ -59,7 +59,7 @@ function NavList({ sticky }) {
           <Link onClick={goTop} to={"/pricing"}>
             Pricing
           </Link>
-        </li>
+        </li> */}
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
