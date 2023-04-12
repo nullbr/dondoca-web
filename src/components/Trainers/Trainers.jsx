@@ -1,4 +1,4 @@
-import TitleRed from "../../images/who-we-are/title-bg.svg";
+import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
 import TrainerBox from "./TrainerBox";
 
 function Trainers() {

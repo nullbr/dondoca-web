@@ -1,12 +1,12 @@
 import AboutCarts from "./AboutCarts";
-import TitleRed from "../../images/who-we-are/title-bg.svg";
-import TrainersIcon from "../../images/who-we-are/weightlifter.png";
-import ModernIcon from "../../images/who-we-are/equpments.png";
-import LiftIcon from "../../images/who-we-are/gym.png";
-import GirlRunning from "../../images/who-we-are/girl-run.png";
-import GirlRedBg from "../../images/who-we-are/girl-redbg.svg";
-import GirlText from "../../images/who-we-are/girl-side-text.png";
-import GirlWind from "../../images/who-we-are/wind.png";
+import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
+import TrainersIcon from "../../assets/images/who-we-are/weightlifter.png";
+import ModernIcon from "../../assets/images/who-we-are/equpments.png";
+import LiftIcon from "../../assets/images/who-we-are/gym.png";
+import GirlRunning from "../../assets/images/who-we-are/girl-run.png";
+import GirlRedBg from "../../assets/images/who-we-are/girl-redbg.svg";
+import GirlText from "../../assets/images/who-we-are/girl-side-text.png";
+import GirlWind from "../../assets/images/who-we-are/wind.png";
 import MainButton from "../MainButton/MainButton";
 
 function About() {

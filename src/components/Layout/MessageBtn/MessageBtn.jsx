@@ -1,5 +1,4 @@
-import "./MessageBtn.css";
-import WhatsappLogo from "../../images/whatsapp/icons8-whatsapp-48.png";
+import WhatsappLogo from "../../../assets/images/whatsapp/icons8-whatsapp-48.png";
 import { useState } from "react";
 
 const MessageBtn = () => {

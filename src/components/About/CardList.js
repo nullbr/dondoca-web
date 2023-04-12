@@ -1,6 +1,6 @@
-import ProgressionImg from "../../images/who-we-are/progresion.png";
-import WorkoutImg from "../../images/who-we-are/workout.png";
-import NutritionImg from "../../images/who-we-are/nutritions.png";
+import ProgressionImg from "../../assets/images/who-we-are/progresion.png";
+import WorkoutImg from "../../assets/images/who-we-are/workout.png";
+import NutritionImg from "../../assets/images/who-we-are/nutritions.png";
 
 export const cardList = [
   {

@@ -1,11 +1,11 @@
-import TitleRed from "../../images/who-we-are/title-bg.svg";
-import BgText from "../../images/pricing/bg-text.png";
-import BgDumbell from "../../images/pricing/bg-dumbell.png";
+import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
+import BgText from "../../assets/images/pricing/bg-text.png";
+import BgDumbell from "../../assets/images/pricing/bg-dumbell.png";
 import PricingBox from "./PricingBox";
 
-import Img1 from "../../images/pricing/img1.jpg";
-import Img2 from "../../images/pricing/img2.jpg";
-import Img3 from "../../images/pricing/img3.jpg";
+import Img1 from "../../assets/images/pricing/img1.jpg";
+import Img2 from "../../assets/images/pricing/img2.jpg";
+import Img3 from "../../assets/images/pricing/img3.jpg";
 
 function Pricing() {
   return (

@@ -1,15 +1,15 @@
 import "./Navbar.css";
 import { useState } from "react";
-import Logo from "../../images/logo/logo_full.png";
+import Logo from "../../assets/images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
 import { NavLink } from "react-router-dom";
-import LogoSide from "../../images/logo/logo-footer.svg";
-import SideImg1 from "../../images/sidebar/1.jpg";
-import SideImg2 from "../../images/sidebar/2.jpg";
-import SideImg3 from "../../images/sidebar/3.jpg";
-import SideImg4 from "../../images/sidebar/4.jpg";
-import SideImg5 from "../../images/sidebar/5.jpg";
-import SideImg6 from "../../images/sidebar/6.jpg";
+import LogoSide from "../../assets/images/logo/logo-footer.svg";
+import SideImg1 from "../../assets/images/sidebar/1.jpg";
+import SideImg2 from "../../assets/images/sidebar/2.jpg";
+import SideImg3 from "../../assets/images/sidebar/3.jpg";
+import SideImg4 from "../../assets/images/sidebar/4.jpg";
+import SideImg5 from "../../assets/images/sidebar/5.jpg";
+import SideImg6 from "../../assets/images/sidebar/6.jpg";
 import { useTranslation } from "react-i18next";
 
 function Navbar() {

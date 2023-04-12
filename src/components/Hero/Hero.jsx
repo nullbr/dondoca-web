@@ -1,4 +1,4 @@
-import TitleBg from "../../images/background/background_logo.png";
+import TitleBg from "../../assets/images/background/background_logo.png";
 import MainButton from "../MainButton/MainButton";
 import "./Hero.css";
 

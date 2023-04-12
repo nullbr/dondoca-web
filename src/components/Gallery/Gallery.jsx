@@ -1,5 +1,5 @@
-import TitleRed from "../../images/who-we-are/title-bg.svg";
-import BgIcon from "../../images/gallery/bg-icon.png";
+import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
+import BgIcon from "../../assets/images/gallery/bg-icon.png";
 
 function Gallery() {
   return (
