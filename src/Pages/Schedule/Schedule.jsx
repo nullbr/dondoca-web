@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
 
 function Schedule() {
   return (
@@ -14,7 +13,6 @@ function Schedule() {
         <div className="container page-padding py-[10rem]">
           <Outlet />
         </div>
-        <Footer />
       </section>
     </>
   );

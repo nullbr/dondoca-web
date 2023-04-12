@@ -1,14 +1,13 @@
-import Footer from "../components/Footer/Footer";
-import GirlRunning from "../images/who-we-are/girl-run.png";
-import GirlRedBg from "../images/who-we-are/girl-redbg.svg";
-import GirlText from "../images/who-we-are/girl-side-text.png";
-import GirlWind from "../images/who-we-are/wind.png";
-import TitleRed from "../images/who-we-are/title-bg.svg";
-import MainButton from "../components/MainButton";
-import Img3 from "../images/AboutPage/3.jpg";
-import Img4 from "../images/AboutPage/4.jpg";
-import Target from "../images/AboutPage/target.png";
-import Mountain from "../images/AboutPage/mountain.png";
+import GirlRunning from "../assets/images/who-we-are/girl-run.png";
+import GirlRedBg from "../assets/images/who-we-are/girl-redbg.svg";
+import GirlText from "../assets/images/who-we-are/girl-side-text.png";
+import GirlWind from "../assets/images/who-we-are/wind.png";
+import TitleRed from "../assets/images/who-we-are/title-bg.svg";
+import MainButton from "../components/MainButton/MainButton";
+import Img3 from "../assets/images/AboutPage/3.jpg";
+import Img4 from "../assets/images/AboutPage/4.jpg";
+import Target from "../assets/images/AboutPage/target.png";
+import Mountain from "../assets/images/AboutPage/mountain.png";
 
 function About() {
   return (
@@ -43,7 +42,7 @@ function About() {
               </p>
               <MainButton
                 color={`!text-white`}
-                bg={`bg-[#ff0336]`}
+                bg={`bg-signature-gold`}
                 goTo="/contact"
                 text="contact us"
                 arrowColor={`!text-white`}
@@ -103,7 +102,6 @@ function About() {
             </div>
           </div>
         </div>
-        <Footer />
       </section>
     </>
   );

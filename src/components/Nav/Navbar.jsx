@@ -1,28 +1,26 @@
 import "./Navbar.css";
 import { useState } from "react";
-import Logo from "../../images/logo/logo_full.png";
+import Logo from "../../assets/images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
-import { Link } from "react-router-dom";
-import LogoSide from "../../images/logo/logo-footer.svg";
-import SideImg1 from "../../images/sidebar/1.jpg";
-import SideImg2 from "../../images/sidebar/2.jpg";
-import SideImg3 from "../../images/sidebar/3.jpg";
-import SideImg4 from "../../images/sidebar/4.jpg";
-import SideImg5 from "../../images/sidebar/5.jpg";
-import SideImg6 from "../../images/sidebar/6.jpg";
+import { NavLink } from "react-router-dom";
+import LogoSide from "../../assets/images/logo/logo-footer.svg";
+import SideImg1 from "../../assets/images/sidebar/1.jpg";
+import SideImg2 from "../../assets/images/sidebar/2.jpg";
+import SideImg3 from "../../assets/images/sidebar/3.jpg";
+import SideImg4 from "../../assets/images/sidebar/4.jpg";
+import SideImg5 from "../../assets/images/sidebar/5.jpg";
+import SideImg6 from "../../assets/images/sidebar/6.jpg";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
-  const [spin, setSpin] = useState(false);
+  const { t } = useTranslation();
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
 
-  const joinSpin = () => {
-    setSpin(true);
-  };
-
-  const stopSpin = () => {
-    setSpin(false);
+  // sidebar
+  const sideBar = () => {
+    setSideBar(!sidebar);
   };
 
   // sticky navbar - bg black
@@ -32,143 +30,137 @@ function Navbar() {
     } else {
       setSticky(false);
     }
+
+    setHamburger(false);
   };
 
-  window.addEventListener("scroll", handleScroll);
+  useState(() => {
+    window.addEventListener("scroll", handleScroll);
 
-  // logo
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  // sidebar
-  const sideBar = () => {
-    setSideBar(!sidebar);
-  };
-
-  // hamburger menu
-  const hamburgerMenu = () => {
-    setHamburger(!hamburger);
-  };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <nav
         className={`flex flex-row items-center justify-between py-7 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
-          sticky ? "shadow-xl bg-[rgb(255,255,255,0.95)]" : "bg-transparent"
+          sticky ? "shadow-xl bg-slightly-transparent" : "bg-transparent"
         }`}
       >
-        <Link to="/">
+        <NavLink to="/">
           <img
             src={Logo}
             alt="logo_img"
-            onClick={goTop}
-            className="nav-logo h-20 w-auto"
+            className="nav-logo max-h-20 w-auto pr-5"
           />
-        </Link>
+        </NavLink>
         <div className="navlist-nav">
-          <NavList sticky={sticky} />
+          <NavList t={t} sticky={sticky} />
         </div>
+
         <div className="flex items-center gap-10">
           <div className="flex gap-10">
             {/* mobile menu -------------- */}
 
             {/* hamburger menu */}
             <div
-              className={`flex top-0 flex-col fixed w-full left-0 h-screen bg-white z-[9999999999] py-[60px] px-[40px] ease-in-out duration-500  ${
-                hamburger ? "left-0" : "-left-[100%]"
+              className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
+                hamburger ? "right-0" : "-right-[100%]"
               }`}
             >
-              <i
-                onClick={hamburgerMenu}
-                className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer self-end"
-              ></i>
-
-              {/* links */}
-              <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                <li onClick={hamburgerMenu}>
-                  <a
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    href="/#home"
-                  >
-                    Inicio
-                  </a>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/about"
-                  >
-                    Sobre
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/schedule/monday"
-                  >
-                    Agende
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/gallery/page-1"
-                  >
-                    Galeria
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/blog"
-                  >
-                    Blog
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/contact"
-                  >
-                    Contato
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/pricing"
-                  >
-                    Preços
-                  </Link>
-                </li>
-                <li onClick={hamburgerMenu}>
-                  <Link
-                    onClick={() => window.top(0, 0)}
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/classes"
-                  >
-                    Serviços
-                  </Link>
-                </li>
-              </ul>
+              <div className="flex">
+                <div
+                  className="close-nav-div"
+                  onClick={() => setHamburger(!hamburger)}
+                ></div>
+                <div
+                  className="flex w-[20rem] max-w-full justify-end h-screen bg-slightly-transparent py-[3rem] pr-[3rem]"
+                  id="mobile-menu"
+                >
+                  {/* links */}
+                  <ul className="flex flex-col gap-10 text-end">
+                    <i
+                      onClick={() => setHamburger(!hamburger)}
+                      className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
+                    ></i>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/"
+                      >
+                        {t("nav.home")}
+                      </NavLink>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/about"
+                      >
+                        {t("nav.about")}
+                      </NavLink>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/schedule/monday"
+                      >
+                        {t("nav.schedule")}
+                      </NavLink>
+                    </li>
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/gallery/page-1"
+                      >
+                        Galeria
+                      </NavLink>
+                    </li>
+                    {/* <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/blog"
+                      >
+                        Blog
+                      </NavLink>
+                    </li> */}
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/contact"
+                      >
+                        {t("nav.contact")}
+                      </NavLink>
+                    </li>
+                    {/* <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/pricing"
+                      >
+                        Prices
+                      </NavLink>
+                    </li> */}
+                    <li onClick={() => setHamburger(!hamburger)}>
+                      <NavLink
+                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                        to="/classes"
+                      >
+                        {t("nav.services")}
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             {/* sidebar */}
 
             <div>
               <div
-                className={`flex flex-col fixed w-[40rem] min450:w-full h-[100vh] bg-white top-0 left-0 z-[9999999999] p-[45px] gap-24 overflow-x-hidden ease-in-out duration-[0.5s] ${
+                className={`flex flex-col fixed w-[40rem] min450:w-full h-[100vh] bg-slightly-transparent top-0 left-0 z-[9999999999] p-[45px] gap-24 overflow-x-hidden ease-in-out duration-[0.5s] ${
                   sidebar ? "left-0" : "-left-[100%]"
                 }`}
               >
@@ -262,19 +254,19 @@ function Navbar() {
 
             {/* hamburger */}
             <i
-              onClick={hamburgerMenu}
+              onClick={() => setHamburger(!hamburger)}
               className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                 sticky ? "text-gray" : "text-white"
               }`}
             ></i>
             {/* account */}
-            <Link onClick={goTop} to="/signup" title="signup_button">
+            <NavLink to="/signup" title="signup_button">
               <i
                 className={`fa-regular fa-user text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                   sticky ? "text-gray" : "text-white"
                 }`}
               ></i>
-            </Link>
+            </NavLink>
             {/* sidebar */}
             <i
               onClick={sideBar}
@@ -291,17 +283,11 @@ function Navbar() {
                 : "border-[rgb(255,255,255,0.3)]"
             }`}
           >
-            <Link
-              onClick={goTop}
-              to={"/contact"}
-              onMouseEnter={joinSpin}
-              onMouseLeave={stopSpin}
-              className="flex items-center "
-            >
+            <NavLink to={"/contact"} className="flex items-center ">
               <i
-                className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md ${
-                  spin ? "nav-btn-hover" : ""
-                } ${sticky ? "text-gray" : "text-white"}`}
+                className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md nav-btn-hover ${
+                  sticky ? "text-gray" : "text-white"
+                }`}
               ></i>
               <h3
                 className={`text-[14px] font-bold uppercase ml-4 mr-8 tracking-wider ${
@@ -310,7 +296,7 @@ function Navbar() {
               >
                 agende sua visita
               </h3>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>

@@ -1,11 +1,11 @@
-import TestimonialImg from "../../images/testimonials/testimonial-new.jpg";
-import TitleBg from "../../images/pricing/titlebg.svg";
+import TestimonialImg from "../../assets/images/testimonials/testimonial-new.jpg";
+import TitleBg from "../../assets/images/pricing/titlebg.svg";
 import TestimonialBoxes from "./TestimonialBoxes";
-import Logo1 from "../../images/testimonials/logo1.png";
-import Logo2 from "../../images/testimonials/logo2.png";
-import Logo3 from "../../images/testimonials/logo3.png";
-import Logo4 from "../../images/testimonials/logo4.png";
-import Logo5 from "../../images/testimonials/logo5.png";
+import Logo1 from "../../assets/images/testimonials/logo1.png";
+import Logo2 from "../../assets/images/testimonials/logo2.png";
+import Logo3 from "../../assets/images/testimonials/logo3.png";
+import Logo4 from "../../assets/images/testimonials/logo4.png";
+import Logo5 from "../../assets/images/testimonials/logo5.png";
 
 function Testimonials() {
   return (
@@ -46,14 +46,14 @@ function Testimonials() {
                 <button
                   title="left"
                   style={{ transition: "all 0.2s" }}
-                  className="py-5 px-7 bg-white text-black text-2xl hover:bg-[#FF0336] hover:text-white"
+                  className="py-5 px-7 bg-white text-black text-2xl hover:bg-signature-gold hover:text-white"
                 >
                   <i className="fa-solid fa-arrow-left"></i>
                 </button>
                 <button
                   title="right"
                   style={{ transition: "all 0.2s" }}
-                  className="py-5 px-7 bg-white text-black text-2xl hover:bg-[#FF0336] hover:text-white"
+                  className="py-5 px-7 bg-white text-black text-2xl hover:bg-signature-gold hover:text-white"
                 >
                   <i className="fa-solid fa-arrow-right"></i>
                 </button>

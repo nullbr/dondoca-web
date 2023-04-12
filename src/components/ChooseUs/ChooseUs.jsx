@@ -1,11 +1,11 @@
-import VideoImg from "../../images/choose-us/main-img.png";
-import TitleRed from "../../images/who-we-are/title-bg.svg";
-import TrainingIcon from "../../images/choose-us/training.png";
-import EquipmentsIcon from "../../images/choose-us/bench-press.png";
-import BagIcon from "../../images/choose-us/gym-bag.png";
-import BottleIcon from "../../images/choose-us/bottle-of-water.png";
-import PlayImg from "../../images/choose-us/play.png";
-import MainButton from "../MainButton";
+import VideoImg from "../../assets/images/choose-us/main-img.png";
+import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
+import TrainingIcon from "../../assets/images/choose-us/training.png";
+import EquipmentsIcon from "../../assets/images/choose-us/bench-press.png";
+import BagIcon from "../../assets/images/choose-us/gym-bag.png";
+import BottleIcon from "../../assets/images/choose-us/bottle-of-water.png";
+import PlayImg from "../../assets/images/choose-us/play.png";
+import MainButton from "../MainButton/MainButton";
 
 function ChooseUs() {
   return (
@@ -48,7 +48,7 @@ function ChooseUs() {
             <div className="grid grid-cols-2 grid-rows-2 gap-14 max-w-[44rem] mt-14 min450:flex min450:flex-col">
               <div className="flex items-center gap-6">
                 <img
-                  className="bg-[#2b2b2b] hover:bg-[#ff0336] ease-in duration-200 w-[6.5rem] rounded-full p-4"
+                  className="bg-[#2b2b2b] hover:bg-signature-gold ease-in duration-200 w-[6.5rem] rounded-full p-4"
                   src={TrainingIcon}
                   alt="icon"
                 />
@@ -59,7 +59,7 @@ function ChooseUs() {
 
               <div className="flex items-center gap-6">
                 <img
-                  className="bg-[#2b2b2b] hover:bg-[#ff0336] ease-in duration-200 w-[6.5rem] rounded-full p-4"
+                  className="bg-[#2b2b2b] hover:bg-signature-gold ease-in duration-200 w-[6.5rem] rounded-full p-4"
                   src={EquipmentsIcon}
                   alt="icon"
                 />
@@ -70,7 +70,7 @@ function ChooseUs() {
 
               <div className="flex items-center gap-6">
                 <img
-                  className="bg-[#2b2b2b] hover:bg-[#ff0336] ease-in duration-200 w-[6.5rem] rounded-full p-4"
+                  className="bg-[#2b2b2b] hover:bg-signature-gold ease-in duration-200 w-[6.5rem] rounded-full p-4"
                   src={BagIcon}
                   alt="icon"
                 />
@@ -81,7 +81,7 @@ function ChooseUs() {
 
               <div className="flex items-center gap-6">
                 <img
-                  className="bg-[#2b2b2b] hover:bg-[#ff0336] ease-in duration-200 w-[6.5rem] rounded-full p-4"
+                  className="bg-[#2b2b2b] hover:bg-signature-gold ease-in duration-200 w-[6.5rem] rounded-full p-4"
                   src={BottleIcon}
                   alt="icon"
                 />
@@ -95,7 +95,7 @@ function ChooseUs() {
                 text="our classes"
                 arrowColor={`!text-white`}
                 cN="choose-cta"
-                hover={`hover:bg-[#ff0336]`}
+                hover={`hover:bg-signature-gold`}
                 goTo="/classes"
               />
             </div>

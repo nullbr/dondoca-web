@@ -1,4 +1,4 @@
-import MainButton from "../MainButton";
+import MainButton from "../MainButton/MainButton";
 
 function PricingBox({ img, price }) {
   return (
@@ -9,7 +9,7 @@ function PricingBox({ img, price }) {
           className="relative grayscale hover:grayscale-0"
         >
           <img src={img} alt="pricing_img" className="w-full h-full" />
-          <div className="absolute bg-white text-[20px] font-bold w-[25rem] text-center py-6 text-[#ff0336] -bottom-[18px] left-0 right-0 mx-auto">
+          <div className="absolute bg-white text-[20px] font-bold w-[25rem] text-center py-6 text-signature-gold -bottom-[18px] left-0 right-0 mx-auto">
             Beginners
           </div>
         </div>
@@ -35,7 +35,7 @@ function PricingBox({ img, price }) {
 
           <MainButton
             color={`!text-white`}
-            bg={`bg-[#ff0336]`}
+            bg={`bg-signature-gold`}
             text="purchase now"
             arrowColor={`!text-white`}
             cN="pricing-cta"

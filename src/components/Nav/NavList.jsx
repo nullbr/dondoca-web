@@ -1,12 +1,6 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-function NavList({ sticky }) {
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "none",
-    });
-  };
+function NavList({ t, sticky }) {
   return (
     <>
       <ul
@@ -18,63 +12,53 @@ function NavList({ sticky }) {
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <a href="/">Home</a>
+          <NavLink to="/">{t("nav.home")}</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/about"}>
-            About
-          </Link>
+          <NavLink to="/about">About</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/gallery/page-1"}>
-            Gallery
-          </Link>
+          <NavLink to={"/gallery/page-1"}>Gallery</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/schedule/monday"}>
-            Schedule
-          </Link>
+          <NavLink to={"/schedule/monday"}>Schedule</NavLink>
         </li>
-        <li
+        {/* <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/blog"}>
+          <NavLink onClick={goTop} to={"/blog"}>
             Blog
-          </Link>
-        </li>
+          </NavLink>
+        </li> 
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/pricing"}>
+          <NavLink onClick={goTop} to={"/pricing"}>
             Pricing
-          </Link>
+          </NavLink>
+        </li> */}
+        <li
+          style={{ transition: "all 0.3s" }}
+          className="cursor-pointer hover:text-signature-gold"
+        >
+          <NavLink to={"/classes"}>Classes</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <Link onClick={goTop} to={"/classes"}>
-            Classes
-          </Link>
-        </li>
-        <li
-          style={{ transition: "all 0.3s" }}
-          className="cursor-pointer hover:text-signature-gold"
-        >
-          <Link onClick={goTop} to={"/contact"}>
-            Contact
-          </Link>
+          <NavLink to={"/contact"}>Contact</NavLink>
         </li>
       </ul>
     </>

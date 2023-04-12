@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, signUp } = UserAuth();
+  const { signUp } = UserAuth();
   const navigate = useNavigate();
 
   const goTop = () => {
@@ -44,17 +43,17 @@ function Signup() {
               Email
             </label>
             <input
-              className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-[#ff0336] "
+              className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-signature-gold "
               placeholder="gymate@gymail.com"
               type="email"
               onChange={(e) => setEmail(e.target.value)}
             ></input>
 
-            <label className="text-[2rem] text-white mb-3 font-medium outline-[#ff0336] outline-2">
+            <label className="text-[2rem] text-white mb-3 font-medium outline-signature-gold outline-2">
               Password
             </label>
             <input
-              className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-[#ff0336] "
+              className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-signature-gold "
               placeholder="password"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -62,7 +61,7 @@ function Signup() {
 
             <button
               type="submit"
-              className="bg-[#ff0336] text-white py-4 font-medium text-[2rem] w-full mt-10"
+              className="bg-signature-gold text-white py-4 font-medium text-[2rem] w-full mt-10"
             >
               Sign Up
             </button>
@@ -70,19 +69,19 @@ function Signup() {
               <p className="text-white text-[1.5rem]">Already have account?</p>
               <Link
                 to="/login"
-                className="text-[#ff0336] font-bold text-[1.5rem]"
+                className="text-signature-gold font-bold text-[1.5rem]"
               >
                 Sign In
               </Link>
             </div>
             <p className="text-[#ffffffbc] text-[1.3rem] mt-5">
-              ( Make <span className="text-[#ff0336]">new Accout</span> or go to
-              <span className="text-[#ff0336]"> Sign In</span> Page for Test
-              Account )
+              ( Make <span className="text-signature-gold">new Accout</span> or
+              go to
+              <span className="text-signature-gold"> Sign In</span> Page for
+              Test Account )
             </p>
           </form>
         </div>
-        <Footer />
       </section>
     </>
   );
