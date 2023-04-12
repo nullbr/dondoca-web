@@ -10,8 +10,10 @@ import SideImg3 from "../../images/sidebar/3.jpg";
 import SideImg4 from "../../images/sidebar/4.jpg";
 import SideImg5 from "../../images/sidebar/5.jpg";
 import SideImg6 from "../../images/sidebar/6.jpg";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
+  const { t } = useTranslation();
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
@@ -84,13 +86,13 @@ function Navbar() {
               {/* links */}
               <ul className="text-center flex flex-col gap-10 absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
                 <li onClick={() => setHamburger(!hamburger)}>
-                  <a
+                  <Link
                     onClick={() => window.top(0, 0)}
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    href="/#home"
+                    to="/home"
                   >
-                    Inicio
-                  </a>
+                    {t("nav.home")}
+                  </Link>
                 </li>
                 <li onClick={() => setHamburger(!hamburger)}>
                   <Link
