@@ -6,6 +6,10 @@
   width: calc(100% - 20rem);
 }
 
+.close-sidebar-div {
+  width: calc(100% - 40rem);
+}
+
 /* MEDIA QUERIES --------------------------------*/
 
 @media (max-width: 1200px) {

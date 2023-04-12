@@ -3,24 +3,24 @@ import { useState } from "react";
 import Logo from "../../assets/images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
 import { NavLink } from "react-router-dom";
-import LogoSide from "../../assets/images/logo/logo-footer.svg";
-import SideImg1 from "../../assets/images/sidebar/1.jpg";
-import SideImg2 from "../../assets/images/sidebar/2.jpg";
-import SideImg3 from "../../assets/images/sidebar/3.jpg";
-import SideImg4 from "../../assets/images/sidebar/4.jpg";
-import SideImg5 from "../../assets/images/sidebar/5.jpg";
-import SideImg6 from "../../assets/images/sidebar/6.jpg";
 import { useTranslation } from "react-i18next";
+import Sidebar from "./Sidebar";
+import MobileNav from "./MobileNav";
 
 function Navbar() {
   const { t } = useTranslation();
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
-  const [hamburger, setHamburger] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
 
   // sidebar
-  const sideBar = () => {
+  const toggleSideBar = () => {
     setSideBar(!sidebar);
+  };
+
+  // mobile nav
+  const toggleMobileNav = () => {
+    setMobileNav(!mobileNav);
   };
 
   // sticky navbar - bg black
@@ -31,7 +31,9 @@ function Navbar() {
       setSticky(false);
     }
 
-    setHamburger(false);
+    // close tabs if scroll
+    setMobileNav(false);
+    setSideBar(false);
   };
 
   useState(() => {
@@ -62,199 +64,17 @@ function Navbar() {
 
         <div className="flex items-center gap-10">
           <div className="flex gap-10">
-            {/* mobile menu -------------- */}
+            <MobileNav
+              toggleMobileNav={toggleMobileNav}
+              mobileNav={mobileNav}
+              t={t}
+            />
 
-            {/* hamburger menu */}
-            <div
-              className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
-                hamburger ? "right-0" : "-right-[100%]"
-              }`}
-            >
-              <div className="flex">
-                <div
-                  className="close-nav-div"
-                  onClick={() => setHamburger(!hamburger)}
-                ></div>
-                <div
-                  className="flex w-[20rem] max-w-full justify-end h-screen bg-slightly-transparent py-[3rem] pr-[3rem]"
-                  id="mobile-menu"
-                >
-                  {/* links */}
-                  <ul className="flex flex-col gap-10 text-end">
-                    <i
-                      onClick={() => setHamburger(!hamburger)}
-                      className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
-                    ></i>
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/"
-                      >
-                        {t("nav.home")}
-                      </NavLink>
-                    </li>
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/about"
-                      >
-                        {t("nav.about")}
-                      </NavLink>
-                    </li>
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/schedule/monday"
-                      >
-                        {t("nav.schedule")}
-                      </NavLink>
-                    </li>
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/gallery/page-1"
-                      >
-                        Galeria
-                      </NavLink>
-                    </li>
-                    {/* <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/blog"
-                      >
-                        Blog
-                      </NavLink>
-                    </li> */}
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/contact"
-                      >
-                        {t("nav.contact")}
-                      </NavLink>
-                    </li>
-                    {/* <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/pricing"
-                      >
-                        Prices
-                      </NavLink>
-                    </li> */}
-                    <li onClick={() => setHamburger(!hamburger)}>
-                      <NavLink
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/classes"
-                      >
-                        {t("nav.services")}
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <Sidebar toggleSideBar={toggleSideBar} sidebar={sidebar} t={t} />
 
-            {/* sidebar */}
-
-            <div>
-              <div
-                className={`flex flex-col fixed w-[40rem] min450:w-full h-[100vh] bg-slightly-transparent top-0 left-0 z-[9999999999] p-[45px] gap-24 overflow-x-hidden ease-in-out duration-[0.5s] ${
-                  sidebar ? "left-0" : "-left-[100%]"
-                }`}
-              >
-                {/* logo & X */}
-                <div className="flex justify-between items-center">
-                  <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
-                  <i
-                    onClick={sideBar}
-                    className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
-                  ></i>
-                </div>
-                {/* about us */}
-                <div className="flex flex-col gap-6">
-                  <h3 className="text-[2rem] font-bold">About Us</h3>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1]">
-                    Find out who we are and what makes us unique. We are a
-                    community-driven gym committed to providing personalized
-                    fitness experiences for all levels of fitness enthusiasts in
-                    a welcoming and supportive environment.
-                  </p>
-                </div>
-                {/* gallery */}
-                <div className="flex flex-col gap-6">
-                  <h3 className="text-[2rem] font-bold">Gallery</h3>
-                  <div className="grid grid-cols-3 grid-rows-2 gap-4">
-                    <img
-                      src={SideImg1}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                    <img
-                      src={SideImg2}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                    <img
-                      src={SideImg3}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                    <img
-                      src={SideImg4}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                    <img
-                      src={SideImg5}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                    <img
-                      src={SideImg6}
-                      alt="sidebar_gallery"
-                      className="rounded-xl cursor-pointer "
-                    />
-                  </div>
-                </div>
-                {/* contact */}
-                <div className="flex flex-col gap-6">
-                  <h3 className="text-[2rem] font-bold">Contact Info</h3>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-location-dot text-signature-gold"></i>
-                    &nbsp; 59 Street, House Newyork City
-                  </p>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-phone text-signature-gold"></i>
-                    &nbsp; +123-678800090
-                  </p>
-                  <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                    <i className="fa-solid fa-envelope text-signature-gold"></i>
-                    &nbsp; gymate@gymail.com
-                  </p>
-                </div>
-                {/* follow us */}
-                <div className="flex flex-col gap-6">
-                  <h3 className="text-[2rem] font-bold">Follow Us</h3>
-                  <div className="flex gap-5">
-                    <span className="bg-signature-gold rounded-full py-[12px] px-[17px] cursor-pointer">
-                      <i className="fa-brands fa-facebook-f text-[2.2rem] text-white"></i>
-                    </span>
-                    <span className="bg-signature-gold rounded-full py-[12px] px-[12px] cursor-pointer">
-                      <i className="fa-brands fa-twitter text-[2.2rem] text-white"></i>
-                    </span>
-                    <span className="bg-signature-gold rounded-full py-[10px] px-[13px] cursor-pointer">
-                      <i className="fa-brands fa-instagram text-[2.2rem] text-white"></i>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* hamburger */}
+            {/* mobileNav */}
             <i
-              onClick={() => setHamburger(!hamburger)}
+              onClick={toggleMobileNav}
               className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                 sticky ? "text-gray" : "text-white"
               }`}
@@ -269,7 +89,7 @@ function Navbar() {
             </NavLink>
             {/* sidebar */}
             <i
-              onClick={sideBar}
+              onClick={toggleSideBar}
               className={`fa-regular fa-chart-bar text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                 sticky ? "text-gray" : "text-white"
               }`}
