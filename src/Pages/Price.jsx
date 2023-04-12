@@ -1,4 +1,3 @@
-import Footer from "../components/Footer/Footer";
 import Pricing from "../components/Pricing/Pricing";
 
 function Price() {
@@ -11,7 +10,6 @@ function Price() {
           </h1>
         </div>
         <Pricing />
-        <Footer />
       </section>
     </>
   );

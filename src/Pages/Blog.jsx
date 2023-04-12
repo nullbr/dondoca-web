@@ -1,5 +1,4 @@
 import BlogBox from "../components/BlogBox/BlogBox";
-import Footer from "../components/Footer/Footer";
 import Img1 from "../images/blogpage/1.jpg";
 import Img2 from "../images/blogpage/2.jpg";
 import Img3 from "../images/blogpage/3.jpg";
@@ -247,7 +246,6 @@ function Blog() {
             </div>
           </div>
         </div>
-        <Footer />
       </section>
     </>
   );

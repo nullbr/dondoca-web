@@ -1,5 +1,3 @@
-import Footer from "../components/Footer/Footer";
-
 function Login() {
   return (
     <>
@@ -113,7 +111,6 @@ function Login() {
           title="map"
           style={{ width: "100%", height: "45rem", border: "0px" }}
         ></iframe>
-        <Footer />
       </section>
     </>
   );

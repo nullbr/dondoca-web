@@ -1,5 +1,7 @@
 import ptBrTranslations from "./pt-br";
 
-export default {
+const translations = {
   "pt-BR": ptBrTranslations,
 };
+
+export default translations;

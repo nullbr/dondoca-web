@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
 
 function Gallery() {
   return (
@@ -13,7 +12,6 @@ function Gallery() {
         <div className="container page-padding py-[10rem]">
           <Outlet />
         </div>
-        <Footer />
       </section>
     </>
   );

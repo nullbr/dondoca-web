@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ClassesBox from "../components/ClassesBox/ClassesBox";
-import Footer from "../components/Footer/Footer";
 
 function Classes() {
   const [load, setLoad] = useState(true);
@@ -170,8 +169,6 @@ function Classes() {
         >
           {load ? "show more" : "show less"}
         </button>
-
-        <Footer />
       </section>
     </>
   );

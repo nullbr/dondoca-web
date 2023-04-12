@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
 
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user, signUp } = UserAuth();
+  const { signUp } = UserAuth();
   const navigate = useNavigate();
 
   const goTop = () => {
@@ -83,7 +82,6 @@ function Signup() {
             </p>
           </form>
         </div>
-        <Footer />
       </section>
     </>
   );

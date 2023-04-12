@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { useState } from "react";
 import Logo from "../../images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import LogoSide from "../../images/logo/logo-footer.svg";
 import SideImg1 from "../../images/sidebar/1.jpg";
 import SideImg2 from "../../images/sidebar/2.jpg";
@@ -17,14 +17,6 @@ function Navbar() {
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [hamburger, setHamburger] = useState(false);
-
-  // logo
-  const goTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
 
   // sidebar
   const sideBar = () => {
@@ -57,16 +49,15 @@ function Navbar() {
           sticky ? "shadow-xl bg-slightly-transparent" : "bg-transparent"
         }`}
       >
-        <Link to="/">
+        <NavLink to="/">
           <img
             src={Logo}
             alt="logo_img"
-            onClick={goTop}
             className="nav-logo max-h-20 w-auto pr-5"
           />
-        </Link>
+        </NavLink>
         <div className="navlist-nav">
-          <NavList sticky={sticky} />
+          <NavList t={t} sticky={sticky} />
         </div>
 
         <div className="flex items-center gap-10">
@@ -95,76 +86,70 @@ function Navbar() {
                       className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
                     ></i>
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/home"
+                        to="/"
                       >
                         {t("nav.home")}
-                      </Link>
+                      </NavLink>
                     </li>
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/about"
                       >
-                        Sobre
-                      </Link>
+                        {t("nav.about")}
+                      </NavLink>
                     </li>
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/schedule/monday"
                       >
-                        Agende
-                      </Link>
+                        {t("nav.schedule")}
+                      </NavLink>
                     </li>
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/gallery/page-1"
                       >
                         Galeria
-                      </Link>
+                      </NavLink>
                     </li>
                     {/* <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
+                        
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/blog"
                       >
                         Blog
-                      </Link>
+                      </NavLink>
                     </li> */}
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/contact"
                       >
-                        Contato
-                      </Link>
+                        {t("nav.contact")}
+                      </NavLink>
                     </li>
                     {/* <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
+                        
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/pricing"
                       >
-                        Preços
-                      </Link>
+                        Prices
+                      </NavLink>
                     </li> */}
                     <li onClick={() => setHamburger(!hamburger)}>
-                      <Link
-                        onClick={() => window.top(0, 0)}
+                      <NavLink
                         className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                         to="/classes"
                       >
-                        Serviços
-                      </Link>
+                        {t("nav.services")}
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -275,13 +260,13 @@ function Navbar() {
               }`}
             ></i>
             {/* account */}
-            <Link onClick={goTop} to="/signup" title="signup_button">
+            <NavLink to="/signup" title="signup_button">
               <i
                 className={`fa-regular fa-user text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
                   sticky ? "text-gray" : "text-white"
                 }`}
               ></i>
-            </Link>
+            </NavLink>
             {/* sidebar */}
             <i
               onClick={sideBar}
@@ -298,11 +283,7 @@ function Navbar() {
                 : "border-[rgb(255,255,255,0.3)]"
             }`}
           >
-            <Link
-              onClick={goTop}
-              to={"/contact"}
-              className="flex items-center "
-            >
+            <NavLink to={"/contact"} className="flex items-center ">
               <i
                 className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md nav-btn-hover ${
                   sticky ? "text-gray" : "text-white"
@@ -315,7 +296,7 @@ function Navbar() {
               >
                 agende sua visita
               </h3>
-            </Link>
+            </NavLink>
           </div>
         </div>
       </nav>

@@ -1,4 +1,3 @@
-import Footer from "../components/Footer/Footer";
 import GirlRunning from "../images/who-we-are/girl-run.png";
 import GirlRedBg from "../images/who-we-are/girl-redbg.svg";
 import GirlText from "../images/who-we-are/girl-side-text.png";
@@ -103,7 +102,6 @@ function About() {
             </div>
           </div>
         </div>
-        <Footer />
       </section>
     </>
   );
