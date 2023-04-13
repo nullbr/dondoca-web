@@ -46,7 +46,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t }) => {
             <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                to="/gallery/page-1"
+                to="/gallery"
               >
                 {t("nav.gallery")}
               </NavLink>
@@ -80,7 +80,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t }) => {
             <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                to="/classes"
+                to="/services"
               >
                 {t("nav.services")}
               </NavLink>

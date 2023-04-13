@@ -1,8 +1,16 @@
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-function Login() {
+const Login = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { logIn } = UserAuth();
@@ -92,6 +100,6 @@ function Login() {
       </section>
     </>
   );
-}
+};
 
 export default Login;

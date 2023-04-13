@@ -1,7 +1,14 @@
 import { useState } from "react";
-import ClassesBox from "../components/ClassesBox/ClassesBox";
+import ServicesBox from "../components/ServicesBox/ServicesBox";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-function Classes() {
+const Services = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("nav.services") + " - " + t("defaults.pageTitle");
+  });
   const [load, setLoad] = useState(true);
 
   const loadMore = () => {
@@ -20,7 +27,7 @@ function Classes() {
       <section className="login-section text-center ">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            Classes
+            Services
           </h1>
         </div>
 
@@ -30,49 +37,49 @@ function Classes() {
             load ? "grid" : "hidden"
           }`}
         >
-          <ClassesBox
+          <ServicesBox
             bgImg="cycling-bg"
             title="Cycling"
             trainer="Dorian Yate"
             date="Wed: 9:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="meditaion-bg"
             title="Meditation"
             trainer="Maria Mich"
             date="Fri: 1:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="mma-bg"
             title="Boxing"
             trainer="John Flex"
             date="Tue: 4:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="karate-bg"
             title="Karate"
             trainer="David Rich"
             date="Sat: 9:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="powerlift-bg"
             title="Power Lifting"
             trainer="Larry Wheels"
             date="Mon: 8:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="workout-bg"
             title="Workout"
             trainer="Shawn Ray"
             date="Sun: 10:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="crossfit-bg"
             title="Crossfit"
             trainer="Jenifer Alex"
             date="Wen: 9:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="running-bg"
             title="Running"
             trainer="Zinia Zessy"
@@ -86,73 +93,73 @@ function Classes() {
             load ? "hidden" : "grid"
           }`}
         >
-          <ClassesBox
+          <ServicesBox
             bgImg="cycling-bg"
             title="Cycling"
             trainer="Dorian Yate"
             date="Wed: 9:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="meditaion-bg"
             title="Meditation"
             trainer="Maria Mich"
             date="Fri: 1:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="mma-bg"
             title="Boxing"
             trainer="John Flex"
             date="Tue: 4:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="karate-bg"
             title="Karate"
             trainer="David Rich"
             date="Sat: 9:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="powerlift-bg"
             title="Power Lifting"
             trainer="Larry Wheels"
             date="Mon: 8:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="workout-bg"
             title="Workout"
             trainer="Shawn Ray"
             date="Sun: 10:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="crossfit-bg"
             title="Crossfit"
             trainer="Jenifer Alex"
             date="Wen: 9:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="running-bg"
             title="Running"
             trainer="Zinia Zessy"
             date="Thu: 12:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="bodybuilding-bg"
             title="Body Building"
             trainer="Jake Paul"
             date="Mon: 8:00 pm"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="box-bg"
             title="Mma"
             trainer="Becky Lynch"
             date="Fri: 6:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="yoga-bg"
             title="Yoga"
             trainer="Marta Mich"
             date="Wen: 8:00 am"
           />
-          <ClassesBox
+          <ServicesBox
             bgImg="fitness-bg"
             title="Fitness"
             trainer="Mia Malkova"
@@ -172,6 +179,6 @@ function Classes() {
       </section>
     </>
   );
-}
+};
 
-export default Classes;
+export default Services;

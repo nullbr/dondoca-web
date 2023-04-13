@@ -1,4 +1,13 @@
-function Login() {
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
+const Contact = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("nav.contact") + " - " + t("defaults.pageTitle");
+  });
+
   return (
     <>
       <section>
@@ -114,6 +123,6 @@ function Login() {
       </section>
     </>
   );
-}
+};
 
-export default Login;
+export default Contact;

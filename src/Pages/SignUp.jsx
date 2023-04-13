@@ -1,8 +1,16 @@
 import { useState } from "react";
 import { UserAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-function Signup() {
+const SignUp = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("defaults.signUp") + " - " + t("defaults.pageTitle");
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { signUp } = UserAuth();
@@ -85,6 +93,6 @@ function Signup() {
       </section>
     </>
   );
-}
+};
 
-export default Signup;
+export default SignUp;

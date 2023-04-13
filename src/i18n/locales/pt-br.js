@@ -5,6 +5,8 @@ const translations = {
       pageNotFound: "Página não encontrada",
       followUs: "Siga-nos",
       instagram: "https://www.instagram.com/dondocasr",
+      login: "Login",
+      signUp: "Cadastre-se",
     },
 
     nav: {
