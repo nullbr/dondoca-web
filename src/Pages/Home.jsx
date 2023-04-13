@@ -9,8 +9,17 @@ import Hero from "../components/Hero/Hero";
 import Pricing from "../components/Pricing/Pricing";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Trainers from "../components/Trainers/Trainers";
+import { useEffect } from "react";
+import { Global } from "../context/GlobalContext";
 
-function Home() {
+const Home = () => {
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("defaults.pageTitle");
+    setScrollY(window.innerHeight - 90);
+  });
+
   return (
     <>
       <Hero />
@@ -26,6 +35,6 @@ function Home() {
       <CtaBanner />
     </>
   );
-}
+};
 
 export default Home;

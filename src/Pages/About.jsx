@@ -8,8 +8,17 @@ import Img3 from "../assets/images/AboutPage/3.jpg";
 import Img4 from "../assets/images/AboutPage/4.jpg";
 import Target from "../assets/images/AboutPage/target.png";
 import Mountain from "../assets/images/AboutPage/mountain.png";
+import { useEffect } from "react";
+import { Global } from "../context/GlobalContext";
 
-function About() {
+const About = () => {
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("nav.about") + " - " + t("defaults.pageTitle");
+    setScrollY(window.innerHeight / 2.22 - 85);
+  }, [setScrollY, t]);
+
   return (
     <>
       <section className="login-section">
@@ -105,6 +114,6 @@ function About() {
       </section>
     </>
   );
-}
+};
 
 export default About;

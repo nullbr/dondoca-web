@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { UserAuth } from "../context/AuthContext";
+import { useState, useEffect } from "react";
+import { Global } from "../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+const Login = () => {
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
+    setScrollY(window.innerHeight / 2.22 - 85);
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { logIn } = UserAuth();
+  const { logIn } = Global();
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
@@ -92,6 +99,6 @@ function Login() {
       </section>
     </>
   );
-}
+};
 
 export default Login;

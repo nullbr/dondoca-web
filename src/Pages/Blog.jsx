@@ -12,8 +12,16 @@ import Recent3 from "../assets/images/blogpage/recent3.jpg";
 import Recent4 from "../assets/images/blogpage/recent4.jpg";
 import Recent5 from "../assets/images/blogpage/recent5.jpg";
 import Recent6 from "../assets/images/blogpage/recent6.jpg";
+import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-function Blog() {
+const Blog = () => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t("nav.about") + " - " + t("defaults.pageTitle");
+  });
+
   return (
     <>
       <section>
@@ -249,6 +257,6 @@ function Blog() {
       </section>
     </>
   );
-}
+};
 
 export default Blog;

@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./i18n";
+import { GlobalProvider } from "./context/GlobalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  // <React.StrictMode>
+  <BrowserRouter>
+    <GlobalProvider>
       <App />
-    </BrowserRouter>
-  </React.StrictMode>
+    </GlobalProvider>
+  </BrowserRouter>
+  // </React.StrictMode>
 );

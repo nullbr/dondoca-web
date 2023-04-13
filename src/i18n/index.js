@@ -12,5 +12,3 @@ i18n
   });
 
 export default i18n;
-
-console.log(translations);

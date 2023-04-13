@@ -7,10 +7,15 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
+import { useTranslation } from "react-i18next";
 
-const AuthContext = createContext();
+const GlobalContext = createContext();
 
-export function AuthContextProvider({ children }) {
+export function GlobalProvider({ children }) {
+  // Tranlations
+  const { t } = useTranslation();
+
+  // User Authentication
   const [user, setUser] = useState({});
 
   function signUp(email, password) {
@@ -37,13 +42,24 @@ export function AuthContextProvider({ children }) {
     };
   }, []);
 
+  // Handle Page scroll for navbar
+  const [scrollY, setScrollY] = useState(900);
+
   return (
-    <AuthContext.Provider value={{ signUp, user, logIn, logOut }}>
+    <GlobalContext.Provider
+      value={{
+        t,
+        signUp,
+        user,
+        logIn,
+        logOut,
+        scrollY,
+        setScrollY,
+      }}
+    >
       {children}
-    </AuthContext.Provider>
+    </GlobalContext.Provider>
   );
 }
 
-export function UserAuth() {
-  return useContext(AuthContext);
-}
+export const Global = () => useContext(GlobalContext);

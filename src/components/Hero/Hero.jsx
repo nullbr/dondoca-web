@@ -1,8 +1,10 @@
 import TitleBg from "../../assets/images/background/background_logo.png";
 import MainButton from "../MainButton/MainButton";
 import "./Hero.css";
+import { useTranslation } from "react-i18next";
 
 function Hero() {
+  const { t } = useTranslation();
   return (
     <div className="hero-section">
       <section
@@ -32,14 +34,14 @@ function Hero() {
         </div>
         {/* socials */}
         <a
-          href="https://www.instagram.com/dondocasr"
-          target="blank"
-          referrerPolicy="none"
+          href={t("defaults.instagram")}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex flex-row-reverse -rotate-90 text-white w-fit
           absolute top-1/2 right-0 items-center min800:-rotate-0 min800:static min800:self-center min800:pt-10"
         >
           <p className="uppercase  text-3xl font-bold tracking-widest">
-            social
+            {t("defaults.followUs")}
           </p>
           <span className="w-[35px] bg-signature-gold h-[2.5px] mr-6"></span>
           <div className="text-white gap-7 flex mr-7 ">

@@ -18,19 +18,19 @@ function NavList({ t, sticky }) {
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about">{t("nav.about")}</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink to={"/gallery/page-1"}>Gallery</NavLink>
+          <NavLink to={"/gallery"}>{t("nav.gallery")}</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink to={"/schedule/monday"}>Schedule</NavLink>
+          <NavLink to={"/schedule/monday"}>{t("nav.schedule")}</NavLink>
         </li>
         {/* <li
           style={{ transition: "all 0.3s" }}
@@ -52,13 +52,13 @@ function NavList({ t, sticky }) {
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink to={"/classes"}>Classes</NavLink>
+          <NavLink to={"/services"}>{t("nav.services")}</NavLink>
         </li>
         <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink to={"/contact"}>Contact</NavLink>
+          <NavLink to={"/contact"}>{t("nav.contact")}</NavLink>
         </li>
       </ul>
     </>

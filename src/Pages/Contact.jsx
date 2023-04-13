@@ -1,4 +1,14 @@
-function Login() {
+import { useEffect } from "react";
+import { Global } from "../context/GlobalContext";
+
+const Contact = () => {
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("nav.contact") + " - " + t("defaults.pageTitle");
+    setScrollY(window.innerHeight / 2.22 - 85);
+  });
+
   return (
     <>
       <section>
@@ -114,6 +124,6 @@ function Login() {
       </section>
     </>
   );
-}
+};
 
-export default Login;
+export default Contact;

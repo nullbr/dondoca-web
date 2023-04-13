@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { UserAuth } from "../context/AuthContext";
+import { useState, useEffect } from "react";
+import { Global } from "../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 
-function Signup() {
+const SignUp = () => {
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("nav.services") + " - " + t("defaults.pageTitle");
+    setScrollY(window.innerHeight / 2.22 - 85);
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp } = UserAuth();
+  const { signUp } = Global();
   const navigate = useNavigate();
 
   const goTop = () => {
@@ -85,6 +92,6 @@ function Signup() {
       </section>
     </>
   );
-}
+};
 
-export default Signup;
+export default SignUp;
