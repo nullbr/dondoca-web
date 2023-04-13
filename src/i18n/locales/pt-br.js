@@ -29,6 +29,10 @@ const translations = {
       phoneNumber: "(11)97119-0391",
       email: "dondocasalon@gmail.com",
     },
+
+    admin: {
+      title: "Gerenciamento",
+    },
   },
 };
 

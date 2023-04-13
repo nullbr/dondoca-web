@@ -27,6 +27,7 @@ export const fetchEmployeesAsync = createAsyncThunk(
   "employees/fetchEmployeesAsync",
   async () => {
     const response = await fetchEmployees();
+    console.log(response);
     return response;
   }
 );
