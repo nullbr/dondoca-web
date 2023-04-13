@@ -6,7 +6,7 @@ const Gallery = () => {
 
   useEffect(() => {
     document.title = t("nav.gallery") + " - " + t("defaults.pageTitle");
-    setScrollY(10);
+    setScrollY(window.innerHeight / 2.22 - 85);
   });
 
   const [isIntersecting, setIsIntersecting] = useState(false);

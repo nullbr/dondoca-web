@@ -16,7 +16,7 @@ const About = () => {
 
   useEffect(() => {
     document.title = t("nav.about") + " - " + t("defaults.pageTitle");
-    setScrollY(10);
+    setScrollY(window.innerHeight / 2.22 - 85);
   }, [setScrollY, t]);
 
   return (

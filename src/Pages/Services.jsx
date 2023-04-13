@@ -7,7 +7,7 @@ const Services = () => {
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
-    setScrollY(10);
+    setScrollY(window.innerHeight / 2.22 - 85);
   });
 
   const [load, setLoad] = useState(true);

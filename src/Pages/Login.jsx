@@ -7,7 +7,7 @@ const Login = () => {
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
-    setScrollY(10);
+    setScrollY(window.innerHeight / 2.22 - 85);
   });
 
   const [email, setEmail] = useState("");

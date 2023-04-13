@@ -7,7 +7,7 @@ const SignUp = () => {
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
-    setScrollY(10);
+    setScrollY(window.innerHeight / 2.22 - 85);
   });
 
   const [email, setEmail] = useState("");

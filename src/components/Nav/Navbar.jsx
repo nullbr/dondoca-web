@@ -23,7 +23,6 @@ function Navbar() {
     setMobileNav(!mobileNav);
   };
 
-  console.log(scrollY);
   // sticky navbar - bg black
   const handleScroll = () => {
     if (window.scrollY > scrollY) {
