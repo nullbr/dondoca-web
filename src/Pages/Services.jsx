@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ServicesBox from "../components/ServicesBox/ServicesBox";
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { Global } from "../context/GlobalContext";
 
 const Services = () => {
-  const { t } = useTranslation();
+  const { t, setScrollY } = Global();
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
+    setScrollY(10);
   });
+
   const [load, setLoad] = useState(true);
 
   const loadMore = () => {

@@ -1,8 +1,14 @@
 import { useEffect, useState, useRef, useMemo } from "react";
-import { useTranslation } from "react-i18next";
+import { Global } from "../context/GlobalContext";
 
 const Gallery = () => {
-  const { t } = useTranslation();
+  const { t, setScrollY } = Global();
+
+  useEffect(() => {
+    document.title = t("nav.gallery") + " - " + t("defaults.pageTitle");
+    setScrollY(10);
+  });
+
   const [isIntersecting, setIsIntersecting] = useState(false);
   const frameRef = useRef(null);
 
@@ -14,10 +20,6 @@ const Gallery = () => {
       ),
     []
   );
-
-  useEffect(() => {
-    document.title = t("nav.gallery") + " - " + t("defaults.pageTitle");
-  });
 
   useEffect(() => {
     observer.observe(frameRef.current);

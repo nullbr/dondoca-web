@@ -1,19 +1,18 @@
-import { useState } from "react";
-import { UserAuth } from "../context/AuthContext";
+import { useState, useEffect } from "react";
+import { Global } from "../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 
 const Login = () => {
-  const { t } = useTranslation();
+  const { t, setScrollY } = Global();
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
+    setScrollY(10);
   });
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { logIn } = UserAuth();
+  const { logIn } = Global();
   const navigate = useNavigate();
   const [error, setError] = useState("");
 

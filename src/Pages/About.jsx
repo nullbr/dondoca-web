@@ -9,14 +9,15 @@ import Img4 from "../assets/images/AboutPage/4.jpg";
 import Target from "../assets/images/AboutPage/target.png";
 import Mountain from "../assets/images/AboutPage/mountain.png";
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { Global } from "../context/GlobalContext";
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t, setScrollY } = Global();
 
   useEffect(() => {
     document.title = t("nav.about") + " - " + t("defaults.pageTitle");
-  });
+    setScrollY(10);
+  }, [setScrollY, t]);
 
   return (
     <>

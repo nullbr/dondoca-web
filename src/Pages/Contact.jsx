@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import { Global } from "../context/GlobalContext";
 
 const Contact = () => {
-  const { t } = useTranslation();
+  const { t, setScrollY } = Global();
 
   useEffect(() => {
     document.title = t("nav.contact") + " - " + t("defaults.pageTitle");
+    setScrollY(10);
   });
 
   return (

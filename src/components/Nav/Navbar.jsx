@@ -1,14 +1,14 @@
 import "./Navbar.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo/logo_full.png";
 import NavList from "../Nav/NavList";
 import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import Sidebar from "./Sidebar";
 import MobileNav from "./MobileNav";
+import { Global } from "../../context/GlobalContext";
 
 function Navbar() {
-  const { t } = useTranslation();
+  const { t, scrollY } = Global();
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
@@ -23,9 +23,10 @@ function Navbar() {
     setMobileNav(!mobileNav);
   };
 
+  console.log(scrollY);
   // sticky navbar - bg black
   const handleScroll = () => {
-    if (window.scrollY > 900) {
+    if (window.scrollY > scrollY) {
       setSticky(true);
     } else {
       setSticky(false);
@@ -36,13 +37,13 @@ function Navbar() {
     setSideBar(false);
   };
 
-  useState(() => {
+  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <>
