@@ -1,6 +1,7 @@
 const translations = {
   translations: {
     defaults: {
+      pageTitle: "Dondoca - Corpo & Beleza",
       pageNotFound: "Página não encontrada",
       followUs: "Siga-nos",
       instagram: "https://www.instagram.com/dondocasr",
