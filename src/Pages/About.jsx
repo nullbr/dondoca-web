@@ -10,6 +10,7 @@ import Target from "../assets/images/AboutPage/target.png";
 import Mountain from "../assets/images/AboutPage/mountain.png";
 import { useEffect } from "react";
 import { Global } from "../context/GlobalContext";
+import AboutSection from "../components/Shared/AboutSection";
 
 const About = () => {
   const { t, setScrollY } = Global();
@@ -28,48 +29,7 @@ const About = () => {
           </h1>
         </div>
         <div className="container page-padding py-[5rem]">
-          <div className="grid grid-cols-[1fr_1fr] h-[60rem] md1000:grid-cols-1">
-            {/* title div -- */}
-            <div className="flex flex-col !text-left relative items-right justify-center md1000:items-center md1000:!text-center">
-              <p className="text-white relative z-10 text-[15px] uppercase font-bold mb-8 ml-20 md1000:ml-3 ">
-                who we are
-              </p>
-              <img
-                src={TitleRed}
-                alt="text_bg"
-                className="w-[21rem] absolute top-[120px] min450:top-[84px] min375:top-[68px]"
-              />
-
-              <h2 className="text-[3.6rem] max-w-[53rem] font-bold mb-4">
-                We Will Give You Strength and Health
-              </h2>
-              <p className="text-[#646464] font-medium text-[15px] max-w-[50rem] ">
-                At Gymate, we are dedicated to helping you achieve the body of
-                your dreams. Our expert trainers and nutritionists will work
-                with you to create a personalized fitness and nutrition plan
-                that helps you reach your specific goals.
-              </p>
-              <MainButton
-                color={`!text-white`}
-                bg={`bg-signature-gold`}
-                goTo="/contact"
-                text="contact us"
-                arrowColor={`!text-white`}
-                cN="pricing-cta blog-cta"
-              />
-            </div>
-            {/*  */}
-            <div className="relative w-[80%] -top-[90px] left-[40px] md1000:hidden">
-              <img
-                src={GirlRunning}
-                alt="girl_running"
-                className="girl-running"
-              />
-              <img src={GirlRedBg} alt="bg-red" className="girl-bg" />
-              <img src={GirlText} alt="bg-text" className="girl-text" />
-              <img src={GirlWind} alt="bg-wind" className="girl-wind" />
-            </div>
-          </div>
+          <AboutSection />
           {/*  */}
           <div className="mt-[10rem]">
             <div className="grid grid-cols-2 grid-rows-2 w-full min620:grid-cols-1">

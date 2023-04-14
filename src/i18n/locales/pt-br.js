@@ -21,6 +21,10 @@ const translations = {
 
     home: {
       about: {
+        title: "Sobre Nós",
+        subtitle: "Seu Lugar Para Brilhar e se Cuidar",
+        description:
+          "Temos mais de 10 anos de funcionamento trazendo bem estar e realçando a beleza interior e exterior.",
         quality: {
           title: "Qualidade",
           description:

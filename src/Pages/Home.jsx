@@ -1,4 +1,4 @@
-import About from "../components/About/About";
+import About from "../components/Home/About/About";
 import ChooseUs from "../components/ChooseUs/ChooseUs";
 import CtaBanner from "../components/CtaBanner/CtaBanner";
 import Featured from "../components/Featured/Featured";
