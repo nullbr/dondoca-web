@@ -1,9 +1,7 @@
 import AboutSection from "../../Shared/AboutSection";
 import AboutCarts from "./AboutCarts";
-import { useTranslation } from "react-i18next";
 
 function About() {
-  const { t } = useTranslation();
   return (
     <>
       <section className="flex flex-col justify-between gap-2 about-section pb-10">
