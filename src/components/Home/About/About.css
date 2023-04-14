@@ -1,0 +1,8 @@
+.card-item-div {
+  transition: all 0.2s;
+}
+
+.card-item-div:hover {
+  background-image: url("/src/assets/images/home/card-bg.png");
+  color: white;
+}

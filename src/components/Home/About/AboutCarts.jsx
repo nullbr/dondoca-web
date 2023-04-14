@@ -9,10 +9,10 @@ function AboutCarts() {
     <>
       <div className="flex flex-col cursor-pointer bg-white justify-center py-6 px-10 text-center items-center mt-12 rounded-tl-[35px] rounded-br-[35px] shadow-2xl min-h-[340px] w-full card-item-div md1000:min-h-[260px]">
         <img src={qualityImg} alt="box_img" className="w-[75px] mb-4" />
-        <p className="text-[24px] font-bold uppercase mb-7">
+        <h1 className="text-[24px] font-bold uppercase mb-7">
           {t("home.about.quality.title")}
-        </p>
-        <p className="text-[15px] text-gray font-medium leading-2 w-full">
+        </h1>
+        <p className="text-[15px] font-medium leading-2 w-full">
           {t("home.about.quality.description")}
         </p>
       </div>
@@ -22,7 +22,7 @@ function AboutCarts() {
         <p className=" text-[24px] font-bold uppercase mb-7">
           {t("home.about.space.title")}
         </p>
-        <p className="text-[15px] text-gray font-medium leading-2 w-full">
+        <p className="text-[15px] font-medium leading-2 w-full">
           {t("home.about.space.description")}
         </p>
       </div>
@@ -32,7 +32,7 @@ function AboutCarts() {
         <p className=" text-[24px] font-bold uppercase mb-7">
           {t("home.about.price.title")}
         </p>
-        <p className="text-[15px] text-gray font-medium leading-2 w-full">
+        <p className="text-[15px] font-medium leading-2 w-full">
           {t("home.about.price.description")}
         </p>
       </div>

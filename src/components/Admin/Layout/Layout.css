@@ -8,7 +8,7 @@ header {
 }
 
 section {
-  background-image: url("/src/assets/images/who-we-are/background.jpg");
+  background-image: url("/src/assets/images/shared/background.jpg");
   object-fit: cover;
   background-size: cover;
   background-position: center center;

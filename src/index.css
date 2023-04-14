@@ -69,21 +69,12 @@ body {
 }
 
 .about-section {
-  background-image: url("../src/assets/images/who-we-are/background.jpg");
+  background-image: url("/src/assets/images/shared/background.jpg");
   object-fit: cover;
   background-size: cover;
   background-position: center center;
   width: 100%;
   height: 100%;
-}
-
-.card-item-div {
-  transition: all 0.2s;
-}
-
-.card-item-div:hover {
-  background-image: url("../src/assets/images/who-we-are/info-card-bg.jpg");
-  color: white;
 }
 
 .about-cta {
@@ -515,7 +506,7 @@ body {
 
 /* login */
 .header-section {
-  background-image: url("../src/assets/images/who-we-are/background.jpg");
+  background-image: url("../src/assets/images/shared/background.jpg");
   object-fit: cover;
   background-size: cover;
   background-position: center;

@@ -1,5 +1,5 @@
 import VideoImg from "../../assets/images/choose-us/main-img.png";
-import TitleRed from "../../assets/images/who-we-are/title-bg.svg";
+import TitleRed from "../../assets/images/shared/paint-stroke-gold.svg";
 import TrainingIcon from "../../assets/images/choose-us/training.png";
 import EquipmentsIcon from "../../assets/images/choose-us/bench-press.png";
 import BagIcon from "../../assets/images/choose-us/gym-bag.png";
