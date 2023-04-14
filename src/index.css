@@ -485,14 +485,6 @@ body {
 
 /* price section */
 
-.pricing-section {
-  background-image: url("../src/assets/images/pricing/background.jpg");
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .pricing-cta {
   transition: all 0.4s;
   margin-top: 4rem;
@@ -603,26 +595,6 @@ body {
 
 .fitness-bg {
   background-image: url("../src/assets/images/classes/fitness.jpg");
-}
-
-/* blog page */
-
-.blog-cta {
-  padding: 18px 22px;
-  margin-left: 0;
-}
-
-.blog-banner {
-  background-image: url("../src/assets/images/blogpage/sidebar1.png");
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.banner-shape {
-  -webkit-clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%);
 }
 
 /* scrollbar ------------------------- */

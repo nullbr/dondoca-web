@@ -1,10 +1,8 @@
 import About from "../components/About/About";
-import Blog from "../components/Blog/Blog";
 import ChooseUs from "../components/ChooseUs/ChooseUs";
 import CtaBanner from "../components/CtaBanner/CtaBanner";
 import Featured from "../components/Featured/Featured";
 import Hero from "../components/Hero/Hero";
-import Pricing from "../components/Pricing/Pricing";
 import Testimonials from "../components/Testimonials/Testimonials";
 import Trainers from "../components/Trainers/Trainers";
 import { useEffect } from "react";
@@ -26,8 +24,6 @@ const Home = () => {
       <ChooseUs />
       <Trainers />
       <Testimonials />
-      <Pricing />
-      <Blog />
       <CtaBanner />
     </>
   );
