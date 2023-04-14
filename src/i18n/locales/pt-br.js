@@ -7,6 +7,7 @@ const translations = {
       instagram: "https://www.instagram.com/dondocasr",
       login: "Login",
       signUp: "Cadastre-se",
+      brunoLink: "https://bruno.buzz/",
     },
 
     nav: {
@@ -32,6 +33,11 @@ const translations = {
 
     admin: {
       title: "Gerenciamento",
+
+      nav: {
+        calendar: "Agenda",
+        workers: "Girls",
+      },
     },
   },
 };

@@ -7,10 +7,7 @@ function Hero() {
   const { t } = useTranslation();
   return (
     <div className="hero-section">
-      <section
-        id="home"
-        className="hero-section w-full h-full flex justify-center text-center min800:flex-col"
-      >
+      <section className="hero-section w-full h-full flex justify-center text-center min800:flex-col">
         <div className="container-hero">
           {/* hero section */}
           <div className="flex flex-col text-white justify-center text-center h-full px-20 gap-20">

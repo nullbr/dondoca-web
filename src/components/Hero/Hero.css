@@ -7,7 +7,7 @@
   background-position: center center;
 }
 
-@keyframes fade-in {
+/* @keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -17,8 +17,8 @@
 }
 
 #home {
-  animation: fade-in 2s; /* Add the animation to the image */
-}
+  animation: fade-in 2s;
+} */
 
 @media (max-width: 1200px) {
   .hero-section {

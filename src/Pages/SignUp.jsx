@@ -7,7 +7,7 @@ const SignUp = () => {
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
-    setScrollY(window.innerHeight / 2.22 - 85);
+    setScrollY(115);
   });
 
   const [email, setEmail] = useState("");
@@ -34,7 +34,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <section className="login-section ">
+      <section className="header-section ">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
             Sign Up

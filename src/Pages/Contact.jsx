@@ -6,7 +6,7 @@ const Contact = () => {
 
   useEffect(() => {
     document.title = t("nav.contact") + " - " + t("defaults.pageTitle");
-    setScrollY(window.innerHeight / 2.22 - 85);
+    setScrollY(115);
   });
 
   return (

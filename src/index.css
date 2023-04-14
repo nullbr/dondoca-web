@@ -483,16 +483,6 @@ body {
   height: 4px;
 }
 
-/* bmi section */
-
-.bmi-section {
-  background-image: url("../src/assets/images/bmi/background.jpg");
-  object-fit: cover;
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-}
-
 /* price section */
 
 .pricing-section {
@@ -531,14 +521,8 @@ body {
   padding: 18px 22px;
 }
 
-/* gallery */
-
-.gallery-cta {
-  display: none;
-}
-
 /* login */
-.login-section {
+.header-section {
   background-image: url("../src/assets/images/who-we-are/background.jpg");
   object-fit: cover;
   background-size: cover;
@@ -549,13 +533,12 @@ body {
 }
 
 .login-banner {
-  background-image: url("../src/assets/images/login/banner.jpg");
+  background-image: url("/src/assets/images/background/background-pages.png");
   object-fit: cover;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
-  height: 45vh;
+  height: 200px;
 }
 
 /* classes page ----- */

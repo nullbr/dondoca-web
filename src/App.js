@@ -18,7 +18,8 @@ import Layout from "./components/Layout/Layout";
 import PageNotFound from "./Pages/PageNotFound";
 import { Provider } from "react-redux";
 import { store } from "./store";
-import AdminHome from "./Pages/Admin/AdminHome";
+import AdminHome from "./Pages/Admin";
+import AdminLayout from "./components/Admin/Layout/Layout";
 // import Price from "./Pages/Price";
 // import Blog from "./Pages/Blog";
 
@@ -48,9 +49,10 @@ function App() {
               <Route path="sunday" element={<Sunday />} />
             </Route>
 
-            <Route path="admin" element={<AdminHome />} />
-
             <Route path="*" element={<PageNotFound />} />
+          </Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminHome />} />
           </Route>
         </Routes>
       </Provider>
