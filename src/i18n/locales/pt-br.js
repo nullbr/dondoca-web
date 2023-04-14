@@ -19,6 +19,26 @@ const translations = {
       services: "Serviços",
     },
 
+    home: {
+      about: {
+        quality: {
+          title: "Qualidade",
+          description:
+            "Nosso time de profissionais são qualificados e experientes, e todos serviços prestados são de alta qualidade.",
+        },
+        space: {
+          title: "Ambiente",
+          description:
+            "Oferecemos um ambiente confortável e acolhedor, com uma atmosfera relaxante para nossos clientes.",
+        },
+        price: {
+          title: "Preços",
+          description:
+            "Temos preços justos e razoáveis para os serviços prestados. Tambem oferecemos promoções especiais e pacotes.",
+        },
+      },
+    },
+
     aboutUs: {
       title: "Sobre Nós",
       description: "add later",
