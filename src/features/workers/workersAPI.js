@@ -1,10 +1,11 @@
 const API_URL = "http://localhost:3000";
 
-export async function fetchEmployees() {
-  return fetch(`${API_URL}/employees.json`, {
+export async function fetchWorkers() {
+  return fetch(`${API_URL}/api/v1/workers`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      Authorization: "Bearer",
     },
   })
     .then((response) => response.json())

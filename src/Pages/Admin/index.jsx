@@ -1,4 +1,4 @@
-import Employees from "../../features/employees/Employees";
+import Workers from "../../components/Admin/Workers/Workers";
 import { useEffect } from "react";
 import { Global } from "../../context/GlobalContext";
 
@@ -18,7 +18,7 @@ const AdminHome = () => {
         </h1>
       </header>
       <section>
-        <Employees />
+        <Workers />
       </section>
     </main>
   );

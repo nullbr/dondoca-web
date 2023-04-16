@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchEmployeesAsync, Statuses } from "./employeeSlice";
+import {
+  fetchWorkersAsync,
+  Statuses,
+} from "../../../features/workers/workerSlice";
 
-const Employees = () => {
+const Workers = () => {
   const dispatch = useDispatch();
-  const { employees, status } = useSelector((store) => store.employees);
+  const { workers, status } = useSelector((store) => store.workers);
 
   useEffect(() => {
-    dispatch(fetchEmployeesAsync());
+    dispatch(fetchWorkersAsync());
   }, [dispatch]);
 
   let contents;
@@ -20,9 +23,9 @@ const Employees = () => {
         <div>
           <h3>{status}</h3>
           {/* Form goes here */}
-          {employees &&
-            employees.length > 0 &&
-            employees.map((emp) => {
+          {workers &&
+            workers.length > 0 &&
+            workers.map((emp) => {
               return (
                 <div key={emp.id}>
                   <h3>{emp.name}</h3>
@@ -37,4 +40,4 @@ const Employees = () => {
 
   return <div>{contents}</div>;
 };
-export default Employees;
+export default Workers;

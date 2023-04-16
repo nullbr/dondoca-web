@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchEmployees } from "./employeeAPI";
+import { fetchWorkers } from "./workersAPI";
 
 export const Statuses = Object.freeze({
   Initial: "Not Fetched",
@@ -10,7 +10,7 @@ export const Statuses = Object.freeze({
 });
 
 const initialState = {
-  employees: [
+  workers: [
     {
       id: 0,
       name: "",
@@ -23,34 +23,34 @@ const initialState = {
   status: Statuses.Initial,
 };
 
-export const fetchEmployeesAsync = createAsyncThunk(
-  "employees/fetchEmployeesAsync",
+export const fetchWorkersAsync = createAsyncThunk(
+  "workers/fetchWorkersAsync",
   async () => {
-    const response = await fetchEmployees();
+    const response = await fetchWorkers();
     console.log(response);
     return response;
   }
 );
 
-const employeeSlice = createSlice({
-  name: "employees",
+const workerSlice = createSlice({
+  name: "workers",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchEmployeesAsync.pending, (state) => {
+      .addCase(fetchWorkersAsync.pending, (state) => {
         state.status = Statuses.Loading;
       })
-      .addCase(fetchEmployeesAsync.fulfilled, (state, action) => {
+      .addCase(fetchWorkersAsync.fulfilled, (state, action) => {
         state.status = Statuses.UpToDate;
-        state.employees = action.payload;
+        state.workers = action.payload;
       })
-      .addCase(fetchEmployeesAsync.rejected, (state) => {
+      .addCase(fetchWorkersAsync.rejected, (state) => {
         state.status = Statuses.Error;
       });
   },
 });
 
-// export const {} = employeeSlice.actions;
+// export const {} = workerSlice.actions;
 
-export default employeeSlice.reducer;
+export default workerSlice.reducer;
