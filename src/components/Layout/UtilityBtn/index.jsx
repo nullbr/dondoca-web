@@ -44,10 +44,10 @@ const MessageBtn = () => {
         className={`fixed bottom-10 nav-btn-hover ease-in-out duration-500 ${
           show ? "right-10" : "-right-[100%]"
         }`}
-        onMouseEnter={(e) => {
+        onMouseEnter={() => {
           setText("Como podemos ajudar?");
         }}
-        onMouseLeave={(e) => {
+        onMouseLeave={() => {
           setText(null);
         }}
         href="https://wa.me/5511978228466?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita."
