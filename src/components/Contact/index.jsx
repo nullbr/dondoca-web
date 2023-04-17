@@ -92,10 +92,9 @@ const Contact = () => {
           {/* second col ---*/}
           <div className="flex h-full bg-[#f8f8f8] items-center my-14">
             <form className="flex flex-col w-full pr-[50px] pl-[45px] md1000:w-[65%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%] min620:w-full">
-              <h3 className="text-[28px] font-bold mb-14">
+              <h3 className="text-[28px] font-bold mb-14 underline underline-offset-8 decoration-4 decoration-signature-gold">
                 Leave Us Your Info
               </h3>
-              <span className="bg-signature-gold w-[50px] h-[4px] absolute top-[77px]"></span>
               <input
                 className="w-full py-[12px] px-[20px] h-[51px] text-[14px] border border-solid border-[#e4e4e4] outline-none mb-8"
                 placeholder="Full Name *"
