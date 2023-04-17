@@ -1,4 +1,4 @@
-import AboutSection from "../../Shared/AboutSection";
+import AboutSection from "../../About/AboutSection";
 import AboutCarts from "./AboutCarts";
 import "./About.css";
 

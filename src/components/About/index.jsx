@@ -4,7 +4,7 @@ import Target from "../../assets/images/AboutPage/target.svg";
 import Mountain from "../../assets/images/AboutPage/mountain.svg";
 import { useEffect } from "react";
 import { Global } from "../../context/GlobalContext";
-import AboutSection from "../Shared/AboutSection";
+import AboutSection from "./AboutSection";
 import Professionals from "./Professionals";
 
 const About = () => {

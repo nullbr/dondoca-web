@@ -1,6 +1,6 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 import sideImg from "../../assets/images/home/equipe.png";
-import MainButton from "./MainButton/MainButton";
+import MainButton from "../Shared/MainButton/MainButton";
 import { useTranslation } from "react-i18next";
 
 function AboutSection() {
@@ -9,7 +9,7 @@ function AboutSection() {
     <div className="flex justify-center md1000:flex-col w-full gap-20 p-10 bg-white shadow-lg">
       <div className="flex flex-col text-left relative items-right self-center max-w-[450px] md1000:items-center md1000:text-center md1000:w-full">
         <p className="text-white relative z-10 text-[15px] uppercase font-bold mb-1 ml-20 md1000:ml-3 ">
-          {t("home.about.title")}
+          {t("aboutUs.title")}
         </p>
         <img
           src={TitleBg}
@@ -17,10 +17,10 @@ function AboutSection() {
           className="w-[200px] relative -top-[30px]"
         />
         <h2 className="text-[35px] font-bold leading-tight mb-6 w-[60rem] min800:w-[100%]">
-          {t("home.about.subtitle")}
+          {t("aboutUs.subtitle")}
         </h2>
         <p className="text-[16px] text-[#646464] font-medium ">
-          {t("home.about.description")}
+          {t("aboutUs.description")}
         </p>
         <MainButton
           color={`text-white`}

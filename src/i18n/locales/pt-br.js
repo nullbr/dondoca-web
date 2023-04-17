@@ -21,10 +21,6 @@ const translations = {
 
     home: {
       about: {
-        title: "Sobre Nós",
-        subtitle: "Seu Lugar Para Brilhar e se Cuidar",
-        description:
-          "Bem-vindo ao Salão de Beleza Dondoca, onde a elegância encontra o charme! Fundado há mais de uma década por mãe e filha, Juarezita e Gisely, este salão é o destino ideal para quem procura um tratamento de beleza de alta qualidade e um ambiente descontraído e amigável. Com uma equipe de profissionais experientes e altamente qualificados.",
         quality: {
           title: "Qualidade",
           description:
@@ -45,7 +41,9 @@ const translations = {
 
     aboutUs: {
       title: "Sobre Nós",
-      description: "add later",
+      subtitle: "Seu Lugar Para Brilhar e se Cuidar",
+      description:
+        "Bem-vindo ao Salão de Beleza Dondoca, onde a elegância encontra o charme! Fundado há mais de uma década por mãe e filha, Juarezita e Gisely, este salão é o destino ideal para quem procura um tratamento de beleza de alta qualidade e um ambiente descontraído e amigável. Com uma equipe de profissionais experientes e altamente qualificados.",
       team: {
         title: "Equipe",
         subtitle: "A equipe de profissionais que transforma seu visual!",
