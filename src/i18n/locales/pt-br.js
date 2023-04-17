@@ -64,6 +64,21 @@ const translations = {
       addressUrl: "https://goo.gl/maps/q4x2UqMaYrjNhThaA",
       phoneNumber: "(11)97119-0391",
       email: "dondocasalon@gmail.com",
+      hours: "Horário de Funcionamento",
+      tueSat: "Terça - Sexta",
+      tueSatTime: "9:00 - 18:00",
+      sunMon: "Domingo - Segunda",
+      sunMonTime: "Fechado",
+    },
+
+    services: {
+      title: "Nossos Serviços",
+      featTitle: "Principais Serviços",
+      serv1: "Manicure & Pedicure",
+      serv2: "Maquiagem",
+      serv3: "Corte",
+      serv4: "Penteado",
+      serv5: "Sobrancelha",
     },
 
     admin: {

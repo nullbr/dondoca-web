@@ -16,7 +16,7 @@ function AdminFooter() {
 
             <div className="flex flex-col w-1/2 text-end min620:text-center min620:w-full">
               <p className="text-[16px] font-medium text-[#646464]">
-                Privacy Policy | © {new Date().getFullYear()} Gymate <br />{" "}
+                Privacy Policy | © {new Date().getFullYear()} Dondoca <br />{" "}
                 Design by{" "}
                 <a
                   target="_blank"
