@@ -1,10 +1,5 @@
 import LogoSide from "../../assets/images/logo/logo-footer.png";
-import SideImg1 from "../../assets/images/sidebar/1.jpg";
-import SideImg2 from "../../assets/images/sidebar/2.jpg";
-import SideImg3 from "../../assets/images/sidebar/3.jpg";
-import SideImg4 from "../../assets/images/sidebar/4.jpg";
-import SideImg5 from "../../assets/images/sidebar/5.jpg";
-import SideImg6 from "../../assets/images/sidebar/6.jpg";
+import Missing from "../../assets/images/missing.png";
 
 const Sidebar = ({ toggleSideBar, sidebar, t }) => {
   return (
@@ -36,32 +31,32 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
             <h3 className="text-[2rem] font-bold">{t("nav.gallery")}</h3>
             <div className="grid grid-cols-3 grid-rows-2 gap-4">
               <img
-                src={SideImg1}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
               <img
-                src={SideImg2}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
               <img
-                src={SideImg3}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
               <img
-                src={SideImg4}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
               <img
-                src={SideImg5}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
               <img
-                src={SideImg6}
+                src={Missing}
                 alt="sidebar_gallery"
                 className="rounded-xl cursor-pointer "
               />
@@ -70,18 +65,28 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
           {/* contact */}
           <div className="flex flex-col gap-6">
             <h3 className="text-[2rem] font-bold">{t("contactUs.title")}</h3>
-            <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-              <i className="fa-solid fa-location-dot text-signature-gold"></i>
-              &nbsp; {t("contactUs.address")}
-            </p>
-            <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-              <i className="fa-solid fa-phone text-signature-gold"></i>
-              &nbsp; {t("contactUs.phoneNumber")}
-            </p>
-            <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-              <i className="fa-solid fa-envelope text-signature-gold"></i>
-              &nbsp; {t("contactUs.email")}
-            </p>
+            <a
+              href={t("contactUs.addressUrl")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-location-dot text-signature-gold"></i>
+                &nbsp; {t("contactUs.address")}
+              </p>
+            </a>
+            <a href={`tel:${t("contactUs.phoneNumber")}`}>
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-phone text-signature-gold"></i>
+                &nbsp; {t("contactUs.phoneNumber")}
+              </p>
+            </a>
+            <a href={`mailto:${t("contactUs.email")}`}>
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-envelope text-signature-gold"></i>
+                &nbsp; {t("contactUs.email")}
+              </p>
+            </a>
           </div>
           {/* follow us */}
           <div className="flex flex-col gap-6">

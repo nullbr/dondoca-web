@@ -61,6 +61,7 @@ const translations = {
     contactUs: {
       title: "Contate-nos",
       address: "Avenida Bandeirantes, 461, Jardim Bandeirantes, São Roque",
+      addressUrl: "https://goo.gl/maps/q4x2UqMaYrjNhThaA",
       phoneNumber: "(11)97119-0391",
       email: "dondocasalon@gmail.com",
     },
