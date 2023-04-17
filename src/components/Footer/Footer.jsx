@@ -10,16 +10,14 @@ function Footer() {
           {/* footer div all */}
           <div className="flex justify-between min620:flex-col min620:items-center min620:text-center min620:gap-[5rem] !text-left">
             {/* logo side */}
-            <div className="flex flex-col gap-8 w-1/3 min620:w-full min620:justify-center min620:text-center">
+            <div className="flex flex-col gap-8 w-5/12 min620:w-full min620:justify-center min620:text-center">
               <img
                 src={FooterLogo}
                 alt="footer_logo"
                 className="w-[18rem] min620:self-center"
               />
               <p className="text-[15px] font-medium text-[#646464]">
-                Take your health and body to the next level with our
-                comprehensive program designed to help you reach your fitness
-                goals.
+                {t("aboutUs.description")}
               </p>
               <p className="text-[16px] font-medium text-[#646464]">
                 Privacy Policy | © {new Date().getFullYear()} Dondoca <br />{" "}
@@ -35,7 +33,7 @@ function Footer() {
             </div>
 
             {/* middle div */}
-            <div className="flex flex-col gap-8 relative w-1/3 min620:w-full text-center">
+            <div className="flex flex-col gap-8 relative w-3/12 min620:w-full text-center">
               <p className="text-[22px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
                 {t("services.featTitle")}
               </p>
@@ -58,7 +56,7 @@ function Footer() {
             </div>
 
             {/* right div */}
-            <div className="flex flex-col gap-8 relative w-1/3 min620:w-full text-center">
+            <div className="flex flex-col gap-8 relative w-4/12 min620:w-full text-center">
               <p className="text-[22px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
                 {t("contactUs.hours")}
               </p>

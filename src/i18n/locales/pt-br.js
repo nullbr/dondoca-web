@@ -43,7 +43,7 @@ const translations = {
       title: "Sobre Nós",
       subtitle: "Seu Lugar Para Brilhar e se Cuidar",
       description:
-        "Bem-vindo ao Salão de Beleza Dondoca, onde a elegância encontra o charme! Fundado há mais de uma década por mãe e filha, Juarezita e Gisely, este salão é o destino ideal para quem procura um tratamento de beleza de alta qualidade e um ambiente descontraído e amigável. Com uma equipe de profissionais experientes e altamente qualificados.",
+        "Dondoca, onde a elegância encontra o charme! Fundado por mãe e filha, Juarezita e Gisely, este salão é o destino ideal para quem procura um tratamento de beleza de alta qualidade e um ambiente descontraído e amigável. Com uma equipe de profissionais experientes e altamente qualificados.",
       team: {
         title: "Equipe",
         subtitle: "A equipe de profissionais que transforma seu visual!",
@@ -60,7 +60,12 @@ const translations = {
 
     contactUs: {
       title: "Contate-nos",
-      address: "Avenida Bandeirantes, 461, Jardim Bandeirantes, São Roque",
+      subTitle: "Estamos aqui para te ajudar! Agende agora mesmo seu horário.",
+      pitch:
+        "Se você está procurando um lugar para cuidar da sua beleza e bem-estar, o Dondoca é a escolha perfeita! Temos uma equipe de profissionais altamente treinados e experientes, que estão prontos para atender todas as suas necessidades de beleza. Oferecemos uma ampla variedade de serviços, desde cortes de cabelo e coloração, até manicures e pedicures, massagens relaxantes e tratamentos de beleza para o rosto. Nosso salão é um ambiente acolhedor e confortável, com uma atmosfera descontraída e amigável. Então, se você quer se sentir e ficar ainda mais bonita, não hesite em nos contatar. Estamos ansiosos para receber seu contato e agendar sua próxima visita!",
+      address: "Endereço",
+      addressLine1: "Avenida Bandeirantes, 461,",
+      addressLine2: "Jardim Bandeirantes, São Roque",
       addressUrl: "https://goo.gl/maps/q4x2UqMaYrjNhThaA",
       phoneNumber: "(11)97119-0391",
       email: "dondocasalon@gmail.com",

@@ -72,7 +72,9 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
             >
               <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
                 <i className="fa-solid fa-location-dot text-signature-gold"></i>
-                &nbsp; {t("contactUs.address")}
+                &nbsp; {t("contactUs.addressLine1")}
+                <br />
+                {t("contactUs.addressLine2")}
               </p>
             </a>
             <a href={`tel:${t("contactUs.phoneNumber")}`}>
