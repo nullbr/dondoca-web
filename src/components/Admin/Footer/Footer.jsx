@@ -20,7 +20,7 @@ function AdminFooter() {
                 Design by{" "}
                 <a
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   href={t("defaults.brunoLink")}
                 >
                   Bruno Leite

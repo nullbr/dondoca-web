@@ -13,7 +13,7 @@ import Friday from "./Pages/Schedule/Friday";
 import Saturday from "./Pages/Schedule/Saturday";
 import Sunday from "./Pages/Schedule/Sunday";
 import Gallery from "./Pages/Gallery";
-import About from "./Pages/About";
+import About from "./components/About";
 import Layout from "./components/Layout/Layout";
 import PageNotFound from "./Pages/PageNotFound";
 import { Provider } from "react-redux";
@@ -49,9 +49,8 @@ function App() {
                 <Route path="friday" element={<Friday />} />
                 <Route path="saturday" element={<Saturday />} />
                 <Route path="sunday" element={<Sunday />} />
+                <Route path="*" element={<PageNotFound />} />
               </Route>
-
-              <Route path="*" element={<PageNotFound />} />
             </Route>
 
             <Route path="/admin" element={<AdminLayout />}>

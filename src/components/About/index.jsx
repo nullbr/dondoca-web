@@ -1,10 +1,12 @@
-import Img3 from "../assets/images/AboutPage/3.jpg";
-import Img4 from "../assets/images/AboutPage/4.jpg";
-import Target from "../assets/images/AboutPage/target.png";
-import Mountain from "../assets/images/AboutPage/mountain.png";
+import "./index.css";
+import Img3 from "../../assets/images/AboutPage/3.jpg";
+import Img4 from "../../assets/images/AboutPage/4.jpg";
+import Target from "../../assets/images/AboutPage/target.png";
+import Mountain from "../../assets/images/AboutPage/mountain.png";
 import { useEffect } from "react";
-import { Global } from "../context/GlobalContext";
-import AboutSection from "../components/Shared/AboutSection";
+import { Global } from "../../context/GlobalContext";
+import AboutSection from "../Shared/AboutSection";
+import Professionals from "./Professionals";
 
 const About = () => {
   const { t, setScrollY } = Global();
@@ -16,14 +18,16 @@ const About = () => {
 
   return (
     <>
-      <section className="header-section">
+      <section className="main-section">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
             About Us
           </h1>
         </div>
-        <div className="container page-padding py-[5rem]">
+
+        <div className="container page-padding py-[5rem] flex flex-col justify-center gap-20">
           <AboutSection />
+          <Professionals t={t} />
           {/*  */}
           <div className="mt-[10rem]">
             <div className="grid grid-cols-2 grid-rows-2 w-full min620:grid-cols-1">

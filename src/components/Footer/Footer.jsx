@@ -39,7 +39,7 @@ function Footer() {
                 Design by{" "}
                 <a
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   href="https://www.radiustheme.com/"
                 >
                   RadiusTheme
