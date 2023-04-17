@@ -1,4 +1,4 @@
-import Workers from "../../components/Admin/Workers/Workers";
+import Workers from "./Workers/Workers";
 import { useEffect } from "react";
 import { Global } from "../../context/GlobalContext";
 

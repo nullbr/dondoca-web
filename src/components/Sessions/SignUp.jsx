@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
-import { Global } from "../context/GlobalContext";
+import { Global } from "../../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   const { t, setScrollY } = Global();
 
   useEffect(() => {
-    document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
+    document.title = t("nav.services") + " - " + t("defaults.pageTitle");
     setScrollY(115);
   });
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { logIn } = Global();
+  const { signUp } = Global();
   const navigate = useNavigate();
-  const [error, setError] = useState("");
 
   const goTop = () => {
     window.scrollTo({
@@ -24,36 +23,29 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+
     try {
-      await logIn(email, password);
+      await signUp(email, password);
       navigate("/#home");
       goTop();
     } catch (error) {
       console.log(error);
-      setError(error.message);
     }
   };
-
   return (
     <>
-      <section className="header-section">
+      <section className="header-section ">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            Sign In
+            Sign Up
           </h1>
         </div>
         {/* form  */}
-        <div className="page-padding py-[10rem] flex justify-center">
+        <div className="py-[10rem] flex justify-center page-padding">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col py-40 px-20 bg-black w-[55rem] min450:w-full  shadow-xl"
           >
-            {error ? (
-              <p className="text-white bg-signature-gold font-bold text-[1.6rem] px-10 py-5 text-center mb-10">
-                Wrong email or password
-              </p>
-            ) : null}
             <label className="text-[2rem] text-white mb-3 font-medium ">
               Email
             </label>
@@ -78,21 +70,22 @@ const Login = () => {
               type="submit"
               className="bg-signature-gold text-white py-4 font-medium text-[2rem] w-full mt-10"
             >
-              Sign In
+              Sign Up
             </button>
             <div className="flex gap-4 items-center mt-16 min450:flex-col">
-              <p className="text-white text-[1.5rem]">New to Gymate?</p>
+              <p className="text-white text-[1.5rem]">Already have account?</p>
               <Link
-                to="/signup"
+                to="/login"
                 className="text-signature-gold font-bold text-[1.5rem]"
               >
-                Sign Up
+                Sign In
               </Link>
             </div>
-            <p className="text-[#ffffffbc] text-[1.4rem] mt-3">
-              <span className="text-signature-gold">Test Account</span> -
-              gymate@gymail.com <span className="text-signature-gold"> / </span>
-              testpassword123
+            <p className="text-[#ffffffbc] text-[1.3rem] mt-5">
+              ( Make <span className="text-signature-gold">new Accout</span> or
+              go to
+              <span className="text-signature-gold"> Sign In</span> Page for
+              Test Account )
             </p>
           </form>
         </div>
@@ -101,4 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

@@ -52,6 +52,12 @@ const translations = {
         description:
           "A equipe Dondoca é composta por profissionais experientes e dedicados que possuem uma paixão em comum: ajudar seus clientes a se sentirem bonitos e confiantes. Com uma ampla gama de serviços, desde corte de cabelo e coloração até manicure e maquiagem, eles estão prontos para oferecer um atendimento personalizado e de alta qualidade a cada pessoa que entra pela porta. Além disso, eles estão sempre atualizados com as últimas tendências e técnicas do mercado, garantindo que seus clientes saiam com um visual moderno e sofisticado. Com a equipe Dondoca, você pode esperar um ambiente acolhedor e amigável, além de um serviço excepcional que fará você se sentir mimado e cuidado. Venha visitar-nos e descubra o que podemos fazer para transformar sua beleza!",
       },
+      history: {
+        title1: "Titulo 1",
+        description1: "Descreva a historia",
+        title2: "Titulo 2",
+        description2: "Descreva a historia",
+      },
     },
 
     contactUs: {

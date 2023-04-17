@@ -1,6 +1,6 @@
 import MainButton from "../Shared/MainButton/MainButton";
 
-function ClassesBox({ bgImg, title, trainer, date }) {
+function ServicesBox({ bgImg, title, trainer, date }) {
   return (
     <>
       <div
@@ -34,4 +34,4 @@ function ClassesBox({ bgImg, title, trainer, date }) {
   );
 }
 
-export default ClassesBox;
+export default ServicesBox;

@@ -1,8 +1,7 @@
 import "./index.css";
-import Img3 from "../../assets/images/AboutPage/3.jpg";
-import Img4 from "../../assets/images/AboutPage/4.jpg";
-import Target from "../../assets/images/AboutPage/target.png";
-import Mountain from "../../assets/images/AboutPage/mountain.png";
+import Img1 from "../../assets/images/logo/logo-mobile.png";
+import Target from "../../assets/images/AboutPage/target.svg";
+import Mountain from "../../assets/images/AboutPage/mountain.svg";
 import { useEffect } from "react";
 import { Global } from "../../context/GlobalContext";
 import AboutSection from "../Shared/AboutSection";
@@ -33,37 +32,37 @@ const About = () => {
             <div className="grid grid-cols-2 grid-rows-2 w-full min620:grid-cols-1">
               <div className="w-full bg-white h-[43rem] flex flex-col justify-center items-center text-center px-[100px] min800:px-[10px]">
                 <img src={Target} alt="target_img" className="w-[9rem]" />
-                <h2 className="text-[36px] font-bold mt-3">Our History</h2>
+                <h2 className="text-[36px] font-bold mt-3">
+                  {t("aboutUs.history.title1")}
+                </h2>
                 <p className="text-[16px] font-medium text-[#646464] mt-5">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit
-                  Exercitation veniam consequat.
+                  {t("aboutUs.history.description1")}
                 </p>
               </div>
               {/*  */}
               <div className="w-full bg-white h-[43rem]">
                 <img
-                  src={Img3}
+                  src={Img1}
                   alt="about_img"
-                  className="w-full h-full object-cover bg-center"
+                  className="w-full h-full object-contain bg-center"
                 />
               </div>
               {/*  */}
               <div className="w-full bg-white h-[43rem]">
                 <img
-                  src={Img4}
+                  src={Img1}
                   alt="about_img"
-                  className="w-full h-full object-cover bg-center"
+                  className="w-full h-full object-contain bg-center"
                 />
               </div>
               {/*  */}
               <div className="w-full bg-white h-[43rem] flex flex-col justify-center items-center text-center px-[100px] min800:px-[10px]">
                 <img src={Mountain} alt="target_img" className="w-[9rem]" />
-                <h2 className="text-[36px] font-bold mt-3">Our History</h2>
+                <h2 className="text-[36px] font-bold mt-3">
+                  {t("aboutUs.history.title2")}
+                </h2>
                 <p className="text-[16px] font-medium text-[#646464] mt-5">
-                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                  amet sint. Velit officia consequat duis enim velit mollit
-                  Exercitation veniam consequat.
+                  {t("aboutUs.history.description2")}
                 </p>
               </div>
             </div>

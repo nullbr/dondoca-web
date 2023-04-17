@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Global } from "../context/GlobalContext";
+import { Global } from "../../context/GlobalContext";
 
 const Contact = () => {
   const { t, setScrollY } = Global();

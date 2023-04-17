@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import ServicesBox from "../components/ServicesBox/ServicesBox";
-import { Global } from "../context/GlobalContext";
+import ServicesBox from "./ServicesBox";
+import { Global } from "../../context/GlobalContext";
 
 const Services = () => {
   const { t, setScrollY } = Global();
