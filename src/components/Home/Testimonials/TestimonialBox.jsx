@@ -1,5 +1,5 @@
-import Quotes from "../../assets/images/testimonials/quotes.png";
-import BoxShape from "../../assets/images/testimonials/testimonial-shape.svg";
+import Quotes from "../../../assets/images/testimonials/quotes.png";
+import BoxShape from "../../../assets/images/testimonials/testimonial-shape.svg";
 
 function TestimonialBox({ text, name, job }) {
   return (

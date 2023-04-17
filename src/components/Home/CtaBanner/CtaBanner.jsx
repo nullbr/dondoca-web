@@ -1,4 +1,4 @@
-import MainButton from "../MainButton/MainButton";
+import MainButton from "../../Shared/MainButton/MainButton";
 
 function CtaBanner() {
   return (

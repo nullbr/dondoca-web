@@ -1,5 +1,5 @@
 .hero-section {
-  background-image: url("../../assets/images/background/background-wide.png");
+  background-image: url("../../../assets/images/background/background-wide.png");
   width: 100%;
   height: calc(100vh + 5.5rem);
   object-fit: cover;
@@ -22,6 +22,6 @@
 
 @media (max-width: 1200px) {
   .hero-section {
-    background-image: url("../../assets/images/background/background_mobile.png");
+    background-image: url("../../../assets/images/background/background_mobile.png");
   }
 }

@@ -1,5 +1,5 @@
-import TitleBg from "../../assets/images/background/background_logo.png";
-import MainButton from "../MainButton/MainButton";
+import TitleBg from "../../../assets/images/background/background_logo.png";
+import MainButton from "../../Shared/MainButton/MainButton";
 import "./Hero.css";
 import { useTranslation } from "react-i18next";
 

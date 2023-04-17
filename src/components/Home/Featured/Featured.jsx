@@ -1,5 +1,5 @@
-import TitleRed from "../../assets/images/shared/paint-stroke-gold.svg";
-import MainButton from "../MainButton/MainButton";
+import TitleRed from "../../../assets/images/shared/paint-stroke-gold.svg";
+import MainButton from "../../Shared/MainButton/MainButton";
 
 function Featured() {
   return (

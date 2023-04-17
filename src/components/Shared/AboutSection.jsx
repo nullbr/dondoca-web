@@ -1,13 +1,13 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 import sideImg from "../../assets/images/home/equipe.png";
-import MainButton from "../MainButton/MainButton";
+import MainButton from "./MainButton/MainButton";
 import { useTranslation } from "react-i18next";
 
 function AboutSection() {
   const { t } = useTranslation();
   return (
-    <div className="flex w-full md620:flex-col">
-      <div className="flex w-1/2 flex-col text-left relative items-right justify-center md1000:items-center md1000:text-center">
+    <div className="flex w-full md1000:flex-col">
+      <div className="flex w-1/2 flex-col text-left relative items-right justify-center md1000:items-center md1000:text-center md1000:w-full">
         <p className="text-white relative z-10 text-[15px] uppercase font-bold mb-1 ml-20 md1000:ml-3 ">
           {t("home.about.title")}
         </p>
@@ -33,7 +33,7 @@ function AboutSection() {
         />
       </div>
       {/* img side */}
-      <div className="pl-20 md1000:hidden w-[50%]">
+      <div className="pl-20 w-1/2 max-w-[500px] md1000:w-full md1000:px-5 md1000:pt-10 md1000:self-center">
         <img
           src={sideImg}
           alt="brushes"

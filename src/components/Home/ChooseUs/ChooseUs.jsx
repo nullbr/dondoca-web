@@ -1,11 +1,11 @@
-import VideoImg from "../../assets/images/choose-us/main-img.png";
-import TitleRed from "../../assets/images/shared/paint-stroke-gold.svg";
-import TrainingIcon from "../../assets/images/choose-us/training.png";
-import EquipmentsIcon from "../../assets/images/choose-us/bench-press.png";
-import BagIcon from "../../assets/images/choose-us/gym-bag.png";
-import BottleIcon from "../../assets/images/choose-us/bottle-of-water.png";
-import PlayImg from "../../assets/images/choose-us/play.png";
-import MainButton from "../MainButton/MainButton";
+import VideoImg from "../../../assets/images/choose-us/main-img.png";
+import TitleRed from "../../../assets/images/shared/paint-stroke-gold.svg";
+import TrainingIcon from "../../../assets/images/choose-us/training.png";
+import EquipmentsIcon from "../../../assets/images/choose-us/bench-press.png";
+import BagIcon from "../../../assets/images/choose-us/gym-bag.png";
+import BottleIcon from "../../../assets/images/choose-us/bottle-of-water.png";
+import PlayImg from "../../../assets/images/choose-us/play.png";
+import MainButton from "../../Shared/MainButton/MainButton";
 
 function ChooseUs() {
   return (
