@@ -37,6 +37,9 @@ const translations = {
             "Temos preços justos e razoáveis para os serviços prestados. Tambem oferecemos promoções especiais e pacotes.",
         },
       },
+      featured: {
+        subtitle: "",
+      },
     },
 
     aboutUs: {
@@ -79,6 +82,7 @@ const translations = {
     services: {
       title: "Nossos Serviços",
       featTitle: "Principais Serviços",
+      subtitle: "Oferecemos uma Grande Variedade de Serviços",
       serv1: "Manicure & Pedicure",
       serv2: "Maquiagem",
       serv3: "Corte",
