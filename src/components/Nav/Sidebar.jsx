@@ -1,7 +1,24 @@
+import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
-import Missing from "../../assets/images/missing.png";
 
 const Sidebar = ({ toggleSideBar, sidebar, t }) => {
+  useEffect(() => {
+    const div = document.querySelector("#galleryScript");
+    const script = document.createElement("script");
+
+    script.setAttribute(
+      "src",
+      "https://www.juicer.io/embed/brmariano13/embed-code.js?style=slider&columns=1&interval=1000"
+    );
+    script.setAttribute("async", "");
+    script.setAttribute("defer", "");
+    div.appendChild(script);
+
+    return () => {
+      div.removeChild(script);
+    };
+  }, []);
+
   return (
     <div
       className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
@@ -29,38 +46,7 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
           {/* gallery */}
           <div className="flex flex-col gap-6">
             <h3 className="text-[2rem] font-bold">{t("nav.gallery")}</h3>
-            <div className="grid grid-cols-3 grid-rows-2 gap-4">
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-              <img
-                src={Missing}
-                alt="sidebar_gallery"
-                className="rounded-xl cursor-pointer "
-              />
-            </div>
+            <div id="galleryScript" className="w-full"></div>
           </div>
           {/* contact */}
           <div className="flex flex-col gap-6">
@@ -115,4 +101,5 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
     </div>
   );
 };
+
 export default Sidebar;
