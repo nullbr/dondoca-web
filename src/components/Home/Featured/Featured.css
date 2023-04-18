@@ -10,7 +10,7 @@
   content: "";
   height: 69px;
   width: 140px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(66, 59, 59, 0.5);
   position: absolute;
   left: -49px;
   bottom: 50%;
@@ -42,42 +42,42 @@
   z-index: 6;
   display: block;
   transform: scale(0.65);
-  filter: grayscale(100%);
+  filter: contrast(150%);
 }
 
 .item-0-div::before {
   content: url("../../../assets/images/featured/brush.svg");
-  left: -25px;
+  left: -5%;
   bottom: 45%;
 }
 
 .item-1-div::before {
   content: url("../../../assets/images/featured/cut.svg");
-  left: -1px;
+  left: -5%;
   bottom: 45%;
 }
 
 .item-2-div::before {
   content: url("../../../assets/images/featured/eye.svg");
-  left: -1px;
+  left: -5%;
   bottom: 45%;
 }
 
 .item-3-div::before {
   content: url("../../../assets/images/featured/face.svg");
-  left: -1px;
+  left: -5%;
   bottom: 45%;
 }
 
 .item-4-div::before {
   content: url("../../../assets/images/featured/hair.svg");
-  left: -1px;
+  left: -5%;
   bottom: 45%;
 }
 
 .item-5-div::before {
   content: url("../../../assets/images/featured/hand.svg");
-  left: -25px;
+  left: -5%;
   bottom: 45%;
 }
 
@@ -88,7 +88,7 @@
 .item-4-div:hover:before,
 .item-5-div:hover:before {
   transform: scale(0.66);
-  filter: grayscale(0%);
+  filter: none;
 }
 
 /* grid items */
@@ -178,37 +178,37 @@
 }
 
 .item-0 {
-  background-image: url("../../../assets/images/features/cycling.jpg");
+  background-image: url("../../../assets/images/featured/makeup.png");
   width: 100%;
   height: 100%;
 }
 
 .item-1 {
-  background-image: url("../../../assets/images/features/karate.jpg");
+  background-image: url("../../../assets/images/featured/haircut.png");
   width: 100%;
   height: 100%;
 }
 
 .item-2 {
-  background-image: url("../../../assets/images/features/power.jpg");
+  background-image: url("../../../assets/images/featured/eyebrow.png");
   width: 100%;
   height: 100%;
 }
 
 .item-3 {
-  background-image: url("../../../assets/images/features/meditation.jpg");
+  background-image: url("../../../assets/images/featured/massage.png");
   width: 100%;
   height: 100%;
 }
 
 .item-4 {
-  background-image: url("../../../assets/images/features/mma.jpg");
+  background-image: url("../../../assets/images/featured/hairstyle.png");
   width: 100%;
   height: 100%;
 }
 
 .item-5 {
-  background-image: url("../../../assets/images/features/workout.jpg");
+  background-image: url("../../../assets/images/featured/nails.png");
   width: 100%;
   height: 100%;
 }

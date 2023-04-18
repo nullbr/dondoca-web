@@ -88,6 +88,7 @@ const translations = {
       serv3: "Corte",
       serv4: "Penteado",
       serv5: "Sobrancelha",
+      serv6: "Massagem",
     },
 
     admin: {
