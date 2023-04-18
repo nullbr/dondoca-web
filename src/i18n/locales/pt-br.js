@@ -75,7 +75,7 @@ const translations = {
       phoneNumber: "(11)97119-0391",
       email: "dondocasalon@gmail.com",
       hours: "Horário de Funcionamento",
-      tueSat: "Terça - Sexta",
+      tueSat: "Terça - Sábado",
       tueSatTime: "9:00 - 18:00",
       sunMon: "Domingo - Segunda",
       sunMonTime: "Fechado",

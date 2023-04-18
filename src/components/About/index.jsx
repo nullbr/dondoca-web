@@ -40,7 +40,7 @@ const About = () => {
                 </p>
               </div>
               {/*  */}
-              <div className="w-full bg-white h-[43rem]">
+              <div className="w-full bg-white h-[43rem] min620:hidden">
                 <img
                   src={Img1}
                   alt="about_img"
@@ -48,7 +48,7 @@ const About = () => {
                 />
               </div>
               {/*  */}
-              <div className="w-full bg-white h-[43rem]">
+              <div className="w-full bg-white h-[43rem] min620:hidden">
                 <img
                   src={Img1}
                   alt="about_img"

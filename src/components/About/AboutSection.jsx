@@ -16,7 +16,7 @@ function AboutSection() {
           alt="text_bg"
           className="w-[200px] relative -top-[30px]"
         />
-        <h2 className="text-[35px] font-bold leading-tight mb-6 w-[60rem] min800:w-[100%]">
+        <h2 className="text-[3.4rem] font-bold leading-tight mb-6 w-[60rem] min800:w-[100%] min620:text-[2.5rem]">
           {t("aboutUs.subtitle")}
         </h2>
         <p className="text-[16px] text-[#646464] font-medium ">

@@ -22,7 +22,7 @@ function Professionals({ t }) {
   ];
 
   return (
-    <div className="p-20 bg-white shadow-lg flex flex-col gap-20">
+    <div className="py-20 px-10 bg-white shadow-lg flex flex-col gap-20">
       {/* title div -- */}
       <div className="flex flex-col items-center text-center relative self-center">
         <p className="text-white relative z-10 text-[16px] uppercase font-bold mb-10">
@@ -34,7 +34,7 @@ function Professionals({ t }) {
           className="w-[21rem] relative -top-[55px] -mb-10"
         />
 
-        <h2 className="text-[3.4rem] font-bold mb-4">
+        <h2 className="text-[3.4rem] font-bold mb-4 min620:text-[2.5rem]">
           {t("aboutUs.team.subtitle")}
         </h2>
         <p className="text-[#646464] font-medium text-[15px] max-w-[900px] ">
@@ -56,10 +56,12 @@ function Professionals({ t }) {
               src={professional.image}
               alt="professional"
               style={{ transition: "all 0.3s" }}
-              className={`h-[33rem] ${imgHover ? "hover:h-[34rem]" : ""}`}
+              className={`w-full h-auto max-w-[45rem] min-w-[20rem] ${
+                imgHover ? "hover:contrast-125" : ""
+              }`}
             />
             {/* professional description */}
-            <div className="bg-white w-full text-center shadow-lg z-10 rounded-[6px] px-[20px] py-[30px] border-b-4 border-signature-gold">
+            <div className="bg-white w-full text-center shadow-lg z-5 rounded-[6px] px-[20px] py-[30px] border-b-4 border-signature-gold">
               <h3 className="font-bold text-[2.4rem] ">{professional.name}</h3>
               <p className="font-medium text-[1.5rem] text-[#646464]">
                 {professional.job}
