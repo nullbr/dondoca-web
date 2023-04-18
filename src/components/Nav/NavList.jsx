@@ -26,27 +26,11 @@ function NavList({ t, sticky }) {
         >
           <NavLink to={"/gallery"}>{t("nav.gallery")}</NavLink>
         </li>
-        <li
-          style={{ transition: "all 0.3s" }}
-          className="cursor-pointer hover:text-signature-gold"
-        >
-          <NavLink to={"/schedule/monday"}>{t("nav.schedule")}</NavLink>
-        </li>
         {/* <li
           style={{ transition: "all 0.3s" }}
           className="cursor-pointer hover:text-signature-gold"
         >
-          <NavLink onClick={goTop} to={"/blog"}>
-            Blog
-          </NavLink>
-        </li> 
-        <li
-          style={{ transition: "all 0.3s" }}
-          className="cursor-pointer hover:text-signature-gold"
-        >
-          <NavLink onClick={goTop} to={"/pricing"}>
-            Pricing
-          </NavLink>
+          <NavLink to={"/schedule/monday"}>{t("nav.schedule")}</NavLink>
         </li> */}
         <li
           style={{ transition: "all 0.3s" }}

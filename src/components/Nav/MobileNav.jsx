@@ -35,14 +35,14 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t }) => {
                 {t("nav.about")}
               </NavLink>
             </li>
-            <li onClick={toggleMobileNav}>
+            {/* <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                 to="/schedule/monday"
               >
                 {t("nav.schedule")}
               </NavLink>
-            </li>
+            </li> */}
             <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -51,15 +51,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t }) => {
                 {t("nav.gallery")}
               </NavLink>
             </li>
-            {/* <li onClick={toggleMobileNav}>
-                      <NavLink
-                        
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/blog
-                      >
-                        Blog
-                      </NavLink>
-                    </li> */}
             <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
@@ -68,15 +59,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t }) => {
                 {t("nav.contact")}
               </NavLink>
             </li>
-            {/* <li onClick={toggleMobileNav}>
-                      <NavLink
-                        
-                        className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                        to="/pricing"
-                      >
-                        Prices
-                      </NavLink>
-                    </li> */}
             <li onClick={toggleMobileNav}>
               <NavLink
                 className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"

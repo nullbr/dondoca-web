@@ -1,8 +1,10 @@
 import WhatsappLogo from "../../../assets/images/whatsapp/icons8-whatsapp-48.png";
 import { ChevronUp } from "../../../assets/icons/icons";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const MessageBtn = () => {
+  const { t } = useTranslation();
   const [text, setText] = useState(null);
   const [show, setShow] = useState(false);
 
@@ -50,7 +52,9 @@ const MessageBtn = () => {
         onMouseLeave={() => {
           setText(null);
         }}
-        href="https://wa.me/5511978228466?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita."
+        href={`https://wa.me/${t(
+          "contactUs.phoneNumber"
+        )}?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita.`}
         target="_blank"
         rel="noopener noreferrer"
       >

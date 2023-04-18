@@ -103,7 +103,14 @@ function Navbar() {
                 : "border-[rgb(255,255,255,0.3)]"
             }`}
           >
-            <NavLink to={"/contact"} className="flex items-center ">
+            <a
+              href={`https://wa.me/${t(
+                "contactUs.phoneNumber"
+              )}?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center "
+            >
               <i
                 className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md nav-btn-hover ${
                   sticky ? "text-gray" : "text-white"
@@ -114,9 +121,9 @@ function Navbar() {
                   sticky ? "text-gray" : "text-white"
                 }`}
               >
-                agende sua visita
+                {t("nav.scheduleFull")}
               </h3>
-            </NavLink>
+            </a>
           </div>
         </div>
       </nav>

@@ -63,7 +63,13 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
                 {t("contactUs.addressLine2")}
               </p>
             </a>
-            <a href={`tel:${t("contactUs.phoneNumber")}`}>
+            <a
+              href={`https://wa.me/${t(
+                "contactUs.phoneNumber"
+              )}?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita.`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
                 <i className="fa-solid fa-phone text-signature-gold"></i>
                 &nbsp; {t("contactUs.phoneNumber")}

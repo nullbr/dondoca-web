@@ -38,19 +38,19 @@ function Footer() {
                 {t("services.featTitle")}
               </p>
 
-              <p className="text-[16px] hover:text-signature-gold cursor-pointer text-[#646464] font-medium hover:font-bold">
+              <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv1")}
               </p>
-              <p className="text-[16px] hover:text-signature-gold cursor-pointer text-[#646464] font-medium hover:font-bold">
+              <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv2")}
               </p>
-              <p className="text-[16px] hover:text-signature-gold cursor-pointer text-[#646464] font-medium hover:font-bold">
+              <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv3")}
               </p>
-              <p className="text-[16px] hover:text-signature-gold cursor-pointer text-[#646464] font-medium hover:font-bold">
+              <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv4")}
               </p>
-              <p className="text-[16px] hover:text-signature-gold cursor-pointer text-[#646464] font-medium hover:font-bold">
+              <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv5")}
               </p>
             </div>

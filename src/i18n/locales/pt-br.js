@@ -17,6 +17,7 @@ const translations = {
       gallery: "Galeria",
       contact: "Contato",
       services: "Serviços",
+      scheduleFull: "Agende sua visita",
     },
 
     home: {

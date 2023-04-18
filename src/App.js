@@ -4,14 +4,14 @@ import Home from "./components/Home";
 import Login from "./components/Sessions/Login";
 import SignUp from "./components/Sessions/SignUp";
 import Services from "./components/Services";
-import Schedule from "./components/Schedule";
-import Monday from "./components/Schedule/Monday";
-import Tuesday from "./components/Schedule/Tuesday";
-import Wednesday from "./components/Schedule/Wednesday";
-import Thursday from "./components/Schedule/Thursday";
-import Friday from "./components/Schedule/Friday";
-import Saturday from "./components/Schedule/Saturday";
-import Sunday from "./components/Schedule/Sunday";
+// import Schedule from "./components/Schedule";
+// import Monday from "./components/Schedule/Monday";
+// import Tuesday from "./components/Schedule/Tuesday";
+// import Wednesday from "./components/Schedule/Wednesday";
+// import Thursday from "./components/Schedule/Thursday";
+// import Friday from "./components/Schedule/Friday";
+// import Saturday from "./components/Schedule/Saturday";
+// import Sunday from "./components/Schedule/Sunday";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Layout from "./components/Layout/Layout";
@@ -38,10 +38,8 @@ function App() {
               <Route path="services" element={<Services />} />
               <Route path="about" element={<About />} />
               <Route path="gallery" element={<Gallery />}></Route>
-              {/* <Route path="pricing" element={<Price />} /> */}
-              {/* <Route path="blog" element={<Blog />} /> */}
 
-              <Route path="schedule" element={<Schedule />}>
+              {/* <Route path="schedule" element={<Schedule />}>
                 <Route path="monday" element={<Monday />} />
                 <Route path="tuesday" element={<Tuesday />} />
                 <Route path="wednesday" element={<Wednesday />} />
@@ -49,13 +47,14 @@ function App() {
                 <Route path="friday" element={<Friday />} />
                 <Route path="saturday" element={<Saturday />} />
                 <Route path="sunday" element={<Sunday />} />
-                <Route path="*" element={<PageNotFound />} />
-              </Route>
+              </Route> */}
             </Route>
 
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminHome />} />
             </Route>
+
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
       </Provider>
