@@ -68,17 +68,6 @@ body {
   transition: all 0.4s;
 }
 
-/* end of grid ^^ */
-
-.featured-cta {
-  background-image: url(../src/assets/images/features/cta-bg.png);
-  width: 100%;
-  height: 21rem;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 /* choose us */
 
 .choose-section {
@@ -138,15 +127,6 @@ body {
 
 .pricing-cta:hover:after {
   border: 2px solid #ff0336;
-}
-
-/* blog section */
-.cta-section {
-  background-image: url("../src//assets/images/call/background.jpg");
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* cta banner */

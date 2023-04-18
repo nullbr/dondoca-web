@@ -20,6 +20,7 @@ const translations = {
     },
 
     home: {
+      reviews: "Avaliações",
       about: {
         quality: {
           title: "Qualidade",

@@ -1,11 +1,10 @@
 import About from "./About/About";
-import ChooseUs from "./ChooseUs/ChooseUs";
-import CtaBanner from "./CtaBanner/CtaBanner";
+// import ChooseUs from "./ChooseUs/ChooseUs";
 import Featured from "./Featured/Featured";
 import Hero from "./Hero/Hero";
-import Testimonials from "./Testimonials/Testimonials";
 import { useEffect } from "react";
 import { Global } from "../../context/GlobalContext";
+import Reviews from "./Reviews";
 
 const Home = () => {
   const { t, setScrollY } = Global();
@@ -20,9 +19,8 @@ const Home = () => {
       <Hero />
       <About />
       <Featured t={t} />
-      <ChooseUs />
-      <Testimonials />
-      <CtaBanner />
+      {/* <ChooseUs /> */}
+      <Reviews t={t} />
     </>
   );
 };
