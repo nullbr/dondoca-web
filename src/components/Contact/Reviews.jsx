@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
+// import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 
 const Reviews = ({ t }) => {
   useEffect(() => {
@@ -24,15 +24,10 @@ const Reviews = ({ t }) => {
     <div className="flex justify-between py-20 h-full bg-white shadow-lg items-center">
       <div className="container page-padding">
         <div id="reviews" className="p-20relative">
-          <div className="text-center relative items-center w-full flex flex-col z-10">
-            <p className="text-white relative z-10 text-[16px] uppercase font-bold -mb-[10.5rem]">
+          <div className="relative text-center -mb-[4rem] items-center w-full flex flex-col z-10">
+            <h3 className="text-[28px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
               {t("home.reviews")}
-            </p>
-            <img
-              alt="title_img"
-              src={TitleBg}
-              className="w-[21rem] absolute -top-[6px] "
-            />
+            </h3>
           </div>
           <div className="elfsight-app-0515e225-0af6-4cb1-b9cf-b76009e5dfae"></div>
           <div className="relative w-full h-20 -top-20 -mb-[10rem] bg-white z-[99999]"></div>
