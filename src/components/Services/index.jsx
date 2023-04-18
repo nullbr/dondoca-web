@@ -39,7 +39,7 @@ const Services = () => {
 
                   <div className="flex gap-6 mb-14 mt-6 text-[#ffffffe1] text-[1.6rem] font-medium">
                     <p>
-                      <i className="fa fa-info border-1 rounded-full pr-5" />
+                      <i className="fa fa-info-circle pr-5" />
                       {service.description}
                     </p>
                   </div>
