@@ -1,5 +1,3 @@
-import MainButton from "../Shared/MainButton/MainButton";
-
 function ServicesBox({ bgImg, title, trainer, date }) {
   return (
     <>
@@ -21,13 +19,6 @@ function ServicesBox({ bgImg, title, trainer, date }) {
               <i className="fa-regular fa-clock"></i> {date}
             </p>
           </div>
-
-          <MainButton
-            color={`text-black`}
-            bg={`bg-white`}
-            text="join now"
-            goTo="/contact"
-          />
         </div>
       </div>
     </>
