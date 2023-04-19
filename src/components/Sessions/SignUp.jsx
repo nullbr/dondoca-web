@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Global } from "../../context/GlobalContext";
 import { Link, Navigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { signUpUser } from "../../features/sessions/sessionSlice";
 
 const SignUp = () => {
   const { t, setScrollY } = Global();
@@ -17,15 +18,16 @@ const SignUp = () => {
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
       errorMessages = [];
-      // dispatch(resetErrorState())
     }
   });
+
+  // Sign up user
 
   let errorMessages = [];
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const loading = false;
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,9 +49,8 @@ const SignUp = () => {
       return setErrors([t("signUp.passwordNoMatch")]);
     }
 
-    // const response = await dispatch(loginUser(entries));
-    // console.log(response);
-    errorMessages = ["There was an Error"];
+    const response = dispatch(signUpUser(entries));
+    console.log(response);
 
     if (errorMessages.length > 0) {
       return setErrors(errorMessages);
