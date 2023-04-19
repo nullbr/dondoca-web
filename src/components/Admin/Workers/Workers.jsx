@@ -38,6 +38,6 @@ const Workers = () => {
     );
   }
 
-  return <div>{contents}</div>;
+  return <>{contents}</>;
 };
 export default Workers;

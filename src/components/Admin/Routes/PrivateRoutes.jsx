@@ -1,3 +1,5 @@
+import { Navigate } from "react-router-dom";
+
 const PrivateRoutes = ({ children }) => {
   const accessToken = false;
   const loading = false;
@@ -7,7 +9,7 @@ const PrivateRoutes = ({ children }) => {
   } else if (loading) {
     return <p>Loading...</p>;
   } else if (!accessToken && !loading) {
-    return <p>You are not logged in</p>;
+    return <Navigate to="/login" />;
   } else {
     return <p>Something went wrong</p>;
   }
