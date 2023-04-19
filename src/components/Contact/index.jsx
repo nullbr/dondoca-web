@@ -108,6 +108,7 @@ const Contact = () => {
         {/* map */}
         <div className="container">
           <iframe
+            title="maps"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14625.00786099906!2d-48.468732!3d-23.5952949!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf12ac1eb5a78f%3A0x6e9af4c3a2643e75!2sDondoca!5e0!3m2!1sen!2sbr!4v1681853979425!5m2!1sen!2sbr"
             style={{
               width: "100%",

@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
@@ -12,17 +13,17 @@ import Services from "./components/Services";
 // import Friday from "./components/Schedule/Friday";
 // import Saturday from "./components/Schedule/Saturday";
 // import Sunday from "./components/Schedule/Sunday";
+// import Price from "./Pages/Price";
+// import Blog from "./Pages/Blog";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
 import Layout from "./components/Layout/Layout";
 import PageNotFound from "./components/PageNotFound";
-import { Provider } from "react-redux";
-import { store } from "./store";
 import AdminHome from "./components/Admin";
 import AdminLayout from "./components/Admin/Layout/Layout";
 import PersistLogin from "./components/Sessions/PersistLogin";
-// import Price from "./Pages/Price";
-// import Blog from "./Pages/Blog";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 function App() {
   return (
