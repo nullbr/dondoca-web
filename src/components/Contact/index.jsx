@@ -22,7 +22,7 @@ const Contact = () => {
         <div className="bg-white py-[12rem] page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
           {/* first col */}
           <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%] min620:w-full">
-            <h2 className="text-black text-[36px] font-bold leading-[1.2]">
+            <h2 className="text-black text-[3.4rem] min620:text-[2.5rem] font-bold leading-[1.2]">
               {t("contactUs.subTitle")}
             </h2>
             <p className="text-[16px] w-[95%] text-[#646464] font-medium my-[40px]">

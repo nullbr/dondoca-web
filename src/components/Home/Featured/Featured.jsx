@@ -18,7 +18,7 @@ function Featured({ t }) {
                 alt="text_bg"
                 className="w-[24rem] absolute -top-[10px]"
               />
-              <h2 className="text-[3.6rem] text-black font-bold my-10">
+              <h2 className="text-[3.4rem] text-black font-bold my-10 min620:text-[2.5rem]">
                 {t("services.subtitle")}
               </h2>
             </div>

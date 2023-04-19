@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-// import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 
 const Reviews = ({ t }) => {
   useEffect(() => {
@@ -25,7 +24,7 @@ const Reviews = ({ t }) => {
       <div className="container page-padding">
         <div id="reviews" className="p-20relative">
           <div className="relative text-center -mb-[4rem] items-center w-full flex flex-col z-10">
-            <h3 className="text-[28px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
+            <h3 className="text-[3.4rem] min620:text-[2.5rem] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
               {t("home.reviews")}
             </h3>
           </div>
