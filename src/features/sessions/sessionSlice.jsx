@@ -1,5 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { createUser } from "../../api/sessionAPI";
+import {
+  createUser,
+  getCurrentUser,
+  requestAccessTokenWithRefreshToken,
+} from "../../api/sessionAPI";
 
 const initialState = {
   currentUser: {
@@ -25,6 +29,34 @@ export const signUpUser = createAsyncThunk(
     if (response.errors) {
       return rejectWithValue(response.errors);
     }
+
+    return response;
+  }
+);
+
+export const refreshAccessToken = createAsyncThunk(
+  "session/refreshAccessToken",
+  async ({ refreshToken }, { rejectWithValue }) => {
+    if (!refreshToken) {
+      return rejectWithValue("No refresh token");
+    }
+
+    const refreshResponse = await requestAccessTokenWithRefreshToken(
+      refreshToken
+    );
+    if (refreshResponse.error) {
+      return rejectWithValue(refreshResponse.data);
+    }
+
+    const userResponse = await getCurrentUser(refreshResponse.access_token);
+    if (userResponse.error) {
+      return rejectWithValue(userResponse.data);
+    }
+
+    const response = {
+      ...refreshResponse,
+      ...userResponse,
+    };
 
     return response;
   }
@@ -63,6 +95,32 @@ const sessionSlice = createSlice({
         state.loading = false;
         state.error = true;
         state.errorMessages = action.payload.errors;
+      })
+      .addCase(refreshAccessToken.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(refreshAccessToken.fulfilled, (state, action) => {
+        state.currentUser = {
+          id: action.payload.id,
+          email: action.payload.email,
+          role: action.payload.role,
+          createdAt: action.payload.created_at,
+        };
+        state.accessToken = action.payload.access_token;
+        state.refreshToken = action.payload.refresh_token;
+        state.expiresIn = action.payload.expires_in;
+
+        storeRefreshToken(action.payload.refreshToken);
+
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(refreshAccessToken.rejected, (state, action) => {
+        state.loading = false;
+        state.error = true;
       });
   },
 });

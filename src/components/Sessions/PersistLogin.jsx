@@ -1,16 +1,18 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
+import { refreshAccessToken } from "../../features/sessions/sessionSlice";
 
 const PersistLogin = () => {
-  const loading = false;
-  const accessToken = false;
-  const refreshToken = null;
+  const dispatch = useDispatch();
+  const { loading, accessToken, refreshToken } = useSelector(
+    (store) => store.sessions
+  );
 
   useEffect(() => {
     function verifyRefreshToken() {
       try {
-        // dispatch(refreshAccessToken)
-        console.log("Refreshing access token");
+        dispatch(refreshAccessToken({ refreshToken }));
       } catch (error) {
         console.log(error);
       }

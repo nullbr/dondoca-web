@@ -1,8 +1,8 @@
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoutes = ({ children }) => {
-  const accessToken = false;
-  const loading = false;
+  const { loading, accessToken } = useSelector((store) => store.sessions);
 
   if (accessToken) {
     return children;
