@@ -1,11 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { Global } from "../../context/GlobalContext";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../../features/sessions/sessionSlice";
 
 const SignUp = () => {
   const { t, setScrollY } = Global();
+  const navigate = useNavigate();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
@@ -52,10 +53,10 @@ const SignUp = () => {
     const response = dispatch(signUpUser(entries));
     console.log(response);
 
-    if (errorMessages.length > 0) {
-      return setErrors(errorMessages);
+    if (errorMessages.length === 0) {
+      return navigate("/admin");
     } else {
-      return <Navigate to="/admin" />;
+      return setErrors(errorMessages);
     }
   };
 

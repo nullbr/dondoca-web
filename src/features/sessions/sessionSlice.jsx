@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchWorkers } from "./workersAPI";
+import { createUser } from "../../api/sessionAPI";
 
 const initialState = {
   currentUser: {
@@ -21,7 +21,6 @@ export const signUpUser = createAsyncThunk(
   "session/signUpUser",
   async ({ email, password }, { rejectWithValue }) => {
     const response = await createUser({ email, password });
-    console.log(response);
 
     if (response.errors) {
       return rejectWithValue(response.errors);
@@ -76,9 +75,9 @@ function storeRefreshToken(token) {
   localStorage.setItem("refreshToken", token);
 }
 
-function removeRefreshToken() {
-  localStorage.removeItem();
-}
+// function removeRefreshToken() {
+//   localStorage.removeItem();
+// }
 
 function getRefreshToken() {
   return localStorage.getItem("refreshToken");

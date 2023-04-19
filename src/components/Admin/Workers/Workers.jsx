@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchWorkersAsync,
-  Statuses,
-} from "../../../features/workers/workerSlice";
+import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
+import Statuses from "../../../features/Statuses";
 
 const Workers = () => {
   const dispatch = useDispatch();
