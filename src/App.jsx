@@ -19,27 +19,24 @@ import About from "./components/About";
 import Layout from "./components/Layout/Layout";
 import PageNotFound from "./components/PageNotFound";
 import AdminHome from "./components/Admin";
-import AdminLayout from "./components/Admin/Layout/Layout";
+import AdminLayout from "./components/Admin/Layout";
 import PersistLogin from "./components/Sessions/PersistLogin";
-import { Provider } from "react-redux";
-import { store } from "./store";
 
 function App() {
   return (
     <>
-      <Provider store={store}>
-        <Routes>
-          <Route element={<PersistLogin />}>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="login" element={<Login />} />
-              <Route path="signup" element={<SignUp />} />
-              <Route path="services" element={<Services />} />
-              <Route path="about" element={<About />} />
-              <Route path="gallery" element={<Gallery />}></Route>
+      <Routes>
+        <Route element={<PersistLogin />}>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+            <Route path="services" element={<Services />} />
+            <Route path="about" element={<About />} />
+            <Route path="gallery" element={<Gallery />}></Route>
 
-              {/* <Route path="schedule" element={<Schedule />}>
+            {/* <Route path="schedule" element={<Schedule />}>
                 <Route path="monday" element={<Monday />} />
                 <Route path="tuesday" element={<Tuesday />} />
                 <Route path="wednesday" element={<Wednesday />} />
@@ -48,16 +45,15 @@ function App() {
                 <Route path="saturday" element={<Saturday />} />
                 <Route path="sunday" element={<Sunday />} />
               </Route> */}
-            </Route>
-
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<AdminHome />} />
-            </Route>
-
-            <Route path="*" element={<PageNotFound />} />
           </Route>
-        </Routes>
-      </Provider>
+
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminHome />} />
+          </Route>
+
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
     </>
   );
 }

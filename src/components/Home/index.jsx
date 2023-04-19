@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     document.title = t("defaults.pageTitle");
-    setScrollY(window.innerHeight - 90);
+    setScrollY(window.innerHeight - 80);
   });
 
   return (

@@ -10,7 +10,7 @@ const About = () => {
 
   useEffect(() => {
     document.title = t("nav.about") + " - " + t("defaults.pageTitle");
-    setScrollY(115);
+    setScrollY(125);
   }, [setScrollY, t]);
 
   return (

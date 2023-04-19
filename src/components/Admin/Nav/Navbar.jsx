@@ -39,7 +39,7 @@ function AdminNavbar() {
   return (
     <>
       <nav
-        className={`flex flex-row items-center justify-between py-7 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
+        className={`flex flex-row items-center justify-between py-4 px-12  fixed top-0 left-0 right-0 w-full z-50 ${
           sticky ? "shadow-xl bg-slightly-transparent" : "bg-transparent"
         }`}
       >

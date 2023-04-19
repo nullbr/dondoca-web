@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Nav/Navbar";
-import "./Layout.css";
+import "./index.css";
 import AdminFooter from "../Footer/Footer";
 import PrivateRoutes from "../Routes/PrivateRoutes";
 
 const AdminLayout = () => {
   return (
     <>
+      <Navbar />
       <PrivateRoutes>
-        <Navbar />
-        <Outlet />
+        <main>
+          <Outlet />
+        </main>
         <AdminFooter />
       </PrivateRoutes>
     </>

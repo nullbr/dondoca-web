@@ -7,7 +7,7 @@ const AdminHome = () => {
 
   useEffect(() => {
     document.title = t("admin.nav.calendar") + " - " + t("defaults.pageTitle");
-    setScrollY(115);
+    setScrollY(125);
   }, [setScrollY, t]);
 
   return (
