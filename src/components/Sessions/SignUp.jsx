@@ -14,7 +14,7 @@ const SignUp = () => {
   useEffect(() => {
     document.title = t("defaults.signUp") + " - " + t("defaults.pageTitle");
     setScrollY(125);
-  }, []);
+  }, [setScrollY, t]);
 
   // Sign up user
   const { loading, errorMessages } = useSelector((store) => store.sessions);
@@ -29,7 +29,7 @@ const SignUp = () => {
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
     }
-  }, []);
+  }, [errorMessages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +51,6 @@ const SignUp = () => {
     }
 
     const response = await dispatch(signUpUser(entries));
-    console.log(response);
 
     if (response.error) {
       return setErrors(errorMessages);
