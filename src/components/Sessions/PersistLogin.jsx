@@ -22,6 +22,10 @@ const PersistLogin = () => {
     }
   }, [accessToken, refreshToken, dispatch]);
 
-  return <>{loading ? <p>Loading...</p> : <Outlet />}</>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 export default PersistLogin;

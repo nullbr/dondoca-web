@@ -2,7 +2,10 @@ import "./Styles.css";
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { signUpUser } from "../../features/sessions/sessionSlice";
+import {
+  resetErrorState,
+  signUpUser,
+} from "../../features/sessions/sessionSlice";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
@@ -30,7 +33,7 @@ const SignUp = () => {
   useEffect(() => {
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
-      // dispatch(resetErrorState())
+      dispatch(resetErrorState());
     }
   }, [errorMessages]);
 
@@ -57,9 +60,9 @@ const SignUp = () => {
 
     if (response.error) {
       return setErrors(errorMessages);
-    } else {
-      return navigate("/admin");
     }
+
+    navigate("/admin");
   };
 
   // Check if passwords match

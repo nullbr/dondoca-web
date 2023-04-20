@@ -102,7 +102,12 @@ export const refreshAccessToken = createAsyncThunk(
 const sessionSlice = createSlice({
   name: "sessions",
   initialState,
-  reducers: {},
+  reducers: {
+    resetErrorState: (state) => {
+      state.error = false;
+      state.errorMessages = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(signUpUser.pending, (state) => {
@@ -213,7 +218,7 @@ const sessionSlice = createSlice({
   },
 });
 
-// export const {} = sessionSlice.actions;
+export const { resetErrorState } = sessionSlice.actions;
 
 export default sessionSlice.reducer;
 

@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
-import { loginUser } from "../../features/sessions/sessionSlice";
+import {
+  loginUser,
+  resetErrorState,
+} from "../../features/sessions/sessionSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
@@ -26,9 +30,9 @@ const Login = () => {
   useEffect(() => {
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
-      // dispatch(resetErrorState())
+      dispatch(resetErrorState());
     }
-  }, [errorMessages]);
+  }, [errorMessages, dispatch]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,9 +52,8 @@ const Login = () => {
 
     if (errorMessages.length > 0) {
       return setErrors(errorMessages);
-    } else {
-      return <Navigate to="/admin" />;
     }
+    navigate("/admin");
   };
 
   return (
