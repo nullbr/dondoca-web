@@ -7,6 +7,7 @@ const translations = {
       instagram: "https://www.instagram.com/dondocasr",
       login: "Log In",
       signUp: "Cadastre-se",
+      logout: "Sair",
       brunoLink: "https://bruno.buzz/",
     },
 
