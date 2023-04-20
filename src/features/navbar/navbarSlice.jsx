@@ -10,7 +10,9 @@ const navbarSlice = createSlice({
   initialState,
   reducers: {
     setScrollY: (state, { payload }) => {
-      state.scrollY = payload;
+      if (state.scrollY !== payload) {
+        state.scrollY = payload;
+      }
     },
     showLogoutModal: (state) => {
       state.showLogoutModal = true;

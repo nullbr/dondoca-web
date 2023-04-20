@@ -25,10 +25,10 @@ const Services = () => {
         </div>
 
         <div className="container gap-12 page-padding py-[10rem] md1000:grid-cols-2 min620:grid-cols-1  grid-cols-3 text-left grid">
-          {services.map((service) => {
+          {services.map((service, idx) => {
             return (
               <div
-                key={service.name}
+                key={idx}
                 className="service-bg rounded-3xl shadow-2xl flex flex-col h-[46rem] relative p-[40px]"
                 style={{ backgroundImage: `url(${service.bgImg})` }}
               >
