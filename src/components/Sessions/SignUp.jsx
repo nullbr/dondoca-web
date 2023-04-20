@@ -1,7 +1,8 @@
+import "./Styles.css";
 import { useState, useEffect, useRef } from "react";
 import { Global } from "../../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpUser } from "../../features/sessions/sessionSlice";
 
 const SignUp = () => {
@@ -13,22 +14,22 @@ const SignUp = () => {
   useEffect(() => {
     document.title = t("defaults.signUp") + " - " + t("defaults.pageTitle");
     setScrollY(125);
+  }, []);
 
+  // Sign up user
+  const { loading, errorMessages } = useSelector((store) => store.sessions);
+  const [errors, setErrors] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+
+  // setting errors to errorMessages
+  useEffect(() => {
     // Focus on email input
     document.getElementById("email").focus();
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
-      errorMessages = [];
     }
-  });
-
-  // Sign up user
-
-  let errorMessages = [];
-  const [errors, setErrors] = useState([]);
-  const [showPassword, setShowPassword] = useState(false);
-  const loading = false;
-  const dispatch = useDispatch();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +37,6 @@ const SignUp = () => {
     const formData = new FormData(e.currentTarget);
     const entries = Object.fromEntries(formData);
 
-    console.log(entries);
     setErrors([]);
 
     if (
@@ -50,13 +50,13 @@ const SignUp = () => {
       return setErrors([t("signUp.passwordNoMatch")]);
     }
 
-    const response = dispatch(signUpUser(entries));
+    const response = await dispatch(signUpUser(entries));
     console.log(response);
 
-    if (errorMessages.length === 0) {
-      return navigate("/admin");
-    } else {
+    if (response.error) {
       return setErrors(errorMessages);
+    } else {
+      return navigate("/admin");
     }
   };
 
@@ -82,8 +82,8 @@ const SignUp = () => {
         <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">
             {errors.length > 0 && (
-              <legend className="bg-red py-5 px-10 mb-10">
-                <ul className="list-disc text-[1.6rem] text-white">
+              <legend>
+                <ul className="error-messages">
                   {errors.map((error, index) => (
                     <li key={index}>{error}</li>
                   ))}

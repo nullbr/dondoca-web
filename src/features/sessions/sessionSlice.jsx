@@ -94,7 +94,7 @@ const sessionSlice = createSlice({
       .addCase(signUpUser.rejected, (state, action) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = action.payload.errors;
+        state.errorMessages = action.payload;
       })
       .addCase(refreshAccessToken.pending, (state) => {
         state.loading = true;
@@ -118,7 +118,7 @@ const sessionSlice = createSlice({
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(refreshAccessToken.rejected, (state, action) => {
+      .addCase(refreshAccessToken.rejected, (state) => {
         state.loading = false;
         state.error = true;
       });

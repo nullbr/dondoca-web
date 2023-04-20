@@ -2,22 +2,22 @@ import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
 
 const Sidebar = ({ toggleSideBar, sidebar, t }) => {
-  useEffect(() => {
-    const div = document.querySelector("#galleryScript");
-    const script = document.createElement("script");
+  // useEffect(() => {
+  //   const div = document.querySelector("#galleryScript");
+  //   const script = document.createElement("script");
 
-    script.setAttribute(
-      "src",
-      "https://www.juicer.io/embed/brmariano13/embed-code.js?style=slider&columns=1&interval=1000"
-    );
-    script.setAttribute("async", "");
-    script.setAttribute("defer", "");
-    div.appendChild(script);
+  //   script.setAttribute(
+  //     "src",
+  //     "https://www.juicer.io/embed/brmariano13/embed-code.js?style=slider&columns=1&interval=1000"
+  //   );
+  //   script.setAttribute("async", "");
+  //   script.setAttribute("defer", "");
+  //   div.appendChild(script);
 
-    return () => {
-      div.removeChild(script);
-    };
-  }, []);
+  //   return () => {
+  //     div.removeChild(script);
+  //   };
+  // }, []);
 
   return (
     <div
