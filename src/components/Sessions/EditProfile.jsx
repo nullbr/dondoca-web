@@ -3,12 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  editUser,
   resetErrorState,
-  signUpUser,
 } from "../../features/sessions/sessionSlice";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import ErrorMessages from "./shared/ErrorMessages";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const EditProfile = () => {
   const confirmPasswordRef = useRef();
 
   useEffect(() => {
-    document.title = t("defaults.signUp") + " - " + t("editProfile.title");
+    document.title = t("editProfile.title") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     // Focus on email input
@@ -26,7 +27,9 @@ const EditProfile = () => {
   }, [dispatch, t]);
 
   // Sign up user
-  const { loading, errorMessages } = useSelector((store) => store.sessions);
+  const { loading, errorMessages, accessToken } = useSelector(
+    (store) => store.sessions
+  );
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
@@ -42,32 +45,56 @@ const EditProfile = () => {
     resetErrorMessages();
   }, []);
 
+  // Check form entries
+  const validEntries = (entries) => {
+    setErrors([]);
+
+    const shouldUpdatePassword =
+      entries.password !== "" || entries.password !== "";
+    const shouldEditProfile = entries.email !== "" || shouldUpdatePassword;
+
+    if (entries.length < 1 || !shouldEditProfile) {
+      setErrors([t("editProfile.fieldsError")]);
+    } else if (
+      shouldUpdatePassword &&
+      entries.password !== entries.confirmPassword
+    ) {
+      setErrors([t("signUp.passwordNoMatch")]);
+    } else if (!entries.currentPassword || entries.currentPassword === "") {
+      setErrors([t("editProfile.noCurrentPassword")]);
+    }
+
+    if (errors.length > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const entries = Object.fromEntries(formData);
 
-    setErrors([]);
-
-    if (
-      entries.length < 1 ||
-      entries.email === "" ||
-      entries.password === "" ||
-      entries.confirmPassword === ""
-    ) {
-      return setErrors([t("login.fieldsError")]);
-    } else if (entries.password !== entries.confirmPassword) {
-      return setErrors([t("signUp.passwordNoMatch")]);
+    if (!validEntries(entries)) {
+      return null;
     }
 
-    const response = await dispatch(signUpUser(entries));
+    const payload = {
+      email: entries.email,
+      password: entries.password,
+      currentPassword: entries.currentPassword,
+      accessToken: accessToken,
+    };
 
-    if (response.error) {
-      return setErrors(errorMessages);
+    const response = await dispatch(editUser(payload));
+
+    if (response.errors || response.error) {
+      return null;
     }
 
-    navigate("/admin");
+    navigate("/");
   };
 
   // Check if passwords match
@@ -90,15 +117,7 @@ const EditProfile = () => {
 
       <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
         <form onSubmit={handleSubmit} className="flex flex-col pb-20">
-          {errors.length > 0 && (
-            <legend>
-              <ul className="error-messages">
-                {errors.map((error, index) => (
-                  <li key={index}>{error}</li>
-                ))}
-              </ul>
-            </legend>
-          )}
+          <ErrorMessages errors={errors} errorMessages={errorMessages} />
           <ul>
             <li>
               <label
@@ -114,7 +133,6 @@ const EditProfile = () => {
                 placeholder={t("login.emailExample")}
                 type="email"
                 maxLength="100"
-                required
               />
             </li>
             <li>
@@ -134,7 +152,6 @@ const EditProfile = () => {
                   type={showPassword ? "text" : "password"}
                   minLength="7"
                   maxLength="100"
-                  required
                 />
                 <button
                   id="showPasswordButton"
@@ -168,7 +185,6 @@ const EditProfile = () => {
                   type={showPassword ? "text" : "password"}
                   minLength="7"
                   maxLength="100"
-                  required
                   onChange={() => checkPasswordMatch()}
                 />
                 <button
@@ -190,27 +206,26 @@ const EditProfile = () => {
             <li>
               <label
                 htmlFor="currentPassword"
-                className="text-[2rem] text-white mb-3 font-medium"
+                className="text-[2rem] text-white mb-3 font-medium capitalize"
               >
-                {t("signUp.repeatPass")} *
+                {t("editProfile.currentPassword")} *
               </label>
               <div style={{ position: "relative" }}>
                 <input
                   id="currentPassword"
                   name="currentPassword"
-                  className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-red-500 rounded-lg"
-                  placeholder={t("login.password")}
+                  className="text-[1.7rem] px-8 py-4 mb-10 w-full valid:outline-green-500 invalid:outline-red-500 rounded-lg"
+                  placeholder={t("editProfile.currentPassword")}
                   type={showCurrentPassword ? "text" : "password"}
                   minLength="7"
                   maxLength="100"
                   required
-                  onChange={() => checkPasswordMatch()}
                 />
                 <button
                   id="showCurrentPasswordButton"
                   type="button"
                   className="absolute top-6 right-5 text-xl"
-                  aria-label={t("login.showPassword")}
+                  aria-label={t("editProfile.showCurrentPassword")}
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 >
                   {showCurrentPassword ? (
@@ -227,19 +242,19 @@ const EditProfile = () => {
                 disabled={loading}
                 className="bg-signature-gold text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
               >
-                {t("defaults.signUp")}
+                {t("editProfile.title")}
               </button>
             </li>
           </ul>
         </form>
 
         <div className="flex gap-4 items-center mt-10 min450:flex-col">
-          <p className="text-white text-[1.5rem]">{t("signUp.current")}</p>
+          <p className="text-white text-[1.5rem]">{t("editProfile.newUser")}</p>
           <Link
-            to="/login"
+            to="/signup"
             className="text-signature-gold font-bold text-[1.5rem]"
           >
-            {t("defaults.login")}
+            {t("defaults.signUp")}
           </Link>
         </div>
       </div>

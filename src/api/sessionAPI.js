@@ -2,6 +2,7 @@ import axiosInstance from "./axios";
 
 const LOGIN_URL = "oauth/token";
 const SIGNUP_URL = "users";
+const EDIT_USER_URL = "users";
 const LOGOUT_URL = "oauth/revoke";
 const CURRENT_USER_URL = "users/me";
 
@@ -40,6 +41,26 @@ export async function logoutUserWithToken(refreshToken) {
 
   return axiosInstance
     .post(LOGOUT_URL, data)
+    .then((response) => response.data)
+    .catch((error) => error.response.data);
+}
+
+export async function editUserWithToken(payload) {
+  const data = {
+    email: payload.email,
+    password: payload.password,
+    current_password: payload.currentPassword,
+    client_id: CLIENT_ID,
+  };
+
+  const config = {
+    headers: {
+      Authorization: `Bearer ${payload.accessToken}`,
+    },
+  };
+
+  return axiosInstance
+    .patch(EDIT_USER_URL, data, config)
     .then((response) => response.data)
     .catch((error) => error.response.data);
 }

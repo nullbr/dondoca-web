@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUser,
+  editUserWithToken,
   getCurrentUser,
   loginWithCredentials,
   logoutUserWithToken,
@@ -40,11 +41,13 @@ export const loginUser = createAsyncThunk(
   "session/loginUser",
   async (credentials, { rejectWithValue }) => {
     const loginResponse = await loginWithCredentials(credentials);
+    console.log(1, loginResponse);
     if (loginResponse.error) {
       return rejectWithValue(loginResponse);
     }
 
     const userResponse = await getCurrentUser(loginResponse.access_token);
+    console.log(2, userResponse);
     if (userResponse.error) {
       return rejectWithValue(userResponse.data);
     }
@@ -63,8 +66,22 @@ export const logoutUser = createAsyncThunk(
   async ({ refreshToken }, { rejectWithValue }) => {
     const response = await logoutUserWithToken(refreshToken);
 
-    if (response.error) {
-      return rejectWithValue(response.error);
+    if (response.errors) {
+      return rejectWithValue(response.errors);
+    }
+
+    return response;
+  }
+);
+
+export const editUser = createAsyncThunk(
+  "session/editUser",
+  async (payload, { rejectWithValue }) => {
+    const response = await editUserWithToken(payload);
+
+    if (response.errors || response.error) {
+      const error = response.errors || response.error;
+      return rejectWithValue(error);
     }
 
     return response;
@@ -214,6 +231,34 @@ const sessionSlice = createSlice({
         state.loading = false;
         state.error = true;
         state.errorMessages = [payload.error];
+      })
+      .addCase(editUser.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(editUser.fulfilled, (state, { payload }) => {
+        state.currentUser = {
+          id: payload.id,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
+        };
+        state.accessToken = payload.access_token;
+        state.refreshToken = payload.refresh_token;
+        state.expiresIn = payload.expires_in;
+        state.tokenType = payload.token_type;
+
+        storeRefreshToken(payload.refresh_token);
+
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(editUser.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = payload;
       });
   },
 });

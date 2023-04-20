@@ -8,6 +8,7 @@ import {
   loginUser,
   resetErrorState,
 } from "../../features/sessions/sessionSlice";
+import ErrorMessages from "./shared/ErrorMessages";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ const Login = () => {
     }
   };
 
+  console.log(errors, errorMessages);
+
   useEffect(() => {
     resetErrorMessages();
   }, []);
@@ -52,8 +55,8 @@ const Login = () => {
 
     const response = await dispatch(loginUser(entries));
 
-    if (errorMessages.length > 0) {
-      return setErrors(errorMessages);
+    if (response.errors || response.error) {
+      return null;
     }
     navigate("/admin");
   };
@@ -69,15 +72,7 @@ const Login = () => {
 
         <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">
-            {errors.length > 0 && (
-              <legend className="bg-red py-5 px-10 mb-10">
-                <ul className="list-disc text-[1.6rem] text-white">
-                  {errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                  ))}
-                </ul>
-              </legend>
-            )}
+            <ErrorMessages errors={errors} errorMessages={errorMessages} />
             <ul>
               <li>
                 <label
