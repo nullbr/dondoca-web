@@ -27,12 +27,16 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loading, errorMessages } = useSelector((store) => store.sessions);
 
-  useEffect(() => {
+  const resetErrorMessages = () => {
     if (errorMessages) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
-  }, [errorMessages, dispatch]);
+  };
+
+  useEffect(() => {
+    resetErrorMessages();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -119,6 +119,11 @@ const translations = {
       current: "Já possui conta?",
       passwordNoMatch: "Senhas não são iguais",
     },
+
+    editProfile: {
+      title: "Editar Perfil",
+      currentPassword: "senha atual",
+    },
   },
 };
 

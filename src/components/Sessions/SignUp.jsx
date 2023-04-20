@@ -30,12 +30,16 @@ const SignUp = () => {
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
+  const resetErrorMessages = () => {
     if (errorMessages) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
-  }, [errorMessages]);
+  };
+
+  useEffect(() => {
+    resetErrorMessages();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

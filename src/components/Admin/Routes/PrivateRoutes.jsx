@@ -6,11 +6,9 @@ const PrivateRoutes = ({ children }) => {
 
   if (accessToken) {
     return children;
-  } else if (loading) {
-    return <p>Loading...</p>;
   } else if (!accessToken && !loading) {
     return <Navigate to="/login" />;
-  } else {
+  } else if (!loading) {
     return <p>Something went wrong</p>;
   }
 };
