@@ -39,7 +39,7 @@ export async function getCurrentUser(accessToken) {
   };
 
   return axiosInstance
-    .post(CURRENT_USER_URL, config)
+    .get(CURRENT_USER_URL, config)
     .then((response) => response.data)
     .catch((error) => error.response.data);
 }
