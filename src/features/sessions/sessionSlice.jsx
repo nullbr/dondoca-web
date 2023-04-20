@@ -85,7 +85,7 @@ const sessionSlice = createSlice({
         state.expiresIn = action.payload.expires_in;
         state.tokenType = action.payload.token_type;
 
-        storeRefreshToken(action.payload.refreshToken);
+        storeRefreshToken(action.payload.refresh_token);
 
         state.loading = false;
         state.error = false;
@@ -112,7 +112,7 @@ const sessionSlice = createSlice({
         state.refreshToken = action.payload.refresh_token;
         state.expiresIn = action.payload.expires_in;
 
-        storeRefreshToken(action.payload.refreshToken);
+        storeRefreshToken(action.payload.refresh_token);
 
         state.loading = false;
         state.error = false;

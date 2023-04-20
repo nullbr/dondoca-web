@@ -9,9 +9,7 @@ const AdminLayout = () => {
     <>
       <Navbar />
       <PrivateRoutes>
-        <main>
-          <Outlet />
-        </main>
+        <Outlet />
         <AdminFooter />
       </PrivateRoutes>
     </>
