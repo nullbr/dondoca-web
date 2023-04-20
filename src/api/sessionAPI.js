@@ -17,6 +17,20 @@ export async function createUser(credentials) {
     .catch((error) => error.response.data);
 }
 
+export async function loginWithCredentials(credentials) {
+  const data = {
+    ...credentials,
+    grant_type: "password",
+    client_id: CLIENT_ID,
+    client_secret: CLIENT_SECRET,
+  };
+
+  return axiosInstance
+    .post(LOGIN_URL, data)
+    .then((response) => response.data)
+    .catch((error) => error.response.data);
+}
+
 export async function logoutUserWithToken(refreshToken) {
   const data = {
     token: refreshToken,

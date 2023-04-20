@@ -20,7 +20,7 @@ const PersistLogin = () => {
     if (!accessToken) {
       verifyRefreshToken();
     }
-  }, [accessToken, refreshToken]);
+  }, [accessToken, refreshToken, dispatch]);
 
   return <>{loading ? <p>Loading...</p> : <Outlet />}</>;
 };

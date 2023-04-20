@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import { loginUser } from "../../features/sessions/sessionSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -15,18 +16,19 @@ const Login = () => {
 
     // Focus on email input
     document.getElementById("email").focus();
-    if (errorMessages.length > 0) {
-      setErrors(errorMessages);
-      errorMessages = [];
-      // dispatch(resetErrorState())
-    }
   }, [dispatch, t]);
 
-  let errorMessages = [];
+  // Login User
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
-  const loading = false;
-  // const dispatch = useDispatch();
+  const { loading, errorMessages } = useSelector((store) => store.sessions);
+
+  useEffect(() => {
+    if (errorMessages.length > 0) {
+      setErrors(errorMessages);
+      // dispatch(resetErrorState())
+    }
+  }, [errorMessages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -41,9 +43,8 @@ const Login = () => {
       return setErrors([t("login.fieldsError")]);
     }
 
-    // const response = await dispatch(loginUser(entries));
-    // console.log(response);
-    errorMessages = ["There was an Error"];
+    const response = await dispatch(loginUser(entries));
+    console.log(response);
 
     if (errorMessages.length > 0) {
       return setErrors(errorMessages);

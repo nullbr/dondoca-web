@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUser,
   getCurrentUser,
+  loginWithCredentials,
   logoutUserWithToken,
   requestAccessTokenWithRefreshToken,
 } from "../../api/sessionAPI";
@@ -30,6 +31,28 @@ export const signUpUser = createAsyncThunk(
     if (response.errors) {
       return rejectWithValue(response.errors);
     }
+
+    return response;
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  "session/loginUser",
+  async (credentials, { rejectWithValue }) => {
+    const loginResponse = await loginWithCredentials(credentials);
+    if (loginResponse.error) {
+      return rejectWithValue(loginResponse);
+    }
+
+    const userResponse = await getCurrentUser(loginResponse.access_token);
+    if (userResponse.error) {
+      return rejectWithValue(userResponse.data);
+    }
+
+    const response = {
+      ...loginResponse,
+      ...userResponse,
+    };
 
     return response;
   }
@@ -87,46 +110,75 @@ const sessionSlice = createSlice({
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(signUpUser.fulfilled, (state, action) => {
+      .addCase(signUpUser.fulfilled, (state, { payload }) => {
         state.currentUser = {
-          id: action.payload.id,
-          email: action.payload.email,
-          role: action.payload.role,
-          createdAt: action.payload.created_at,
+          id: payload.id,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
         };
-        state.accessToken = action.payload.access_token;
-        state.refreshToken = action.payload.refresh_token;
-        state.expiresIn = action.payload.expires_in;
-        state.tokenType = action.payload.token_type;
+        state.accessToken = payload.access_token;
+        state.refreshToken = payload.refresh_token;
+        state.expiresIn = payload.expires_in;
+        state.tokenType = payload.token_type;
 
-        storeRefreshToken(action.payload.refresh_token);
+        storeRefreshToken(payload.refresh_token);
 
         state.loading = false;
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(signUpUser.rejected, (state, action) => {
+      .addCase(signUpUser.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = action.payload;
+        state.errorMessages = payload;
+      })
+      .addCase(loginUser.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(loginUser.fulfilled, (state, { payload }) => {
+        state.currentUser = {
+          id: payload.id,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
+        };
+        state.accessToken = payload.access_token;
+        state.refreshToken = payload.refresh_token;
+        state.expiresIn = payload.expires_in;
+
+        storeRefreshToken(payload.refresh_token);
+
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(loginUser.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = [
+          "Email ou senha incorreta. Por favor, tente novamente.",
+        ];
       })
       .addCase(refreshAccessToken.pending, (state) => {
         state.loading = true;
         state.error = false;
         state.errorMessages = [];
       })
-      .addCase(refreshAccessToken.fulfilled, (state, action) => {
+      .addCase(refreshAccessToken.fulfilled, (state, { payload }) => {
         state.currentUser = {
-          id: action.payload.id,
-          email: action.payload.email,
-          role: action.payload.role,
-          createdAt: action.payload.created_at,
+          id: payload.id,
+          email: payload.email,
+          role: payload.role,
+          createdAt: payload.created_at,
         };
-        state.accessToken = action.payload.access_token;
-        state.refreshToken = action.payload.refresh_token;
-        state.expiresIn = action.payload.expires_in;
+        state.accessToken = payload.access_token;
+        state.refreshToken = payload.refresh_token;
+        state.expiresIn = payload.expires_in;
 
-        storeRefreshToken(action.payload.refresh_token);
+        storeRefreshToken(payload.refresh_token);
 
         state.loading = false;
         state.error = false;
@@ -144,7 +196,7 @@ const sessionSlice = createSlice({
       .addCase(logoutUser.fulfilled, (state) => {
         state.currentUser = initialState.currentUser;
         state.accessToken = initialState.accessToken;
-        state.refreshToken = initialState.refreshToken;
+        state.refreshToken = null;
         state.expiresIn = initialState.expiresIn;
 
         removeRefreshToken();
