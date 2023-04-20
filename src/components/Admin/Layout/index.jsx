@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "../Nav/Navbar";
+import Navbar from "../../Nav/Navbar";
 import "./index.css";
 import AdminFooter from "../Footer/Footer";
 import PrivateRoutes from "../Routes/PrivateRoutes";
@@ -7,7 +7,7 @@ import PrivateRoutes from "../Routes/PrivateRoutes";
 const AdminLayout = () => {
   return (
     <>
-      <Navbar />
+      <Navbar admin={true} />
       <PrivateRoutes>
         <Outlet />
         <AdminFooter />

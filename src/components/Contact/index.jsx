@@ -1,14 +1,18 @@
 import { useEffect } from "react";
-import { Global } from "../../context/GlobalContext";
 import Reviews from "./Reviews";
+import { useDispatch } from "react-redux";
+import { PAGE_HEADER_Y } from "../../lib/constants";
+import { useTranslation } from "react-i18next";
+import { setScrollY } from "../../features/navbar/navbarSlice";
 
 const Contact = () => {
-  const { t, setScrollY } = Global();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = t("nav.contact") + " - " + t("defaults.pageTitle");
-    setScrollY(125);
-  });
+    dispatch(setScrollY(PAGE_HEADER_Y));
+  }, [dispatch, t]);
 
   return (
     <>

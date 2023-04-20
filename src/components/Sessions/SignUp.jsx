@@ -1,33 +1,36 @@
 import "./Styles.css";
 import { useState, useEffect, useRef } from "react";
-import { Global } from "../../context/GlobalContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpUser } from "../../features/sessions/sessionSlice";
+import { PAGE_HEADER_Y } from "../../lib/constants";
+import { useTranslation } from "react-i18next";
+import { setScrollY } from "../../features/navbar/navbarSlice";
 
 const SignUp = () => {
-  const { t, setScrollY } = Global();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
 
   useEffect(() => {
     document.title = t("defaults.signUp") + " - " + t("defaults.pageTitle");
-    setScrollY(125);
-  }, [setScrollY, t]);
+    dispatch(setScrollY(PAGE_HEADER_Y));
+
+    // Focus on email input
+    document.getElementById("email").focus();
+  }, [dispatch, t]);
 
   // Sign up user
   const { loading, errorMessages } = useSelector((store) => store.sessions);
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
 
-  // setting errors to errorMessages
   useEffect(() => {
-    // Focus on email input
-    document.getElementById("email").focus();
     if (errorMessages.length > 0) {
       setErrors(errorMessages);
+      // dispatch(resetErrorState())
     }
   }, [errorMessages]);
 

@@ -1,15 +1,19 @@
-import { useEffect } from "react";
-import { Global } from "../../context/GlobalContext";
-import { services } from "./services";
 import "./index.css";
+import { useEffect } from "react";
+import { services } from "./services";
+import { useDispatch } from "react-redux";
+import { PAGE_HEADER_Y } from "../../lib/constants";
+import { useTranslation } from "react-i18next";
+import { setScrollY } from "../../features/navbar/navbarSlice";
 
 const Services = () => {
-  const { t, setScrollY } = Global();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
-    setScrollY(125);
-  });
+    dispatch(setScrollY(PAGE_HEADER_Y));
+  }, [dispatch, t]);
 
   return (
     <>

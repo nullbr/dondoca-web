@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { Global } from "../../context/GlobalContext";
 import { Link, Navigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
+import { PAGE_HEADER_Y } from "../../lib/constants";
+import { useTranslation } from "react-i18next";
+import { setScrollY } from "../../features/navbar/navbarSlice";
 
 const Login = () => {
-  const { t, setScrollY } = Global();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
-    setScrollY(125);
+    dispatch(setScrollY(PAGE_HEADER_Y));
 
     // Focus on email input
     document.getElementById("email").focus();
@@ -17,7 +20,7 @@ const Login = () => {
       errorMessages = [];
       // dispatch(resetErrorState())
     }
-  });
+  }, [dispatch, t]);
 
   let errorMessages = [];
   const [errors, setErrors] = useState([]);

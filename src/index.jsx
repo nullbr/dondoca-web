@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import "./i18n";
-import { GlobalProvider } from "./context/GlobalContext";
 import ScrollTop from "./components/ScrollTop";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -14,11 +13,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ScrollTop />
-      <GlobalProvider>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </GlobalProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
