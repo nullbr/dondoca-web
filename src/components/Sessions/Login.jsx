@@ -28,7 +28,7 @@ const Login = () => {
   const { loading, errorMessages } = useSelector((store) => store.sessions);
 
   useEffect(() => {
-    if (errorMessages.length > 0) {
+    if (errorMessages) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
@@ -40,7 +40,6 @@ const Login = () => {
     const formData = new FormData(e.currentTarget);
     const entries = Object.fromEntries(formData);
 
-    console.log(entries);
     setErrors([]);
 
     if (entries.length < 1 || entries.email === "" || entries.password === "") {
@@ -48,7 +47,6 @@ const Login = () => {
     }
 
     const response = await dispatch(loginUser(entries));
-    console.log(response);
 
     if (errorMessages.length > 0) {
       return setErrors(errorMessages);

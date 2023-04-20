@@ -31,7 +31,7 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    if (errorMessages.length > 0) {
+    if (errorMessages) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
