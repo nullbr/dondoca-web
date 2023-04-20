@@ -3,15 +3,19 @@ import About from "./About/About";
 import Featured from "./Featured/Featured";
 import Hero from "./Hero/Hero";
 import { useEffect } from "react";
-import { Global } from "../../context/GlobalContext";
+import { useDispatch } from "react-redux";
+import { setScrollY } from "../../features/navbar/navbarSlice";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
-  const { t, setScrollY } = Global();
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.title = t("defaults.pageTitle");
-    setScrollY(window.innerHeight - 90);
-  });
+    setScrollY(window.innerHeight - 80);
+    dispatch(setScrollY(window.innerHeight - 80));
+  }, [dispatch, t]);
 
   return (
     <>

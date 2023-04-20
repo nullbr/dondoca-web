@@ -5,8 +5,9 @@ const translations = {
       pageNotFound: "Página não encontrada",
       followUs: "Siga-nos",
       instagram: "https://www.instagram.com/dondocasr",
-      login: "Login",
+      login: "Log In",
       signUp: "Cadastre-se",
+      logout: "Sair",
       brunoLink: "https://bruno.buzz/",
     },
 
@@ -100,6 +101,23 @@ const translations = {
         calendar: "Agenda",
         workers: "Girls",
       },
+    },
+
+    login: {
+      fieldsError: "Por favor, preecha todos os campos.",
+      email: "email",
+      emailExample: "exemplo@email.com",
+      password: "senha",
+      showPassword: "Mostrar senha",
+      new: "Novo usuario?",
+      forgotPass: "Esqueceu a senha?",
+      recover: "Recuperar Senha",
+    },
+
+    signUp: {
+      repeatPass: "Confirmar Senha",
+      current: "Já possui conta?",
+      passwordNoMatch: "Senhas não são iguais",
     },
   },
 };

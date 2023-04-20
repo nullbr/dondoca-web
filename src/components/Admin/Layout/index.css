@@ -14,3 +14,8 @@ section {
   background-position: center center;
   min-height: 600px;
 }
+
+main {
+  max-width: 124rem;
+  margin: 0 auto;
+}

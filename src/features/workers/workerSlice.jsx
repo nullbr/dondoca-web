@@ -1,13 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchWorkers } from "./workersAPI";
-
-export const Statuses = Object.freeze({
-  Initial: "Not Fetched",
-  Loading: "Loading...",
-  UpToDate: "Up To Date",
-  Deleted: "Deleted",
-  Error: "Error",
-});
+import Statuses from "../Statuses";
 
 const initialState = {
   workers: [

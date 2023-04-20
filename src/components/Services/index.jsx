@@ -1,15 +1,19 @@
-import { useEffect } from "react";
-import { Global } from "../../context/GlobalContext";
-import { services } from "./services";
 import "./index.css";
+import { useEffect } from "react";
+import { services } from "./services";
+import { useDispatch } from "react-redux";
+import { PAGE_HEADER_Y } from "../../lib/constants";
+import { useTranslation } from "react-i18next";
+import { setScrollY } from "../../features/navbar/navbarSlice";
 
 const Services = () => {
-  const { t, setScrollY } = Global();
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = t("nav.services") + " - " + t("defaults.pageTitle");
-    setScrollY(115);
-  });
+    dispatch(setScrollY(PAGE_HEADER_Y));
+  }, [dispatch, t]);
 
   return (
     <>
@@ -21,10 +25,10 @@ const Services = () => {
         </div>
 
         <div className="container gap-12 page-padding py-[10rem] md1000:grid-cols-2 min620:grid-cols-1  grid-cols-3 text-left grid">
-          {services.map((service) => {
+          {services.map((service, idx) => {
             return (
               <div
-                key={service.name}
+                key={idx}
                 className="service-bg rounded-3xl shadow-2xl flex flex-col h-[46rem] relative p-[40px]"
                 style={{ backgroundImage: `url(${service.bgImg})` }}
               >

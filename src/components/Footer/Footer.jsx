@@ -1,8 +1,8 @@
 import FooterLogo from "../../assets/images/logo/logo-footer.png";
-import { Global } from "../../context/GlobalContext";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
-  const { t } = Global();
+  const { t } = useTranslation();
   return (
     <>
       <footer className="bg-white">
