@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Contact from "./components/Contact";
 import Home from "./components/Home";
 import Login from "./components/Sessions/Login";
+import Logout from "./components/Sessions/Logout";
 import SignUp from "./components/Sessions/SignUp";
 import Services from "./components/Services";
 // import Schedule from "./components/Schedule";
@@ -29,9 +30,10 @@ function App() {
         <Route element={<PersistLogin />}>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="contact" element={<Contact />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
+            <Route path="logout" element={<Logout />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="services" element={<Services />} />
             <Route path="about" element={<About />} />
             <Route path="gallery" element={<Gallery />}></Route>

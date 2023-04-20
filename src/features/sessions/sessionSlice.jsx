@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   createUser,
   getCurrentUser,
+  logoutUserWithToken,
   requestAccessTokenWithRefreshToken,
 } from "../../api/sessionAPI";
 
@@ -28,6 +29,19 @@ export const signUpUser = createAsyncThunk(
 
     if (response.errors) {
       return rejectWithValue(response.errors);
+    }
+
+    return response;
+  }
+);
+
+export const logoutUser = createAsyncThunk(
+  "session/logoutUser",
+  async ({ refreshToken }, { rejectWithValue }) => {
+    const response = await logoutUserWithToken(refreshToken);
+
+    if (response.error) {
+      return rejectWithValue(response.error);
     }
 
     return response;
@@ -121,6 +135,28 @@ const sessionSlice = createSlice({
       .addCase(refreshAccessToken.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(logoutUser.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(logoutUser.fulfilled, (state) => {
+        state.currentUser = initialState.currentUser;
+        state.accessToken = initialState.accessToken;
+        state.refreshToken = initialState.refreshToken;
+        state.expiresIn = initialState.expiresIn;
+
+        removeRefreshToken();
+
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
+      })
+      .addCase(logoutUser.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = [payload.error];
       });
   },
 });
@@ -133,9 +169,9 @@ function storeRefreshToken(token) {
   localStorage.setItem("refreshToken", token);
 }
 
-// function removeRefreshToken() {
-//   localStorage.removeItem();
-// }
+function removeRefreshToken() {
+  localStorage.removeItem("refreshToken");
+}
 
 function getRefreshToken() {
   return localStorage.getItem("refreshToken");
