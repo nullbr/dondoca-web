@@ -23,7 +23,7 @@ const Contact = () => {
           </h1>
         </div>
         {/* contact */}
-        <div className="bg-white py-[12rem] page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
+        <div className="bg-white py-20 page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
           {/* first col */}
           <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%] min620:w-full">
             <h2 className="text-black text-[3.4rem] min620:text-[2.5rem] font-bold leading-[1.2]">
@@ -49,7 +49,7 @@ const Contact = () => {
                   </p>
                 </a>
               </div>
-              {/*  */}
+              {/* hours */}
               <div className="flex flex-col relative">
                 <h3 className="text-[2rem] font-bold mb-10 underline underline-offset-8 decoration-4 decoration-signature-gold">
                   {t("contactUs.hours")}
@@ -63,7 +63,7 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              {/*  */}
+              {/* contact info */}
               <div className="flex flex-col relative">
                 <h3 className="text-[2rem] font-bold mb-10 underline underline-offset-8 decoration-4 decoration-signature-gold">
                   {t("contactUs.title")}
@@ -89,7 +89,7 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
-              {/*  */}
+              {/* social */}
               <div className="flex flex-col relative">
                 <h3 className="text-[2rem] font-bold mb-10 underline underline-offset-8 decoration-4 decoration-signature-gold">
                   {t("defaults.followUs")}

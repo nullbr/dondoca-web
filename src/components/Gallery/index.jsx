@@ -13,46 +13,67 @@ const Gallery = () => {
     dispatch(setScrollY(PAGE_HEADER_Y));
   }, [dispatch, t]);
 
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const frameRef = useRef(null);
+  // const [isIntersecting, setIsIntersecting] = useState(false);
+  // const frameRef = useRef(null);
 
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(
-        ([entry]) => setIsIntersecting(entry.isIntersecting),
-        { threshold: 0.7 }
-      ),
-    []
-  );
+  // const observer = useMemo(
+  //   () =>
+  //     new IntersectionObserver(
+  //       ([entry]) => setIsIntersecting(entry.isIntersecting),
+  //       { threshold: 0.7 }
+  //     ),
+  //   []
+  // );
+
+  // useEffect(() => {
+  //   observer.observe(frameRef.current);
+
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [frameRef, observer]);
 
   useEffect(() => {
-    observer.observe(frameRef.current);
+    const div = document.getElementById("galleryDiv");
+    const script = document.createElement("script");
+
+    script.setAttribute(
+      "src",
+      "https://www.juicer.io/embed/dondocasr/embed-code.js?per=20&truncate=200"
+    );
+    script.setAttribute("async", "");
+    script.setAttribute("defer", "");
+    div.appendChild(script);
 
     return () => {
-      observer.disconnect();
+      div.removeChild(script);
     };
-  }, [frameRef, observer]);
+  }, []);
 
   return (
     <>
-      <section>
+      <section className="relative">
         <div className="login-banner relative justify-center flex">
           <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
             {t("nav.gallery")}
           </h1>
         </div>
-        <div
+        {/* gallery */}
+        <div className="container page-padding pt-10 flex flex-col gap-6">
+          <div id="galleryDiv" className="w-full"></div>
+        </div>
+        {/* <div
           ref={frameRef}
-          className={`container page-padding py-5 h-screen ${
-            !isIntersecting && "pointer-events-none"
+          className={`container page-padding py-5 ${
+            !isIntersecting ? "pointer-events-none" : ""
           }`}
         >
           <iframe
             title="gallery"
-            src="https://www.juicer.io/api/feeds/brmariano13/iframe?per=10&truncate=100"
+            src="https://www.juicer.io/api/feeds/dondocasr/iframe?per=10&truncate=200"
             className="w-full h-full"
           ></iframe>
-        </div>
+        </div> */}
       </section>
     </>
   );

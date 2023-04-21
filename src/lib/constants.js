@@ -1,1 +1,1 @@
-export const PAGE_HEADER_Y = Object.freeze(125);
+export const PAGE_HEADER_Y = Object.freeze(110);

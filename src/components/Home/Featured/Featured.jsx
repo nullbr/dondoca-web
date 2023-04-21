@@ -5,7 +5,7 @@ import "./Featured.css";
 function Featured({ t }) {
   return (
     <>
-      <section className="flex justify-between about-section py-20">
+      <section className="flex justify-between py-20">
         <div className="container page-padding">
           <div className="p-20 bg-white shadow-lg">
             {/* title */}
