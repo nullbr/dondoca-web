@@ -32,12 +32,12 @@ const translations = {
         space: {
           title: "Ambiente",
           description:
-            "Oferecemos um ambiente confortável e acolhedor, com uma atmosfera relaxante para nossos clientes.",
+            "Oferecemos um ambiente confortável e acolhedor, com uma atmosfera relaxante para os nossos clientes.",
         },
         price: {
           title: "Preços",
           description:
-            "Temos preços justos e razoáveis para os serviços prestados. Tambem oferecemos promoções especiais e pacotes.",
+            "Temos preços justos e razoáveis para os serviços prestados. Também oferecemos promoções especiais e pacotes.",
         },
       },
       featured: {

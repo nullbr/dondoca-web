@@ -35,8 +35,6 @@ const Login = () => {
     }
   };
 
-  console.log(errors, errorMessages);
-
   useEffect(() => {
     resetErrorMessages();
   }, []);

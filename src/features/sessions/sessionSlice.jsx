@@ -41,13 +41,11 @@ export const loginUser = createAsyncThunk(
   "session/loginUser",
   async (credentials, { rejectWithValue }) => {
     const loginResponse = await loginWithCredentials(credentials);
-    console.log(1, loginResponse);
     if (loginResponse.error) {
-      return rejectWithValue(loginResponse);
+      return rejectWithValue(loginResponse.error);
     }
 
     const userResponse = await getCurrentUser(loginResponse.access_token);
-    console.log(2, userResponse);
     if (userResponse.error) {
       return rejectWithValue(userResponse.data);
     }
