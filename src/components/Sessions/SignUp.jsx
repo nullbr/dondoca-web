@@ -9,6 +9,7 @@ import {
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import ErrorMessages from "./shared/ErrorMessages";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,16 @@ const SignUp = () => {
   const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
 
-  useEffect(() => {
+  const resetErrorMessages = () => {
     if (errorMessages) {
       setErrors(errorMessages);
       dispatch(resetErrorState());
     }
-  }, [errorMessages]);
+  };
+
+  useEffect(() => {
+    resetErrorMessages();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,8 +63,8 @@ const SignUp = () => {
 
     const response = await dispatch(signUpUser(entries));
 
-    if (response.error) {
-      return setErrors(errorMessages);
+    if (response.errors || response.error) {
+      return null;
     }
 
     navigate("/admin");
@@ -86,15 +91,7 @@ const SignUp = () => {
 
         <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">
-            {errors.length > 0 && (
-              <legend>
-                <ul className="error-messages">
-                  {errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                  ))}
-                </ul>
-              </legend>
-            )}
+            <ErrorMessages errors={errors} errorMessages={errorMessages} />
             <ul>
               <li>
                 <label

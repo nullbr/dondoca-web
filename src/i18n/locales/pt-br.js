@@ -109,7 +109,7 @@ const translations = {
       emailExample: "exemplo@email.com",
       password: "senha",
       showPassword: "Mostrar senha",
-      new: "Novo usuario?",
+      new: "Novo usuário?",
       forgotPass: "Esqueceu a senha?",
       recover: "Recuperar Senha",
     },
@@ -118,6 +118,15 @@ const translations = {
       repeatPass: "Confirmar Senha",
       current: "Já possui conta?",
       passwordNoMatch: "Senhas não são iguais",
+    },
+
+    editProfile: {
+      title: "Editar Perfil",
+      fieldsError: "Necessário inserir novo email ou senha.",
+      currentPassword: "senha atual",
+      showCurrentPassword: "Mostrar Senha Atual",
+      newUser: "Criar novo usuário?",
+      noCurrentPassword: "Necessário inserir senha atual.",
     },
   },
 };

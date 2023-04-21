@@ -22,6 +22,8 @@ import PageNotFound from "./components/PageNotFound";
 import AdminHome from "./components/Admin";
 import AdminLayout from "./components/Admin/Layout";
 import PersistLogin from "./components/Sessions/PersistLogin";
+import EditProfile from "./components/Sessions/EditProfile";
+import PrivateRoutes from "./components/Admin/Routes/PrivateRoutes";
 
 function App() {
   return (
@@ -33,6 +35,14 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
             <Route path="logout" element={<Logout />} />
+            <Route
+              path="edit-profile"
+              element={
+                <PrivateRoutes>
+                  <EditProfile />
+                </PrivateRoutes>
+              }
+            />
             <Route path="contact" element={<Contact />} />
             <Route path="services" element={<Services />} />
             <Route path="about" element={<About />} />
@@ -47,13 +57,12 @@ function App() {
                 <Route path="saturday" element={<Saturday />} />
                 <Route path="sunday" element={<Sunday />} />
               </Route> */}
+            <Route path="*" element={<PageNotFound />} />
           </Route>
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminHome />} />
           </Route>
-
-          <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
     </>

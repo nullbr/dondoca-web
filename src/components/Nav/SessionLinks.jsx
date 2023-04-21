@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
@@ -26,13 +26,27 @@ const SessionLinks = ({ sticky }) => {
           {isOpen && (
             <div
               onMouseLeave={() => setIsOpen(false)}
-              className="absolute right-0 mt-2 py-2 w-48 rounded-md shadow-xl z-10 bg-white text-gray hover:text-signature-gold"
+              className="absolute right-0 mt-2 w-48 rounded-md shadow-2xl z-10 bg-white text-center text-xl"
             >
-              <NavLink title="logout" to="/logout">
-                <p className="block px-4 py-2 w-full text-left">
-                  {t("defaults.logout")}
-                </p>
-              </NavLink>
+              <h2 className="bg-signature-gold text-white my-4 py-2">
+                {currentUser.email}
+              </h2>
+              <ul>
+                <li>
+                  <NavLink title="Edit Profile" to="/edit-profile">
+                    <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold">
+                      {t("editProfile.title")}
+                    </p>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink title="logout" to="/logout">
+                    <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold shadow-sm">
+                      {t("defaults.logout")}
+                    </p>
+                  </NavLink>
+                </li>
+              </ul>
             </div>
           )}
         </div>
