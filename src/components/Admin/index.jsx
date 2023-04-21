@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import PagesHeader from "../Shared/PagesHeader";
 
 const AdminHome = () => {
   const dispatch = useDispatch();
@@ -16,11 +17,7 @@ const AdminHome = () => {
 
   return (
     <>
-      <header className="relative justify-center flex">
-        <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-          {t("admin.title")}
-        </h1>
-      </header>
+      <PagesHeader pageTitle={t("admin.title")} />
       <section>
         <Workers />
       </section>

@@ -1,5 +1,5 @@
 import TitleBg from "../../../assets/images/shared/paint-stroke-gold.svg";
-import MainButton from "../../Shared/MainButton/MainButton";
+import MainButton from "../../Shared/MainButton";
 import "./Featured.css";
 
 function Featured({ t }) {

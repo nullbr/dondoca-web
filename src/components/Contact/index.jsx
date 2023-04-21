@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import PagesHeader from "../Shared/PagesHeader";
 
 const Contact = () => {
   const dispatch = useDispatch();
@@ -17,11 +18,8 @@ const Contact = () => {
   return (
     <>
       <section>
-        <div className="login-banner relative justify-center flex">
-          <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            {t("contactUs.title")}
-          </h1>
-        </div>
+        <PagesHeader pageTitle={t("contactUs.title")} />
+
         {/* contact */}
         <div className="bg-white py-20 page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
           {/* first col */}

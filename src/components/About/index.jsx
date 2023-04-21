@@ -1,4 +1,3 @@
-import "./index.css";
 import { useEffect } from "react";
 import AboutSection from "./AboutSection";
 import Professionals from "./Professionals";
@@ -7,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import PagesHeader from "../Shared/PagesHeader";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,8 @@ const About = () => {
 
   return (
     <>
-      <section className="main-section">
-        <div className="login-banner relative justify-center flex">
-          <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            About Us
-          </h1>
-        </div>
+      <section>
+        <PagesHeader pageTitle={t("nav.about")} />
 
         <div className="container page-padding py-[5rem] flex flex-col justify-center gap-20">
           <AboutSection />

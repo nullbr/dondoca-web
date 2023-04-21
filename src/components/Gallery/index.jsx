@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import PagesHeader from "../Shared/PagesHeader";
 
 const Gallery = () => {
   const dispatch = useDispatch();
@@ -33,11 +34,8 @@ const Gallery = () => {
   return (
     <>
       <section className="relative">
-        <div className="login-banner relative justify-center flex">
-          <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            {t("nav.gallery")}
-          </h1>
-        </div>
+        <PagesHeader pageTitle={t("nav.gallery")} />
+
         {/* gallery */}
         <div className="container page-padding pt-10 flex flex-col gap-6">
           <div id="galleryDiv" className="w-full"></div>

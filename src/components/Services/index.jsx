@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
+import PagesHeader from "../Shared/PagesHeader";
 
 const Services = () => {
   const dispatch = useDispatch();
@@ -17,12 +18,8 @@ const Services = () => {
 
   return (
     <>
-      <section className="header-section text-center ">
-        <div className="login-banner relative justify-center flex">
-          <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            {t("nav.services")}
-          </h1>
-        </div>
+      <section>
+        <PagesHeader pageTitle={t("nav.services")} />
 
         <div className="container gap-12 page-padding py-[10rem] md1000:grid-cols-2 min620:grid-cols-1  grid-cols-3 text-left grid">
           {services.map((service, idx) => {

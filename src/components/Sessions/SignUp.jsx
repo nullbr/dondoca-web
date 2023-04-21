@@ -10,6 +10,7 @@ import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
 import ErrorMessages from "./shared/ErrorMessages";
+import PagesHeader from "../Shared/PagesHeader";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -82,12 +83,8 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="header-section pb-20">
-        <div className="login-banner relative justify-center flex">
-          <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">
-            {t("defaults.signUp")}
-          </h1>
-        </div>
+      <section className="pb-20">
+        <PagesHeader pageTitle={t("defaults.signUp")} />
 
         <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">

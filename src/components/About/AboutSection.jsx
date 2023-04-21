@@ -1,6 +1,6 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 import sideImg from "../../assets/images/home/equipe.png";
-import MainButton from "../Shared/MainButton/MainButton";
+import MainButton from "../Shared/MainButton";
 import { useTranslation } from "react-i18next";
 
 function AboutSection() {
