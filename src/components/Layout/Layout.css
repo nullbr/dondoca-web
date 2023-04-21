@@ -140,14 +140,3 @@
 .cta-banner-btn {
   padding: 18px 22px;
 }
-
-/* login */
-
-.login-banner {
-  background-image: url("/src/assets/images/background/background-pages.png");
-  object-fit: cover;
-  background-size: contain;
-  background-position: center;
-  width: 100%;
-  height: 200px;
-}
