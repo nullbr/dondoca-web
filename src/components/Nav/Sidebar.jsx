@@ -2,29 +2,25 @@ import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
 
 const Sidebar = ({ toggleSideBar, sidebar, t }) => {
-  // useEffect(() => {
-  //   const div = document.querySelector("#galleryScript");
-  //   const script = document.createElement("script");
+  useEffect(() => {
+    const div = document.getElementById("sidebarGallery");
+    const script = document.createElement("script");
 
-  //   script.setAttribute(
-  //     "src",
-  //     "https://www.juicer.io/embed/brmariano13/embed-code.js?style=slider&columns=1&interval=1000"
-  //   );
-  //   script.setAttribute("async", "");
-  //   script.setAttribute("defer", "");
-  //   div.appendChild(script);
+    script.setAttribute(
+      "src",
+      "https://www.juicer.io/embed/dondocasr/embed-code.js?style=slider&columns=1&interval=1000"
+    );
+    script.setAttribute("async", "");
+    script.setAttribute("defer", "");
+    div.appendChild(script);
 
-  //   return () => {
-  //     div.removeChild(script);
-  //   };
-  // }, []);
+    return () => {
+      div.removeChild(script);
+    };
+  }, []);
 
   return (
-    <div
-      className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
-        sidebar ? "left-0" : "-left-[100%]"
-      }`}
-    >
+    <>
       <div className="flex">
         {/* Content */}
         <div className="flex flex-col w-[40rem] max-w-full h-screen bg-slightly-transparent p-[45px] gap-24 overflow-x-hidden">
@@ -46,7 +42,7 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
           {/* gallery */}
           <div className="flex flex-col gap-6">
             <h3 className="text-[2rem] font-bold">{t("nav.gallery")}</h3>
-            <div id="galleryScript" className="w-full"></div>
+            <div id="sidebarGallery" className="w-full"></div>
           </div>
           {/* contact */}
           <div className="flex flex-col gap-6">
@@ -104,7 +100,7 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
           onClick={toggleSideBar}
         ></div>
       </div>
-    </div>
+    </>
   );
 };
 

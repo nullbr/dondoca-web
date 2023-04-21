@@ -74,8 +74,21 @@ function Navbar({ admin }) {
               admin={admin}
             />
 
+            {/* Show side bar if not in admin pages */}
             {!admin && (
-              <Sidebar toggleSideBar={toggleSideBar} sidebar={sidebar} t={t} />
+              <div
+                className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-200 top-0 ${
+                  sidebar ? "left-0" : "-left-[100%]"
+                }`}
+              >
+                {sidebar && (
+                  <Sidebar
+                    toggleSideBar={toggleSideBar}
+                    sidebar={sidebar}
+                    t={t}
+                  />
+                )}
+              </div>
             )}
 
             {/* mobileNav */}
