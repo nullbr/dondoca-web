@@ -2,16 +2,16 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../Nav/Navbar";
 import "./index.css";
 import AdminFooter from "../Footer/Footer";
-import PrivateRoutes from "../Routes/PrivateRoutes";
+import AdminRoutes from "../../Routes/AdminRoutes";
 
 const AdminLayout = () => {
   return (
     <>
       <Navbar admin={true} />
-      <PrivateRoutes>
+      <AdminRoutes>
         <Outlet />
         <AdminFooter />
-      </PrivateRoutes>
+      </AdminRoutes>
     </>
   );
 };

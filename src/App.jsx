@@ -23,7 +23,7 @@ import AdminHome from "./components/Admin";
 import AdminLayout from "./components/Admin/Layout";
 import PersistLogin from "./components/Sessions/PersistLogin";
 import EditProfile from "./components/Sessions/EditProfile";
-import PrivateRoutes from "./components/Admin/Routes/PrivateRoutes";
+import RestrictedRoutes from "./components/Routes/RestrictedRoutes";
 
 function App() {
   return (
@@ -38,9 +38,9 @@ function App() {
             <Route
               path="edit-profile"
               element={
-                <PrivateRoutes>
+                <RestrictedRoutes>
                   <EditProfile />
-                </PrivateRoutes>
+                </RestrictedRoutes>
               }
             />
             <Route path="contact" element={<Contact />} />

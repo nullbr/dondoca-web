@@ -67,7 +67,7 @@ const SignUp = () => {
       return null;
     }
 
-    navigate("/admin");
+    navigate("/");
   };
 
   // Check if passwords match

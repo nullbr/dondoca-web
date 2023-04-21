@@ -9,6 +9,7 @@ const translations = {
       signUp: "Cadastre-se",
       logout: "Sair",
       brunoLink: "https://bruno.buzz/",
+      errorMessage: "Desculpe! Algo deu errado.",
     },
 
     nav: {

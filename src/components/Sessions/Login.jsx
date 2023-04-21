@@ -55,8 +55,11 @@ const Login = () => {
 
     if (response.errors || response.error) {
       return null;
+    } else if (response?.payload?.role === "admin") {
+      navigate("/admin");
+    } else {
+      navigate("/");
     }
-    navigate("/admin");
   };
 
   return (

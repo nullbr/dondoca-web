@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const PrivateRoutes = ({ children }) => {
+// Permit users to access if logged in
+const RestrictedRoutes = ({ children }) => {
+  const { t } = useTranslation();
   const { loading, accessToken } = useSelector((store) => store.sessions);
 
   if (accessToken) {
@@ -9,7 +12,7 @@ const PrivateRoutes = ({ children }) => {
   } else if (!accessToken && !loading) {
     return <Navigate to="/login" />;
   } else if (!loading) {
-    return <p>Something went wrong</p>;
+    return <p>{t("defaults.errorMessage")}</p>;
   }
 };
-export default PrivateRoutes;
+export default RestrictedRoutes;
