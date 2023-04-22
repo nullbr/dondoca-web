@@ -7,6 +7,8 @@ import PagesHeader from "../../Shared/PagesHeader";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useTranslation } from "react-i18next";
+import Dashboard from "../Dashboard";
+import Worker from "./Worker";
 
 const Workers = () => {
   const dispatch = useDispatch();
@@ -25,28 +27,21 @@ const Workers = () => {
   return (
     <>
       <PagesHeader pageTitle={t("admin.nav.workers")} />
-      <section>
+
+      <Dashboard>
         {status !== Statuses.UpToDate ? (
           <Loader />
         ) : (
           <>
-            <main>
-              <h3>{status}</h3>
-              {/* Form goes here */}
-              {workers &&
-                workers.length > 0 &&
-                workers.map((emp) => {
-                  return (
-                    <div key={emp.id}>
-                      <h3>{emp.name}</h3>
-                      <p>{emp.job}</p>
-                    </div>
-                  );
-                })}
-            </main>
+            {/* Form goes here */}
+            {workers &&
+              workers.length > 0 &&
+              workers.map((worker) => {
+                return <Worker worker={worker} />;
+              })}
           </>
         )}
-      </section>
+      </Dashboard>
     </>
   );
 };

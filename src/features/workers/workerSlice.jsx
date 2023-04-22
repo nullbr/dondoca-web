@@ -6,11 +6,12 @@ const initialState = {
   workers: [
     {
       id: 0,
-      name: "",
+      firstName: "",
+      lastName: "",
       job: "",
-      created_at: "",
-      updated_at: "",
-      url: "",
+      instagram: "",
+      createdAt: "",
+      imageUrl: "",
     },
   ],
   status: Statuses.Initial,
@@ -39,9 +40,20 @@ const workerSlice = createSlice({
       .addCase(fetchWorkersAsync.pending, (state) => {
         state.status = Statuses.Loading;
       })
-      .addCase(fetchWorkersAsync.fulfilled, (state, action) => {
+      .addCase(fetchWorkersAsync.fulfilled, (state, { payload }) => {
         state.status = Statuses.UpToDate;
-        state.workers = action.payload;
+        state.workers = payload.map((worker) => {
+          return {
+            id: worker.id,
+            firstName: worker.first_name,
+            lastName: worker.last_name,
+            phoneNumber: formatPhoneNumber(worker.phone_number.toString()),
+            job: worker.job,
+            instagram: worker.instagram,
+            createdAt: formatDate(worker.created_at),
+            imageUrl: worker.image_url,
+          };
+        });
       })
       .addCase(fetchWorkersAsync.rejected, (state) => {
         state.status = Statuses.Error;
@@ -52,3 +64,18 @@ const workerSlice = createSlice({
 // export const {} = workerSlice.actions;
 
 export default workerSlice.reducer;
+
+function formatDate(isoDateString) {
+  const date = new Date(isoDateString);
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  const year = date.getFullYear().toString();
+  return `${day}/${month}/${year}`;
+}
+
+function formatPhoneNumber(number) {
+  const areaCode = number.slice(0, 2);
+  const prefix = number.slice(2, 7);
+  const suffix = number.slice(7);
+  return `(${areaCode})${prefix}-${suffix}`;
+}
