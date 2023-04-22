@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchWorkers } from "./workersAPI";
+import { fetchWorkers } from "../../api/workersAPI";
 import Statuses from "../Statuses";
 
 const initialState = {
@@ -18,9 +18,14 @@ const initialState = {
 
 export const fetchWorkersAsync = createAsyncThunk(
   "workers/fetchWorkersAsync",
-  async () => {
-    const response = await fetchWorkers();
-    console.log(response);
+  async (_payload, { getState, rejectWithValue }) => {
+    const sessionsState = getState().sessions;
+    const response = await fetchWorkers(sessionsState.accessToken);
+
+    if (response.errors) {
+      return rejectWithValue(response.errors);
+    }
+
     return response;
   }
 );

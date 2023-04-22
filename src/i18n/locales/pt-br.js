@@ -100,7 +100,7 @@ const translations = {
 
       nav: {
         calendar: "Agenda",
-        workers: "Girls",
+        workers: "Equipe",
       },
     },
 

@@ -12,10 +12,13 @@ const AdminRoutes = ({ children }) => {
   if (accessToken && currentUser.role === "admin") {
     return children;
   } else if (accessToken) {
+    console.log(2);
     return <Navigate to="/" />;
   } else if (!accessToken && !loading) {
+    console.log(3);
     return <Navigate to="/login" />;
   } else if (!loading) {
+    console.log(4);
     return <p>{t("defaults.errorMessage")}</p>;
   }
 };

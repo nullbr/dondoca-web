@@ -5,9 +5,7 @@ import { refreshAccessToken } from "../../features/sessions/sessionSlice";
 
 const PersistLogin = () => {
   const dispatch = useDispatch();
-  const { loading, accessToken, refreshToken } = useSelector(
-    (store) => store.sessions
-  );
+  const { accessToken, refreshToken } = useSelector((store) => store.sessions);
 
   useEffect(() => {
     function verifyRefreshToken() {
@@ -20,7 +18,7 @@ const PersistLogin = () => {
     if (!accessToken) {
       verifyRefreshToken();
     }
-  }, [accessToken, refreshToken, dispatch]);
+  }, []);
 
   return (
     <>

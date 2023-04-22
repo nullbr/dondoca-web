@@ -9,8 +9,8 @@ const AdminLayout = () => {
       <Navbar admin={true} />
       <AdminRoutes>
         <Outlet />
-        <AdminFooter />
       </AdminRoutes>
+      <AdminFooter />
     </>
   );
 };
