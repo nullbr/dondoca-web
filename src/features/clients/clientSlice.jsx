@@ -1,28 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchWorkers } from "../../api/workersAPI";
+import { fetchClients } from "../../api/clientsAPI";
 import Statuses from "../Statuses";
 
 const initialState = {
-  workers: [
+  clients: [
     {
       id: 0,
       firstName: "",
       lastName: "",
-      phoneNumber: "",
-      job: "",
-      instagram: "",
       createdAt: "",
       imageUrl: "",
+      birthday: "",
     },
   ],
   status: Statuses.Initial,
 };
 
-export const fetchWorkersAsync = createAsyncThunk(
-  "workers/fetchWorkersAsync",
+export const fetchClientsAsync = createAsyncThunk(
+  "clients/fetchClientsAsync",
   async (_payload, { getState, rejectWithValue }) => {
     const sessionsState = getState().sessions;
-    const response = await fetchWorkers(sessionsState.accessToken);
+    const response = await fetchClients(sessionsState.accessToken);
 
     if (response.errors) {
       return rejectWithValue(response.errors);
@@ -32,39 +30,38 @@ export const fetchWorkersAsync = createAsyncThunk(
   }
 );
 
-const workerSlice = createSlice({
-  name: "workers",
+const clientSlice = createSlice({
+  name: "clients",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchWorkersAsync.pending, (state) => {
+      .addCase(fetchClientsAsync.pending, (state) => {
         state.status = Statuses.Loading;
       })
-      .addCase(fetchWorkersAsync.fulfilled, (state, { payload }) => {
+      .addCase(fetchClientsAsync.fulfilled, (state, { payload }) => {
         state.status = Statuses.UpToDate;
-        state.workers = payload.map((worker) => {
+        state.clients = payload.map((client) => {
           return {
-            id: worker.id,
-            firstName: worker.first_name,
-            lastName: worker.last_name,
-            phoneNumber: formatPhoneNumber(worker.phone_number.toString()),
-            job: worker.job,
-            instagram: worker.instagram,
-            createdAt: formatDate(worker.created_at),
-            imageUrl: worker.image_url,
+            id: client.id,
+            firstName: client.first_name,
+            lastName: client.last_name,
+            phoneNumber: formatPhoneNumber(client.phone_number.toString()),
+            createdAt: formatDate(client.created_at),
+            imageUrl: client.image_url,
+            birthday: formatBirthday(client.birthday),
           };
         });
       })
-      .addCase(fetchWorkersAsync.rejected, (state) => {
+      .addCase(fetchClientsAsync.rejected, (state) => {
         state.status = Statuses.Error;
       });
   },
 });
 
-// export const {} = workerSlice.actions;
+// export const {} = clientSlice.actions;
 
-export default workerSlice.reducer;
+export default clientSlice.reducer;
 
 function formatDate(isoDateString) {
   const date = new Date(isoDateString);
@@ -72,6 +69,13 @@ function formatDate(isoDateString) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear().toString();
   return `${day}/${month}/${year}`;
+}
+
+function formatBirthday(isoDateString) {
+  const date = new Date(isoDateString);
+  const day = date.getDate().toString().padStart(2, "0");
+  const month = (date.getMonth() + 1).toString().padStart(2, "0");
+  return `${day}/${month}`;
 }
 
 function formatPhoneNumber(number) {

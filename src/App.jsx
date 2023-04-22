@@ -24,6 +24,7 @@ import AdminLayout from "./components/Admin/Layout";
 import PersistLogin from "./components/Sessions/PersistLogin";
 import EditProfile from "./components/Sessions/EditProfile";
 import RestrictedRoutes from "./components/Routes/RestrictedRoutes";
+import Clients from "./components/Admin/Clients/Clients";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminHome />} />
+            <Route path="clients" element={<Clients />} />
           </Route>
         </Route>
       </Routes>
