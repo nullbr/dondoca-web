@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchWorkers } from "../../api/workersAPI";
-import Statuses from "../Statuses";
 
 const initialState = {
   workers: [
@@ -15,7 +14,9 @@ const initialState = {
       imageUrl: "",
     },
   ],
-  status: Statuses.Initial,
+  loading: true,
+  error: false,
+  errorMessages: [],
 };
 
 export const fetchWorkersAsync = createAsyncThunk(
@@ -39,10 +40,14 @@ const workerSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchWorkersAsync.pending, (state) => {
-        state.status = Statuses.Loading;
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
       })
       .addCase(fetchWorkersAsync.fulfilled, (state, { payload }) => {
-        state.status = Statuses.UpToDate;
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
         state.workers = payload.map((worker) => {
           return {
             id: worker.id,
@@ -57,7 +62,9 @@ const workerSlice = createSlice({
         });
       })
       .addCase(fetchWorkersAsync.rejected, (state) => {
-        state.status = Statuses.Error;
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = [];
       });
   },
 });

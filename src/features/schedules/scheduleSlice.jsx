@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchSchedules } from "../../api/schedulesAPI";
-import Statuses from "../Statuses";
 
 const initialState = {
   schedules: [
@@ -22,7 +21,9 @@ const initialState = {
       },
     },
   ],
-  status: Statuses.Initial,
+  loading: true,
+  error: false,
+  errorMessages: [],
 };
 
 export const fetchSchedulesAsync = createAsyncThunk(
@@ -46,11 +47,14 @@ const scheduleSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSchedulesAsync.pending, (state) => {
-        state.status = Statuses.Loading;
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
       })
       .addCase(fetchSchedulesAsync.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.status = Statuses.UpToDate;
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
         state.schedules = payload.map((schedule) => {
           return {
             id: schedule.id,
@@ -71,8 +75,10 @@ const scheduleSlice = createSlice({
           };
         });
       })
-      .addCase(fetchSchedulesAsync.rejected, (state) => {
-        state.status = Statuses.Error;
+      .addCase(fetchSchedulesAsync.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = payload;
       });
   },
 });

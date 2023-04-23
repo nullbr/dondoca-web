@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchClients } from "../../api/clientsAPI";
-import Statuses from "../Statuses";
 
 const initialState = {
   clients: [
@@ -13,7 +12,9 @@ const initialState = {
       birthday: "",
     },
   ],
-  status: Statuses.Initial,
+  loading: true,
+  error: false,
+  errorMessages: [],
 };
 
 export const fetchClientsAsync = createAsyncThunk(
@@ -37,10 +38,14 @@ const clientSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchClientsAsync.pending, (state) => {
-        state.status = Statuses.Loading;
+        state.loading = true;
+        state.error = false;
+        state.errorMessages = [];
       })
       .addCase(fetchClientsAsync.fulfilled, (state, { payload }) => {
-        state.status = Statuses.UpToDate;
+        state.loading = false;
+        state.error = false;
+        state.errorMessages = [];
         state.clients = payload.map((client) => {
           return {
             id: client.id,
@@ -53,8 +58,10 @@ const clientSlice = createSlice({
           };
         });
       })
-      .addCase(fetchClientsAsync.rejected, (state) => {
-        state.status = Statuses.Error;
+      .addCase(fetchClientsAsync.rejected, (state, payload) => {
+        state.loading = false;
+        state.error = true;
+        state.errorMessages = payload;
       });
   },
 });

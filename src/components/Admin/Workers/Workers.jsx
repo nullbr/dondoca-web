@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
-import Statuses from "../../../features/Statuses";
 import Loader from "../../Shared/Loader";
 import PagesHeader from "../../Shared/PagesHeader";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
@@ -13,15 +12,13 @@ import Worker from "./Worker";
 const Workers = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { workers, status } = useSelector((store) => store.workers);
+  const { workers, loading } = useSelector((store) => store.workers);
 
   useEffect(() => {
     document.title = t("admin.nav.workers") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
 
-    if (status === Statuses.Initial) {
-      dispatch(fetchWorkersAsync());
-    }
+    dispatch(fetchWorkersAsync());
   }, []);
 
   return (
@@ -29,7 +26,7 @@ const Workers = () => {
       <PagesHeader pageTitle={t("admin.nav.workers")} />
 
       <Dashboard>
-        {status !== Statuses.UpToDate ? (
+        {loading === true ? (
           <Loader />
         ) : (
           <>
