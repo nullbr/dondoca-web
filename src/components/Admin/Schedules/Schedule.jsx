@@ -11,44 +11,53 @@ function Schedule({ schedule }) {
 
   return (
     <>
+      {/* time mobile */}
+      <div className="flex w-full justify-center">
+        <p className="text-lg text-[#a0a0a0] font-bold -mb-10 pt5">
+          {startAtTime} - {endAtTime}
+        </p>
+      </div>
       {/* Schedule */}
-      <div className="grid grid-cols-5 min620:grid-cols-2 gap-2 p-5 mt-5 bg-[#f2f2f2] justify-between w-full min800:text-center rounded-2xl">
-        {/* time */}
-        <div className="">
-          <p className="text-[14px] font-medium text-[#a0a0a0]">
+      <div
+        onClick={() => setShowForm(!showForm)}
+        className="flex gap-2 p-5 mt-5 bg-[#f2f2f2] justify-between w-full min800:text-center rounded-2xl"
+      >
+        {/* time web */}
+        <div className="min620:hidden">
+          <p className="text-lg font-medium text-[#a0a0a0]">
             {t("admin.schedule.time")}
           </p>
-          <p className="text-[18px] text-black font-bold mt-3">
+          <p className="text-2xl text-black font-bold mt-3">
             {startAtTime} - {endAtTime}
           </p>
         </div>
         {/* service name */}
         <div className="">
-          <p className="text-[14px] font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-[#a0a0a0]">
             {t("admin.schedule.service")}
           </p>
-          <p className="text-[18px] text-black font-bold mt-3">Add Service</p>
+          <p className="text-2xl text-black font-bold mt-3">Add Service</p>
         </div>
         {/* professional */}
         <div className="">
-          <p className="text-[14px] font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-[#a0a0a0]">
             {t("admin.schedule.professional")}
           </p>
-          <p className="text-[18px] text-black font-bold mt-3">
+          <p className="text-2xl text-black font-bold mt-3">
             {worker.firstName} {worker.lastName}
           </p>
         </div>
         {/* Client */}
         <div className="">
-          <p className="text-[14px] font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-[#a0a0a0]">
             {t("admin.schedule.client")}
           </p>
-          <p className="text-[18px] text-black font-bold mt-3">
+          <p className="text-2xl text-black font-bold mt-3">
             {client.firstName} {client.lastName}
           </p>
         </div>
 
-        <div className="min620:col-span-2 min620:justify-center items-center flex justify-end">
+        <div className="min620:hidden min620:justify-center items-center flex justify-end">
           {!showForm && <EditButton action={() => setShowForm(true)} />}
         </div>
       </div>

@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState(0);
+  const [workerFilter, setWorkerFilter] = useState(null);
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
   const workers = useSelector((store) => store.workers.workers);
@@ -23,24 +23,17 @@ function Schedules() {
     document.title = t("admin.nav.schedule") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
 
-    // get unfiltered schedule
-    dispatch(fetchSchedulesAsync());
-
     // get workers if not already in store
     if (workers.length === 1) {
       dispatch(fetchWorkersAsync());
     }
   }, []);
 
-  const getAllSchedules = () => {
-    setFilter(0);
-    // get schedule for all workers
-  };
-
-  const getScheduleByWorker = (workerId) => {
-    setFilter(workerId);
-    // get schedule for specific worker
-  };
+  useEffect(() => {
+    // get workerFiltered schedule
+    const dateFilter = new Date();
+    dispatch(fetchSchedulesAsync({ workerFilter, dateFilter }));
+  }, [workerFilter]);
 
   return (
     <>
@@ -51,12 +44,12 @@ function Schedules() {
           <Loader />
         ) : (
           <>
-            {/* filter buttons */}
+            {/* workerFilter buttons */}
             <div className="flex flex-wrap gap-4 justify-center">
               <button
-                onClick={() => getAllSchedules()}
+                onClick={() => setWorkerFilter(null)}
                 className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                  filter === 0 ? "bg-gray" : "bg-signature-gold"
+                  workerFilter ? "bg-signature-gold" : "bg-gray"
                 }`}
               >
                 {t("defaults.all")}
@@ -65,9 +58,11 @@ function Schedules() {
                 return (
                   <button
                     key={worker.id}
-                    onClick={() => getScheduleByWorker(worker.id)}
+                    onClick={() => setWorkerFilter(worker.id)}
                     className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                      worker.id === filter ? "bg-gray" : "bg-signature-gold"
+                      worker.id === workerFilter
+                        ? "bg-gray"
+                        : "bg-signature-gold"
                     }`}
                   >
                     {worker.firstName}

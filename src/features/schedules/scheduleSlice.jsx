@@ -28,9 +28,11 @@ const initialState = {
 
 export const fetchSchedulesAsync = createAsyncThunk(
   "schedules/fetchSchedulesAsync",
-  async (_payload, { getState, rejectWithValue }) => {
+  async (payload, { getState, rejectWithValue }) => {
+    console.log(payload);
     const sessionsState = getState().sessions;
-    const response = await fetchSchedules(sessionsState.accessToken);
+
+    const response = await fetchSchedules(sessionsState.accessToken, payload);
 
     if (response.errors) {
       return rejectWithValue(response.errors);
