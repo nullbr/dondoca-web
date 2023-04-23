@@ -26,7 +26,7 @@ import EditProfile from "./components/Sessions/EditProfile";
 import RestrictedRoutes from "./components/Routes/RestrictedRoutes";
 import Clients from "./components/Admin/Clients/Clients";
 import Workers from "./components/Admin/Workers/Workers";
-import Schedule from "./components/Admin/Schedule";
+import Schedules from "./components/Admin/Schedules";
 
 function App() {
   return (
@@ -65,7 +65,7 @@ function App() {
 
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminHome />} />
-            <Route path="schedule" element={<Schedule />} />
+            <Route path="schedules" element={<Schedules />} />
             <Route path="workers" element={<Workers />} />
             <Route path="clients" element={<Clients />} />
           </Route>
