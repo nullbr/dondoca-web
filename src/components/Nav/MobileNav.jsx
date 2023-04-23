@@ -33,9 +33,17 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
-                    to="/admin"
+                    to="/admin/workers"
                   >
                     {t("admin.nav.workers")}
+                  </NavLink>
+                </li>
+                <li onClick={toggleMobileNav}>
+                  <NavLink
+                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    to="/admin/clients"
+                  >
+                    {t("admin.nav.clients")}
                   </NavLink>
                 </li>
               </>
