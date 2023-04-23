@@ -1,9 +1,9 @@
-import Workers from "./Workers/Workers";
+import Schedules from "./Schedules/Schedules";
 
 const AdminHome = () => {
   return (
     <>
-      <Workers />
+      <Schedules />
     </>
   );
 };

@@ -31,22 +31,27 @@ const SessionLinks = ({ sticky }) => {
               <h2 className="bg-signature-gold text-white my-4 py-2">
                 {currentUser.email}
               </h2>
-              <ul>
-                <li>
-                  <NavLink title="Edit Profile" to="/edit-profile">
-                    <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold">
-                      {t("editProfile.title")}
+              <div className="p-2">
+                {currentUser.role === "admin" && (
+                  <NavLink title="Edit Profile" to="/admin">
+                    <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold border-b border-signature-gold">
+                      {t("admin.title")}
                     </p>
                   </NavLink>
-                </li>
-                <li>
-                  <NavLink title="logout" to="/logout">
-                    <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold shadow-sm">
-                      {t("defaults.logout")}
-                    </p>
-                  </NavLink>
-                </li>
-              </ul>
+                )}
+
+                <NavLink title="Edit Profile" to="/edit-profile">
+                  <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold border-b border-signature-gold">
+                    {t("editProfile.title")}
+                  </p>
+                </NavLink>
+
+                <NavLink title="logout" to="/logout">
+                  <p className="block px-4 py-2 w-full text-gray hover:text-signature-gold shadow-sm">
+                    {t("defaults.logout")}
+                  </p>
+                </NavLink>
+              </div>
             </div>
           )}
         </div>
