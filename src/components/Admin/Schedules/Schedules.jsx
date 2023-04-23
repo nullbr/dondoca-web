@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import Day from "./Day";
+import Schedule from "./Schedule";
 import { useTranslation } from "react-i18next";
 import PagesHeader from "../../Shared/PagesHeader";
 import Dashboard from "../Dashboard";
@@ -8,6 +8,7 @@ import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Schedules() {
   const { t } = useTranslation();
@@ -30,11 +31,63 @@ function Schedules() {
           <Loader />
         ) : (
           <>
-            {/* Form goes here */}
+            {/* fiter buttons */}
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/schedule/monday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] bg-signature-gold ease-in duration-200 hover:shadow-2xl text-white "
+              >
+                Day
+              </Link>
+
+              <Link
+                to="/schedule/tuesday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Tuesday
+              </Link>
+
+              <Link
+                to="/schedule/wednesday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Wednesday
+              </Link>
+
+              <Link
+                to="/schedule/thursday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Thursday
+              </Link>
+
+              <Link
+                to="/schedule/friday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Friday
+              </Link>
+
+              <Link
+                to="/schedule/saturday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Saturday
+              </Link>
+
+              <Link
+                to="/schedule/sunday"
+                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] hover:bg-signature-gold ease-in duration-200 hover:shadow-2xl hover:text-white "
+              >
+                Sunday
+              </Link>
+            </div>
+
+            {/* Days */}
             {schedules &&
               schedules.length > 0 &&
-              schedules.map((day) => {
-                return <Day key={day.id} day={day} />;
+              schedules.map((schedule) => {
+                return <Schedule key={schedule.id} schedule={schedule} />;
               })}
           </>
         )}
