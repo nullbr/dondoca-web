@@ -1,11 +1,12 @@
 import { useTranslation } from "react-i18next";
-import Form from "./Form";
+import Form from "../../Shared/Form";
 import { useState } from "react";
+import EditButton from "../../Shared/EditButton";
 
 const Client = ({ client }) => {
   const { firstName, lastName, createdAt, imageUrl, phoneNumber, birthday } =
     client;
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -22,26 +23,18 @@ const Client = ({ client }) => {
           <h3 className="text-[2.5rem] min620:text-[2rem] font-semibold">
             {firstName} {lastName}
           </h3>
-          <ul>
+          <ul className="text-xl">
             <li>
-              <p>Celular: {phoneNumber}</p>
+              {t("defaults.cellphone")}: {phoneNumber}
             </li>
             <li>
-              <p>Início: {createdAt}</p>
+              {t("admin.client.createdAt")}: {createdAt}
             </li>
             <li>
-              <p>Aniversário: {birthday}</p>
+              {t("admin.client.birthday")}: {birthday}
             </li>
           </ul>
-          {!showForm && (
-            <button
-              type="button"
-              className="bg-gray hover:bg-signature-gold text-white font-bold py-2 px-4 rounded w-[5rem]"
-              onClick={() => setShowForm(true)}
-            >
-              Editar
-            </button>
-          )}
+          {!showForm && <EditButton action={() => setShowForm(true)} />}
         </div>
       </div>
       {showForm && <Form client />}

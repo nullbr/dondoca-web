@@ -10,6 +10,10 @@ const translations = {
       logout: "Sair",
       brunoLink: "https://bruno.buzz/",
       errorMessage: "Desculpe! Algo deu errado.",
+      cellphone: "Número",
+      edit: "Alterar",
+      social: "Instagram",
+      all: "Todos",
     },
 
     nav: {
@@ -102,6 +106,24 @@ const translations = {
         schedule: "Agenda",
         workers: "Equipe",
         clients: "Clientes",
+      },
+
+      schedule: {
+        time: "Horário",
+        service: "Serviço",
+        professional: "Profissional",
+        client: "Cliente",
+      },
+
+      worker: {
+        job: "Prática",
+        createAt: "Início",
+        social: "Instagram",
+      },
+
+      client: {
+        createdAt: "Início",
+        birthday: "Aniversário",
       },
     },
 

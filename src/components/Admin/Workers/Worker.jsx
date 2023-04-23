@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import Form from "./Form";
+import Form from "../../Shared/Form";
 import { useState } from "react";
+import EditButton from "../../Shared/EditButton";
 
 const Worker = ({ worker }) => {
   const {
@@ -12,7 +13,7 @@ const Worker = ({ worker }) => {
     instagram,
     phoneNumber,
   } = worker;
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
 
   return (
@@ -31,29 +32,29 @@ const Worker = ({ worker }) => {
           </h3>
           <ul>
             <li>
-              <p>Celular: {phoneNumber}</p>
+              <p>
+                {t("defaults.cellphone")}: {phoneNumber}
+              </p>
             </li>
             <li>
-              <p>Prática: {job}</p>
+              <p>
+                {t("admin.worker.job")}: {job}
+              </p>
             </li>
             <li>
-              <p>Início: {createdAt}</p>
+              <p>
+                {t("admin.worker.createAt")}: {createdAt}
+              </p>
             </li>
             {instagram && (
               <li>
-                <p>Instagram: {instagram}</p>
+                <p>
+                  {t("defaults.social")}: {instagram}
+                </p>
               </li>
             )}
           </ul>
-          {!showForm && (
-            <button
-              type="button"
-              className="bg-gray hover:bg-signature-gold text-white font-bold py-2 px-4 rounded w-[5rem]"
-              onClick={() => setShowForm(true)}
-            >
-              Editar
-            </button>
-          )}
+          {!showForm && <EditButton action={() => setShowForm(true)} />}
         </div>
       </div>
       {showForm && <Form worker />}
