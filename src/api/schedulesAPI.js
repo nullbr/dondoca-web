@@ -3,7 +3,6 @@ import axiosInstance from "./axios";
 const SCHEDULES_URL = "schedules";
 
 export async function fetchSchedules(accessToken, filters) {
-  console.log(filters);
   const params = new URLSearchParams([
     ["worker_id", filters.workerFilter],
     ["date", filters.dateFilter],

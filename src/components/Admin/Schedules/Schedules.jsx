@@ -9,6 +9,7 @@ import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
+import Filters from "./Filters";
 
 function Schedules() {
   const { t } = useTranslation();
@@ -35,6 +36,10 @@ function Schedules() {
     dispatch(fetchSchedulesAsync({ workerFilter, dateFilter }));
   }, [workerFilter]);
 
+  const handleWorkerFilter = (id) => {
+    setWorkerFilter(id);
+  };
+
   return (
     <>
       <PagesHeader pageTitle={t("admin.nav.schedule")} />
@@ -45,6 +50,11 @@ function Schedules() {
         ) : (
           <>
             {/* workerFilter buttons */}
+            {/* <Filters
+              workers={workers}
+              workerFilter={workerFilter}
+              handleWorkerFilter={handleWorkerFilter}
+            /> */}
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={() => setWorkerFilter(null)}
