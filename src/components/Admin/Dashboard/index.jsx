@@ -9,4 +9,5 @@ const Dashboard = ({ children }) => {
     </section>
   );
 };
+
 export default Dashboard;

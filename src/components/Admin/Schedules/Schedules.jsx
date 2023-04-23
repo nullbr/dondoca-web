@@ -8,12 +8,12 @@ import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const [filter, setFilter] = useState(0);
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
   const workers = useSelector((store) => store.workers.workers);
@@ -33,10 +33,12 @@ function Schedules() {
   }, []);
 
   const getAllSchedules = () => {
+    setFilter(0);
     // get schedule for all workers
   };
 
   const getScheduleByWorker = (workerId) => {
+    setFilter(workerId);
     // get schedule for specific worker
   };
 
@@ -49,11 +51,13 @@ function Schedules() {
           <Loader />
         ) : (
           <>
-            {/* fiter buttons */}
+            {/* filter buttons */}
             <div className="flex flex-wrap gap-4 justify-center">
               <button
-                onClick={getAllSchedules}
-                className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] bg-signature-gold ease-in duration-200 hover:shadow-2xl text-white "
+                onClick={() => getAllSchedules()}
+                className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                  filter === 0 ? "bg-gray" : "bg-signature-gold"
+                }`}
               >
                 {t("defaults.all")}
               </button>
@@ -61,8 +65,10 @@ function Schedules() {
                 return (
                   <button
                     key={worker.id}
-                    onClick={getScheduleByWorker(worker.id)}
-                    className="text-[15px] font-bold border-solid border border-[#d7d7d7] py-[9px] px-[32px] rounded-[23px] bg-signature-gold ease-in duration-200 hover:shadow-2xl text-white "
+                    onClick={() => getScheduleByWorker(worker.id)}
+                    className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                      worker.id === filter ? "bg-gray" : "bg-signature-gold"
+                    }`}
                   >
                     {worker.firstName}
                   </button>
