@@ -37,7 +37,7 @@ const Clients = () => {
             {clients &&
               clients.length > 0 &&
               clients.map((client) => {
-                return <Client client={client} />;
+                return <Client key={client.id} client={client} />;
               })}
           </>
         )}

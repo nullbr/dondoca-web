@@ -1,28 +1,30 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
+import Day from "./Day";
+import { useTranslation } from "react-i18next";
 import Statuses from "../../../features/Statuses";
-import Loader from "../../Shared/Loader";
 import PagesHeader from "../../Shared/PagesHeader";
+import Dashboard from "../Dashboard";
+import Loader from "../../Shared/Loader";
+import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
-import { useTranslation } from "react-i18next";
-import Dashboard from "../Dashboard";
-import Worker from "./Worker";
+import { useEffect } from "react";
 
-const Workers = () => {
-  const dispatch = useDispatch();
+function Schedules() {
   const { t } = useTranslation();
-  const { workers, status } = useSelector((store) => store.workers);
+  const dispatch = useDispatch();
+  const { schedules, status } = useSelector((store) => store.schedules);
 
   useEffect(() => {
-    document.title = t("admin.nav.workers") + " - " + t("defaults.pageTitle");
+    document.title = t("admin.nav.schedule") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     if (status === Statuses.Initial) {
-      dispatch(fetchWorkersAsync());
+      dispatch(fetchSchedulesAsync());
     }
   }, []);
+
+  console.log(schedules);
 
   return (
     <>
@@ -34,16 +36,16 @@ const Workers = () => {
         ) : (
           <>
             {/* Form goes here */}
-            {workers &&
-              workers.length > 0 &&
-              workers.map((worker) => {
-                return <Worker key={worker.id} worker={worker} />;
+            {schedules &&
+              schedules.length > 0 &&
+              schedules.map((day) => {
+                return <Day day={day} />;
               })}
           </>
         )}
       </Dashboard>
     </>
   );
-};
+}
 
-export default Workers;
+export default Schedules;

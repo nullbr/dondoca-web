@@ -26,7 +26,7 @@ import EditProfile from "./components/Sessions/EditProfile";
 import RestrictedRoutes from "./components/Routes/RestrictedRoutes";
 import Clients from "./components/Admin/Clients/Clients";
 import Workers from "./components/Admin/Workers/Workers";
-import Schedules from "./components/Admin/Schedules";
+import Schedules from "./components/Admin/Schedules/Schedules";
 
 function App() {
   return (

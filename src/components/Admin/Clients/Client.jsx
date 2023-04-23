@@ -3,24 +3,14 @@ import Form from "./Form";
 import { useState } from "react";
 
 const Client = ({ client }) => {
-  const {
-    id,
-    firstName,
-    lastName,
-    createdAt,
-    imageUrl,
-    phoneNumber,
-    birthday,
-  } = client;
+  const { firstName, lastName, createdAt, imageUrl, phoneNumber, birthday } =
+    client;
   // const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
 
   return (
     <div>
-      <div
-        key={id}
-        className="border-b-2 border-signature-gold shadow-b-lg flex gap-2 items-center justify-center"
-      >
+      <div className="border-b-2 border-signature-gold shadow-b-lg flex gap-2 items-center justify-center">
         <div className="w-[20rem] min620:w-1/2 p-2">
           <img
             src={imageUrl}
