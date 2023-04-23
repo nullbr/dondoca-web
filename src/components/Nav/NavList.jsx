@@ -14,7 +14,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-signature-gold"
             >
-              <NavLink to="/admin">{t("admin.nav.calendar")}</NavLink>
+              <NavLink to="/admin/schedule">{t("admin.nav.schedule")}</NavLink>
             </li>
             <li
               style={{ transition: "all 0.3s" }}

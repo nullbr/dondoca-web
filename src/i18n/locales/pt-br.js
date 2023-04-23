@@ -99,7 +99,7 @@ const translations = {
       title: "Gerenciamento",
 
       nav: {
-        calendar: "Agenda",
+        schedule: "Agenda",
         workers: "Equipe",
         clients: "Clientes",
       },
