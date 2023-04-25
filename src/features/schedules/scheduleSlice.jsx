@@ -13,7 +13,10 @@ export const fetchSchedulesAsync = createAsyncThunk(
   async (payload, { getState, rejectWithValue }) => {
     const sessionsState = getState().sessions;
 
-    const response = await fetchSchedules(sessionsState.accessToken, payload);
+    const response = await fetchSchedules(
+      sessionsState.accessToken,
+      payload || {}
+    );
 
     if (response.errors) {
       return rejectWithValue(response.errors);

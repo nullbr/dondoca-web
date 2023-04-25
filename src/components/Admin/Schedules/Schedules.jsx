@@ -16,11 +16,13 @@ import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [workerFilter, setWorkerFilter] = useState(null);
+
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
   const workers = useSelector((store) => store.workers.workers);
   const loadingWorkers = useSelector((store) => store.workers.loadingWorkers);
+
+  const [workerFilter, setWorkerFilter] = useState(null);
 
   useEffect(() => {
     document.title = t("admin.nav.schedule") + " - " + t("defaults.pageTitle");
@@ -31,9 +33,8 @@ function Schedules() {
       dispatch(fetchWorkersAsync());
     }
 
-    // get workerFiltered schedule
-    const dateFilter = new Date();
-    dispatch(fetchSchedulesAsync({}));
+    // get schedule for current date
+    dispatch(fetchSchedulesAsync());
   }, []);
 
   return (
@@ -96,9 +97,13 @@ function Schedules() {
                 <p className="text-lg font-medium text-subtitle-gray text-center">
                   {schedule.date}
                 </p>
-                {schedule.data.map((data) => (
-                  <Schedule key={data.id} schedule={data} />
-                ))}
+                {schedule.data
+                  .filter(
+                    (data) => !workerFilter || data.worker.id === workerFilter
+                  )
+                  .map((data) => (
+                    <Schedule key={data.id} schedule={data} />
+                  ))}
               </div>
             );
           })
