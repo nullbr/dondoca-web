@@ -55,7 +55,7 @@ function Schedules() {
             <DateRangePicker title={t("defaults.period")} />
           </div>
           <div className="flex flex-col items-center">
-            <p className="text-lg font-medium text-[#a0a0a0] w-fit mb-2">
+            <p className="text-lg font-medium text-subtitle-gray w-fit mb-2">
               {t("admin.nav.workers")}
             </p>
             {loadingWorkers === true ? (
@@ -98,7 +98,7 @@ function Schedules() {
           </div>
         ) : (
           <>
-            <p className="text-lg font-medium text-[#a0a0a0] text-center">
+            <p className="text-lg font-medium text-subtitle-gray text-center">
               {t("admin.schedule.scheduled")}
             </p>
             {schedules &&

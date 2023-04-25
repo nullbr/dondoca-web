@@ -49,7 +49,9 @@ const DateRangeComp = ({ title }) => {
   return (
     <div className="inline-block relative w-full">
       <div className="flex flex-col items-center">
-        <p className="text-lg font-medium text-[#a0a0a0] w-fit mb-2">{title}</p>
+        <p className="text-lg font-medium text-subtitle-gray w-fit mb-2">
+          {title}
+        </p>
         <input
           value={`${format(range[0].startDate, "MM/dd/yyyy")} to ${format(
             range[0].endDate,

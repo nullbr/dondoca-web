@@ -22,7 +22,7 @@ function Schedule({ schedule }) {
       >
         {/* time web */}
         <div className="min620:hidden">
-          <p className="text-lg font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.time")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">
@@ -31,14 +31,14 @@ function Schedule({ schedule }) {
         </div>
         {/* service name */}
         <div className="">
-          <p className="text-lg font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.service")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">Add Service</p>
         </div>
         {/* professional */}
         <div className="">
-          <p className="text-lg font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.professional")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">
@@ -47,7 +47,7 @@ function Schedule({ schedule }) {
         </div>
         {/* Client */}
         <div className="">
-          <p className="text-lg font-medium text-[#a0a0a0]">
+          <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.client")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">

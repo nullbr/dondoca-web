@@ -7,6 +7,7 @@ module.exports = {
         "signature-gold": "#CBA135",
         gray: "#555",
         "light-gray": "#DAE7E1",
+        "subtitle-gray": "#a0a0a0",
         "slightly-transparent": "rgb(255,255,255,0.95)",
       },
     },
