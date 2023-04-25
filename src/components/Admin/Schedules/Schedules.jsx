@@ -9,12 +9,20 @@ import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
-import Filters from "./Filters";
+// import DatePicker from "./DatePicker";
+// import DatePickerV2 from "./DatePickerV2";
+import DateRangePicker from "../../Shared/DateRangePicker";
 
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [workerFilter, setWorkerFilter] = useState(null);
+  const [dateRange, setDateRange] = useState(null);
+
+  const handleDateRangeChange = (range) => {
+    setDateRange(range);
+  };
+
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
   const workers = useSelector((store) => store.workers.workers);
@@ -36,10 +44,6 @@ function Schedules() {
     dispatch(fetchSchedulesAsync({ workerFilter, dateFilter }));
   }, [workerFilter]);
 
-  const handleWorkerFilter = (id) => {
-    setWorkerFilter(id);
-  };
-
   return (
     <>
       <PagesHeader pageTitle={t("admin.nav.schedule")} />
@@ -50,36 +54,42 @@ function Schedules() {
         ) : (
           <>
             {/* workerFilter buttons */}
-            {/* <Filters
-              workers={workers}
-              workerFilter={workerFilter}
-              handleWorkerFilter={handleWorkerFilter}
-            /> */}
-            <div className="flex flex-wrap gap-4 justify-center">
-              <button
-                onClick={() => setWorkerFilter(null)}
-                className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                  workerFilter ? "bg-signature-gold" : "bg-gray"
-                }`}
-              >
-                {t("defaults.all")}
-              </button>
-              {workers.map((worker) => {
-                return (
+            <div>
+              <div className="py-5">
+                <DateRangePicker title={t("defaults.period")} />
+              </div>
+              <div className="flex flex-col items-center">
+                <p className="text-lg font-medium text-[#a0a0a0] w-fit mb-2">
+                  {t("admin.schedule.professional")}
+                </p>
+                <div className="flex flex-wrap gap-4 justify-center">
                   <button
-                    key={worker.id}
-                    onClick={() => setWorkerFilter(worker.id)}
+                    onClick={() => setWorkerFilter(null)}
                     className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                      worker.id === workerFilter
-                        ? "bg-gray"
-                        : "bg-signature-gold"
+                      workerFilter ? "bg-signature-gold" : "bg-gray"
                     }`}
                   >
-                    {worker.firstName}
+                    {t("defaults.all")}
                   </button>
-                );
-              })}
+                  {workers.map((worker) => {
+                    return (
+                      <button
+                        key={worker.id}
+                        onClick={() => setWorkerFilter(worker.id)}
+                        className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                          worker.id === workerFilter
+                            ? "bg-gray"
+                            : "bg-signature-gold"
+                        }`}
+                      >
+                        {worker.firstName}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
+            {/* End of filters */}
 
             {/* Days */}
             {schedules &&

@@ -14,6 +14,7 @@ const translations = {
       edit: "Alterar",
       social: "Instagram",
       all: "Todos",
+      period: "Período",
     },
 
     nav: {
