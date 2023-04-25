@@ -89,17 +89,21 @@ function Schedules() {
             <Loader />
           </div>
         ) : (
-          <>
-            <p className="text-lg font-medium text-subtitle-gray text-center">
-              {t("admin.schedule.scheduled")}
-            </p>
-            {schedules.length > 0 &&
-              schedules.map((schedule) => {
-                return <Schedule key={schedule.id} schedule={schedule} />;
-              })}
-          </>
+          schedules.length > 0 &&
+          schedules.map((schedule) => {
+            return (
+              <div key={schedule.date} className="flex flex-col gap-4">
+                <p className="text-lg font-medium text-subtitle-gray text-center">
+                  {schedule.date}
+                </p>
+                {schedule.data.map((data) => (
+                  <Schedule key={data.id} schedule={data} />
+                ))}
+              </div>
+            );
+          })
         )}
-        {schedules < 1 && (
+        {schedules.length < 1 && (
           <p className="text-center text-2xl font-bold min620:text-xl">
             Nenhum agendamento encontrado.
           </p>

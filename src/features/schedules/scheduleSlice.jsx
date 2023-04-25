@@ -38,25 +38,7 @@ const scheduleSlice = createSlice({
         state.loading = false;
         state.error = false;
         state.errorMessages = [];
-        state.schedules = payload.map((schedule) => {
-          return {
-            id: schedule.id,
-            startAtTime: formatTime(schedule.start_at),
-            endAtTime: formatTime(schedule.end_at),
-            createdAt: formatDate(schedule.created_at),
-            updatedAt: formatDate(schedule.updated_at),
-            client: {
-              id: schedule.client.id,
-              firstName: schedule.client.first_name,
-              lastName: schedule.client.last_name,
-            },
-            worker: {
-              id: schedule.worker.id,
-              firstName: schedule.worker.first_name,
-              lastName: schedule.worker.last_name,
-            },
-          };
-        });
+        state.schedules = sortScheduleByDate(payload);
       })
       .addCase(fetchSchedulesAsync.rejected, (state, { payload }) => {
         state.loading = false;
@@ -84,4 +66,52 @@ function formatDate(isoDateString) {
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
   const year = date.getFullYear().toString();
   return `${day}/${month}/${year}`;
+}
+
+function formatSchedules(schedules) {
+  return schedules.map((schedule) => {
+    return {
+      id: schedule.id,
+      startAtDate: formatDate(schedule.start_at),
+      startAtTime: formatTime(schedule.start_at),
+      endAtTime: formatTime(schedule.end_at),
+      createdAt: formatDate(schedule.created_at),
+      updatedAt: formatDate(schedule.updated_at),
+      client: {
+        id: schedule.client.id,
+        firstName: schedule.client.first_name,
+        lastName: schedule.client.last_name,
+      },
+      worker: {
+        id: schedule.worker.id,
+        firstName: schedule.worker.first_name,
+        lastName: schedule.worker.last_name,
+      },
+    };
+  });
+}
+
+function sortScheduleByDate(schedules) {
+  schedules = formatSchedules(schedules);
+
+  var scheduleByDate = {};
+
+  schedules.forEach((schedule) => {
+    var date = schedule.startAtDate;
+    if (!scheduleByDate[date]) {
+      scheduleByDate[date] = [];
+    }
+    scheduleByDate[date].push(schedule);
+  });
+
+  var sortedScheduleByDate = Object.keys(scheduleByDate)
+    .sort()
+    .map((date) => {
+      return {
+        date,
+        data: scheduleByDate[date],
+      };
+    });
+
+  return sortedScheduleByDate;
 }
