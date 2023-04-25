@@ -12,7 +12,7 @@ function Schedule({ schedule }) {
   return (
     <div className="bg-[#f2f2f2] w-full min800:text-center rounded-2xl">
       {/* time mobile */}
-      <p className="text-lg text-signature-gold font-bold -mb-2">
+      <p className="hidden min620:block text-lg text-signature-gold font-bold -mb-2">
         {startAtTime} - {endAtTime}
       </p>
       {/* Schedule */}
@@ -25,19 +25,19 @@ function Schedule({ schedule }) {
           <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.time")}
           </p>
-          <p className="text-2xl text-black font-bold mt-3">
+          <p className="text-2xl text-signature-gold font-bold mt-3">
             {startAtTime} - {endAtTime}
           </p>
         </div>
         {/* service name */}
-        <div className="">
+        <div>
           <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.service")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">Add Service</p>
         </div>
         {/* professional */}
-        <div className="">
+        <div>
           <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.professional")}
           </p>
@@ -46,7 +46,7 @@ function Schedule({ schedule }) {
           </p>
         </div>
         {/* Client */}
-        <div className="">
+        <div>
           <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.client")}
           </p>

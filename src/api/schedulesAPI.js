@@ -3,9 +3,12 @@ import axiosInstance from "./axios";
 const SCHEDULES_URL = "schedules";
 
 export async function fetchSchedules(accessToken, filters) {
+  const startDate = filters.startDate ? filters.startDate.getTime() / 1000 : "";
+  const endDate = filters.endDate ? filters.endDate.getTime() / 1000 : "";
+
   const params = new URLSearchParams([
-    ["worker_id", filters.workerFilter],
-    ["date", filters.dateFilter],
+    ["start_date", startDate],
+    ["end_date", endDate],
   ]);
 
   const config = {

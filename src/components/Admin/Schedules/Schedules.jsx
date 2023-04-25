@@ -4,25 +4,19 @@ import { useTranslation } from "react-i18next";
 import PagesHeader from "../../Shared/PagesHeader";
 import Dashboard from "../Dashboard";
 import Loader from "../../Shared/Loader";
-import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
 // import DatePicker from "./DatePicker";
 // import DatePickerV2 from "./DatePickerV2";
-import DateRangePicker from "../../Shared/DateRangePicker";
+import DateRangePicker from "./DateRangePicker";
+import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [workerFilter, setWorkerFilter] = useState(null);
-  const [dateRange, setDateRange] = useState(null);
-
-  const handleDateRangeChange = (range) => {
-    setDateRange(range);
-  };
-
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
   const workers = useSelector((store) => store.workers.workers);
@@ -36,13 +30,11 @@ function Schedules() {
     if (workers.length === 1) {
       dispatch(fetchWorkersAsync());
     }
-  }, []);
 
-  useEffect(() => {
     // get workerFiltered schedule
     const dateFilter = new Date();
-    dispatch(fetchSchedulesAsync({ workerFilter, dateFilter }));
-  }, [workerFilter]);
+    dispatch(fetchSchedulesAsync({}));
+  }, []);
 
   return (
     <>
@@ -52,7 +44,7 @@ function Schedules() {
         {/* workerFilter buttons */}
         <div>
           <div className="py-5">
-            <DateRangePicker title={t("defaults.period")} />
+            <DateRangePicker />
           </div>
           <div className="flex flex-col items-center">
             <p className="text-lg font-medium text-subtitle-gray w-fit mb-2">
@@ -101,12 +93,16 @@ function Schedules() {
             <p className="text-lg font-medium text-subtitle-gray text-center">
               {t("admin.schedule.scheduled")}
             </p>
-            {schedules &&
-              schedules.length > 0 &&
+            {schedules.length > 0 &&
               schedules.map((schedule) => {
                 return <Schedule key={schedule.id} schedule={schedule} />;
               })}
           </>
+        )}
+        {schedules < 1 && (
+          <p className="text-center text-2xl font-bold min620:text-xl">
+            Nenhum agendamento encontrado.
+          </p>
         )}
       </Dashboard>
     </>

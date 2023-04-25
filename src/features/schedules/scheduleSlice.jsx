@@ -2,25 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchSchedules } from "../../api/schedulesAPI";
 
 const initialState = {
-  schedules: [
-    {
-      id: 0,
-      startAtTime: "",
-      endAtTime: "",
-      createdAt: "",
-      updatedAt: "",
-      client: {
-        id: 0,
-        firstName: "",
-        lastName: "",
-      },
-      worker: {
-        id: 0,
-        firstName: "",
-        lastName: "",
-      },
-    },
-  ],
+  schedules: [],
   loading: true,
   error: false,
   errorMessages: [],

@@ -12,6 +12,7 @@ const translations = {
       errorMessage: "Desculpe! Algo deu errado.",
       cellphone: "Número",
       edit: "Alterar",
+      apply: "Aplicar",
       social: "Instagram",
       all: "Todos",
       period: "Período",
@@ -111,6 +112,7 @@ const translations = {
 
       schedule: {
         time: "Horário",
+        to: "à",
         service: "Serviço",
         professional: "Profissional",
         client: "Cliente",
