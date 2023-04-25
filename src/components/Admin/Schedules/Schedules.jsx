@@ -49,55 +49,59 @@ function Schedules() {
       <PagesHeader pageTitle={t("admin.nav.schedule")} />
 
       <Dashboard>
-        {loadingSchedules === true || loadingWorkers === true ? (
-          <Loader />
-        ) : (
-          <>
-            {/* workerFilter buttons */}
-            <div>
-              <div className="py-5">
-                <DateRangePicker title={t("defaults.period")} />
+        {/* workerFilter buttons */}
+        <div>
+          <div className="py-5">
+            <DateRangePicker title={t("defaults.period")} />
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="text-lg font-medium text-[#a0a0a0] w-fit mb-2">
+              {t("admin.nav.workers")}
+            </p>
+            {loadingWorkers === true ? (
+              <Loader />
+            ) : (
+              <div className="flex flex-wrap gap-4 justify-center">
+                <button
+                  onClick={() => setWorkerFilter(null)}
+                  className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                    workerFilter ? "bg-signature-gold" : "bg-gray"
+                  }`}
+                >
+                  {t("defaults.all")}
+                </button>
+                {workers.map((worker) => {
+                  return (
+                    <button
+                      key={worker.id}
+                      onClick={() => setWorkerFilter(worker.id)}
+                      className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                        worker.id === workerFilter
+                          ? "bg-gray"
+                          : "bg-signature-gold"
+                      }`}
+                    >
+                      {worker.firstName}
+                    </button>
+                  );
+                })}
               </div>
-              <div className="flex flex-col items-center">
-                <p className="text-lg font-medium text-[#a0a0a0] w-fit mb-2">
-                  {t("admin.schedule.professional")}
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <button
-                    onClick={() => setWorkerFilter(null)}
-                    className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                      workerFilter ? "bg-signature-gold" : "bg-gray"
-                    }`}
-                  >
-                    {t("defaults.all")}
-                  </button>
-                  {workers.map((worker) => {
-                    return (
-                      <button
-                        key={worker.id}
-                        onClick={() => setWorkerFilter(worker.id)}
-                        className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                          worker.id === workerFilter
-                            ? "bg-gray"
-                            : "bg-signature-gold"
-                        }`}
-                      >
-                        {worker.firstName}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-            {/* End of filters */}
+            )}
+          </div>
+        </div>
+        {/* End of filters */}
 
-            {/* Days */}
-            {schedules &&
-              schedules.length > 0 &&
-              schedules.map((schedule) => {
-                return <Schedule key={schedule.id} schedule={schedule} />;
-              })}
-          </>
+        {/* Schedule */}
+        {loadingSchedules === true ? (
+          <div className="flex w-full justify-center items-center">
+            <Loader />
+          </div>
+        ) : (
+          schedules &&
+          schedules.length > 0 &&
+          schedules.map((schedule) => {
+            return <Schedule key={schedule.id} schedule={schedule} />;
+          })
         )}
       </Dashboard>
     </>

@@ -70,7 +70,7 @@ const DateRangeComp = ({ title }) => {
             ranges={range}
             months={1}
             direction="horizontal"
-            className="absolute left-[50%] top-[50px] -translate-x-[50%] z-10"
+            className="absolute left-[50%] top-[58px] -translate-x-[50%] z-10"
           />
         )}
       </div>
