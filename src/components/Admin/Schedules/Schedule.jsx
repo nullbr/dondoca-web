@@ -10,17 +10,15 @@ function Schedule({ schedule }) {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <>
+    <div className="bg-[#f2f2f2] w-full min800:text-center rounded-2xl">
       {/* time mobile */}
-      <div className="flex w-full justify-center">
-        <p className="text-lg text-[#a0a0a0] font-bold -mb-10 pt5">
-          {startAtTime} - {endAtTime}
-        </p>
-      </div>
+      <p className="text-lg text-signature-gold font-bold -mb-2">
+        {startAtTime} - {endAtTime}
+      </p>
       {/* Schedule */}
       <div
         onClick={() => setShowForm(!showForm)}
-        className="flex gap-2 p-5 mt-5 bg-[#f2f2f2] justify-between w-full min800:text-center rounded-2xl"
+        className="flex p-5 justify-between"
       >
         {/* time web */}
         <div className="min620:hidden">
@@ -63,7 +61,7 @@ function Schedule({ schedule }) {
       </div>
 
       {showForm && <Form />}
-    </>
+    </div>
   );
 }
 

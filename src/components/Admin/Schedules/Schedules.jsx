@@ -97,11 +97,16 @@ function Schedules() {
             <Loader />
           </div>
         ) : (
-          schedules &&
-          schedules.length > 0 &&
-          schedules.map((schedule) => {
-            return <Schedule key={schedule.id} schedule={schedule} />;
-          })
+          <>
+            <p className="text-lg font-medium text-[#a0a0a0] text-center">
+              {t("admin.schedule.scheduled")}
+            </p>
+            {schedules &&
+              schedules.length > 0 &&
+              schedules.map((schedule) => {
+                return <Schedule key={schedule.id} schedule={schedule} />;
+              })}
+          </>
         )}
       </Dashboard>
     </>

@@ -114,6 +114,7 @@ const translations = {
         service: "Serviço",
         professional: "Profissional",
         client: "Cliente",
+        scheduled: "Agendamentos",
       },
 
       worker: {
