@@ -47,8 +47,14 @@ const translations = {
             "Temos preços justos e razoáveis para os serviços prestados. Também oferecemos promoções especiais e pacotes.",
         },
       },
-      featured: {
-        subtitle: "",
+      chooseUs: {
+        title: "Por que nos escolher?",
+        description:
+          "Se você está procurando um lugar para cuidar da sua beleza e bem-estar, o Dondoca é a escolha perfeita! Temos uma equipe de profissionais altamente qualificados e experientes, que estão prontos para atender todas as suas necessidades de beleza. Oferecemos uma ampla variedade de serviços, desde cortes de cabelo e coloração, até manicures e pedicures, massagens relaxantes e tratamentos de beleza para o rosto e corpo. Nosso salão é um ambiente acolhedor e confortável, com uma atmosfera descontraída e amigável.",
+        topic1: "Cuidados pessoais",
+        topic2: "Relaxamento",
+        topic3: "Atualizações de estilo",
+        topic4: "Ocasiões especiais",
       },
     },
 

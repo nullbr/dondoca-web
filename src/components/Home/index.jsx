@@ -1,5 +1,5 @@
 import About from "./About/About";
-// import ChooseUs from "./ChooseUs/ChooseUs";
+import ChooseUs from "./ChooseUs/ChooseUs";
 import Featured from "./Featured/Featured";
 import Hero from "./Hero/Hero";
 import { useEffect } from "react";
@@ -22,7 +22,7 @@ const Home = () => {
       <Hero />
       <About />
       <Featured t={t} />
-      {/* <ChooseUs /> */}
+      <ChooseUs />
     </>
   );
 };

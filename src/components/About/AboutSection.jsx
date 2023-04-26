@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 function AboutSection() {
   const { t } = useTranslation();
   return (
-    <div className="flex justify-center md1000:flex-col w-full gap-20 p-10 bg-white shadow-lg">
+    <div className="flex justify-center md1000:flex-col w-full gap-20 p-10 bg-white shadow-lg rounded-xl">
       <div className="flex flex-col text-left relative items-right self-center max-w-[450px] md1000:items-center md1000:text-center md1000:w-full">
         <p className="text-white relative z-10 text-[15px] uppercase font-bold mb-1 ml-20 md1000:ml-3 ">
           {t("aboutUs.title")}
@@ -19,7 +19,7 @@ function AboutSection() {
         <h2 className="text-[3.4rem] font-bold leading-tight mb-6 w-[60rem] min800:w-[100%] min620:text-[2.5rem]">
           {t("aboutUs.subtitle")}
         </h2>
-        <p className="text-[16px] text-[#646464] font-medium ">
+        <p className="text-[16px] text-[#646464] font-medium min800:text-justify">
           {t("aboutUs.description")}
         </p>
         <MainButton

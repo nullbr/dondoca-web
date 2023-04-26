@@ -3,11 +3,21 @@ import MainButton from "../../Shared/MainButton";
 import "./Featured.css";
 
 function Featured({ t }) {
+  const featServices = [
+    { title: t("services.serv1") },
+    { title: t("services.serv2") },
+    { title: t("services.serv3") },
+    { title: t("services.serv4") },
+    { title: t("services.serv5") },
+    { title: t("services.serv6") },
+    { title: t("services.serv7") },
+  ];
+
   return (
     <>
-      <section className="flex justify-between py-20">
+      <section className="flex justify-between py-20 min800:py-10">
         <div className="container page-padding">
-          <div className="p-20 bg-white shadow-lg">
+          <div className="p-20 min800:p-10 bg-white shadow-lg rounded-xl">
             {/* title */}
             <div className="flex flex-col text-center items-center relative ">
               <p className="font-semibold text-white text-[15px] relative uppercase z-10 ">
@@ -23,60 +33,24 @@ function Featured({ t }) {
               </h2>
             </div>
             {/* grid */}
-            <div className="grid grid-cols-4 grid-rows-2 gap-7 h-full mt-7 md1000:flex md1000:flex-col">
-              <div className="item-0-div relative">
-                <div className="item-0 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv2")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="item-1-div relative">
-                <div className="item-1 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv3")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="item-2-div relative">
-                <div className="item-2 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv5")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="item-3-div relative">
-                <div className="item-3 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv6")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="item-4-div relative">
-                <div className="item-4 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv4")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="item-5-div relative">
-                <div className="item-5 ease-in duration-[0.4s] p-6"></div>
-                <div className="absolute z-10 bottom-10 left-10">
-                  <p className="text-white text-[3rem] font-bold">
-                    {t("services.serv1")}
-                  </p>
-                </div>
-              </div>
+            <div className="grid grid-cols-4 grid-rows-2 gap-7 h-full mt-7 min800:mt-0 md1000:grid-rows-4 min620:flex min620:flex-col">
+              {featServices.map((serv, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className={`item-${idx}-div relative rounded-xl`}
+                  >
+                    <div
+                      className={`item-${idx} ease-in duration-[0.4s] p-6`}
+                    ></div>
+                    <div className="absolute z-10 bottom-10 left-10">
+                      <p className="text-white text-[3rem] min800:text-[2.4rem] font-bold">
+                        {serv.title}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
             <div className="flex justify-center w-full pt-5">
               <MainButton
