@@ -21,9 +21,9 @@ const initialState = {
 
 export const fetchWorkersAsync = createAsyncThunk(
   "workers/fetchWorkersAsync",
-  async (_payload, { getState, rejectWithValue }) => {
-    const sessionsState = getState().sessions;
-    const response = await fetchWorkers(sessionsState.accessToken);
+  async (_payload, { rejectWithValue }) => {
+    const response = await fetchWorkers();
+    console.log(response);
 
     if (response.errors) {
       return rejectWithValue(response.errors);
