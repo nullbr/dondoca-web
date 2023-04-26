@@ -24,6 +24,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 {/* admin nav Links */}
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="services"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/admin/schedules"
                   >
@@ -32,6 +35,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="workers"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/admin/workers"
                   >
@@ -40,6 +46,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="clients"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/admin/clients"
                   >
@@ -52,6 +61,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 {/* Client nav Links */}
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="home"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/"
                   >
@@ -60,6 +72,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="about"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/about"
                   >
@@ -76,6 +91,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li> */}
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="gallery"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/gallery"
                   >
@@ -84,6 +102,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="contact"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/contact"
                   >
@@ -92,6 +113,9 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 <li onClick={toggleMobileNav}>
                   <NavLink
+                    id="services"
+                    exact="true"
+                    activeclassname="active"
                     className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
                     to="/services"
                   >

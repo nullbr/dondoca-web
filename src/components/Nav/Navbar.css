@@ -10,6 +10,12 @@
   width: calc(100% - 40rem);
 }
 
+a.active {
+  color: #cba135;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* MEDIA QUERIES --------------------------------*/
 
 @media (max-width: 1200px) {
