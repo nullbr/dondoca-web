@@ -10,13 +10,13 @@ function Professionals({ t }) {
     {
       image: Prof1,
       name: "Gisely Rosa",
-      job: "Hair Stylist",
+      job: "Proprietária, Hair Stylist & Makeup",
       instagram: "https://www.instagram.com/giselyr",
     },
     {
       image: Prof2,
       name: "Juarezita Rosa",
-      job: "Manicure & Pedicure",
+      job: "Proprietária, Manicure & Pedicure, Depilação e Sobrancelhas",
       instagram: "https://www.instagram.com/juarezita_rosa",
     },
   ];

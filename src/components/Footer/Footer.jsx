@@ -33,7 +33,7 @@ function Footer() {
             </div>
 
             {/* middle div */}
-            <div className="flex flex-col gap-8 relative w-3/12 min620:w-full text-center">
+            <div className="flex flex-col gap-3 relative w-3/12 min620:w-full text-center">
               <p className="text-[22px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
                 {t("services.featTitle")}
               </p>
@@ -52,6 +52,12 @@ function Footer() {
               </p>
               <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv5")}
+              </p>
+              <p className="text-[16px] text-[#646464] font-medium">
+                {t("services.serv6")}
+              </p>
+              <p className="text-[16px] text-[#646464] font-medium">
+                {t("services.serv7")}
               </p>
             </div>
 
