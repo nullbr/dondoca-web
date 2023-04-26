@@ -1,4 +1,3 @@
-import "./ChooseUs.css";
 import Icon1 from "../../../assets/images/choose-us/heart.svg";
 import Icon2 from "../../../assets/images/choose-us/relax.svg";
 import Icon3 from "../../../assets/images/choose-us/style.svg";

@@ -22,7 +22,7 @@ const About = () => {
       <section>
         <PagesHeader pageTitle={t("nav.about")} />
 
-        <div className="container page-padding py-[5rem] flex flex-col justify-center gap-20">
+        <div className="container page-padding py-[5rem] min620:py-4 flex flex-col justify-center gap-20">
           <AboutSection />
           <Professionals t={t} />
           <History t={t} />
