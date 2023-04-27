@@ -1,5 +1,15 @@
 /* css for all pages */
 
+.loading-bg {
+  background: rgb(203, 161, 53);
+  background: linear-gradient(
+    143deg,
+    rgba(203, 161, 53, 0.5902439024390245) 0%,
+    rgba(249, 247, 247, 0.578048780487805) 50%,
+    rgba(203, 161, 53, 0.5585365853658537) 100%
+  );
+}
+
 .about-cta {
   padding: 1.82rem 3.6rem;
   transition: all 0.3s;

@@ -31,7 +31,6 @@ header {
 }
 
 section {
-  /* background-image: url("/src/assets/images/shared/background.jpg"); */
   background: rgb(236, 237, 236);
   background: linear-gradient(
     90deg,
