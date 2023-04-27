@@ -2,18 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { fetchWorkers } from "../../api/workersAPI";
 
 const initialState = {
-  workers: [
-    {
-      id: 0,
-      firstName: "",
-      lastName: "",
-      phoneNumber: "",
-      job: "",
-      instagram: "",
-      createdAt: "",
-      imageUrl: "",
-    },
-  ],
+  workers: [],
   loading: true,
   error: false,
   errorMessages: [],
@@ -23,7 +12,6 @@ export const fetchWorkersAsync = createAsyncThunk(
   "workers/fetchWorkersAsync",
   async (_payload, { rejectWithValue }) => {
     const response = await fetchWorkers();
-    console.log(response);
 
     if (response.errors) {
       return rejectWithValue(response.errors);
@@ -53,7 +41,7 @@ const workerSlice = createSlice({
             id: worker.id,
             firstName: worker.first_name,
             lastName: worker.last_name,
-            phoneNumber: formatPhoneNumber(worker.phone_number.toString()),
+            phoneNumber: formatPhoneNumber(worker.phone_number?.toString()),
             job: worker.job,
             instagram: worker.instagram,
             createdAt: formatDate(worker.created_at),
@@ -74,6 +62,8 @@ const workerSlice = createSlice({
 export default workerSlice.reducer;
 
 function formatDate(isoDateString) {
+  if (!isoDateString) return;
+
   const date = new Date(isoDateString);
   const day = date.getDate().toString().padStart(2, "0");
   const month = (date.getMonth() + 1).toString().padStart(2, "0");
@@ -82,6 +72,8 @@ function formatDate(isoDateString) {
 }
 
 function formatPhoneNumber(number) {
+  if (!number) return;
+
   const areaCode = number.slice(0, 2);
   const prefix = number.slice(2, 7);
   const suffix = number.slice(7);

@@ -8,8 +8,6 @@ import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
-// import DatePicker from "./DatePicker";
-// import DatePickerV2 from "./DatePickerV2";
 import DateRangePicker from "./DateRangePicker";
 import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 

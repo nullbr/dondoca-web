@@ -1,25 +1,18 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
-import Prof1 from "../../assets/images/professionals/gisely.png";
-import Prof2 from "../../assets/images/professionals/ju.png";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchWorkersAsync } from "../../features/workers/workerSlice";
 
 function Professionals({ t }) {
   const [imgHover, setImgHover] = useState(false);
 
-  const professionals = [
-    {
-      image: Prof1,
-      name: "Gisely Rosa",
-      job: "Proprietária, Hair Stylist & Makeup",
-      instagram: "https://www.instagram.com/giselyr",
-    },
-    {
-      image: Prof2,
-      name: "Juarezita Rosa",
-      job: "Proprietária, Manicure & Pedicure, Depilação e Sobrancelhas",
-      instagram: "https://www.instagram.com/juarezita_rosa",
-    },
-  ];
+  const dispatch = useDispatch();
+  const { workers, loading } = useSelector((store) => store.workers);
+
+  useEffect(() => {
+    dispatch(fetchWorkersAsync());
+  }, []);
 
   return (
     <div className="py-20 px-10 bg-white shadow-lg flex flex-col gap-20">
@@ -43,38 +36,38 @@ function Professionals({ t }) {
       </div>
 
       {/* professionals div -- */}
-      <div className="flex justify-center gap-[5rem] md1200:flex-wrap">
-        {professionals.map((professional) => (
+      <div className="grid grid-cols-3 min800:grid-cols-2 justify-between gap-x-[5%] gap-y-10 flex-wrap">
+        {workers.map((professional) => (
           <div
             onMouseEnter={() => setImgHover(true)}
             onMouseLeave={() => setImgHover(true)}
-            key={professional.name}
-            className="flex flex-col justify-center"
+            key={professional.id}
+            className="flex flex-col justify-center text-white overflow-hidden rounded-2xl shadow-xl"
           >
             {/* professional img */}
             <img
-              src={professional.image}
+              src={professional.imageUrl}
               alt="professional"
               style={{ transition: "all 0.3s" }}
-              className={`w-full h-auto max-w-[45rem] min-w-[20rem] ${
-                imgHover ? "hover:contrast-125" : ""
-              }`}
+              className={`object-cover self-center h-[120%] -my-[15%]`}
             />
             {/* professional description */}
-            <div className="bg-white w-full text-center shadow-lg z-5 rounded-[6px] px-[20px] py-[30px] border-b-4 border-signature-gold">
-              <h3 className="font-bold text-[2.4rem] ">{professional.name}</h3>
-              <p className="font-medium text-[1.5rem] text-[#646464]">
-                {professional.job}
-              </p>
-              <a
-                href={professional.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex text-[#646464] w-full justify-center mt-5 text-[1.6rem]"
-              >
-                <i className="fa-brands fa-instagram" />
-                <span className="text-sm pl-1">Instagram</span>
-              </a>
+            <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center p-5 border-b-4 border-signature-gold">
+              <h3 className="font-bold text-[2.4rem] ">
+                {professional.firstName}
+              </h3>
+              <p className="font-medium text-[1.5rem]">{professional.job}</p>
+              {professional.instagram !== null && (
+                <a
+                  href={professional.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full justify-center mt-5 text-[1.6rem]"
+                >
+                  <i className="fa-brands fa-instagram" />
+                  <span className="text-sm pl-1">Instagram</span>
+                </a>
+              )}
             </div>
           </div>
         ))}

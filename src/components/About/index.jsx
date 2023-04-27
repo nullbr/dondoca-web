@@ -25,7 +25,7 @@ const About = () => {
         <div className="container page-padding py-[5rem] min620:py-4 flex flex-col justify-center gap-20">
           <AboutSection />
           <Professionals t={t} />
-          <History t={t} />
+          {/* <History t={t} /> */}
         </div>
       </section>
     </>
