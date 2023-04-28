@@ -19,7 +19,7 @@ const Workers = () => {
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     dispatch(fetchWorkersAsync());
-  }, []);
+  }, [t, dispatch]);
 
   return (
     <>

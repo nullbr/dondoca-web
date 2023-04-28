@@ -19,7 +19,7 @@ const Clients = () => {
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     dispatch(fetchClientsAsync());
-  }, []);
+  }, [dispatch, t]);
 
   return (
     <>

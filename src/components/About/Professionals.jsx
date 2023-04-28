@@ -1,18 +1,16 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkersAsync } from "../../features/workers/workerSlice";
 
 function Professionals({ t }) {
-  const [imgHover, setImgHover] = useState(false);
-
   const dispatch = useDispatch();
-  const { workers, loading } = useSelector((store) => store.workers);
+  const { workers } = useSelector((store) => store.workers);
 
   useEffect(() => {
     dispatch(fetchWorkersAsync());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="py-20 px-10 bg-white shadow-lg flex flex-col gap-20">
@@ -39,8 +37,6 @@ function Professionals({ t }) {
       <div className="grid grid-cols-3 min800:grid-cols-2 justify-between gap-x-[5%] gap-y-10 flex-wrap">
         {workers.map((professional) => (
           <div
-            onMouseEnter={() => setImgHover(true)}
-            onMouseLeave={() => setImgHover(true)}
             key={professional.id}
             className="flex flex-col justify-center text-white overflow-hidden rounded-2xl shadow-xl"
           >
@@ -49,7 +45,7 @@ function Professionals({ t }) {
               src={professional.imageUrl}
               alt="professional"
               style={{ transition: "all 0.3s" }}
-              className={`object-cover self-center h-[120%] -my-[15%]`}
+              className={`object-cover self-center h-[120%] hover:contrast-150`}
             />
             {/* professional description */}
             <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center p-5 border-b-4 border-signature-gold">

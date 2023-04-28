@@ -25,26 +25,18 @@ const EditProfile = () => {
 
     // Focus on email input
     document.getElementById("email").focus();
+
+    // reset error messages
+    dispatch(resetErrorState());
   }, [dispatch, t]);
 
   // Sign up user
   const { loading, errorMessages, accessToken } = useSelector(
     (store) => store.sessions
   );
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState(errorMessages);
   const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-
-  const resetErrorMessages = () => {
-    if (errorMessages) {
-      setErrors(errorMessages);
-      dispatch(resetErrorState());
-    }
-  };
-
-  useEffect(() => {
-    resetErrorMessages();
-  }, []);
 
   // Check form entries
   const validEntries = (entries) => {

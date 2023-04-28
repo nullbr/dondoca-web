@@ -18,7 +18,7 @@ const PersistLogin = () => {
     if (!accessToken) {
       verifyRefreshToken();
     }
-  }, []);
+  }, [accessToken, refreshToken, dispatch]);
 
   return (
     <>

@@ -2,7 +2,6 @@ import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setScrollY } from "../../features/navbar/navbarSlice";
 import { useTranslation } from "react-i18next";
-import { wait } from "../../lib/scripts";
 
 import Hero from "./Hero/Hero";
 const About = lazy(() => import("./About/About"));

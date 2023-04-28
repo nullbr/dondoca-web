@@ -22,23 +22,15 @@ const Login = () => {
 
     // Focus on email input
     document.getElementById("email").focus();
+
+    // reset error messages
+    dispatch(resetErrorState());
   }, [dispatch, t]);
 
   // Login User
-  const [errors, setErrors] = useState([]);
   const [showPassword, setShowPassword] = useState(false);
   const { loading, errorMessages } = useSelector((store) => store.sessions);
-
-  const resetErrorMessages = () => {
-    if (errorMessages) {
-      setErrors(errorMessages);
-      dispatch(resetErrorState());
-    }
-  };
-
-  useEffect(() => {
-    resetErrorMessages();
-  }, []);
+  const [errors, setErrors] = useState(errorMessages);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

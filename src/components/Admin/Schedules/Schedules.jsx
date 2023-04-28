@@ -27,13 +27,11 @@ function Schedules() {
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     // get workers if not already in store
-    if (workers.length === 1) {
-      dispatch(fetchWorkersAsync());
-    }
+    dispatch(fetchWorkersAsync());
 
     // get schedule for current date
     dispatch(fetchSchedulesAsync());
-  }, []);
+  }, [t, dispatch]);
 
   return (
     <>
