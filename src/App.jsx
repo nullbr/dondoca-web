@@ -1,22 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-import { lazy } from "react";
 
 import PersistLogin from "./components/Sessions/PersistLogin";
 import Layout from "./components/Layout/Layout";
 import AdminLayout from "./components/Admin/Layout";
+
+// Pages
+import Home from "./components/Home";
+import Services from "./components/Services";
+import Gallery from "./components/Gallery";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import { lazy } from "react";
+
 // Sessions
 const Login = lazy(() => import("./components/Sessions/Login"));
 const Logout = lazy(() => import("./components/Sessions/Logout"));
 const SignUp = lazy(() => import("./components/Sessions/SignUp"));
 const EditProfile = lazy(() => import("./components/Sessions/EditProfile"));
-// Pages
-const Home = lazy(() => import("./components/Home"));
-const Services = lazy(() => import("./components/Services"));
-
-const Gallery = lazy(() => import("./components/Gallery"));
-
-const About = lazy(() => import("./components/About"));
-const Contact = lazy(() => import("./components/Contact"));
 
 // Admin
 const AdminHome = lazy(() => import("./components/Admin"));
@@ -66,12 +66,5 @@ function App() {
     </>
   );
 }
-
-// Force artificial loading time
-// function wait(time) {
-//   return new Promise((resolve) => {
-//     setTimeout(resolve, time);
-//   });
-// }
 
 export default App;

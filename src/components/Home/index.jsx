@@ -1,11 +1,13 @@
-import About from "./About/About";
-import ChooseUs from "./ChooseUs/ChooseUs";
-import Featured from "./Featured/Featured";
-import Hero from "./Hero/Hero";
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setScrollY } from "../../features/navbar/navbarSlice";
 import { useTranslation } from "react-i18next";
+import { wait } from "../../lib/scripts";
+
+import Hero from "./Hero/Hero";
+const About = lazy(() => import("./About/About"));
+const ChooseUs = lazy(() => import("./ChooseUs/ChooseUs"));
+const Featured = lazy(() => import("./Featured/Featured"));
 
 const Home = () => {
   const { t } = useTranslation();
@@ -20,9 +22,11 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <About />
-      <Featured t={t} />
-      <ChooseUs />
+      <Suspense>
+        <About />
+        <Featured t={t} />
+        <ChooseUs />
+      </Suspense>
     </>
   );
 };
