@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
         "signature-gold": "#CBA135",
-        gray: "#52525b",
+        gray: "#555",
         "light-gray": "#DAE7E1",
+        "subtitle-gray": "#a0a0a0",
         "slightly-transparent": "rgb(255,255,255,0.95)",
       },
     },
