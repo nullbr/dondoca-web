@@ -30,6 +30,12 @@ header {
   position: relative;
 }
 
+@media (max-width: 800px) {
+  header {
+    background-image: url("/src/assets/images/background/background_mobile.png");
+  }
+}
+
 section {
   background: rgb(236, 237, 236);
   background: linear-gradient(
