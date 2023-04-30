@@ -1,5 +1,4 @@
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
-import sideImg from "../../assets/images/home/equipe.png";
 import MainButton from "../Shared/MainButton";
 import { useTranslation } from "react-i18next";
 
@@ -43,7 +42,7 @@ function AboutSection() {
         {/* img side */}
         <div className="flex justify-end md1000:w-full md1000:px-5 md1000:justify-center">
           <img
-            src={sideImg}
+            src="https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fhome%2Fequipe.png?alt=media&token=b5ea3dfd-64b0-4b46-846a-cc6345e0ebb6"
             alt="brushes"
             className="rounded-full w-full h-auto max-w-[45rem] min-w-[20rem] border-4 border-signature-gold"
           />

@@ -21,7 +21,7 @@ body {
 }
 
 header {
-  background-image: url("/src/assets/images/background/background-wide.png");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground-wide.png?alt=media&token=ee270a96-0b9b-45c0-a451-807ca02634bf");
   object-fit: cover;
   background-size: cover;
   background-position: center center;
@@ -32,7 +32,7 @@ header {
 
 @media (max-width: 800px) {
   header {
-    background-image: url("/src/assets/images/background/background_mobile.png");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground_mobile.png?alt=media&token=303f2dce-9291-408b-9072-c459f20ecb60");
   }
 }
 

@@ -1,8 +1,8 @@
-import { Suspense, lazy } from "react";
 import "./Layout.css";
+import { Suspense, lazy } from "react";
 import { Outlet } from "react-router-dom";
+import UtilityBtn from "./UtilityBtn";
 const Navbar = lazy(() => import("../Nav/Navbar"));
-const UtilityBtn = lazy(() => import("./UtilityBtn"));
 const Footer = lazy(() => import("../Footer/Footer"));
 
 const Layout = () => {
@@ -17,9 +17,9 @@ const Layout = () => {
       <Suspense>
         <Navbar />
         <Outlet />
-        <UtilityBtn />
         <Footer />
       </Suspense>
+      <UtilityBtn />
     </>
   );
 };

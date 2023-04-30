@@ -8,12 +8,12 @@ const MessageBtn = () => {
   const [text, setText] = useState(null);
   const [show, setShow] = useState(false);
 
-  // display message icon on scrolldown
-  const handleScroll = () => {
-    window.scrollY > 10 ? setShow(true) : setShow(false);
-  };
-
   useState(() => {
+    // display message icon on scrolldown
+    const handleScroll = () => {
+      window.scrollY > 10 ? setShow(true) : setShow(false);
+    };
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {

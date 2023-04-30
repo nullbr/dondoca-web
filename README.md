@@ -19,3 +19,17 @@
 <div align='center'>
   <img width="1497" alt="Screenshot 2023-04-12 at 15 32 04" src="https://user-images.githubusercontent.com/94543524/231552129-044491a5-7e42-4944-bc52-ab0d59863fb4.png">
 </div>
+
+### Deploy Production
+
+```Bash
+npm run build
+mv dist html
+scp -r html username@host:~/dondocasr/
+ssh username@host
+sudo rm -rf /var/www/dondocasr
+sudo mv ~/dondocasr /var/www/
+mkdir ~/dondocasr
+exit
+mv html dist
+```

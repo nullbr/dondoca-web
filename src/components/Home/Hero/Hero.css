@@ -1,10 +1,25 @@
 .hero-section {
-  background-image: url("../../../assets/images/background/background-wide.png");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground-wide.png?alt=media&token=ee270a96-0b9b-45c0-a451-807ca02634bf");
   width: 100%;
   height: calc(100vh + 5.5rem);
   object-fit: cover;
   background-size: cover;
   background-position: center center;
+}
+
+.animate-fade-in {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* @keyframes fade-in {
@@ -22,6 +37,6 @@
 
 @media (max-width: 800px) {
   .hero-section {
-    background-image: url("../../../assets/images/background/background_mobile.png");
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground_mobile.png?alt=media&token=303f2dce-9291-408b-9072-c459f20ecb60");
   }
 }
