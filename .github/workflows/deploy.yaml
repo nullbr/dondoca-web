@@ -28,5 +28,7 @@ jobs:
           host: ${{ secrets.PROD_UBUNTU_IP }}
           username: ${{ secrets.PROD_UBUNTU_USERNAME }}
           password: ${{ secrets.PROD_UBUNTU_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.KEY }}
           source: "./html/"
           target: "/var/www/dondocasr/"
