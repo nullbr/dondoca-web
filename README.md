@@ -23,10 +23,12 @@
 ### Deploy Production
 
 ```Bash
+username=
+host=
 npm run build
 mv dist html
-scp -r html username@host:~/dondocasr/
-ssh username@host
+scp -r html ${username}@${host}:~/dondocasr/
+ssh ${username}@${host}
 sudo rm -rf /var/www/dondocasr
 sudo mv ~/dondocasr /var/www/
 mkdir ~/dondocasr

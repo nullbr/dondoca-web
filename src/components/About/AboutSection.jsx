@@ -5,13 +5,13 @@ import { useTranslation } from "react-i18next";
 function AboutSection() {
   const { t } = useTranslation();
   return (
-    <div className="bg-gray text-white shadow-lg rounded-xl">
+    <div className="bg-white shadow-lg rounded-xl">
       <div className="grid grid-cols-2 md1000:grid-cols-1 items-center">
         {/* text section */}
         <div className="p-10">
           {/* Title */}
           <div className="pt-10">
-            <p className="text-[15px] text-center relative z-10 uppercase font-bold">
+            <p className="text-white text-[15px] text-center relative z-10 uppercase font-bold">
               {t("aboutUs.title")}
             </p>
             <img
@@ -43,7 +43,7 @@ function AboutSection() {
           <img
             src="https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fhome%2Fequipe.png?alt=media&token=b5ea3dfd-64b0-4b46-846a-cc6345e0ebb6"
             alt="brushes"
-            className="rounded-xl"
+            className="rounded-r-xl md1000:rounded-b-xl md1000:rounded-none"
           />
         </div>
       </div>

@@ -70,10 +70,12 @@ const translations = {
           "A equipe Dondoca é composta por profissionais experientes e dedicados que possuem uma paixão em comum: ajudar seus clientes a se sentirem bonitos e confiantes. Com uma ampla gama de serviços, desde corte de cabelo e coloração até manicure e maquiagem, nós estamos prontos para oferecer um atendimento personalizado e de alta qualidade a cada pessoa que recebemos. Além disso, estamos sempre atualizados com as últimas tendências e técnicas do mercado, garantindo que nossos clientes saiam com um visual moderno e sofisticado. Com a nossa equipe, você pode esperar um ambiente acolhedor e amigável, além de um serviço excepcional que fará você se sentir mimada e cuidada. Venha visitar-nos e descubra o que podemos fazer para transformar sue visual!",
       },
       history: {
-        title1: "Titulo 1",
-        description1: "Descreva a historia",
-        title2: "Titulo 2",
-        description2: "Descreva a historia",
+        title1: "Começou com um sonho",
+        description1:
+          "O Dondoca foi idealizado em 2010 por Juarezita Rosa que na época tinha uma carreira bem alicerçada como designer de sobrancelha, depiladora e manicure e, buscando sua independência, decidiu abrir um espaço que era um anexo de sua casa e contava com 3 profissionais. Após 2 anos de funcionamento, sua filha Gisely, até então com 18 anos, escolhe trilhar o caminho da beleza e cursar Visagismo e Terapia capilar pela Universidade Anhembi Morumbi. Juntas, elas se posicionaram no mercado de beleza sempre transmitindo a essência e individualidade de cada cliente em sua imagem, bem como receber e acolher cada cliente sempre de forma hospitaleira e carinhosa. ",
+        title2: "Com muito esforço",
+        description2:
+          "Em pouco tempo nossa equipe aumentou e buscando também alcançar o mercado de noivas escolhemos ampliar nosso espaço passando de um para cinco ambientes, com 12 profissionais na equipe, oferecendo serviços que se estendem entre estetica facial e corporal, maquiagem, penteado, corte, coloraçao e procedimentos redutores de volume.  Nesses 13 anos de caminhada muita coisa evoluiu e se transformou, sempre visando promover bem estar e um atendimento de qualidade a quem nos prestigia. ",
       },
     },
 

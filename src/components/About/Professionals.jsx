@@ -13,7 +13,7 @@ function Professionals({ t }) {
   }, [dispatch]);
 
   return (
-    <div className="py-20 px-10 bg-white shadow-lg flex flex-col gap-20">
+    <div className="py-20 px-10 bg-white shadow-lg rounded-xl flex flex-col gap-20">
       {/* title div -- */}
       <div className="flex flex-col items-center text-center relative self-center">
         <p className="text-white relative z-10 text-[16px] uppercase font-bold mb-10">

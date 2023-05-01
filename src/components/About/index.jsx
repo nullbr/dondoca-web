@@ -6,9 +6,9 @@ import { setScrollY } from "../../features/navbar/navbarSlice";
 
 import Loader from "../Shared/Loader";
 import PagesHeader from "../Shared/PagesHeader";
+import History from "./History";
 const AboutSection = lazy(() => import("./AboutSection"));
 const Professionals = lazy(() => import("./Professionals"));
-// import History from "./History";
 
 const About = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const About = () => {
           <Suspense fallback={<Loader />}>
             <AboutSection />
             <Professionals t={t} />
-            {/* <History t={t} /> */}
+            <History t={t} />
           </Suspense>
         </div>
       </section>
