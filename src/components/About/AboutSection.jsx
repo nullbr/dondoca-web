@@ -26,7 +26,7 @@ function AboutSection() {
           <h2 className="text-[3.4rem] text-center font-bold min620:text-[2.5rem]">
             {t("aboutUs.subtitle")}
           </h2>
-          <p className="text-[16px] font-medium text-justify">
+          <p className="text-[16px] text-[#646464] font-medium text-justify">
             {t("aboutUs.description")}
           </p>
           <div className="flex w-full justify-center mt-10">

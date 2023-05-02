@@ -12,7 +12,7 @@ function AboutCarts() {
         <h1 className="text-[3rem] min620:text-[2.4rem] font-bold uppercase mb-7">
           {t("home.about.quality.title")}
         </h1>
-        <p className="text-[15px] font-medium leading-2 w-full">
+        <p className="text-[15px] text-[#646464] font-medium leading-2 w-full">
           {t("home.about.quality.description")}
         </p>
       </div>
@@ -22,7 +22,7 @@ function AboutCarts() {
         <p className="text-[3rem] min620:text-[2.4rem] font-bold uppercase mb-7">
           {t("home.about.space.title")}
         </p>
-        <p className="text-[15px] font-medium leading-2 w-full">
+        <p className="text-[15px] text-[#646464] font-medium leading-2 w-full">
           {t("home.about.space.description")}
         </p>
       </div>
@@ -32,7 +32,7 @@ function AboutCarts() {
         <p className="text-[3rem] min620:text-[2.4rem] font-bold uppercase mb-7">
           {t("home.about.price.title")}
         </p>
-        <p className="text-[15px] font-medium leading-2 w-full">
+        <p className="text-[15px] text-[#646464] font-medium leading-2 w-full">
           {t("home.about.price.description")}
         </p>
       </div>
