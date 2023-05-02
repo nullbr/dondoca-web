@@ -5,7 +5,7 @@
   <p>Dondoca is a beauty salon, located in São Roque, SP, Brazil and <b>Dondoca Web</b> is a platform for the managment, scheduling and to display services ts customers.</p>
   <p>This interface communicate with the Dondoca API, which is built with Ruby on Rails</p>
 
-👉 Live: <a href='https://github.com/nullbr/dondoca-web'>Dondoca Web (under cunstruction)</a>
+👉 Live: <a href='https://dondocasr.com.br'>Dondoca Web (dondocasr.com.br)</a>
 
 <h3>Built with:</h3>
 
