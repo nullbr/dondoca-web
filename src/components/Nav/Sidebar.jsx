@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
 
-const Sidebar = ({ toggleSideBar, sidebar, t }) => {
+const Sidebar = ({ toggleSideBar, t }) => {
   useEffect(() => {
     const div = document.getElementById("sidebarGallery");
     const script = document.createElement("script");
@@ -23,7 +23,7 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
     <>
       <div className="flex">
         {/* Content */}
-        <div className="flex flex-col w-[40rem] max-w-full h-screen bg-slightly-transparent p-[45px] gap-24 overflow-x-hidden">
+        <div className="flex flex-col w-[40rem] max-w-full h-screen bg-slightly-transparent py-10 px-[45px] min620:pb-[10rem] gap-24 overflow-x-hidden">
           {/* logo & X */}
           <div className="flex justify-between items-center">
             <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
@@ -96,7 +96,7 @@ const Sidebar = ({ toggleSideBar, sidebar, t }) => {
         </div>
         {/* Allow user to click outside the box to close */}
         <div
-          className="close-sidebar-div cursor-pointer"
+          className="close-sidebar-div cursor-pointer bg-transparent-gray min620:bg-transparent"
           onClick={toggleSideBar}
         ></div>
       </div>

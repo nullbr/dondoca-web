@@ -10,7 +10,7 @@ function AboutSection() {
         {/* text section */}
         <div className="p-10">
           {/* Title */}
-          <div className="pt-10">
+          <div className="pt-10 min800:pt-0">
             <p className="text-white text-[15px] text-center relative z-10 uppercase font-bold">
               {t("aboutUs.title")}
             </p>

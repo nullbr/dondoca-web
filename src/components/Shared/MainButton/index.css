@@ -1,0 +1,34 @@
+.hero-cta::after {
+  content: "";
+  width: 20rem;
+  height: 5.5rem;
+  border: 2px solid rgb(203, 161, 53);
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .hero-cta::after {
+    content: "";
+    width: 20rem;
+    height: 5.5rem;
+    border: 1px solid rgb(203, 161, 53, 0.362);
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    transition: all 0.4s;
+  }
+
+  .hero-cta:hover:after {
+    content: "";
+    width: 20rem;
+    height: 5.5rem;
+    border: 1px solid rgb(203, 161, 53);
+    position: absolute;
+    top: -0px;
+    left: 0px;
+    transition: all 0.4s;
+  }
+}

@@ -21,7 +21,7 @@ function Hero() {
                 color={`text-black`}
                 bg={`bg-white`}
                 text="nossos serviços"
-                goTo="/classes"
+                goTo="/services"
                 arrowColor="text-signature-gold"
                 hover={`hover:bg-gray`}
               />
@@ -33,7 +33,7 @@ function Hero() {
           href={t("defaults.instagram")}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-row-reverse -rotate-90 text-white w-fit
+          className="animate-fade-in flex flex-row-reverse -rotate-90 text-white w-fit
           absolute top-1/2 right-0 items-center min800:-rotate-0 min800:static min800:self-center min800:pt-10"
         >
           <p className="uppercase  text-3xl font-bold tracking-widest">

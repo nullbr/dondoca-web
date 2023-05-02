@@ -34,7 +34,7 @@ function Professionals({ t }) {
       </div>
 
       {/* professionals div -- */}
-      <div className="grid grid-cols-3 min800:grid-cols-2 justify-between gap-x-[5%] gap-y-10 flex-wrap">
+      <div className="grid grid-cols-3 min800:grid-cols-2 justify-between gap-x-[5%] gap-y-10">
         {workers.map((professional) => (
           <div
             key={professional.id}
@@ -45,10 +45,10 @@ function Professionals({ t }) {
               src={professional.imageUrl}
               alt="professional"
               style={{ transition: "all 0.3s" }}
-              className={`object-cover self-center h-[120%] hover:contrast-150`}
+              className={`object-cover self-center hover:contrast-150`}
             />
             {/* professional description */}
-            <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center p-5 border-b-4 border-signature-gold">
+            <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center px-5 border-b-4 border-signature-gold h-[16rem]">
               <h3 className="font-bold text-[2.4rem] ">
                 {professional.firstName}
               </h3>

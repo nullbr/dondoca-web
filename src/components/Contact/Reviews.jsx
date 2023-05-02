@@ -28,13 +28,13 @@ const Reviews = ({ t }) => {
     >
       <div className="container page-padding">
         <div id="reviews" className="p-20relative">
-          <div className="relative text-center -mb-[4rem] items-center w-full flex flex-col z-10 bg-black">
+          <div className="relative text-center -mb-[4rem] items-center flex flex-col z-10 bg-black w-[70%] mx-auto">
             <h3 className="text-[3.4rem] min620:text-[2.5rem] text-white font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
               {t("home.reviews")}
             </h3>
           </div>
           <div className="elfsight-app-0515e225-0af6-4cb1-b9cf-b76009e5dfae"></div>
-          <div className="relative w-full h-20 -top-20 -mb-[10rem] bg-black z-[99999]"></div>
+          <div className="relative w-[70%] h-20 -top-20 -mb-[10rem] mx-auto bg-black z-[99999]"></div>
         </div>
       </div>
     </a>

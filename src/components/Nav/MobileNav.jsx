@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
   return (
     <div
-      className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 ${
+      className={`absolute w-screen h-screen z-[9999999999] ease-in-out duration-500 top-0 bg-transparent-gray min620:bg-transparent ${
         mobileNav ? "right-0" : "-right-[100%]"
       }`}
     >

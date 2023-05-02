@@ -1,13 +1,13 @@
 const ContactInfo = ({ t }) => {
   return (
-    <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%] min620:w-full">
-      <h2 className="text-black text-[3.4rem] min620:text-[2.5rem] font-bold leading-[1.2]">
+    <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%]">
+      <h2 className="text-center text-black text-[3.4rem] min620:text-[2.5rem] font-bold leading-[1.2]">
         {t("contactUs.subTitle")}
       </h2>
-      <p className="text-[16px] w-[95%] text-[#646464] font-medium my-[40px]">
+      <p className="md1000:text-justify text-[16px] w-[95%] text-[#646464] font-medium my-[40px]">
         {t("contactUs.pitch")}
       </p>
-      <div className="grid grid-cols-2 grid-rows-2 gap-y-20 min620:grid-cols-1 min620:mx-auto">
+      <div className="grid grid-cols-2 grid-rows-2 gap-y-20 min620:grid-cols-1 min620:mx-auto min620:text-center">
         <div className="flex flex-col relative">
           <h3 className="text-[2rem] font-bold mb-10 underline underline-offset-8 decoration-4 decoration-signature-gold">
             {t("contactUs.address")}
@@ -46,7 +46,7 @@ const ContactInfo = ({ t }) => {
           <div className="text-[15px] font-medium text-[#646464]">
             <a
               href={`https://wa.me/${t(
-                "contactUs.phoneNumber"
+                "contactUs.phoneNumberInteger"
               )}?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita.`}
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +65,7 @@ const ContactInfo = ({ t }) => {
           </div>
         </div>
         {/* social */}
-        <div className="flex flex-col relative">
+        <div className="flex flex-col relative min620:items-center">
           <h3 className="text-[2rem] font-bold mb-10 underline underline-offset-8 decoration-4 decoration-signature-gold">
             {t("defaults.followUs")}
           </h3>

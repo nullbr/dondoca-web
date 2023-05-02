@@ -27,11 +27,11 @@ username=
 host=
 npm run build
 mv dist html
-scp -r html ${username}@${host}:~/dondocasr/
+scp -r html ${username}@${host}:~/dondocasr.com.br/
 ssh ${username}@${host}
-sudo rm -rf /var/www/dondocasr
-sudo mv ~/dondocasr /var/www/
-mkdir ~/dondocasr
+sudo rm -rf /var/www/dondocasr.com.br
+sudo mv ~/dondocasr.com.br /var/www/
+mkdir ~/dondocasr.com.br
 exit
 mv html dist
 ```
