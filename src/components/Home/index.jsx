@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import Hero from "./Hero/Hero";
 const About = lazy(() => import("./About/About"));
 const ChooseUs = lazy(() => import("./ChooseUs/ChooseUs"));
-const Featured = lazy(() => import("./Featured/Featured"));
+const Featured = lazy(() => import("../Services/Featured"));
 
 const Home = () => {
   const { t } = useTranslation();

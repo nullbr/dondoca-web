@@ -1,9 +1,12 @@
+import { useLocation } from "react-router-dom";
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 import MainButton from "../Shared/MainButton";
 import { useTranslation } from "react-i18next";
 
 function AboutSection() {
   const { t } = useTranslation();
+  const location = useLocation();
+
   return (
     <div className="bg-white shadow-lg rounded-xl">
       <div className="grid grid-cols-2 md1000:grid-cols-1 items-center">
@@ -32,8 +35,12 @@ function AboutSection() {
               bg="bg-transparent"
               cN="mt-10"
               hover="hover:bg-signature-gold hover:text-white"
-              text={t("contactUs.title")}
-              goTo="/contact"
+              text={
+                location.pathname === "/about"
+                  ? t("contactUs.title")
+                  : t("aboutUs.title")
+              }
+              goTo={location.pathname === "/about" ? "/contact" : "/about"}
             />
           </div>
         </div>

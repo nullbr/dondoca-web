@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import FooterLogo from "../../assets/images/logo/logo-footer.png";
 import { useTranslation } from "react-i18next";
 
@@ -33,7 +34,13 @@ function Footer() {
             </div>
 
             {/* middle div */}
-            <div className="flex flex-col gap-3 relative w-3/12 min620:w-full text-center">
+            <NavLink
+              id="services"
+              exact="true"
+              activeclassname="active"
+              to="/services"
+              className="flex flex-col gap-3 relative w-3/12 min620:w-full text-center"
+            >
               <p className="text-[22px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
                 {t("services.featTitle")}
               </p>
@@ -59,10 +66,16 @@ function Footer() {
               <p className="text-[16px] text-[#646464] font-medium">
                 {t("services.serv7")}
               </p>
-            </div>
+            </NavLink>
 
             {/* right div */}
-            <div className="flex flex-col gap-8 relative w-4/12 min620:w-full text-center">
+            <NavLink
+              id="contact"
+              exact="true"
+              activeclassname="active"
+              to="/contact"
+              className="flex flex-col gap-8 relative w-4/12 min620:w-full text-center"
+            >
               <p className="text-[22px] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
                 {t("contactUs.hours")}
               </p>
@@ -79,7 +92,7 @@ function Footer() {
               <p className="text-[16px] text-[#646464] font-medium">
                 {t("contactUs.sunMonTime")}
               </p>
-            </div>
+            </NavLink>
 
             {/* middle div */}
             <span></span>

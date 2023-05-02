@@ -1,17 +1,11 @@
+import { useLocation } from "react-router-dom";
 import TitleBg from "../../../assets/images/shared/paint-stroke-gold.svg";
 import MainButton from "../../Shared/MainButton";
-import "./Featured.css";
+import { featServices } from "../services";
 
 function Featured({ t }) {
-  const featServices = [
-    { title: t("services.serv1") },
-    { title: t("services.serv2") },
-    { title: t("services.serv3") },
-    { title: t("services.serv4") },
-    { title: t("services.serv5") },
-    { title: t("services.serv6") },
-    { title: t("services.serv7") },
-  ];
+  const location = useLocation();
+  console.log(location.pathname === "/services");
 
   return (
     <>
@@ -33,32 +27,45 @@ function Featured({ t }) {
               </h2>
             </div>
             {/* grid */}
-            <div className="grid grid-cols-4 grid-rows-2 gap-7 h-full mt-7 min800:mt-0 md1000:grid-rows-4 min620:flex min620:flex-col">
-              {featServices.map((serv, idx) => {
+            <div className="grid grid-cols-4 gap-7 h-full mt-7 min800:mt-0">
+              {featServices.map((service, idx) => {
                 return (
                   <div
                     key={idx}
-                    className={`item-${idx}-div relative rounded-xl`}
+                    className={`relative h-[30rem] min800:h-[25rem] ${
+                      idx === 0
+                        ? "col-span-2 md1000:col-span-4"
+                        : "col-span-1 md1000:col-span-2 min620:col-span-4"
+                    }`}
                   >
                     <div
-                      className={`item-${idx} ease-in duration-[0.4s] p-6`}
-                    ></div>
-                    <div className="absolute z-10 bottom-10 left-10">
-                      <p className="text-white text-[3rem] min800:text-[2.4rem] font-bold">
-                        {serv.title}
+                      className="h-full w-full bg-cover bg-center brightness-50 rounded-xl"
+                      style={{ backgroundImage: `url(${service.bgImg})` }}
+                    />
+                    <div className="absolute top-0 left-0 p-5">
+                      <h2 className="text-white text-[3rem] min800:text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
+                        {service.title}
+                      </h2>
+                      <p className="mb-14 mt-6 text-white text-[1.6rem] font-medium">
+                        <i className="fa fa-info-circle pr-5" />
+                        {service.description}
                       </p>
                     </div>
                   </div>
                 );
               })}
             </div>
-            <div className="flex justify-center w-full pt-5">
+            <div
+              className={`${
+                location.pathname === "/services" ? "hidden" : "flex"
+              } justify-center w-full pt-5`}
+            >
               <MainButton
                 color="text-signature-gold"
                 bg="bg-transparent"
                 cN="mt-10"
                 hover="hover:bg-signature-gold hover:text-white"
-                text={t("nav.services")}
+                text={t("services.title")}
                 goTo="/services"
               />
             </div>

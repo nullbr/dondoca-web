@@ -123,7 +123,7 @@ function Navbar({ admin }) {
             >
               <a
                 href={`https://wa.me/${t(
-                  "contactUs.phoneNumber"
+                  "contactUs.phoneNumberInteger"
                 )}?text=Ol%C3%A1%21+gostaria+de+agendar+uma+visita.`}
                 target="_blank"
                 rel="noopener noreferrer"
