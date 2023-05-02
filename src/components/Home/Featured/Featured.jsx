@@ -54,11 +54,10 @@ function Featured({ t }) {
             </div>
             <div className="flex justify-center w-full pt-5">
               <MainButton
-                color="text-white"
-                bg="bg-[#3f3f3f]"
+                color="text-signature-gold"
+                bg="bg-transparent"
                 cN="mt-10"
-                arrowColor="text-white"
-                hover="hover:bg-signature-gold"
+                hover="hover:bg-signature-gold hover:text-white"
                 text={t("nav.services")}
                 goTo="/services"
               />

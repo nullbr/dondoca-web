@@ -18,12 +18,12 @@ function Hero() {
 
             <div className="flex w-full justify-center">
               <MainButton
-                color={`text-black`}
-                bg={`bg-white`}
-                text="nossos serviços"
+                color="text-white"
+                bg="bg-transparent"
+                text={t("services.title")}
                 goTo="/services"
                 arrowColor="text-signature-gold"
-                hover={`hover:bg-gray`}
+                hover="hover:bg-white hover hover:text-black"
               />
             </div>
           </div>

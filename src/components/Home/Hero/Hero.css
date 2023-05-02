@@ -22,19 +22,6 @@
   }
 }
 
-/* @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#home {
-  animation: fade-in 2s;
-} */
-
 @media (max-width: 800px) {
   .hero-section {
     background-image: url("https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground_mobile.png?alt=media&token=303f2dce-9291-408b-9072-c459f20ecb60");

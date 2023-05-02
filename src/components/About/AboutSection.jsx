@@ -28,11 +28,10 @@ function AboutSection() {
           </p>
           <div className="flex w-full justify-center mt-10">
             <MainButton
-              color={`text-white`}
-              bg={`bg-[#3f3f3f]`}
-              cN=""
-              arrowColor={`text-white`}
-              hover={`hover:bg-signature-gold`}
+              color="text-signature-gold"
+              bg="bg-transparent"
+              cN="mt-10"
+              hover="hover:bg-signature-gold hover:text-white"
               text={t("contactUs.title")}
               goTo="/contact"
             />
