@@ -19,7 +19,7 @@ const History = ({ t }) => {
           <img
             src="https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground_old.png?alt=media&token=2cca5e5b-a391-4097-8ab9-e6ced7786060"
             alt="about_img"
-            className="w-full h-full object-contain bg-center rounded-tr-xl min800:rounded-none"
+            className="w-full object-contain bg-center rounded-tr-xl min800:rounded-none"
           />
         </div>
       </div>
@@ -29,7 +29,7 @@ const History = ({ t }) => {
           <img
             src="https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fbackground%2Fbackground_logo.png?alt=media&token=3b4017d9-927b-4b43-87d8-cbfecf5f0fb1"
             alt="about_img"
-            className="p-20 h-full object-contain bg-center"
+            className="p-20 w-full object-contain bg-center"
           />
         </div>
         {/*  */}
