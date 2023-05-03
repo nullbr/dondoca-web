@@ -44,7 +44,7 @@ const translations = {
         price: {
           title: "Preços",
           description:
-            "Temos preços justos e razoáveis para os serviços prestados. Também oferecemos promoções especiais e pacotes.",
+            "Temos preços justos para todos serviços prestados. Também oferecemos promoções especiais e pacotes.",
         },
       },
       chooseUs: {
@@ -138,6 +138,11 @@ const translations = {
       client: {
         createdAt: "Início",
         birthday: "Aniversário",
+      },
+
+      form: {
+        firstName: "Nome",
+        lastName: "Sobrenome",
       },
     },
 

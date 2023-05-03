@@ -5,7 +5,6 @@ import { featServices } from "../services";
 
 function Featured({ t }) {
   const location = useLocation();
-  console.log(location.pathname === "/services");
 
   return (
     <>

@@ -55,7 +55,7 @@ function Professionals({ t }) {
               <p className="font-medium text-[1.5rem]">{professional.job}</p>
               {professional.instagram !== null && (
                 <a
-                  href={professional.instagram}
+                  href={`https://www.instagram.com/${professional.instagram}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full justify-center mt-5 text-[1.6rem]"
