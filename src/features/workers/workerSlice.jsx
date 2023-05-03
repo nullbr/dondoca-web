@@ -46,6 +46,12 @@ const workerSlice = createSlice({
             instagram: worker.instagram,
             createdAt: formatDate(worker.created_at),
             imageUrl: worker.image_url,
+            categories: worker.categories.map((category) => {
+              return {
+                id: category.id,
+                name: category.name,
+              };
+            }),
           };
         });
       })

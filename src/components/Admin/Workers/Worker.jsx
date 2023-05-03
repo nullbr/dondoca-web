@@ -16,17 +16,27 @@ const Worker = ({ worker }) => {
   const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const entries = Object.fromEntries(formData);
+  };
+
   return (
-    <div>
-      <div className="border-b-2 border-signature-gold shadow-b-lg flex gap-2 items-center justify-center">
-        <div className="w-[20rem] min620:w-1/2 p-2">
+    <div className="border-b-2 border-signature-gold shadow-b-lg">
+      <div className="flex gap-2 items-center">
+        <div className="w-[20rem] min800:w-1/3 p-2">
           <img
             src={imageUrl}
             alt="profile"
             className="self-center rounded-full"
           />
         </div>
-        <div className="min620:w-1/2 flex flex-col gap-2">
+        <div
+          className="min620:w-1/2 flex flex-col gap-2"
+          onClick={() => setShowForm(!showForm)}
+        >
           <h3 className="text-[2.5rem] min620:text-[2rem] font-semibold">
             {firstName} {lastName}
           </h3>
@@ -54,10 +64,12 @@ const Worker = ({ worker }) => {
               </li>
             )}
           </ul>
-          {!showForm && <EditButton action={() => setShowForm(true)} />}
+          {!showForm && (
+            <EditButton CN="min800:hidden" action={() => setShowForm(true)} />
+          )}
         </div>
       </div>
-      {showForm && <Form worker />}
+      {showForm && <Form resource={worker} handleSubmit={handleSubmit} />}
     </div>
   );
 };
