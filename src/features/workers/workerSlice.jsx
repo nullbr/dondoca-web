@@ -55,10 +55,10 @@ const workerSlice = createSlice({
           };
         });
       })
-      .addCase(fetchWorkersAsync.rejected, (state) => {
+      .addCase(fetchWorkersAsync.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = true;
-        state.errorMessages = [];
+        state.errorMessages = payload;
       });
   },
 });
