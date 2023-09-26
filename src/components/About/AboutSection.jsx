@@ -31,10 +31,10 @@ function AboutSection() {
           </p>
           <div className="flex w-full justify-center mt-10">
             <MainButton
-              color="text-signature-gold"
+              color="text-primary"
               bg="bg-transparent"
               cN="mt-10"
-              hover="hover:bg-signature-gold hover:text-white"
+              hover="hover:bg-primary hover:text-white"
               text={
                 location.pathname === "/about"
                   ? t("contactUs.title")

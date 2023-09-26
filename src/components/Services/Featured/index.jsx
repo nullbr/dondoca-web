@@ -42,7 +42,7 @@ function Featured({ t }) {
                       style={{ backgroundImage: `url(${service.bgImg})` }}
                     />
                     <div className="absolute top-0 left-0 p-5">
-                      <h2 className="text-white text-[3rem] min800:text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-signature-gold">
+                      <h2 className="text-white text-[3rem] min800:text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-primary">
                         {service.title}
                       </h2>
                       <p className="mb-14 mt-6 text-white text-[1.6rem] font-medium">
@@ -60,10 +60,10 @@ function Featured({ t }) {
               } justify-center w-full pt-5`}
             >
               <MainButton
-                color="text-signature-gold"
+                color="text-primary"
                 bg="bg-transparent"
                 cN="mt-10"
-                hover="hover:bg-signature-gold hover:text-white"
+                hover="hover:bg-primary hover:text-white"
                 text={t("services.title")}
                 goTo="/services"
               />

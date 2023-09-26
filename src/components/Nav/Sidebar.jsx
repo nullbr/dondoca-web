@@ -29,7 +29,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
             <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
             <i
               onClick={toggleSideBar}
-              className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
+              className="fa-solid fa-xmark text-primary text-[3.3rem] cursor-pointer"
             ></i>
           </div>
           {/* about us */}
@@ -52,8 +52,8 @@ const Sidebar = ({ toggleSideBar, t }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-location-dot text-signature-gold"></i>
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-location-dot text-primary"></i>
                 &nbsp; {t("contactUs.addressLine1")}
                 <br />
                 {t("contactUs.addressLine2")}
@@ -66,14 +66,14 @@ const Sidebar = ({ toggleSideBar, t }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-phone text-signature-gold"></i>
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-phone text-primary"></i>
                 &nbsp; {t("contactUs.phoneNumber")}
               </p>
             </a>
             <a href={`mailto:${t("contactUs.email")}`}>
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-signature-gold cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-envelope text-signature-gold"></i>
+              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <i className="fa-solid fa-envelope text-primary"></i>
                 &nbsp; {t("contactUs.email")}
               </p>
             </a>
@@ -82,7 +82,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
           <div className="flex flex-col gap-6">
             <h3 className="text-[2rem] font-bold">{t("defaults.followUs")}</h3>
             <div className="flex gap-5">
-              <span className="bg-signature-gold rounded-full py-[10px] px-[13px] cursor-pointer">
+              <span className="bg-primary rounded-full py-[10px] px-[13px] cursor-pointer">
                 <a
                   href={t("defaults.instagram")}
                   target="_blank"

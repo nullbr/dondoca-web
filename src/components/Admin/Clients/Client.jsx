@@ -11,7 +11,7 @@ const Client = ({ client }) => {
 
   return (
     <div>
-      <div className="border-b-2 border-signature-gold shadow-b-lg flex gap-2 items-center justify-center">
+      <div className="border-b-2 border-primary shadow-b-lg flex gap-2 items-center justify-center">
         <div className="w-[20rem] min620:w-1/2 p-2">
           <img
             src={imageUrl}

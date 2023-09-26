@@ -94,7 +94,7 @@ function Navbar({ admin }) {
             {/* mobileNav */}
             <i
               onClick={toggleMobileNav}
-              className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
+              className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
                 sticky ? "text-gray" : "text-white"
               }`}
             ></i>
@@ -106,7 +106,7 @@ function Navbar({ admin }) {
             {!admin && (
               <i
                 onClick={toggleSideBar}
-                className={`fa-regular fa-chart-bar text-4xl cursor-pointer hover:text-signature-gold ease-in duration-200 ${
+                className={`fa-regular fa-chart-bar text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
                   sticky ? "text-gray" : "text-white"
                 }`}
               ></i>
@@ -130,7 +130,7 @@ function Navbar({ admin }) {
                 className="flex items-center "
               >
                 <i
-                  className={`fa-solid fa-plus bg-signature-gold text-2xl py-3 px-4 rounded-md nav-btn-hover ${
+                  className={`fa-solid fa-plus bg-primary text-2xl py-3 px-4 rounded-md nav-btn-hover ${
                     sticky ? "text-gray" : "text-white"
                   }`}
                 ></i>

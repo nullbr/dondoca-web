@@ -7,7 +7,7 @@ const Form = ({ resource, handleSubmit }) => {
       <fieldset className="grid grid-cols-2">
         <p className="w-full p-2">
           <input
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="first_name"
             name="first_name"
             type="text"
@@ -18,7 +18,7 @@ const Form = ({ resource, handleSubmit }) => {
 
         <p className="w-full p-2">
           <input
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="last_name"
             name="last_name"
             type="text"
@@ -28,7 +28,7 @@ const Form = ({ resource, handleSubmit }) => {
 
         <p className="w-full p-2 col-span-2">
           <input
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="job"
             name="job"
             type="text"
@@ -38,7 +38,7 @@ const Form = ({ resource, handleSubmit }) => {
 
         <p className="w-full p-2">
           <input
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="instagram"
             name="instagram"
             type="text"
@@ -48,7 +48,7 @@ const Form = ({ resource, handleSubmit }) => {
 
         <p className="w-full p-2">
           <input
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="phone_number"
             name="phone_number"
             type="text"
@@ -58,7 +58,7 @@ const Form = ({ resource, handleSubmit }) => {
 
         <p className="w-full p-2">
           <select
-            className="bg-transparent border-b-2 border-signature-gold w-full rounded-full px-2 shadow-sm text-xl"
+            className="bg-transparent border-b-2 border-primary w-full rounded-full px-2 shadow-sm text-xl"
             id="categories"
             name="categories"
           >

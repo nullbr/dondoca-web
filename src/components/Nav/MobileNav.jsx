@@ -17,7 +17,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
           <ul className="flex flex-col gap-10 text-end">
             <i
               onClick={toggleMobileNav}
-              className="fa-solid fa-xmark text-signature-gold text-[3.3rem] cursor-pointer"
+              className="fa-solid fa-xmark text-primary text-[3.3rem] cursor-pointer"
             ></i>
             {admin ? (
               <>
@@ -27,7 +27,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="services"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/schedules"
                   >
                     {t("admin.nav.schedule")}
@@ -38,7 +38,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="workers"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/workers"
                   >
                     {t("admin.nav.workers")}
@@ -49,7 +49,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="clients"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/clients"
                   >
                     {t("admin.nav.clients")}
@@ -64,7 +64,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="home"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/"
                   >
                     {t("nav.home")}
@@ -75,7 +75,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="about"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/about"
                   >
                     {t("nav.about")}
@@ -83,7 +83,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 </li>
                 {/* <li onClick={toggleMobileNav}>
                   <NavLink
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/schedules/monday"
                   >
                     {t("nav.schedules")}
@@ -94,7 +94,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="gallery"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/gallery"
                   >
                     {t("nav.gallery")}
@@ -105,7 +105,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="contact"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/contact"
                   >
                     {t("nav.contact")}
@@ -116,7 +116,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                     id="services"
                     exact="true"
                     activeclassname="active"
-                    className="text-[2rem] font-medium hover:text-signature-gold ease-in duration-200"
+                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/services"
                   >
                     {t("nav.services")}

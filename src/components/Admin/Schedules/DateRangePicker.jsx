@@ -89,7 +89,7 @@ const DateRangeComp = () => {
           <button
             type="button"
             onClick={() => getSchedules()}
-            className="text-center text-white text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl bg-signature-gold hover:bg-gray"
+            className="text-center text-white text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl bg-primary hover:bg-gray"
           >
             {t("defaults.apply")}
           </button>

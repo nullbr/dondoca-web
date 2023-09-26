@@ -22,7 +22,7 @@ function Hero() {
                 bg="bg-transparent"
                 text={t("services.title")}
                 goTo="/services"
-                arrowColor="text-signature-gold"
+                arrowColor="text-primary"
                 hover="hover:bg-white hover hover:text-black"
               />
             </div>
@@ -39,9 +39,9 @@ function Hero() {
           <p className="uppercase  text-3xl font-bold tracking-widest">
             {t("defaults.followUs")}
           </p>
-          <span className="w-[35px] bg-signature-gold h-[2.5px] mr-6"></span>
+          <span className="w-[35px] bg-primary h-[2.5px] mr-6"></span>
           <div className="text-white gap-7 flex mr-7 ">
-            <i className="fa-brands rotate-90 hover:text-signature-gold  fa-instagram text-3xl cursor-pointer ease-in duration-200 min800:rotate-0"></i>
+            <i className="fa-brands rotate-90 hover:text-primary  fa-instagram text-3xl cursor-pointer ease-in duration-200 min800:rotate-0"></i>
           </div>
         </a>
       </section>

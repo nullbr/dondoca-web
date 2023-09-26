@@ -48,7 +48,7 @@ function Professionals({ t }) {
               className={`object-cover self-center hover:contrast-150`}
             />
             {/* professional description */}
-            <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center px-5 border-b-4 border-signature-gold h-[16rem]">
+            <div className="flex flex-col gap-2 items-center justify-center bg-gray text-center px-5 border-b-4 border-primary h-[16rem]">
               <h3 className="font-bold text-[2.4rem] ">
                 {professional.firstName}
               </h3>

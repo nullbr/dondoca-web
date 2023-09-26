@@ -54,7 +54,7 @@ function Schedules() {
                 <button
                   onClick={() => setWorkerFilter(null)}
                   className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                    workerFilter ? "bg-signature-gold" : "bg-gray"
+                    workerFilter ? "bg-primary" : "bg-gray"
                   }`}
                 >
                   {t("defaults.all")}
@@ -65,9 +65,7 @@ function Schedules() {
                       key={worker.id}
                       onClick={() => setWorkerFilter(worker.id)}
                       className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
-                        worker.id === workerFilter
-                          ? "bg-gray"
-                          : "bg-signature-gold"
+                        worker.id === workerFilter ? "bg-gray" : "bg-primary"
                       }`}
                     >
                       {worker.firstName}

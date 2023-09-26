@@ -172,7 +172,7 @@ const SignUp = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-signature-gold text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
+                  className="bg-primary text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
                 >
                   {t("defaults.signUp")}
                 </button>
@@ -182,10 +182,7 @@ const SignUp = () => {
 
           <div className="flex gap-4 items-center mt-10 min450:flex-col">
             <p className="text-white text-[1.5rem]">{t("signUp.current")}</p>
-            <Link
-              to="/login"
-              className="text-signature-gold font-bold text-[1.5rem]"
-            >
+            <Link to="/login" className="text-primary font-bold text-[1.5rem]">
               {t("defaults.login")}
             </Link>
           </div>

@@ -191,7 +191,7 @@ const EditProfile = () => {
                 </button>
               </div>
             </li>
-            <hr className="border-2 border-signature-gold rounded-full mb-5" />
+            <hr className="border-2 border-primary rounded-full mb-5" />
             <li>
               <label
                 htmlFor="currentPassword"
@@ -229,7 +229,7 @@ const EditProfile = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-signature-gold text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
+                className="bg-primary text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
               >
                 {t("editProfile.title")}
               </button>
@@ -239,10 +239,7 @@ const EditProfile = () => {
 
         <div className="flex gap-4 items-center mt-10 min450:flex-col">
           <p className="text-white text-[1.5rem]">{t("editProfile.newUser")}</p>
-          <Link
-            to="/signup"
-            className="text-signature-gold font-bold text-[1.5rem]"
-          >
+          <Link to="/signup" className="text-primary font-bold text-[1.5rem]">
             {t("defaults.signUp")}
           </Link>
         </div>

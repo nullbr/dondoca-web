@@ -24,7 +24,7 @@ const MessageBtn = () => {
   return (
     <div className="z-[99999]">
       <div
-        className={`fixed bottom-[80px] bg-gray rounded-full shadow-lg border-[1px] border-light-gray ease-in-out duration-500 h-[40px] w-[40px] hover:bg-signature-gold ${
+        className={`fixed bottom-[80px] bg-gray rounded-full shadow-lg border-[1px] border-light-gray ease-in-out duration-500 h-[40px] w-[40px] hover:bg-primary ${
           show ? "right-[29px]" : "-right-[100%]"
         }`}
         onClick={() => {

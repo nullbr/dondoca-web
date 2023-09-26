@@ -39,7 +39,7 @@ const Services = () => {
                     {service.title}
                   </p>
 
-                  <span className="bg-signature-gold w-[50px] h-[4px]"></span>
+                  <span className="bg-primary w-[50px] h-[4px]"></span>
 
                   <div className="flex gap-6 mb-14 mt-6 text-white text-[1.6rem] font-medium">
                     <p>

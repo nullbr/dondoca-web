@@ -24,7 +24,7 @@ const Worker = ({ worker }) => {
   };
 
   return (
-    <div className="border-b-2 border-signature-gold shadow-b-lg">
+    <div className="border-b-2 border-primary shadow-b-lg">
       <div className="flex gap-2 items-center">
         <div className="w-[20rem] min800:w-1/3 p-2">
           <img

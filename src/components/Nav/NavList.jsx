@@ -12,7 +12,7 @@ function NavList({ t, sticky, admin }) {
           >
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="schedules"
@@ -25,7 +25,7 @@ function NavList({ t, sticky, admin }) {
             </li>
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="workers"
@@ -38,7 +38,7 @@ function NavList({ t, sticky, admin }) {
             </li>
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="clients"
@@ -60,7 +60,7 @@ function NavList({ t, sticky, admin }) {
           >
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink id="home" exact="true" activeclassname="active" to="/">
                 {t("nav.home")}
@@ -68,7 +68,7 @@ function NavList({ t, sticky, admin }) {
             </li>
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="about"
@@ -81,7 +81,7 @@ function NavList({ t, sticky, admin }) {
             </li>
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="gallery"
@@ -94,13 +94,13 @@ function NavList({ t, sticky, admin }) {
             </li>
             {/* <li
           style={{ transition: "all 0.3s" }}
-          className="cursor-pointer hover:text-signature-gold"
+          className="cursor-pointer hover:text-primary"
         >
           <NavLink to={"/schedules/monday"}>{t("nav.schedules")}</NavLink>
         </li> */}
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="services"
@@ -113,7 +113,7 @@ function NavList({ t, sticky, admin }) {
             </li>
             <li
               style={{ transition: "all 0.3s" }}
-              className="cursor-pointer hover:text-signature-gold"
+              className="cursor-pointer hover:text-primary"
             >
               <NavLink
                 id="contact"
