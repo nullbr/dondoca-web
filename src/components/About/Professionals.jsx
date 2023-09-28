@@ -2,7 +2,7 @@ import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 // import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { fetchWorkersAsync } from "../../features/workers/workerSlice";
-import { formatPhoneNumber } from "../../features/workers/workerSlice";
+import { formatDate, formatPhoneNumber } from "../../features/workers/workerSlice";
 
 const payload = [
   {

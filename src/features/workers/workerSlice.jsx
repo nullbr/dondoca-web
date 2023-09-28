@@ -67,7 +67,7 @@ const workerSlice = createSlice({
 
 export default workerSlice.reducer;
 
-function formatDate(isoDateString) {
+export function formatDate(isoDateString) {
   if (!isoDateString) return;
 
   const date = new Date(isoDateString);
