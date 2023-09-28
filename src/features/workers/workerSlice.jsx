@@ -77,7 +77,7 @@ function formatDate(isoDateString) {
   return `${day}/${month}/${year}`;
 }
 
-function formatPhoneNumber(number) {
+export function formatPhoneNumber(number) {
   if (!number) return;
 
   const areaCode = number.slice(0, 2);
