@@ -1,4 +1,8 @@
-import { InstagramIcon } from "../../assets/icons/icons";
+import {
+  EnvelopeIcon,
+  InstagramIcon,
+  PhoneIcon,
+} from "../../assets/icons/icons";
 
 const ContactInfo = ({ t }) => {
   return (
@@ -53,14 +57,14 @@ const ContactInfo = ({ t }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-phone text-primary"></i>
+              <p className="flex text-[1.6rem] justify-center items-center font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <PhoneIcon className="h-6" />
                 &nbsp; {t("contactUs.phoneNumber")}
               </p>
             </a>
             <a href={`mailto:${t("contactUs.email")}`}>
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-envelope text-primary"></i>
+              <p className="flex text-[1.6rem] justify-center items-center font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <EnvelopeIcon className="h-6" />
                 &nbsp; {t("contactUs.email")}
               </p>
             </a>

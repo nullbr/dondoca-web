@@ -45,8 +45,7 @@ function Featured({ t }) {
                       <h2 className="text-white sm:text-[3rem] text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-primary">
                         {service.title}
                       </h2>
-                      <p className="mb-14 mt-6 text-white text-[1.6rem] font-medium">
-                        <i className="fa fa-info-circle pr-5" />
+                      <p className="flex gap-2 mb-14 mt-6 text-white text-[1.6rem] font-medium">
                         {service.description}
                       </p>
                     </div>

@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 import SessionLinks from "./SessionLinks";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { GridIcon, MenuIcon } from "../../assets/icons/icons";
+import { GridIcon, MenuIcon, PlusIcon } from "../../assets/icons/icons";
 
 function Navbar({ admin }) {
   const { t } = useTranslation();
@@ -140,11 +140,11 @@ function Navbar({ admin }) {
                 rel="noopener noreferrer"
                 className="flex items-center "
               >
-                <i
-                  className={`fa-solid fa-plus bg-primary text-2xl py-3 px-4 rounded-md nav-btn-hover ${
-                    sticky ? "text-gray" : "text-white"
-                  }`}
-                ></i>
+                <span className="bg-primary py-3 px-4 rounded-md nav-btn-hover">
+                  <PlusIcon
+                    className={`h-5 ${sticky ? "text-gray" : "text-white"}`}
+                  />
+                </span>
                 <h3
                   className={`text-[14px] font-bold uppercase ml-4 mr-8 tracking-wider ${
                     sticky ? "text-gray" : "text-white"

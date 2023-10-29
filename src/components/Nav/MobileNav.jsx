@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { CloseIcon } from "../../assets/icons/icons";
 
 const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
   return (
@@ -15,10 +16,14 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
         <div className="flex w-[20rem] max-w-full justify-end h-screen bg-slightly-transparent py-[3rem] pr-[3rem]">
           {/* links */}
           <ul className="flex flex-col gap-10 text-end">
-            <i
+            <button
+              className="text-primary w-full flex justify-end"
+              type="button"
               onClick={toggleMobileNav}
-              className="fa-solid fa-xmark text-primary text-[3.3rem] cursor-pointer"
-            ></i>
+            >
+              <CloseIcon className="h-6" />
+            </button>
+
             {admin ? (
               <>
                 {/* admin nav Links */}

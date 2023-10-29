@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
-import { InstagramIcon } from "../../assets/icons/icons";
+import {
+  CloseIcon,
+  EnvelopeIcon,
+  InstagramIcon,
+  MapPinIcon,
+  PhoneIcon,
+} from "../../assets/icons/icons";
 
 const Sidebar = ({ toggleSideBar, t }) => {
   useEffect(() => {
@@ -28,10 +34,13 @@ const Sidebar = ({ toggleSideBar, t }) => {
           {/* logo & X */}
           <div className="flex justify-between items-center">
             <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
-            <i
+            <button
+              type="button"
               onClick={toggleSideBar}
-              className="fa-solid fa-xmark text-primary text-[3.3rem] cursor-pointer"
-            ></i>
+              className="text-primary"
+            >
+              <CloseIcon className="h-6" />
+            </button>
           </div>
           {/* about us */}
           <div className="flex flex-col gap-6">
@@ -54,7 +63,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
               rel="noopener noreferrer"
             >
               <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-location-dot text-primary"></i>
+                <MapPinIcon className="h-6" />
                 &nbsp; {t("contactUs.addressLine1")}
                 <br />
                 {t("contactUs.addressLine2")}
@@ -68,13 +77,13 @@ const Sidebar = ({ toggleSideBar, t }) => {
               rel="noopener noreferrer"
             >
               <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-phone text-primary"></i>
+                <PhoneIcon className="h-6" />
                 &nbsp; {t("contactUs.phoneNumber")}
               </p>
             </a>
             <a href={`mailto:${t("contactUs.email")}`}>
-              <p className="text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
-                <i className="fa-solid fa-envelope text-primary"></i>
+              <p className="flex justify-center items-center text-[1.6rem] font-medium text-[#000000b1] hover:text-primary cursor-pointer ease-in duration-200">
+                <EnvelopeIcon className="h-6" />
                 &nbsp; {t("contactUs.email")}
               </p>
             </a>

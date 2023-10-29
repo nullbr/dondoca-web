@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
 import ErrorMessages from "./shared/ErrorMessages";
 import PagesHeader from "../Shared/PagesHeader";
+import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
@@ -150,9 +151,9 @@ const EditProfile = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <i className="fa fa-eye-slash" aria-hidden="true"></i>
+                    <EyeOffIcon className="h-8" />
                   ) : (
-                    <i className="fa fa-eye" aria-hidden="true"></i>
+                    <EyeIcon className="h-6" />
                   )}
                 </button>
               </div>
@@ -184,9 +185,9 @@ const EditProfile = () => {
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <i className="fa fa-eye-slash" aria-hidden="true"></i>
+                    <EyeOffIcon className="h-8" />
                   ) : (
-                    <i className="fa fa-eye" aria-hidden="true"></i>
+                    <EyeIcon className="h-6" />
                   )}
                 </button>
               </div>
@@ -218,9 +219,9 @@ const EditProfile = () => {
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 >
                   {showCurrentPassword ? (
-                    <i className="fa fa-eye-slash" aria-hidden="true"></i>
+                    <EyeOffIcon className="h-8" />
                   ) : (
-                    <i className="fa fa-eye" aria-hidden="true"></i>
+                    <EyeIcon className="h-6" />
                   )}
                 </button>
               </div>
