@@ -1,6 +1,7 @@
 import "./Navbar.css";
 import { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo/logo_full.png";
+import MobileLogo from "../../assets/images/logo/logo-mobile.png";
 import NavList from "../Nav/NavList";
 import { NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
@@ -59,7 +60,12 @@ function Navbar({ admin }) {
           <img
             src={Logo}
             alt="logo_img"
-            className="nav-logo max-h-20 w-auto pr-5"
+            className="hidden sm:block max-h-20 w-auto pr-5"
+          />
+          <img
+            src={MobileLogo}
+            alt="logo_img"
+            className="sm:hidden max-h-20 w-auto pr-5"
           />
         </NavLink>
         <div className="hidden sm:block">
@@ -120,7 +126,7 @@ function Navbar({ admin }) {
           {/* spin box */}
           {!admin && (
             <div
-              className={`border-solid border-2  p-2 rounded-md min620:hidden ${
+              className={`border-solid border-2  p-2 rounded-md hidden sm:block ${
                 sticky
                   ? "border-[rgb(81,82,91,0.3)]"
                   : "border-[rgb(255,255,255,0.3)]"

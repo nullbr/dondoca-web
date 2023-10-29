@@ -9,7 +9,7 @@ function AboutSection() {
 
   return (
     <div className="bg-white shadow-lg rounded-xl">
-      <div className="grid grid-cols-2 md1000:grid-cols-1 items-center">
+      <div className="grid sm:grid-cols-2 grid-cols-1 items-center">
         {/* text section */}
         <div className="p-10">
           {/* Title */}
@@ -45,11 +45,11 @@ function AboutSection() {
           </div>
         </div>
         {/* img side */}
-        <div className="flex justify-end h-full md1000:w-full md1000:justify-center">
+        <div className="flex sm:justify-end h-full sm:w-auto w-full justify-center">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/dondoca-a6bd8.appspot.com/o/assets%2Fhome%2Fequipe.png?alt=media&token=b5ea3dfd-64b0-4b46-846a-cc6345e0ebb6"
             alt="brushes"
-            className="rounded-r-xl md1000:rounded-b-xl md1000:rounded-none"
+            className="sm:rounded-r-xl rounded-b-xl sm:rounded-none"
           />
         </div>
       </div>

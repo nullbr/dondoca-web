@@ -17,7 +17,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="schedules"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to="/admin/schedules"
               >
                 {t("admin.nav.schedule")}
@@ -30,7 +30,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="workers"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to="/admin/workers"
               >
                 {t("admin.nav.workers")}
@@ -43,7 +43,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="clients"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to="/admin/clients"
               >
                 {t("admin.nav.clients")}
@@ -62,7 +62,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink id="home" exact="true" activeclassname="active" to="/">
+              <NavLink id="home" exact="true" activeClassName="active" to="/">
                 {t("nav.home")}
               </NavLink>
             </li>
@@ -73,7 +73,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="about"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to="/about"
               >
                 {t("nav.about")}
@@ -86,7 +86,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="gallery"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to={"/gallery"}
               >
                 {t("nav.gallery")}
@@ -105,7 +105,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="services"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to={"/services"}
               >
                 {t("nav.services")}
@@ -118,7 +118,7 @@ function NavList({ t, sticky, admin }) {
               <NavLink
                 id="contact"
                 exact="true"
-                activeclassname="active"
+                activeClassName="active"
                 to={"/contact"}
               >
                 {t("nav.contact")}

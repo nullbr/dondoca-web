@@ -191,7 +191,7 @@ function Professionals({ t }) {
           className="w-[21rem] relative -top-[55px] -mb-10"
         />
 
-        <h2 className="text-[3.4rem] font-bold mb-4 min620:text-[2.5rem]">
+        <h2 className="sm:text-[3.4rem] font-bold mb-4 text-[2.5rem]">
           {t("aboutUs.team.subtitle")}
         </h2>
         <p className="text-[#646464] font-medium text-[15px] max-w-[900px] ">

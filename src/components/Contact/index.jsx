@@ -23,7 +23,7 @@ const Contact = () => {
         <PagesHeader pageTitle={t("contactUs.title")} />
 
         {/* contact */}
-        <div className="bg-white py-20 page-padding grid grid-cols-2 container gap-10 items-center md1000:grid-cols-1">
+        <div className="bg-white py-20 page-padding grid sm:grid-cols-2 container gap-10 items-center grid-cols-1">
           <Suspense>
             {/* first col */}
             <ContactInfo t={t} />

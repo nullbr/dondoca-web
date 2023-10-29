@@ -103,7 +103,7 @@ function Schedules() {
           })
         )}
         {schedules.length < 1 && (
-          <p className="text-center text-2xl font-bold min620:text-xl">
+          <p className="text-center sm:text-2xl font-bold text-xl">
             Nenhum agendamento encontrado.
           </p>
         )}

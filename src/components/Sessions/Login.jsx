@@ -60,7 +60,7 @@ const Login = () => {
       <section className="pb-20">
         <PagesHeader pageTitle={t("defaults.login")} />
 
-        <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
+        <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">
             <ErrorMessages errors={errors} errorMessages={errorMessages} />
             <ul>
@@ -126,13 +126,13 @@ const Login = () => {
             </ul>
           </form>
 
-          <div className="flex gap-4 items-center mt-10 min450:flex-col">
+          <div className="flex gap-4 items-center mt-10">
             <p className="text-white text-[1.5rem]">{t("login.new")}</p>
             <Link to="/signup" className="text-primary font-bold text-[1.5rem]">
               {t("defaults.signUp")}
             </Link>
           </div>
-          <div className="flex gap-4 items-center mt-10 min450:flex-col">
+          <div className="flex gap-4 items-center mt-10">
             <p className="text-white text-[1.5rem]">{t("login.forgotPass")}</p>
             <Link to="/" className="text-primary font-bold text-[1.5rem]">
               {t("login.recover")}

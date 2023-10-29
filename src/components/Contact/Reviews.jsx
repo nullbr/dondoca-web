@@ -29,7 +29,7 @@ const Reviews = ({ t }) => {
       <div className="container page-padding">
         <div id="reviews" className="p-20relative">
           <div className="relative text-center -mb-[4rem] items-center flex flex-col z-10 bg-black w-[70%] mx-auto">
-            <h3 className="text-[3.4rem] min620:text-[2.5rem] text-white font-bold underline underline-offset-8 decoration-4 decoration-primary">
+            <h3 className="sm:text-[3.4rem] text-[2.5rem] text-white font-bold underline underline-offset-8 decoration-4 decoration-primary">
               {t("home.reviews")}
             </h3>
           </div>

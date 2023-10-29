@@ -24,7 +24,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
     <>
       <div className="flex">
         {/* Content */}
-        <div className="flex flex-col w-[40rem] max-w-full h-screen bg-slightly-transparent py-10 px-[45px] min620:pb-[10rem] gap-24 overflow-x-hidden">
+        <div className="flex flex-col w-[40rem] max-w-full h-screen bg-slightly-transparent py-10 px-[45px] sm:pb-0 pb-[10rem] gap-24 overflow-x-hidden">
           {/* logo & X */}
           <div className="flex justify-between items-center">
             <img src={LogoSide} alt="logo_img" className="w-[13rem]" />

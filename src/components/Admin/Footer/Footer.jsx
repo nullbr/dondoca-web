@@ -8,13 +8,13 @@ function AdminFooter() {
       <footer className="bg-white">
         <div className="container page-padding py-10">
           {/* footer div all */}
-          <div className="flex min620:flex-col min620:items-center min620:gap-[5rem]">
+          <div className="flex flex-col sm:flex-row sm:items-start items-center sm:gap-0 gap-[5rem]">
             {/* logo side */}
-            <div className="flex flex-col w-1/2 min620:items-center min620:w-full">
+            <div className="flex flex-col sm:w-1/2 sm:items-start items-center w-full">
               <img src={FooterLogo} alt="footer_logo" className="w-[18rem]" />
             </div>
 
-            <div className="flex flex-col w-1/2 text-end min620:text-center min620:w-full">
+            <div className="flex flex-col sm:w-1/2 sm:text-end text-center w-full">
               <p className="text-[16px] font-medium text-[#646464]">
                 Privacy Policy | © {new Date().getFullYear()} Dondoca <br />{" "}
                 Design by{" "}

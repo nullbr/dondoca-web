@@ -8,9 +8,9 @@ function Featured({ t }) {
 
   return (
     <>
-      <section className="flex justify-between py-20 min800:py-10">
+      <section className="flex justify-between sm:py-20 py-10">
         <div className="container page-padding">
-          <div className="p-20 min800:p-10 bg-white shadow-lg rounded-xl">
+          <div className="sm:p-20 p-10 bg-white shadow-lg rounded-xl">
             {/* title */}
             <div className="flex flex-col text-center items-center relative ">
               <p className="font-semibold text-white text-[15px] relative uppercase z-10 ">
@@ -21,20 +21,20 @@ function Featured({ t }) {
                 alt="text_bg"
                 className="w-[24rem] absolute -top-[10px]"
               />
-              <h2 className="text-[3.4rem] text-black font-bold my-10 min620:text-[2.5rem]">
+              <h2 className="sm:text-[3.4rem] text-black font-bold my-10 text-[2.5rem]">
                 {t("services.subtitle")}
               </h2>
             </div>
             {/* grid */}
-            <div className="grid grid-cols-4 gap-7 h-full mt-7 min800:mt-0">
+            <div className="grid grid-cols-4 gap-7 h-full sm:mt-7 mt-0">
               {featServices.map((service, idx) => {
                 return (
                   <div
                     key={idx}
-                    className={`relative h-[30rem] min800:h-[25rem] ${
+                    className={`relative sm:h-[30rem] h-[25rem] ${
                       idx === 0
-                        ? "col-span-2 md1000:col-span-4"
-                        : "col-span-1 md1000:col-span-2 min620:col-span-4"
+                        ? "md:col-span-2 col-span-4"
+                        : "md:col-span-1 col-span-2"
                     }`}
                   >
                     <div
@@ -42,7 +42,7 @@ function Featured({ t }) {
                       style={{ backgroundImage: `url(${service.bgImg})` }}
                     />
                     <div className="absolute top-0 left-0 p-5">
-                      <h2 className="text-white text-[3rem] min800:text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-primary">
+                      <h2 className="text-white sm:text-[3rem] text-[2.4rem] font-bold underline underline-offset-8 decoration-4 decoration-primary">
                         {service.title}
                       </h2>
                       <p className="mb-14 mt-6 text-white text-[1.6rem] font-medium">

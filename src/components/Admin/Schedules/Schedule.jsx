@@ -12,7 +12,7 @@ function Schedule({ schedule }) {
   return (
     <div className="bg-[#f2f2f2] w-full text-center sm:text-left rounded-2xl">
       {/* time mobile */}
-      <p className="hidden min620:block text-lg text-primary font-bold -mb-2">
+      <p className="sm:hidden block text-lg text-primary font-bold -mb-2">
         {startAtTime} - {endAtTime}
       </p>
       {/* Schedule */}
@@ -21,7 +21,7 @@ function Schedule({ schedule }) {
         className="flex p-5 justify-between"
       >
         {/* time web */}
-        <div className="min620:hidden">
+        <div className="hidden sm:block">
           <p className="text-lg font-medium text-subtitle-gray">
             {t("admin.schedule.time")}
           </p>
@@ -55,7 +55,7 @@ function Schedule({ schedule }) {
           </p>
         </div>
 
-        <div className="min620:hidden min620:justify-center items-center flex justify-end">
+        <div className="hidden justify-center items-center sm:flex sm:justify-end">
           {!showForm && <EditButton action={() => setShowForm(true)} />}
         </div>
       </div>

@@ -35,7 +35,7 @@ const History = ({ t }) => {
         {/*  */}
         <div className="w-full flex flex-col justify-center items-center p-10">
           <img src={Mountain} alt="target_img" className="w-[9rem]" />
-          <h2 className="text-[3.4rem] font-bold mt-3 min620:text-[2.5rem] text-center">
+          <h2 className="sm:text-[3.4rem] font-bold mt-3 text-[2.5rem] text-center">
             {t("aboutUs.history.title2")}
           </h2>
           <p className="text-[16px] font-medium text-light-gray mt-5">

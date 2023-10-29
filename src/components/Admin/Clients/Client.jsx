@@ -12,15 +12,15 @@ const Client = ({ client }) => {
   return (
     <div>
       <div className="border-b-2 border-primary shadow-b-lg flex gap-2 items-center justify-center">
-        <div className="w-[20rem] min620:w-1/2 p-2">
+        <div className="sm:w-[20rem] w-1/2 p-2">
           <img
             src={imageUrl}
             alt="profile"
             className="self-center rounded-full"
           />
         </div>
-        <div className="min620:w-1/2 flex flex-col gap-2">
-          <h3 className="text-[2.5rem] min620:text-[2rem] font-semibold">
+        <div className="sm:w-1/2 flex flex-col gap-2">
+          <h3 className="sm:text-[2.5rem] text-[2rem] font-semibold">
             {firstName} {lastName}
           </h3>
           <ul className="text-xl">

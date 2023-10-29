@@ -104,7 +104,7 @@ const EditProfile = () => {
     <section className="pb-20">
       <PagesHeader pageTitle={t("editProfile.title")} />
 
-      <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] min450:w-full rounded-2xl">
+      <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black sm:w-[55rem] w-full rounded-2xl">
         <form onSubmit={handleSubmit} className="flex flex-col pb-20">
           <ErrorMessages errors={errors} errorMessages={errorMessages} />
           <ul>
@@ -237,7 +237,7 @@ const EditProfile = () => {
           </ul>
         </form>
 
-        <div className="flex gap-4 items-center mt-10 min450:flex-col">
+        <div className="flex gap-4 items-center mt-10 sm:flex-row flex-col">
           <p className="text-white text-[1.5rem]">{t("editProfile.newUser")}</p>
           <Link to="/signup" className="text-primary font-bold text-[1.5rem]">
             {t("defaults.signUp")}

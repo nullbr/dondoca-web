@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
   return (
     <div
-      className={`absolute w-screen h-screen z-[999999] ease-in-out duration-500 top-0 bg-transparent-gray min620:bg-transparent ${
+      className={`absolute w-screen h-screen z-[999999] ease-in-out duration-500 top-0 sm:bg-transparent-gray bg-transparent ${
         mobileNav ? "right-0" : "-right-[110%]"
       }`}
     >
@@ -26,7 +26,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="services"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/schedules"
                   >
@@ -37,7 +37,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="workers"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/workers"
                   >
@@ -48,7 +48,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="clients"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/clients"
                   >
@@ -63,7 +63,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="home"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/"
                   >
@@ -74,7 +74,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="about"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/about"
                   >
@@ -93,7 +93,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="gallery"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/gallery"
                   >
@@ -104,7 +104,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="contact"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/contact"
                   >
@@ -115,7 +115,7 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                   <NavLink
                     id="services"
                     exact="true"
-                    activeclassname="active"
+                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/services"
                   >

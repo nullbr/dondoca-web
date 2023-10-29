@@ -24,7 +24,7 @@ const About = () => {
       <section>
         <PagesHeader pageTitle={t("nav.about")} />
 
-        <div className="container page-padding py-[5rem] min620:py-4 flex flex-col justify-center gap-20">
+        <div className="container page-padding sm:py-[5rem] py-4 flex flex-col justify-center gap-20">
           <Suspense fallback={<Loader />}>
             <AboutSection />
             <History t={t} />

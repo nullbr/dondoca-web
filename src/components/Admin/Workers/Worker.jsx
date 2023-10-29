@@ -37,7 +37,7 @@ const Worker = ({ worker }) => {
           className="w-1/2 sm:w-fit flex flex-col gap-2"
           onClick={() => setShowForm(!showForm)}
         >
-          <h3 className="text-[2.5rem] min620:text-[2rem] font-semibold">
+          <h3 className="sm:text-[2.5rem] text-[2rem] font-semibold">
             {firstName} {lastName}
           </h3>
           <ul>
@@ -65,7 +65,7 @@ const Worker = ({ worker }) => {
             )}
           </ul>
           {!showForm && (
-            <EditButton CN="min800:hidden" action={() => setShowForm(true)} />
+            <EditButton CN="hidden sm:block" action={() => setShowForm(true)} />
           )}
         </div>
       </div>

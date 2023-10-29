@@ -11,10 +11,10 @@ function ChooseUs() {
     <>
       <section className="pb-10">
         <div className="container page-padding">
-          <div className="flex flex-col sm:flex-row items-center gap-10 p-20 min800:p-10 md1000:justify-center bg-white shadow-lg rounded-xl">
+          <div className="flex flex-col sm:flex-row items-center gap-10 sm:p-20 p-10 sm:justify-normal justify-center bg-white shadow-lg rounded-xl">
             {/* title */}
             <div>
-              <h2 className="text-[2rem] md1000:text-center font-bold mb-10 underline underline-offset-8 decoration-4 decoration-primary">
+              <h2 className="text-[2rem] sm:text-start text-center font-bold mb-10 underline underline-offset-8 decoration-4 decoration-primary">
                 {t("home.chooseUs.title")}
               </h2>
               <p className="text-[16px] text-[#646464] font-medium text-justify">
