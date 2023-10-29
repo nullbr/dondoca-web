@@ -10,6 +10,7 @@ import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
 import DateRangePicker from "./DateRangePicker";
 import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
+import { useGetWorkers } from "../../../lib/hooks";
 
 function Schedules() {
   const { t } = useTranslation();
@@ -17,8 +18,6 @@ function Schedules() {
 
   const schedules = useSelector((store) => store.schedules.schedules);
   const loadingSchedules = useSelector((store) => store.schedules.loading);
-  const workers = useSelector((store) => store.workers.workers);
-  const loadingWorkers = useSelector((store) => store.workers.loadingWorkers);
 
   const [workerFilter, setWorkerFilter] = useState(null);
 
@@ -32,6 +31,8 @@ function Schedules() {
     // get schedule for current date
     dispatch(fetchSchedulesAsync());
   }, [t, dispatch]);
+
+  const { data: workers, isLoading: loadingWorkers } = useGetWorkers();
 
   return (
     <>

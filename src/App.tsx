@@ -20,8 +20,8 @@ const EditProfile = lazy(() => import("./components/Sessions/EditProfile"));
 
 // Admin
 const AdminHome = lazy(() => import("./components/Admin"));
-const RestrictedRoutes = lazy(() =>
-  import("./components/Routes/RestrictedRoutes")
+const RestrictedRoutes = lazy(
+  () => import("./components/Routes/RestrictedRoutes")
 );
 const Clients = lazy(() => import("./components/Admin/Clients/Clients"));
 const Workers = lazy(() => import("./components/Admin/Workers/Workers"));
