@@ -1,8 +1,12 @@
+import { InstagramIcon } from "../../assets/icons/icons";
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
 // import { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { fetchWorkersAsync } from "../../features/workers/workerSlice";
-import { formatDate, formatPhoneNumber } from "../../features/workers/workerSlice";
+import {
+  formatDate,
+  formatPhoneNumber,
+} from "../../features/workers/workerSlice";
 
 const payload = [
   {
@@ -222,7 +226,7 @@ function Professionals({ t }) {
                   rel="noopener noreferrer"
                   className="flex w-full justify-center mt-5 text-[1.6rem]"
                 >
-                  <i className="fa-brands fa-instagram" />
+                  <InstagramIcon className="h-6" />
                   <span className="text-sm pl-1">Instagram</span>
                 </a>
               )}

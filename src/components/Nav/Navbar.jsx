@@ -8,7 +8,7 @@ import MobileNav from "./MobileNav";
 import SessionLinks from "./SessionLinks";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { MenuIcon } from "../../assets/icons/icons";
+import { GridIcon, MenuIcon } from "../../assets/icons/icons";
 
 function Navbar({ admin }) {
   const { t } = useTranslation();
@@ -62,7 +62,7 @@ function Navbar({ admin }) {
             className="nav-logo max-h-20 w-auto pr-5"
           />
         </NavLink>
-        <div className="navlist-nav">
+        <div className="hidden sm:block">
           <NavList t={t} sticky={sticky} admin={admin} />
         </div>
 
@@ -95,7 +95,7 @@ function Navbar({ admin }) {
             {/* mobileNav */}
             <button type="button" onClick={toggleMobileNav}>
               <MenuIcon
-                className={`h-10 hidden md1200:block text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
+                className={`h-8 sm:hidden block text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
                   sticky ? "text-gray" : "text-white"
                 }`}
               />
@@ -106,12 +106,15 @@ function Navbar({ admin }) {
 
             {/* sidebar */}
             {!admin && (
-              <i
+              <button
+                type="button"
                 onClick={toggleSideBar}
-                className={`fa-regular fa-chart-bar text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
+                className={`hover:text-primary ease-in duration-200 ${
                   sticky ? "text-gray" : "text-white"
                 }`}
-              ></i>
+              >
+                <GridIcon className="h-8" />
+              </button>
             )}
           </div>
           {/* spin box */}

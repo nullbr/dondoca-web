@@ -1,3 +1,5 @@
+import { InstagramIcon } from "../../assets/icons/icons";
+
 const ContactInfo = ({ t }) => {
   return (
     <div className="md1000:w-[60%] md1000:flex md1000:flex-col md1000:mx-auto min800:w-[90%]">
@@ -73,9 +75,9 @@ const ContactInfo = ({ t }) => {
             href={t("defaults.instagram")}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[18px] font-medium text-black flex gap-5"
+            className="text-black p-[13.5px] bg-[#f4f4f4] rounded-full cursor-pointer hover:bg-primary ease-in duration-200 hover:text-white w-fit"
           >
-            <i className="fa-brands fa-instagram p-[13.5px] bg-[#f4f4f4] rounded-full cursor-pointer hover:bg-primary ease-in duration-200 hover:text-white"></i>
+            <InstagramIcon className="h-7" />
           </a>
         </div>
       </div>

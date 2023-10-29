@@ -57,7 +57,7 @@ const SignUp = () => {
     const response = await dispatch(signUpUser(entries));
 
     if (response.errors || response.error) {
-      return null;
+      return setErrors(response.errors[0] || response.error);
     }
 
     navigate("/");

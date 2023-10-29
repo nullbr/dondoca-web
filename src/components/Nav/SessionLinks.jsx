@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
+import { UserIcon } from "../../assets/icons/icons";
 
 const SessionLinks = ({ sticky }) => {
   const { t } = useTranslation();
@@ -54,7 +55,7 @@ const SessionLinks = ({ sticky }) => {
             type="button"
           >
             <p className="capitalize text-[2rem] leading-10 font-bold text-white">
-              {currentUser.email[0]}
+              {currentUser.email}
             </p>
           </button>
           <div ref={refOne}>
@@ -92,12 +93,14 @@ const SessionLinks = ({ sticky }) => {
           </div>
         </div>
       ) : (
-        <NavLink to="/login" title="login_button">
-          <i
-            className={`fa-regular fa-user text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
-              sticky ? "text-gray" : "text-white"
-            }`}
-          ></i>
+        <NavLink
+          to="/login"
+          title="login_button"
+          className={`hover:text-primary ease-in duration-200 ${
+            sticky ? "text-gray" : "text-white"
+          }`}
+        >
+          <UserIcon className="h-8" />
         </NavLink>
       )}
     </>

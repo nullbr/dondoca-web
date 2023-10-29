@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import LogoSide from "../../assets/images/logo/logo-footer.png";
+import { InstagramIcon } from "../../assets/icons/icons";
 
 const Sidebar = ({ toggleSideBar, t }) => {
   useEffect(() => {
@@ -88,7 +89,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fa-brands fa-instagram text-[2.2rem] text-white"></i>
+                  <InstagramIcon className="h-7 text-white" />
                 </a>
               </span>
             </div>
@@ -96,7 +97,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
         </div>
         {/* Allow user to click outside the box to close */}
         <div
-          className="close-sidebar-div cursor-pointer bg-transparent-gray min620:bg-transparent"
+          className="close-sidebar-div cursor-pointer sm:bg-transparent-gray bg-transparent"
           onClick={toggleSideBar}
         ></div>
       </div>
