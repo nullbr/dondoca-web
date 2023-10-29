@@ -10,7 +10,7 @@ function Schedule({ schedule }) {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <div className="bg-[#f2f2f2] w-full min800:text-center rounded-2xl">
+    <div className="bg-[#f2f2f2] w-full text-center sm:text-left rounded-2xl">
       {/* time mobile */}
       <p className="hidden min620:block text-lg text-primary font-bold -mb-2">
         {startAtTime} - {endAtTime}

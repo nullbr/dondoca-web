@@ -26,7 +26,7 @@ const Worker = ({ worker }) => {
   return (
     <div className="border-b-2 border-primary shadow-b-lg">
       <div className="flex gap-2 items-center">
-        <div className="w-[20rem] min800:w-1/3 p-2">
+        <div className="sm:w-[20rem] w-1/3 p-2">
           <img
             src={imageUrl}
             alt="profile"
@@ -34,7 +34,7 @@ const Worker = ({ worker }) => {
           />
         </div>
         <div
-          className="min620:w-1/2 flex flex-col gap-2"
+          className="w-1/2 sm:w-fit flex flex-col gap-2"
           onClick={() => setShowForm(!showForm)}
         >
           <h3 className="text-[2.5rem] min620:text-[2rem] font-semibold">

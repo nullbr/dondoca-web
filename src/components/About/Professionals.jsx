@@ -200,7 +200,7 @@ function Professionals({ t }) {
       </div>
 
       {/* professionals div -- */}
-      <div className="grid grid-cols-3 min800:grid-cols-2 justify-between gap-x-[5%] gap-y-10">
+      <div className="grid sm:grid-cols-3 grid-cols-2 justify-between gap-x-[5%] gap-y-10">
         {workers.map((professional) => (
           <div
             key={professional.id}

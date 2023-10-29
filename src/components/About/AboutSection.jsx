@@ -13,7 +13,7 @@ function AboutSection() {
         {/* text section */}
         <div className="p-10">
           {/* Title */}
-          <div className="pt-10 min800:pt-0">
+          <div className="sm:pt-10 pt-0">
             <p className="text-white text-[15px] text-center relative z-10 uppercase font-bold">
               {t("aboutUs.title")}
             </p>
@@ -23,7 +23,7 @@ function AboutSection() {
               className="w-[200px] relative -top-[30px] left-[50%] -translate-x-[50%]"
             />
           </div>
-          <h2 className="text-[3.4rem] text-center font-bold min620:text-[2.5rem]">
+          <h2 className="sm:text-[3.4rem] text-center font-bold text-[2.5rem]">
             {t("aboutUs.subtitle")}
           </h2>
           <p className="text-[16px] text-[#646464] font-medium text-justify">

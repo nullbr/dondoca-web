@@ -9,6 +9,10 @@ const AdminRoutes = ({ children }) => {
     (store) => store.sessions
   );
 
+  console.log(accessToken, currentUser);
+
+  return null;
+
   if (accessToken && currentUser.role === "admin") {
     return children;
   } else if (accessToken) {

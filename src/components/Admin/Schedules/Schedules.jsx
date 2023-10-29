@@ -53,7 +53,7 @@ function Schedules() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <button
                   onClick={() => setWorkerFilter(null)}
-                  className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                  className={`sm:text-2xl text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
                     workerFilter ? "bg-primary" : "bg-gray"
                   }`}
                 >
@@ -64,7 +64,7 @@ function Schedules() {
                     <button
                       key={worker.id}
                       onClick={() => setWorkerFilter(worker.id)}
-                      className={`text-2xl min800:text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
+                      className={`sm:text-2xl text-xl font-bold px-8 py-3 rounded-full ease-in duration-200 hover:shadow-2xl text-white ${
                         worker.id === workerFilter ? "bg-gray" : "bg-primary"
                       }`}
                     >
