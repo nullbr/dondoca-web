@@ -8,6 +8,7 @@ import MobileNav from "./MobileNav";
 import SessionLinks from "./SessionLinks";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { MenuIcon } from "../../assets/icons/icons";
 
 function Navbar({ admin }) {
   const { t } = useTranslation();
@@ -92,12 +93,13 @@ function Navbar({ admin }) {
             )}
 
             {/* mobileNav */}
-            <i
-              onClick={toggleMobileNav}
-              className={`fa-bars fa-solid hidden text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
-                sticky ? "text-gray" : "text-white"
-              }`}
-            ></i>
+            <button type="button" onClick={toggleMobileNav}>
+              <MenuIcon
+                className={`h-10 hidden md1200:block text-4xl cursor-pointer hover:text-primary ease-in duration-200 ${
+                  sticky ? "text-gray" : "text-white"
+                }`}
+              />
+            </button>
 
             {/* handle session */}
             <SessionLinks sticky={sticky} />
