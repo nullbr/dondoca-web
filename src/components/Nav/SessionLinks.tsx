@@ -3,37 +3,41 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { UserIcon } from "../../assets/icons/icons";
+import { RootState } from "../../store";
 
-const SessionLinks = ({ sticky }) => {
+interface SessionLinksProps {
+  sticky: boolean;
+}
+
+const SessionLinks = ({ sticky }: SessionLinksProps) => {
   const { t } = useTranslation();
   const { loading, accessToken, currentUser } = useSelector(
-    (store) => store.sessions
+    (store: RootState) => store.sessions
   );
 
   // open close
   const [isOpen, setIsOpen] = useState(false);
 
   // get the target element to toggle
-  const refOne = useRef(null);
-
-  // hide dropdown on ESC press
-  const hideOnEscape = (e) => {
-    // console.log(e.key)
-    if (e.key === "Escape") {
-      setIsOpen(false);
-    }
-  };
-
-  // Hide on outside click
-  const hideOnClickOutside = (e) => {
-    // console.log(refOne.current)
-    // console.log(e.target)
-    if (refOne.current && !refOne.current.contains(e.target)) {
-      setIsOpen(false);
-    }
-  };
+  const refOne = useRef<null | Node>(null);
 
   useEffect(() => {
+    // hide dropdown on ESC press
+    const hideOnEscape = (e: KeyboardEvent) => {
+      // console.log(e.key)
+      if (e.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    // Hide on outside click
+    const hideOnClickOutside = (e: MouseEvent) => {
+      const element = refOne.current;
+      if (element && !element.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
@@ -106,4 +110,5 @@ const SessionLinks = ({ sticky }) => {
     </>
   );
 };
+
 export default SessionLinks;

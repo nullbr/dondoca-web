@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import TitleBg from "../../../assets/images/shared/paint-stroke-gold.svg";
 import MainButton from "../../Shared/MainButton";
 import { featServices } from "../services";
+import { InfoIcon } from "../../../assets/icons/icons";
 
 function Featured({ t }) {
   const location = useLocation();
@@ -46,6 +47,9 @@ function Featured({ t }) {
                         {service.title}
                       </h2>
                       <p className="flex gap-2 mb-14 mt-6 text-white text-[1.6rem] font-medium">
+                        <span>
+                          <InfoIcon className="w-5 h-5" />
+                        </span>
                         {service.description}
                       </p>
                     </div>

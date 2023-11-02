@@ -1,4 +1,8 @@
-export const ChevronUp = ({ className }) => (
+interface IconProps {
+  className: string;
+}
+
+export const ChevronUp = ({ className }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}
@@ -11,7 +15,7 @@ export const ChevronUp = ({ className }) => (
   </svg>
 );
 
-export const MenuIcon = ({ className }) => (
+export const MenuIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -29,7 +33,7 @@ export const MenuIcon = ({ className }) => (
   </svg>
 );
 
-export const UserIcon = ({ className }) => (
+export const UserIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -47,7 +51,7 @@ export const UserIcon = ({ className }) => (
   </svg>
 );
 
-export const GridIcon = ({ className }) => (
+export const GridIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -65,7 +69,7 @@ export const GridIcon = ({ className }) => (
   </svg>
 );
 
-export const InstagramIcon = ({ className }) => (
+export const InstagramIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     fill="currentColor"
@@ -80,7 +84,7 @@ export const InstagramIcon = ({ className }) => (
   </svg>
 );
 
-export const PhoneIcon = ({ className }) => (
+export const PhoneIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -98,7 +102,7 @@ export const PhoneIcon = ({ className }) => (
   </svg>
 );
 
-export const EnvelopeIcon = ({ className }) => (
+export const EnvelopeIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -116,7 +120,7 @@ export const EnvelopeIcon = ({ className }) => (
   </svg>
 );
 
-export const MapPinIcon = ({ className }) => (
+export const MapPinIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -136,7 +140,7 @@ export const MapPinIcon = ({ className }) => (
   </svg>
 );
 
-export const CloseIcon = ({ className }) => (
+export const CloseIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -154,7 +158,7 @@ export const CloseIcon = ({ className }) => (
   </svg>
 );
 
-export const PlusIcon = ({ className }) => (
+export const PlusIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -172,9 +176,9 @@ export const PlusIcon = ({ className }) => (
   </svg>
 );
 
-export const InfoIcon = ({ className }) => (
+export const InfoIcon = ({ className }: IconProps) => (
   <svg
-    className="w-6 h-6 text-gray-800 dark:text-white"
+    className={className}
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -190,7 +194,7 @@ export const InfoIcon = ({ className }) => (
   </svg>
 );
 
-export const EyeIcon = ({ className }) => (
+export const EyeIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -210,7 +214,7 @@ export const EyeIcon = ({ className }) => (
   </svg>
 );
 
-export const EyeOffIcon = ({ className }) => (
+export const EyeOffIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"
@@ -228,7 +232,7 @@ export const EyeOffIcon = ({ className }) => (
   </svg>
 );
 
-export const ArrowRightIcon = ({ className }) => (
+export const ArrowRightIcon = ({ className }: IconProps) => (
   <svg
     className={className}
     aria-hidden="true"

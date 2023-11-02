@@ -2,7 +2,7 @@ import "./Navbar.css";
 import { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo/logo_full.png";
 import MobileLogo from "../../assets/images/logo/logo-mobile.png";
-import NavList from "../Nav/NavList";
+import NavList from "./NavList";
 import { NavLink } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import MobileNav from "./MobileNav";
@@ -10,13 +10,14 @@ import SessionLinks from "./SessionLinks";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { GridIcon, MenuIcon, PlusIcon } from "../../assets/icons/icons";
+import { RootState } from "../../store";
 
-function Navbar({ admin }) {
+function Navbar({ admin = false }: { admin?: boolean }) {
   const { t } = useTranslation();
   const [sticky, setSticky] = useState(false);
   const [sidebar, setSideBar] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
-  const { scrollY } = useSelector((store) => store.navbar);
+  const { scrollY } = useSelector((store: RootState) => store.navbar);
 
   // sidebar
   const toggleSideBar = () => {

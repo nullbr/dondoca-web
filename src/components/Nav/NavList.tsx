@@ -1,6 +1,13 @@
 import { NavLink } from "react-router-dom";
+import { TFunction } from "i18next";
 
-function NavList({ t, sticky, admin }) {
+interface NavListProps {
+  t: TFunction<"translation", undefined, "translation">;
+  sticky: boolean;
+  admin: boolean;
+}
+
+function NavList({ t, sticky, admin }: NavListProps) {
   return (
     <>
       {admin ? (
@@ -14,12 +21,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="schedules"
-                exact="true"
-                activeClassName="active"
-                to="/admin/schedules"
-              >
+              <NavLink id="schedules" to="/admin/schedules">
                 {t("admin.nav.schedule")}
               </NavLink>
             </li>
@@ -27,12 +29,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="workers"
-                exact="true"
-                activeClassName="active"
-                to="/admin/workers"
-              >
+              <NavLink id="workers" to="/admin/workers">
                 {t("admin.nav.workers")}
               </NavLink>
             </li>
@@ -40,12 +37,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="clients"
-                exact="true"
-                activeClassName="active"
-                to="/admin/clients"
-              >
+              <NavLink id="clients" to="/admin/clients">
                 {t("admin.nav.clients")}
               </NavLink>
             </li>
@@ -62,7 +54,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink id="home" exact="true" activeClassName="active" to="/">
+              <NavLink id="home" to="/">
                 {t("nav.home")}
               </NavLink>
             </li>
@@ -70,12 +62,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="about"
-                exact="true"
-                activeClassName="active"
-                to="/about"
-              >
+              <NavLink id="about" to="/about">
                 {t("nav.about")}
               </NavLink>
             </li>
@@ -83,31 +70,15 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="gallery"
-                exact="true"
-                activeClassName="active"
-                to={"/gallery"}
-              >
+              <NavLink id="gallery" to={"/gallery"}>
                 {t("nav.gallery")}
               </NavLink>
             </li>
-            {/* <li
-          style={{ transition: "all 0.3s" }}
-          className="cursor-pointer hover:text-primary"
-        >
-          <NavLink to={"/schedules/monday"}>{t("nav.schedules")}</NavLink>
-        </li> */}
             <li
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="services"
-                exact="true"
-                activeClassName="active"
-                to={"/services"}
-              >
+              <NavLink id="services" to={"/services"}>
                 {t("nav.services")}
               </NavLink>
             </li>
@@ -115,12 +86,7 @@ function NavList({ t, sticky, admin }) {
               style={{ transition: "all 0.3s" }}
               className="cursor-pointer hover:text-primary"
             >
-              <NavLink
-                id="contact"
-                exact="true"
-                activeClassName="active"
-                to={"/contact"}
-              >
+              <NavLink id="contact" to={"/contact"}>
                 {t("nav.contact")}
               </NavLink>
             </li>

@@ -1,7 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { CloseIcon } from "../../assets/icons/icons";
+import { TFunction } from "i18next";
 
-const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
+interface MobileNavProps {
+  toggleMobileNav: () => React.Dispatch<React.SetStateAction<boolean>>;
+  mobileNav: boolean;
+  t: TFunction<"translation", undefined, "translation">;
+  admin: boolean;
+}
+
+const MobileNav = ({
+  toggleMobileNav,
+  mobileNav,
+  t,
+  admin,
+}: MobileNavProps) => {
   return (
     <div
       className={`absolute w-screen h-screen z-[999999] ease-in-out duration-500 top-0 sm:bg-transparent-gray bg-transparent ${
@@ -30,8 +43,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="services"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/schedules"
                   >
@@ -41,8 +52,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="workers"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/workers"
                   >
@@ -52,8 +61,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="clients"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/admin/clients"
                   >
@@ -67,8 +74,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="home"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/"
                   >
@@ -78,27 +83,15 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="about"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/about"
                   >
                     {t("nav.about")}
                   </NavLink>
                 </li>
-                {/* <li onClick={toggleMobileNav}>
-                  <NavLink
-                    className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
-                    to="/schedules/monday"
-                  >
-                    {t("nav.schedules")}
-                  </NavLink>
-                </li> */}
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="gallery"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/gallery"
                   >
@@ -108,8 +101,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="contact"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/contact"
                   >
@@ -119,8 +110,6 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
                 <li onClick={toggleMobileNav}>
                   <NavLink
                     id="services"
-                    exact="true"
-                    activeClassName="active"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
                     to="/services"
                   >
@@ -135,4 +124,5 @@ const MobileNav = ({ toggleMobileNav, mobileNav, t, admin }) => {
     </div>
   );
 };
+
 export default MobileNav;

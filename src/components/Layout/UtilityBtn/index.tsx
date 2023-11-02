@@ -1,14 +1,14 @@
 import WhatsappLogo from "../../../assets/images/whatsapp/icons8-whatsapp-48.png";
 import { ChevronUp } from "../../../assets/icons/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const MessageBtn = () => {
   const { t } = useTranslation();
-  const [text, setText] = useState(null);
+  const [text, setText] = useState<null | string>(null);
   const [show, setShow] = useState(false);
 
-  useState(() => {
+  useEffect(() => {
     // display message icon on scrolldown
     const handleScroll = () => {
       window.scrollY > 10 ? setShow(true) : setShow(false);

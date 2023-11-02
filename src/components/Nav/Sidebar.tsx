@@ -7,8 +7,14 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from "../../assets/icons/icons";
+import { TFunction } from "i18next";
 
-const Sidebar = ({ toggleSideBar, t }) => {
+interface SidebarProps {
+  toggleSideBar: () => React.Dispatch<React.SetStateAction<boolean>>;
+  t: TFunction<"translation", undefined, "translation">;
+}
+
+const Sidebar = ({ toggleSideBar, t }: SidebarProps) => {
   useEffect(() => {
     const div = document.getElementById("sidebarGallery");
     const script = document.createElement("script");
@@ -19,10 +25,10 @@ const Sidebar = ({ toggleSideBar, t }) => {
     );
     script.setAttribute("async", "");
     script.setAttribute("defer", "");
-    div.appendChild(script);
+    div?.appendChild(script);
 
     return () => {
-      div.removeChild(script);
+      div?.removeChild(script);
     };
   }, []);
 
@@ -58,7 +64,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
           <div className="flex flex-col gap-6">
             <h3 className="text-[2rem] font-bold">{t("contactUs.title")}</h3>
             <a
-              href={t("contactUs.addressUrl")}
+              href={t("contactUs.addressUrl") || "#"}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -94,7 +100,7 @@ const Sidebar = ({ toggleSideBar, t }) => {
             <div className="flex gap-5">
               <span className="bg-primary rounded-full py-[10px] px-[13px] cursor-pointer">
                 <a
-                  href={t("defaults.instagram")}
+                  href={t("defaults.instagram") || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
