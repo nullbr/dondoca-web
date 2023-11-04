@@ -35,19 +35,7 @@ export interface EditUserPayload {
 }
 
 export interface UserResponse {
-  user: {
-    id: number;
-    first_name: string;
-    last_name: string;
-    email: string;
-    role: "user" | "admin";
-    created_at: string;
-    updated_at: string;
-    avatar_url: string | null;
-    resource_owner_id: number | null;
-    default_location: Location;
-  };
-  errors: Array<string>;
+  user: UserDetails;
 }
 
 export interface SessionResponse {
@@ -55,6 +43,6 @@ export interface SessionResponse {
   refresh_token: string;
   token_type: string;
   expires_in: number;
+  role: "user" | "admin";
   created_at: number;
-  errors: Array<string> | [];
 }

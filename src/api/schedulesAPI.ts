@@ -2,24 +2,23 @@ import axiosInstance from "./axios";
 
 const SCHEDULES_URL = "schedules";
 
-export async function fetchSchedules(accessToken, filters) {
+interface Filters {
+  startDate: Date;
+  endDate: Date;
+}
+
+export async function fetchSchedules(accessToken: string, filters: Filters) {
   const startDate = filters.startDate ? filters.startDate.getTime() / 1000 : "";
   const endDate = filters.endDate ? filters.endDate.getTime() / 1000 : "";
-
-  const params = new URLSearchParams([
-    ["start_date", startDate],
-    ["end_date", endDate],
-  ]);
 
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
-    params,
   };
 
   return axiosInstance
-    .get(SCHEDULES_URL, config)
+    .get(`${SCHEDULES_URL}/start_date=${startDate}&end_date=${endDate}`, config)
     .then((response) => response.data)
     .catch((error) => error.response.data);
 }

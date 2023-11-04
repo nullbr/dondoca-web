@@ -147,6 +147,7 @@ const translations = {
     },
 
     login: {
+      success: "Login realizado com sucesso!",
       fieldsError: "Por favor, preecha todos os campos.",
       email: "email",
       emailExample: "exemplo@email.com",

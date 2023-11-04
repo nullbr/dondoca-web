@@ -32,10 +32,7 @@ export async function loginWithCredentials(credentials: {
     client_secret: CLIENT_SECRET,
   };
 
-  return axiosInstance
-    .post(LOGIN_URL, data)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
+  return axiosInstance.post(LOGIN_URL, data).then((response) => response.data);
 }
 
 export async function logoutUserWithToken(

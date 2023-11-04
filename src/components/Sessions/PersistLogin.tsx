@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { refreshAccessToken } from "../../features/sessions/sessionSlice";
+import { Toaster } from "react-hot-toast";
 
 const PersistLogin = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const PersistLogin = () => {
   return (
     <>
       <Outlet />
+      <Toaster />
     </>
   );
 };
