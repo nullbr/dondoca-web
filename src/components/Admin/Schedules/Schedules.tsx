@@ -11,13 +11,18 @@ import { useEffect, useState } from "react";
 import DateRangePicker from "./DateRangePicker";
 import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { useGetWorkers } from "../../../lib/hooks";
+import { RootState } from "../../../store";
 
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const schedules = useSelector((store) => store.schedules.schedules);
-  const loadingSchedules = useSelector((store) => store.schedules.loading);
+  const schedules = useSelector(
+    (store: RootState) => store.schedules.schedules
+  );
+  const loadingSchedules = useSelector(
+    (store: RootState) => store.schedules.loading
+  );
 
   const [workerFilter, setWorkerFilter] = useState(null);
 

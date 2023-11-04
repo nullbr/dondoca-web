@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, MutableRefObject } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
@@ -19,7 +19,7 @@ const SessionLinks = ({ sticky }: SessionLinksProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // get the target element to toggle
-  const refOne = useRef(null);
+  const refOne: MutableRefObject<HTMLDivElement | null> = useRef(null);
 
   useEffect(() => {
     // hide dropdown on ESC press
@@ -32,8 +32,8 @@ const SessionLinks = ({ sticky }: SessionLinksProps) => {
 
     // Hide on outside click
     const hideOnClickOutside = (e: MouseEvent) => {
-      const element = refOne.current;
-      if (element && !element.contains(e.target)) {
+      const element = refOne.current as Node;
+      if (element && e?.target && !element.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };

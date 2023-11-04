@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Form from "../../Shared/Form";
 import EditButton from "../../Shared/EditButton";
+import { ScheduleParams } from "../../../types/schedule";
 
-function Schedule({ schedule }) {
-  const { startAtTime, endAtTime, client, worker } = schedule;
+function Schedule({ schedule }: { schedule: ScheduleParams }) {
+  const { start_at_time, end_at_time, client, worker } = schedule;
 
   const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
@@ -13,7 +14,7 @@ function Schedule({ schedule }) {
     <div className="bg-[#f2f2f2] w-full text-center sm:text-left rounded-2xl">
       {/* time mobile */}
       <p className="sm:hidden block text-lg text-primary font-bold -mb-2">
-        {startAtTime} - {endAtTime}
+        {start_at_time} - {end_at_time}
       </p>
       {/* Schedule */}
       <div
@@ -26,7 +27,7 @@ function Schedule({ schedule }) {
             {t("admin.schedule.time")}
           </p>
           <p className="text-2xl text-primary font-bold mt-3">
-            {startAtTime} - {endAtTime}
+            {start_at_time} - {end_at_time}
           </p>
         </div>
         {/* service name */}
@@ -42,7 +43,7 @@ function Schedule({ schedule }) {
             {t("admin.schedule.professional")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">
-            {worker.firstName} {worker.lastName}
+            {worker.first_name} {worker.last_name}
           </p>
         </div>
         {/* Client */}
@@ -51,7 +52,7 @@ function Schedule({ schedule }) {
             {t("admin.schedule.client")}
           </p>
           <p className="text-2xl text-black font-bold mt-3">
-            {client.firstName} {client.lastName}
+            {client.first_name} {client.last_name}
           </p>
         </div>
 

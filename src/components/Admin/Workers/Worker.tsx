@@ -2,16 +2,17 @@ import { useTranslation } from "react-i18next";
 import Form from "../../Shared/Form";
 import { useState } from "react";
 import EditButton from "../../Shared/EditButton";
+import { WorkerParams } from "../../../types/worker";
 
-const Worker = ({ worker }) => {
+const Worker = ({ worker }: { worker: WorkerParams }) => {
   const {
-    firstName,
-    lastName,
+    first_name,
+    last_name,
     job,
-    createdAt,
-    imageUrl,
+    created_at,
+    image_url,
     instagram,
-    phoneNumber,
+    phone_number,
   } = worker;
   const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
@@ -28,7 +29,7 @@ const Worker = ({ worker }) => {
       <div className="flex gap-2 items-center">
         <div className="sm:w-[20rem] w-1/3 p-2">
           <img
-            src={imageUrl}
+            src={image_url}
             alt="profile"
             className="self-center rounded-full"
           />
@@ -38,12 +39,12 @@ const Worker = ({ worker }) => {
           onClick={() => setShowForm(!showForm)}
         >
           <h3 className="sm:text-[2.5rem] text-[2rem] font-semibold">
-            {firstName} {lastName}
+            {first_name} {last_name}
           </h3>
           <ul>
             <li>
               <p>
-                {t("defaults.cellphone")}: {phoneNumber}
+                {t("defaults.cellphone")}: {phone_number}
               </p>
             </li>
             <li>
@@ -53,7 +54,7 @@ const Worker = ({ worker }) => {
             </li>
             <li>
               <p>
-                {t("admin.worker.createAt")}: {createdAt}
+                {t("admin.worker.createAt")}: {created_at}
               </p>
             </li>
             {instagram && (

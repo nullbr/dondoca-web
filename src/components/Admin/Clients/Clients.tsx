@@ -8,6 +8,7 @@ import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useTranslation } from "react-i18next";
 import Dashboard from "../Dashboard";
 import Client from "./Client";
+import { ClientParams } from "../../../types/client";
 
 const Clients = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Clients = () => {
             {/* Form goes here */}
             {clients &&
               clients.length > 0 &&
-              clients.map((client) => {
+              clients.map((client: ClientParams) => {
                 return <Client key={client.id} client={client} />;
               })}
           </>

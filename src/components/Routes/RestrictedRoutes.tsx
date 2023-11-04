@@ -1,11 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { RootState } from "../../store";
 
 // Permit users to access if logged in
-const RestrictedRoutes = ({ children }) => {
+const RestrictedRoutes = ({ children }: { children: React.ReactNode }) => {
   const { t } = useTranslation();
-  const { loading, accessToken } = useSelector((store) => store.sessions);
+  const { loading, accessToken } = useSelector(
+    (store: RootState) => store.sessions
+  );
 
   if (accessToken) {
     return children;

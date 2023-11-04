@@ -2,7 +2,7 @@ import axiosInstance from "./axios";
 
 const CLIENTS_URL = "clients";
 
-export async function fetchClients(accessToken) {
+export async function fetchClients(accessToken: string) {
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,
