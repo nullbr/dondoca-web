@@ -3,8 +3,9 @@ import {
   InstagramIcon,
   PhoneIcon,
 } from "../../assets/icons/icons";
+import { TProp } from "../../i18n";
 
-const ContactInfo = ({ t }) => {
+const ContactInfo = ({ t }: TProp) => {
   return (
     <div className="w-[60%] flex flex-col mx-auto sm:block md:w-full sm:w-[90%]">
       <h2 className="text-center text-black sm:text-[3.4rem] text-[2.5rem] font-bold leading-[1.2]">
@@ -19,7 +20,7 @@ const ContactInfo = ({ t }) => {
             {t("contactUs.address")}
           </h3>
           <a
-            href={t("contactUs.addressUrl")}
+            href={t("contactUs.addressUrl") || "#"}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -76,7 +77,7 @@ const ContactInfo = ({ t }) => {
             {t("defaults.followUs")}
           </h3>
           <a
-            href={t("defaults.instagram")}
+            href={t("defaults.instagram") || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="text-black p-[13.5px] bg-[#f4f4f4] rounded-full cursor-pointer hover:bg-primary ease-in duration-200 hover:text-white w-fit"

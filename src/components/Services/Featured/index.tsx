@@ -3,8 +3,13 @@ import TitleBg from "../../../assets/images/shared/paint-stroke-gold.svg";
 import MainButton from "../../Shared/MainButton";
 import { featServices } from "../services";
 import { InfoIcon } from "../../../assets/icons/icons";
+import { TFunction } from "i18next";
 
-function Featured({ t }) {
+function Featured({
+  t,
+}: {
+  t: TFunction<"translation", undefined, "translation">;
+}) {
   const location = useLocation();
 
   return (

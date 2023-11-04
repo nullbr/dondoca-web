@@ -22,7 +22,7 @@ const Login = () => {
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     // Focus on email input
-    document.getElementById("email").focus();
+    document?.getElementById("email")?.focus();
 
     // reset error messages
     dispatch(resetErrorState());
@@ -33,7 +33,7 @@ const Login = () => {
   const { loading, errorMessages } = useSelector((store) => store.sessions);
   const [errors, setErrors] = useState(errorMessages);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEventHandler<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -41,7 +41,7 @@ const Login = () => {
 
     setErrors([]);
 
-    if (entries.length < 1 || entries.email === "" || entries.password === "") {
+    if (!entries || entries.email === "" || entries.password === "") {
       return setErrors([t("login.fieldsError")]);
     }
 
@@ -76,9 +76,9 @@ const Login = () => {
                   id="email"
                   name="email"
                   className="text-[1.7rem] px-8 py-4 mb-10 w-full valid:outline-green-500 invalid:outline-red-500 rounded-lg"
-                  placeholder={t("login.emailExample")}
+                  placeholder={t("login.emailExample") || ""}
                   type="email"
-                  maxLength="100"
+                  maxLength={100}
                   required
                 />
               </li>
@@ -94,17 +94,17 @@ const Login = () => {
                     id="password"
                     name="password"
                     className="text-[1.7rem] px-8 py-4 mb-10 w-full rounded-lg"
-                    placeholder={t("login.password")}
+                    placeholder={t("login.password") || ""}
                     type={showPassword ? "text" : "password"}
-                    minLength="7"
-                    maxLength="100"
+                    minLength={7}
+                    maxLength={100}
                     required
                   />
                   <button
                     id="showPasswordButton"
                     type="button"
                     className="absolute top-6 right-5 text-xl"
-                    aria-label={t("login.showPassword")}
+                    aria-label={t("login.showPassword") || ""}
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (

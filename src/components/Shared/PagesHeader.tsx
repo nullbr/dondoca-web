@@ -1,4 +1,4 @@
-const PagesHeader = ({ pageTitle }) => {
+const PagesHeader = ({ pageTitle }: { pageTitle: string }) => {
   return (
     <header className="relative justify-center flex">
       <h1 className="text-white absolute bottom-[25px] text-[3rem] font-bold">

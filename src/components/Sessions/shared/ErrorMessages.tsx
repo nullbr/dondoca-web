@@ -1,4 +1,9 @@
-const ErrorMessages = ({ errors, errorMessages }) => {
+interface ErrorsProps {
+  errors: string[];
+  errorMessages: string[];
+}
+
+const ErrorMessages = ({ errors, errorMessages }: ErrorsProps) => {
   return (
     <>
       {(errors.length > 0 || errorMessages.length > 0) && (

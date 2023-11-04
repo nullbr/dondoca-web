@@ -12,6 +12,7 @@ import { setScrollY } from "../../features/navbar/navbarSlice";
 import ErrorMessages from "./shared/ErrorMessages";
 import PagesHeader from "../Shared/PagesHeader";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons";
+import { RootState } from "../../store";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const EditProfile = () => {
     dispatch(setScrollY(PAGE_HEADER_Y));
 
     // Focus on email input
-    document.getElementById("email").focus();
+    document?.getElementById("email")?.focus();
 
     // reset error messages
     dispatch(resetErrorState());
@@ -33,7 +34,7 @@ const EditProfile = () => {
 
   // Sign up user
   const { loading, errorMessages, accessToken } = useSelector(
-    (store) => store.sessions
+    (store: RootState) => store.sessions
   );
   const [errors, setErrors] = useState(errorMessages);
   const [showPassword, setShowPassword] = useState(false);
@@ -120,9 +121,9 @@ const EditProfile = () => {
                 id="email"
                 name="email"
                 className="text-[1.7rem] px-8 py-4 mb-10 w-full valid:outline-green-500 invalid:outline-red-500 rounded-lg"
-                placeholder={t("login.emailExample")}
+                placeholder={t("login.emailExample") || ""}
                 type="email"
-                maxLength="100"
+                maxLength={100}
               />
             </li>
             <li>
@@ -138,10 +139,10 @@ const EditProfile = () => {
                   id="password"
                   name="password"
                   className="text-[1.7rem] px-8 py-4 mb-10 w-full valid:outline-green-500 invalid:outline-red-500 rounded-lg"
-                  placeholder={t("login.password")}
+                  placeholder={t("login.password") || ""}
                   type={showPassword ? "text" : "password"}
-                  minLength="7"
-                  maxLength="100"
+                  minLength={7}
+                  maxLength={100}
                 />
                 <button
                   id="showPasswordButton"
@@ -171,17 +172,17 @@ const EditProfile = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   className="text-[1.7rem] px-8 py-4 mb-10 w-full outline-red-500 rounded-lg"
-                  placeholder={t("login.password")}
+                  placeholder={t("login.password") || ""}
                   type={showPassword ? "text" : "password"}
-                  minLength="7"
-                  maxLength="100"
+                  minLength={7}
+                  maxLength={100}
                   onChange={() => checkPasswordMatch()}
                 />
                 <button
                   id="showConfirmPasswordButton"
                   type="button"
                   className="absolute top-6 right-5 text-xl"
-                  aria-label={t("login.showPassword")}
+                  aria-label={t("login.showPassword") || ""}
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -205,17 +206,17 @@ const EditProfile = () => {
                   id="currentPassword"
                   name="currentPassword"
                   className="text-[1.7rem] px-8 py-4 mb-10 w-full valid:outline-green-500 invalid:outline-red-500 rounded-lg"
-                  placeholder={t("editProfile.currentPassword")}
+                  placeholder={t("editProfile.currentPassword") || ""}
                   type={showCurrentPassword ? "text" : "password"}
-                  minLength="7"
-                  maxLength="100"
+                  minLength={7}
+                  maxLength={100}
                   required
                 />
                 <button
                   id="showCurrentPasswordButton"
                   type="button"
                   className="absolute top-6 right-5 text-xl"
-                  aria-label={t("editProfile.showCurrentPassword")}
+                  aria-label={t("editProfile.showCurrentPassword") || ""}
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 >
                   {showCurrentPassword ? (

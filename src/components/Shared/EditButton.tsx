@@ -1,6 +1,11 @@
 import { useTranslation } from "react-i18next";
 
-const EditButton = ({ action, CN }) => {
+interface EditButtonProps {
+  action: () => void;
+  CN: string;
+}
+
+const EditButton = ({ action, CN }: EditButtonProps) => {
   const { t } = useTranslation();
   return (
     <button

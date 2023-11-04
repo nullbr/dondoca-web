@@ -1,4 +1,4 @@
-import i18n from "i18next";
+import i18n, { TFunction } from "i18next";
 import { initReactI18next } from "react-i18next";
 import translations from "./locales";
 
@@ -12,3 +12,7 @@ i18n
   });
 
 export default i18n;
+
+export interface TProp {
+  t: TFunction<"translation", undefined, "translation">;
+}

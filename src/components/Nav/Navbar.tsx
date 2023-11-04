@@ -89,13 +89,7 @@ function Navbar({ admin = false }: { admin?: boolean }) {
                   sidebar ? "left-0" : "-left-[100%]"
                 }`}
               >
-                {sidebar && (
-                  <Sidebar
-                    toggleSideBar={toggleSideBar}
-                    sidebar={sidebar}
-                    t={t}
-                  />
-                )}
+                {sidebar && <Sidebar toggleSideBar={toggleSideBar} t={t} />}
               </div>
             )}
 

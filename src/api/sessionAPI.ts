@@ -1,3 +1,4 @@
+import { Credentials, SessionResponse, UserResponse } from "../types/sessions";
 import axiosInstance from "./axios";
 
 const LOGIN_URL = "oauth/token";
@@ -9,7 +10,9 @@ const CURRENT_USER_URL = "users/me";
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
 
-export async function createUser(credentials) {
+export async function createUser(
+  credentials: Credentials
+): Promise<UserResponse> {
   const data = { ...credentials, client_id: CLIENT_ID };
 
   return axiosInstance
@@ -18,7 +21,10 @@ export async function createUser(credentials) {
     .catch((error) => error.response.data);
 }
 
-export async function loginWithCredentials(credentials) {
+export async function loginWithCredentials(credentials: {
+  email: string;
+  password: string;
+}): Promise<SessionResponse> {
   const data = {
     ...credentials,
     grant_type: "password",
@@ -32,7 +38,9 @@ export async function loginWithCredentials(credentials) {
     .catch((error) => error.response.data);
 }
 
-export async function logoutUserWithToken(refreshToken) {
+export async function logoutUserWithToken(
+  refreshToken: string
+): Promise<{ errors?: string }> {
   const data = {
     token: refreshToken,
     client_id: CLIENT_ID,
@@ -45,7 +53,9 @@ export async function logoutUserWithToken(refreshToken) {
     .catch((error) => error.response.data);
 }
 
-export async function editUserWithToken(payload) {
+export async function editUserWithToken(
+  payload: Credentials
+): Promise<UserResponse> {
   const data = {
     email: payload.email,
     password: payload.password,
@@ -65,7 +75,9 @@ export async function editUserWithToken(payload) {
     .catch((error) => error.response.data);
 }
 
-export async function requestAccessTokenWithRefreshToken(refreshToken) {
+export async function requestAccessTokenWithRefreshToken(
+  refreshToken: string
+): Promise<SessionResponse> {
   const data = {
     grant_type: "refresh_token",
     refresh_token: refreshToken,
@@ -79,7 +91,9 @@ export async function requestAccessTokenWithRefreshToken(refreshToken) {
     .catch((error) => error.response.data);
 }
 
-export async function getCurrentUser(accessToken) {
+export async function getCurrentUser(
+  accessToken: string
+): Promise<UserResponse> {
   const config = {
     headers: {
       Authorization: `Bearer ${accessToken}`,

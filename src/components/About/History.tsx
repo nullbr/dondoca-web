@@ -1,7 +1,12 @@
 import Target from "../../assets/images/AboutPage/target.svg";
 import Mountain from "../../assets/images/AboutPage/mountain.svg";
+import { TFunction } from "i18next";
 
-const History = ({ t }) => {
+const History = ({
+  t,
+}: {
+  t: TFunction<"translation", undefined, "translation">;
+}) => {
   return (
     <div className="bg-black text-white text-justify rounded-xl shadow-xl">
       <div className="grid sm:grid-cols-2 w-full grid-cols-1">

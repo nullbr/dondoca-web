@@ -41,7 +41,7 @@ const Contact = () => {
               height: "45rem",
               border: "0",
             }}
-            allowFullScreen=""
+            allowFullScreen={true}
             loading="lazy"
           ></iframe>
         </div>

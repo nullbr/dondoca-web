@@ -11,10 +11,10 @@ const Images = () => {
     );
     script.setAttribute("async", "");
     script.setAttribute("defer", "");
-    div.appendChild(script);
+    div?.appendChild(script);
 
     return () => {
-      div.removeChild(script);
+      div?.removeChild(script);
     };
   }, []);
 

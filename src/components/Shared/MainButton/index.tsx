@@ -2,7 +2,25 @@ import { Link } from "react-router-dom";
 import "./index.css";
 import { ArrowRightIcon } from "../../../assets/icons/icons";
 
-function MainButton({ color, bg, cN, arrowColor, hover, text, goTo }) {
+interface MainButtonProps {
+  color?: string;
+  bg?: string;
+  cN?: string;
+  arrowColor?: string;
+  hover?: string;
+  text: string;
+  goTo: string;
+}
+
+function MainButton({
+  color,
+  bg,
+  cN,
+  arrowColor,
+  hover,
+  text,
+  goTo,
+}: MainButtonProps) {
   const goTop = () => {
     window.scrollTo({
       top: 0,

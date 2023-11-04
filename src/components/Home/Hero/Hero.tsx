@@ -31,7 +31,7 @@ function Hero() {
         </div>
         {/* socials */}
         <a
-          href={t("defaults.instagram")}
+          href={t("defaults.instagram") || "#"}
           target="_blank"
           rel="noopener noreferrer"
           className="animate-fade-in flex flex-row-reverse sm:-rotate-90 text-white w-fit

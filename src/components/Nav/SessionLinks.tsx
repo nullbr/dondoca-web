@@ -19,7 +19,7 @@ const SessionLinks = ({ sticky }: SessionLinksProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // get the target element to toggle
-  const refOne = useRef<null | Node>(null);
+  const refOne = useRef(null);
 
   useEffect(() => {
     // hide dropdown on ESC press

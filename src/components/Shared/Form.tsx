@@ -1,4 +1,11 @@
-const Form = ({ resource, handleSubmit }) => {
+import { WorkerParams } from "../../types/worker";
+
+interface FormProps {
+  resource: WorkerParams;
+  handleSubmit: () => void;
+}
+
+const Form = ({ resource, handleSubmit }: FormProps) => {
   return (
     <form
       onSubmit={handleSubmit}
@@ -11,8 +18,7 @@ const Form = ({ resource, handleSubmit }) => {
             id="first_name"
             name="first_name"
             type="text"
-            defaultValue={resource.firstName}
-            placeHolder="Nome"
+            defaultValue={resource.first_name}
           />
         </p>
 
@@ -22,7 +28,7 @@ const Form = ({ resource, handleSubmit }) => {
             id="last_name"
             name="last_name"
             type="text"
-            defaultValue={resource.lastName}
+            defaultValue={resource.last_name || ""}
           />
         </p>
 
@@ -42,7 +48,7 @@ const Form = ({ resource, handleSubmit }) => {
             id="instagram"
             name="instagram"
             type="text"
-            defaultValue={resource.instagram}
+            defaultValue={resource.instagram || ""}
           />
         </p>
 
@@ -52,7 +58,7 @@ const Form = ({ resource, handleSubmit }) => {
             id="phone_number"
             name="phone_number"
             type="text"
-            defaultValue={resource.phoneNumber}
+            defaultValue={resource.phone_number || ""}
           />
         </p>
 

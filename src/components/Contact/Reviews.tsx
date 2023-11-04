@@ -1,6 +1,7 @@
 import { useEffect } from "react";
+import { TProp } from "../../i18n";
 
-const Reviews = ({ t }) => {
+const Reviews = ({ t }: TProp) => {
   useEffect(() => {
     const div = document.querySelector("#reviews");
     const script = document.createElement("script");
@@ -12,10 +13,10 @@ const Reviews = ({ t }) => {
     script.setAttribute("async", "");
     script.setAttribute("defer", "");
     script.setAttribute("data-use-service-core", "");
-    div.appendChild(script);
+    div?.appendChild(script);
 
     return () => {
-      div.removeChild(script);
+      div?.removeChild(script);
     };
   }, []);
 
@@ -33,8 +34,8 @@ const Reviews = ({ t }) => {
               {t("home.reviews")}
             </h3>
           </div>
-          <div className="elfsight-app-0515e225-0af6-4cb1-b9cf-b76009e5dfae"></div>
-          <div className="relative w-[70%] h-20 -top-20 -mb-[10rem] mx-auto bg-black z-[99999]"></div>
+          <div className="elfsight-app-0515e225-0af6-4cb1-b9cf-b76009e5dfae" />
+          <div className="relative w-[70%] h-20 -top-20 -mb-[10rem] mx-auto bg-black z-[99999]" />
         </div>
       </div>
     </a>

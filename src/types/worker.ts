@@ -1,18 +1,20 @@
-interface worker {
+export interface WorkerParams {
   id: number;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
+  first_name: string;
+  last_name: string | null;
+  phone_number: string | null;
   job: string;
-  instagram: string;
-  createdAt: string;
-  imageUrl: string;
+  instagram: string | null;
+  created_at: string;
+  updated_at: string;
+  image_url: string;
+  description: string;
   categories: {
     id: number;
     name: string;
   }[];
 }
 
-interface workersResponse {
-  workers: worker[];
+export interface WorkersResponse {
+  workers: WorkerParams[];
 }
