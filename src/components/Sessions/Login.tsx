@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
@@ -13,11 +13,13 @@ import { AxiosError } from "axios";
 import ResponseError from "../../lib/ResponseError";
 import { SessionResponse } from "../../types/sessions";
 import { setSession } from "../../features/app/appSlice";
+import { RootState } from "../../store";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { session } = useSelector((state: RootState) => state.app);
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
@@ -25,7 +27,13 @@ const Login = () => {
 
     // Focus on email input
     document?.getElementById("email")?.focus();
-  }, [t]);
+
+    // redirect if user is logged in
+    if (session) {
+      toast.success(t("login.alreadyLoggedIn"));
+      navigate("/");
+    }
+  }, [t, session]);
 
   // Login User
   const [showPassword, setShowPassword] = useState(false);

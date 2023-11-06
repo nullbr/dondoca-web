@@ -89,7 +89,7 @@ export async function requestAccessTokenWithRefreshToken(
 }
 
 export async function getCurrentUser(
-  accessToken: string
+  accessToken: string | null
 ): Promise<UserResponse> {
   const config = {
     headers: {
@@ -99,6 +99,5 @@ export async function getCurrentUser(
 
   return axiosInstance
     .get(CURRENT_USER_URL, config)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
+    .then((response) => response.data);
 }

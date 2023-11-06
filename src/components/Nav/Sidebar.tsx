@@ -10,7 +10,7 @@ import {
 import { TFunction } from "i18next";
 
 interface SidebarProps {
-  toggleSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleSideBar: () => void;
   t: TFunction<"translation", undefined, "translation">;
 }
 
@@ -42,7 +42,7 @@ const Sidebar = ({ toggleSideBar, t }: SidebarProps) => {
             <img src={LogoSide} alt="logo_img" className="w-[13rem]" />
             <button
               type="button"
-              onClick={() => toggleSideBar}
+              onClick={toggleSideBar}
               className="text-primary"
             >
               <CloseIcon className="h-6" />
@@ -113,7 +113,7 @@ const Sidebar = ({ toggleSideBar, t }: SidebarProps) => {
         {/* Allow user to click outside the box to close */}
         <div
           className="close-sidebar-div cursor-pointer sm:bg-transparent-gray bg-transparent"
-          onClick={() => toggleSideBar}
+          onClick={toggleSideBar}
         ></div>
       </div>
     </>

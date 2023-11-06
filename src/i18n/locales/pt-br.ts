@@ -148,6 +148,7 @@ const translations = {
 
     login: {
       success: "Login realizado com sucesso!",
+      alreadyLoggedIn: "Você já está logado.",
       fieldsError: "Por favor, preecha todos os campos.",
       email: "email",
       emailExample: "exemplo@email.com",
