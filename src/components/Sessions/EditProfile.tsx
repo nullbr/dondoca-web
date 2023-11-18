@@ -2,24 +2,29 @@ import "./Styles.css";
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  editUser,
-  resetErrorState,
-} from "../../features/sessions/sessionSlice";
+import { resetErrorState } from "../../features/sessions/sessionSlice";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
-import ErrorMessages from "./shared/ErrorMessages";
 import PagesHeader from "../Shared/PagesHeader";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons";
 import { RootState } from "../../store";
+import { editUserWithToken } from "../../api/sessionAPI";
+import { Credentials, UserResponse } from "../../types/sessions";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { KEYS } from "../../hooks/Users/queries";
+import { AxiosError } from "axios";
+import ResponseError from "../../lib/ResponseError";
 
 const EditProfile = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
+  const passwordRef: React.MutableRefObject<HTMLInputElement | null> =
+    useRef(null);
+  const confirmPasswordRef: React.MutableRefObject<HTMLInputElement | null> =
+    useRef(null);
 
   useEffect(() => {
     document.title = t("editProfile.title") + " - " + t("defaults.pageTitle");
@@ -33,73 +38,74 @@ const EditProfile = () => {
   }, [dispatch, t]);
 
   // Sign up user
-  const { loading, errorMessages, accessToken } = useSelector(
-    (store: RootState) => store.sessions
-  );
-  const [errors, setErrors] = useState(errorMessages);
+  const { session } = useSelector((state: RootState) => state.app);
   const [showPassword, setShowPassword] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const queryClient = useQueryClient();
 
-  // Check form entries
-  const validEntries = (entries) => {
-    setErrors([]);
+  const editUserMutation = useMutation({
+    mutationFn: editUserWithToken,
+    onSuccess: (data: UserResponse) => {
+      queryClient.invalidateQueries({
+        queryKey: [KEYS.GET_USER, session?.access_token || ""],
+      });
+      toast.success(t("login.success"));
 
-    const shouldUpdatePassword =
-      entries.password !== "" || entries.password !== "";
-    const shouldEditProfile = entries.email !== "" || shouldUpdatePassword;
+      if (data.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    },
+    onError: (err: AxiosError) => ResponseError({ err }),
+  });
 
-    if (entries.length < 1 || !shouldEditProfile) {
-      setErrors([t("editProfile.fieldsError")]);
-    } else if (
-      shouldUpdatePassword &&
-      entries.password !== entries.confirmPassword
-    ) {
-      setErrors([t("signUp.passwordNoMatch")]);
-    } else if (!entries.currentPassword || entries.currentPassword === "") {
-      setErrors([t("editProfile.noCurrentPassword")]);
-    }
-
-    if (errors.length > 0) {
-      return false;
-    } else {
-      return true;
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const entries = Object.fromEntries(formData);
+    const shouldUpdatePassword =
+      entries.password !== "" || entries.password !== "";
+    const shouldEditProfile = entries.email !== "" || shouldUpdatePassword;
 
-    if (!validEntries(entries)) {
-      return null;
+    if (!entries || !shouldEditProfile) {
+      toast.error(t("editProfile.fieldsError"));
+      return;
     }
 
-    const payload = {
-      email: entries.email,
-      password: entries.password,
-      currentPassword: entries.currentPassword,
-      accessToken: accessToken,
+    if (shouldUpdatePassword && entries.password !== entries.confirmPassword) {
+      toast.error(t("signUp.passwordNoMatch"));
+      return;
+    }
+
+    if (!entries.currentPassword || entries.currentPassword === "") {
+      toast.error(t("editProfile.noCurrentPassword"));
+      return;
+    }
+
+    const payload: Credentials = {
+      email: entries.email as string,
+      password: entries.password as string,
+      currentPassword: entries.currentPassword as string,
+      accessToken: session?.access_token || "",
     };
 
-    const response = await dispatch(editUser(payload));
-
-    if (response.errors || response.error) {
-      return null;
-    }
-
-    navigate("/");
+    editUserMutation.mutate(payload);
   };
 
   // Check if passwords match
   const checkPasswordMatch = () => {
-    const password = passwordRef?.current?.value;
-    const confirmPassword = confirmPasswordRef?.current?.value;
+    const passwordInput = passwordRef?.current;
+    const confirmPasswordInput = confirmPasswordRef?.current;
 
-    password === confirmPassword
-      ? (confirmPasswordRef.current.style.outlineColor = "#22c55e")
-      : (confirmPasswordRef.current.style.outlineColor = "#ef4444");
+    if (!passwordInput || !confirmPasswordInput) return false;
+
+    passwordInput.value === confirmPasswordInput.value
+      ? (passwordInput.style.outlineColor = "#22c55e")
+      : (confirmPasswordInput.style.outlineColor = "#ef4444");
   };
 
   return (
@@ -108,7 +114,6 @@ const EditProfile = () => {
 
       <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black sm:w-[55rem] w-full rounded-2xl">
         <form onSubmit={handleSubmit} className="flex flex-col pb-20">
-          <ErrorMessages errors={errors} errorMessages={errorMessages} />
           <ul>
             <li>
               <label
@@ -148,7 +153,7 @@ const EditProfile = () => {
                   id="showPasswordButton"
                   type="button"
                   className="absolute top-6 right-5 text-xl"
-                  aria-label={t("login.showPassword")}
+                  aria-label={t("login.showPassword") || ""}
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -230,7 +235,7 @@ const EditProfile = () => {
             <li>
               <button
                 type="submit"
-                disabled={loading}
+                disabled={editUserMutation.isPending}
                 className="bg-primary text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
               >
                 {t("editProfile.title")}

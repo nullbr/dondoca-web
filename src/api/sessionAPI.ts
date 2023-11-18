@@ -54,22 +54,23 @@ export async function editUserWithToken(
   payload: Credentials
 ): Promise<UserResponse> {
   const data = {
-    email: payload.email,
-    password: payload.password,
-    current_password: payload.currentPassword,
-    client_id: CLIENT_ID,
+    registration: {
+      email: payload.email,
+      password: payload.password,
+      current_password: payload.currentPassword,
+    },
   };
 
   const config = {
     headers: {
       Authorization: `Bearer ${payload.accessToken}`,
+      Client: CLIENT_ID,
     },
   };
 
   return axiosInstance
     .patch(EDIT_USER_URL, data, config)
-    .then((response) => response.data)
-    .catch((error) => error.response.data);
+    .then((response) => response.data);
 }
 
 export async function requestAccessTokenWithRefreshToken(
