@@ -14,12 +14,16 @@ import ResponseError from "../../lib/ResponseError";
 import { SessionResponse } from "../../types/sessions";
 import { setSession } from "../../features/app/appSlice";
 import { RootState } from "../../store";
+import { useGetUser } from "../../hooks/Users/queries";
 
 const Login = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { session } = useSelector((state: RootState) => state.app);
+  const { data: currentUser, isSuccess } = useGetUser({
+    accessToken: session?.access_token || "",
+  });
 
   useEffect(() => {
     document.title = t("defaults.login") + " - " + t("defaults.pageTitle");
@@ -29,7 +33,7 @@ const Login = () => {
     document?.getElementById("email")?.focus();
 
     // redirect if user is logged in
-    if (session) {
+    if (isSuccess && currentUser) {
       toast.success(t("login.alreadyLoggedIn"));
       navigate("/");
     }

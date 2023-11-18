@@ -1,37 +1,25 @@
 import { useEffect, useRef, useState, MutableRefObject } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { UserIcon } from "../../assets/icons/icons";
 import { RootState } from "../../store";
-import { useQuery } from "@tanstack/react-query";
-import { getCurrentUser } from "../../api/sessionAPI";
 import { AxiosError } from "axios";
 import ResponseError from "../../lib/ResponseError";
-import { setUser } from "../../features/app/appSlice";
-import { UserResponse } from "../../types/sessions";
+import { useGetUser } from "../../hooks/Users/queries";
 
 interface SessionLinksProps {
   sticky: boolean;
 }
 
 const SessionLinks = ({ sticky }: SessionLinksProps) => {
-  const dispatch = useDispatch();
   const { t } = useTranslation();
   const { session } = useSelector((state: RootState) => state.app);
   const accessToken = session?.access_token || "";
 
-  const { data, isSuccess, isError, error } = useQuery({
-    queryKey: ["currentUser", accessToken],
-    queryFn: () => getCurrentUser(accessToken),
-    enabled: !!accessToken,
+  const { data, isSuccess, isError, error } = useGetUser({
+    accessToken,
   });
-
-  useEffect(() => {
-    if (isSuccess) {
-      dispatch(setUser(data as UserResponse));
-    }
-  }, [data, isSuccess]);
 
   useEffect(() => {
     if (isError) {
