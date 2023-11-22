@@ -8,3 +8,7 @@ export interface ClientParams {
   created_at: string;
   updated_at: string;
 }
+
+export interface ClientsResponse {
+  clients: ClientParams[];
+}

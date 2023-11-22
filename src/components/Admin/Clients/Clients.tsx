@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchClientsAsync } from "../../../features/clients/clientSlice";
+import { useDispatch } from "react-redux";
 import Loader from "../../Shared/Loader";
 import PagesHeader from "../../Shared/PagesHeader";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
@@ -9,17 +8,17 @@ import { useTranslation } from "react-i18next";
 import Dashboard from "../Dashboard";
 import Client from "./Client";
 import { ClientParams } from "../../../types/client";
+import { useGetClients } from "../../../hooks/Clients/queries";
 
 const Clients = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { clients, loading } = useSelector((store) => store.clients);
+  const { data, isFetching } = useGetClients();
+  const clients = data?.clients;
 
   useEffect(() => {
     document.title = t("admin.nav.clients") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
-
-    dispatch(fetchClientsAsync());
   }, [dispatch, t]);
 
   return (
@@ -27,7 +26,7 @@ const Clients = () => {
       <PagesHeader pageTitle={t("admin.nav.clients")} />
 
       <Dashboard>
-        {loading === true ? (
+        {isFetching === true ? (
           <Loader />
         ) : (
           <>

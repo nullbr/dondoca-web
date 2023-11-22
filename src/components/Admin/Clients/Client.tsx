@@ -3,6 +3,7 @@ import Form from "../../Shared/Form";
 import { useState } from "react";
 import EditButton from "../../Shared/EditButton";
 import { ClientParams } from "../../../types/client";
+import MissingImg from "../../../assets/images/missing.png";
 
 const Client = ({ client }: { client: ClientParams }) => {
   const {
@@ -21,7 +22,7 @@ const Client = ({ client }: { client: ClientParams }) => {
       <div className="border-b-2 border-primary shadow-b-lg flex gap-2 items-center justify-center">
         <div className="sm:w-[20rem] w-1/2 p-2">
           <img
-            src={image_url}
+            src={image_url || MissingImg}
             alt="profile"
             className="self-center rounded-full"
           />
