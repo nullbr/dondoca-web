@@ -21,7 +21,7 @@ function AdminFooter() {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={t("defaults.brunoLink")}
+                  href={t("defaults.brunoLink") || ""}
                 >
                   Bruno Leite
                 </a>
