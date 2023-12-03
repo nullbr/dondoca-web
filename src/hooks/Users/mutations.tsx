@@ -2,9 +2,18 @@ import { useMutation } from "@tanstack/react-query";
 import {
   loginWithCredentials,
   logoutUserWithToken,
+  signUpUser,
 } from "../../api/sessionAPI";
-import { SessionResponse } from "../../types/sessions";
-import { deleteSession, setSession } from "../../features/app/appSlice";
+import {
+  EditUserPayload,
+  SessionResponse,
+  UserResponse,
+} from "../../types/sessions";
+import {
+  deleteSession,
+  setSession,
+  setUser,
+} from "../../features/app/appSlice";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
@@ -52,5 +61,27 @@ export const useLogoutUser = () => {
     },
     onError: (err: AxiosError) =>
       ResponseError({ err, message: t("logout.error") || "" }),
+  });
+};
+
+export const useSignUpUser = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  return useMutation({
+    mutationFn: (payload: EditUserPayload) => signUpUser(payload),
+    onSuccess: (data: UserResponse) => {
+      dispatch(setUser(data));
+
+      toast.success(t("signUp.success"));
+
+      if (data.user.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    },
+    onError: (err: AxiosError) => ResponseError({ err }),
   });
 };

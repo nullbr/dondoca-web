@@ -38,9 +38,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const loginUserMutation = useLoginUser();
 
-  const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
-  ): Promise<void> => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);

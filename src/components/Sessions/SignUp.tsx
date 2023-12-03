@@ -1,25 +1,23 @@
 import "./Styles.css";
-import { useState, useEffect, useRef, MutableRefObject } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  resetErrorState,
-  signUpUser,
-} from "../../features/sessions/sessionSlice";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { resetErrorState } from "../../features/sessions/sessionSlice";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
-import ErrorMessages from "./shared/ErrorMessages";
 import PagesHeader from "../Shared/PagesHeader";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons";
-import { RootState } from "../../store";
+import { useSignUpUser } from "../../hooks/Users/mutations";
+import { EditUserPayload } from "../../types/sessions";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const confirmPasswordRef = useRef<HTMLInputElement | null>(null);
+  const signUpUserMutation = useSignUpUser();
 
   useEffect(() => {
     document.title = t("defaults.signUp") + " - " + t("defaults.pageTitle");
@@ -33,19 +31,13 @@ const SignUp = () => {
   }, [dispatch, t]);
 
   // Sign up user
-  const { loading, errorMessages } = useSelector(
-    (store: RootState) => store.sessions
-  );
-  const [errors, setErrors] = useState(errorMessages);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (e: FormEventHandler<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const entries = Object.fromEntries(formData);
-
-    setErrors([]);
 
     if (
       !entries ||
@@ -53,28 +45,34 @@ const SignUp = () => {
       entries.password === "" ||
       entries.confirmPassword === ""
     ) {
-      return setErrors([t("login.fieldsError")]);
+      toast.error(t("login.fieldsError"));
+      return;
     } else if (entries.password !== entries.confirmPassword) {
-      return setErrors([t("signUp.passwordNoMatch")]);
+      toast.error(t("signUp.passwordNoMatch"));
+      return;
     }
 
-    const response = await dispatch(signUpUser(entries));
+    const payload: EditUserPayload = {
+      registration: {
+        email: entries.email as string,
+        password: entries.password as string,
+        password_confirmation: entries.confirmPassword as string,
+      },
+    };
 
-    if (response.errors || response.error) {
-      return setErrors(response.errors[0] || response.error);
-    }
-
-    navigate("/");
+    signUpUserMutation.mutate(payload);
   };
 
   // Check if passwords match
   const checkPasswordMatch = () => {
-    const password = passwordRef?.current?.value;
-    const confirmPassword = confirmPasswordRef?.current?.value;
+    const password = passwordRef?.current;
+    const confirmPassword = confirmPasswordRef?.current;
 
-    password === confirmPassword
-      ? (confirmPasswordRef.current.style.outlineColor = "#22c55e")
-      : (confirmPasswordRef.current.style.outlineColor = "#ef4444");
+    if (!password || !confirmPassword) return;
+
+    password.value === confirmPassword.value
+      ? (confirmPassword.style.outlineColor = "#22c55e")
+      : (confirmPassword.style.outlineColor = "#ef4444");
   };
 
   return (
@@ -84,7 +82,6 @@ const SignUp = () => {
 
         <div className="flex flex-col justify-center py-40 px-20 mx-auto mt-20 shadow-xl bg-black w-[55rem] rounded-2xl">
           <form onSubmit={handleSubmit} className="flex flex-col pb-20">
-            <ErrorMessages errors={errors} errorMessages={errorMessages} />
             <ul>
               <li>
                 <label
@@ -126,7 +123,7 @@ const SignUp = () => {
                     id="showPasswordButton"
                     type="button"
                     className="absolute top-6 right-5 text-xl"
-                    aria-label={t("login.showPassword")}
+                    aria-label={t("login.showPassword") as string}
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? (
@@ -175,7 +172,7 @@ const SignUp = () => {
               <li>
                 <button
                   type="submit"
-                  disabled={loading}
+                  disabled={signUpUserMutation.isPending}
                   className="bg-primary text-white py-4 font-medium text-[2rem] w-full mt-10 rounded-lg"
                 >
                   {t("defaults.signUp")}

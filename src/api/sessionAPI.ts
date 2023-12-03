@@ -1,4 +1,9 @@
-import { Credentials, SessionResponse, UserResponse } from "../types/sessions";
+import {
+  Credentials,
+  EditUserPayload,
+  SessionResponse,
+  UserResponse,
+} from "../types/sessions";
 import axiosInstance from "./axios";
 
 const LOGIN_URL = "oauth/token";
@@ -33,6 +38,14 @@ export async function loginWithCredentials(credentials: {
   };
 
   return axiosInstance.post(LOGIN_URL, data).then((response) => response.data);
+}
+
+export async function signUpUser(
+  payload: EditUserPayload
+): Promise<UserResponse> {
+  const data = { ...payload, client_id: CLIENT_ID };
+
+  return axiosInstance.post(SIGNUP_URL, data).then((response) => response.data);
 }
 
 export async function logoutUserWithToken(
