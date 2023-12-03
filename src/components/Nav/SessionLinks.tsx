@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, MutableRefObject } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { UserIcon } from "../../assets/icons/icons";
@@ -7,6 +7,7 @@ import { RootState } from "../../store";
 import { AxiosError } from "axios";
 import ResponseError from "../../lib/ResponseError";
 import { useGetUser } from "../../hooks/Users/queries";
+import { setUser } from "../../features/app/appSlice";
 
 interface SessionLinksProps {
   sticky: boolean;
@@ -16,10 +17,17 @@ const SessionLinks = ({ sticky }: SessionLinksProps) => {
   const { t } = useTranslation();
   const { session } = useSelector((state: RootState) => state.app);
   const accessToken = session?.access_token || "";
+  const dispatch = useDispatch();
 
   const { data, isSuccess, isError, error } = useGetUser({
     accessToken,
   });
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(setUser(data));
+    }
+  }, [isSuccess]);
 
   useEffect(() => {
     if (isError) {

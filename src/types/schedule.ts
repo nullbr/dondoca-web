@@ -7,3 +7,7 @@ export interface ScheduleParams {
   client: ClientParams;
   worker: WorkerParams;
 }
+
+export type ScheduleResponse = {
+  schedules: ScheduleParams[];
+};

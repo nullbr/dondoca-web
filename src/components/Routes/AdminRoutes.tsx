@@ -6,6 +6,8 @@ import { RootState } from "../../store";
 const AdminRoutes = ({ children }: { children: React.ReactNode }) => {
   const { session, currentUser } = useSelector((store: RootState) => store.app);
 
+  console.log(session, currentUser);
+
   if (session?.access_token && currentUser?.user.role === "admin") {
     return children;
   } else if (session?.access_token) {

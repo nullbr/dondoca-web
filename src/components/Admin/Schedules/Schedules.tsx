@@ -1,43 +1,30 @@
-import { useDispatch, useSelector } from "react-redux";
-import Schedule from "./Schedule";
+import { useDispatch } from "react-redux";
+// import Schedule from "./Schedule";
 import { useTranslation } from "react-i18next";
 import PagesHeader from "../../Shared/PagesHeader";
 import Dashboard from "../Dashboard";
 import Loader from "../../Shared/Loader";
-import { fetchWorkersAsync } from "../../../features/workers/workerSlice";
 import { PAGE_HEADER_Y } from "../../../lib/constants";
 import { setScrollY } from "../../../features/navbar/navbarSlice";
 import { useEffect, useState } from "react";
 import DateRangePicker from "./DateRangePicker";
-import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
-import { useGetWorkers } from "../../../lib/hooks";
-import { RootState } from "../../../store";
+import { useGetWorkers } from "../../../hooks/Workers/queries";
+import { useGetSchedules } from "../../../hooks/Schedules/queries";
 
 function Schedules() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const schedules = useSelector(
-    (store: RootState) => store.schedules.schedules
-  );
-  const loadingSchedules = useSelector(
-    (store: RootState) => store.schedules.loading
-  );
-
-  const [workerFilter, setWorkerFilter] = useState(null);
+  const [workerFilter, setWorkerFilter] = useState<Number | null>(null);
 
   useEffect(() => {
     document.title = t("admin.nav.schedule") + " - " + t("defaults.pageTitle");
     dispatch(setScrollY(PAGE_HEADER_Y));
-
-    // get workers if not already in store
-    dispatch(fetchWorkersAsync());
-
-    // get schedule for current date
-    dispatch(fetchSchedulesAsync());
   }, [t, dispatch]);
 
-  const { data: workers, isLoading: loadingWorkers } = useGetWorkers();
+  const { data: workersData, isLoading: loadingWorkers } = useGetWorkers();
+  const { data: schedulesData, isLoading: loadingSchedules } =
+    useGetSchedules();
 
   return (
     <>
@@ -65,7 +52,7 @@ function Schedules() {
                 >
                   {t("defaults.all")}
                 </button>
-                {workers.map((worker) => {
+                {workersData?.workers.map((worker) => {
                   return (
                     <button
                       key={worker.id}
@@ -74,7 +61,7 @@ function Schedules() {
                         worker.id === workerFilter ? "bg-gray" : "bg-primary"
                       }`}
                     >
-                      {worker.firstName}
+                      {worker.first_name}
                     </button>
                   );
                 })}
@@ -90,25 +77,25 @@ function Schedules() {
             <Loader />
           </div>
         ) : (
-          schedules.length > 0 &&
-          schedules.map((schedule) => {
+          schedulesData?.schedules &&
+          schedulesData.schedules.map((schedule) => {
             return (
-              <div key={schedule.date} className="flex flex-col gap-4">
+              <div key={schedule.start_at_time} className="flex flex-col gap-4">
                 <p className="text-lg font-medium text-subtitle-gray text-center">
-                  {schedule.date}
+                  {schedule.start_at_time}
                 </p>
-                {schedule.data
+                {/* {schedule.data
                   .filter(
                     (data) => !workerFilter || data.worker.id === workerFilter
                   )
                   .map((data) => (
                     <Schedule key={data.id} schedule={data} />
-                  ))}
+                  ))} */}
               </div>
             );
           })
         )}
-        {schedules.length < 1 && (
+        {!schedulesData?.schedules && (
           <p className="text-center sm:text-2xl font-bold text-xl">
             Nenhum agendamento encontrado.
           </p>
