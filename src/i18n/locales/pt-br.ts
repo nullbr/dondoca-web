@@ -159,6 +159,11 @@ const translations = {
       recover: "Recuperar Senha",
     },
 
+    logout: {
+      success: "Logout realizado com sucesso!",
+      error: "Erro ao realizar logout.",
+    },
+
     signUp: {
       repeatPass: "Confirmar Senha",
       current: "Já possui conta?",

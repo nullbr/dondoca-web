@@ -6,15 +6,10 @@ import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
 import PagesHeader from "../Shared/PagesHeader";
 import { EyeIcon, EyeOffIcon } from "../../assets/icons/icons";
-import { useMutation } from "@tanstack/react-query";
-import { loginWithCredentials } from "../../api/sessionAPI";
 import toast from "react-hot-toast";
-import { AxiosError } from "axios";
-import ResponseError from "../../lib/ResponseError";
-import { SessionResponse } from "../../types/sessions";
-import { setSession } from "../../features/app/appSlice";
-import { RootState } from "../../store";
 import { useGetUser } from "../../hooks/Users/queries";
+import { useLoginUser } from "../../hooks/Users/mutations";
+import { RootState } from "../../store";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -41,22 +36,7 @@ const Login = () => {
 
   // Login User
   const [showPassword, setShowPassword] = useState(false);
-
-  const loginUserMutation = useMutation({
-    mutationFn: loginWithCredentials,
-    onSuccess: (data: SessionResponse) => {
-      dispatch(setSession(data));
-
-      toast.success(t("login.success"));
-
-      if (data.role === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/");
-      }
-    },
-    onError: (err: AxiosError) => ResponseError({ err }),
-  });
+  const loginUserMutation = useLoginUser();
 
   const handleSubmit = async (
     e: React.FormEvent<HTMLFormElement>

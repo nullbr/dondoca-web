@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SessionResponse, UserResponse } from "../../types/sessions";
-import { storeRefreshToken } from "../../lib/localStore";
+import { removeRefreshToken, storeRefreshToken } from "../../lib/localStore";
 
 export interface AppState {
   currentUser: UserResponse | null;
@@ -24,9 +24,14 @@ const appSlice = createSlice({
 
       storeRefreshToken(payload.refresh_token);
     },
+    deleteSession(state) {
+      state.session = null;
+
+      removeRefreshToken();
+    },
   },
 });
 
-export const { setUser, setSession } = appSlice.actions;
+export const { setUser, setSession, deleteSession } = appSlice.actions;
 
 export default appSlice.reducer;

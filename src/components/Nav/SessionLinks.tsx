@@ -8,6 +8,7 @@ import { AxiosError } from "axios";
 import ResponseError from "../../lib/ResponseError";
 import { useGetUser } from "../../hooks/Users/queries";
 import { setUser } from "../../features/app/appSlice";
+import { useLogoutUser } from "../../hooks/Users/mutations";
 
 interface SessionLinksProps {
   sticky: boolean;
@@ -16,6 +17,7 @@ interface SessionLinksProps {
 const SessionLinks = ({ sticky }: SessionLinksProps) => {
   const { t } = useTranslation();
   const { session } = useSelector((state: RootState) => state.app);
+  const logoutUserMutation = useLogoutUser();
   const accessToken = session?.access_token || "";
   const dispatch = useDispatch();
 
@@ -107,11 +109,13 @@ const SessionLinks = ({ sticky }: SessionLinksProps) => {
                 </p>
               </NavLink>
 
-              <NavLink title="logout" to="/logout">
-                <p className="block px-4 py-2 w-full text-gray hover:text-primary shadow-sm">
-                  {t("defaults.logout")}
-                </p>
-              </NavLink>
+              <button
+                className="block px-4 py-2 w-full text-gray hover:text-primary shadow-sm"
+                type="button"
+                onClick={() => logoutUserMutation.mutate()}
+              >
+                {t("defaults.logout")}
+              </button>
             </div>
           </div>
         )}

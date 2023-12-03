@@ -14,7 +14,6 @@ import { lazy } from "react";
 
 // Sessions
 const Login = lazy(() => import("./components/Sessions/Login"));
-const Logout = lazy(() => import("./components/Sessions/Logout"));
 const SignUp = lazy(() => import("./components/Sessions/SignUp"));
 const EditProfile = lazy(() => import("./components/Sessions/EditProfile"));
 
@@ -38,7 +37,6 @@ function App() {
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<SignUp />} />
-            <Route path="logout" element={<Logout />} />
             <Route
               path="edit-profile"
               element={
