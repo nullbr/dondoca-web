@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import Form from "../../Shared/Form";
 import { useState } from "react";
 import EditButton from "../../Shared/EditButton";
 import { ClientParams } from "../../../types/client";
@@ -45,7 +44,7 @@ const Client = ({ client }: { client: ClientParams }) => {
           {!showForm && <EditButton action={() => setShowForm(true)} />}
         </div>
       </div>
-      {showForm && <Form />}
+      {showForm}
     </div>
   );
 };

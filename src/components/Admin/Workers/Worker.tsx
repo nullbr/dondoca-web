@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import Form from "../../Shared/Form";
+// import Form from "../../Shared/Form";
 import { useState } from "react";
 import EditButton from "../../Shared/EditButton";
 import { WorkerParams } from "../../../types/worker";
@@ -17,12 +17,12 @@ const Worker = ({ worker }: { worker: WorkerParams }) => {
   const { t } = useTranslation();
   const [showForm, setShowForm] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const entries = Object.fromEntries(formData);
-  };
+  //   const formData = new FormData(e.currentTarget);
+  //   const entries = Object.fromEntries(formData);
+  // };
 
   return (
     <div className="border-b-2 border-primary shadow-b-lg">
@@ -70,7 +70,7 @@ const Worker = ({ worker }: { worker: WorkerParams }) => {
           )}
         </div>
       </div>
-      {showForm && <Form resource={worker} handleSubmit={handleSubmit} />}
+      {/* {showForm && <Form resource={worker} handleSubmit={handleSubmit} />} */}
     </div>
   );
 };

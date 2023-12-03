@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import Form from "../../Shared/Form";
+// import Form from "../../Shared/Form";
 import EditButton from "../../Shared/EditButton";
 import { ScheduleParams } from "../../../types/schedule";
 
@@ -61,7 +61,7 @@ function Schedule({ schedule }: { schedule: ScheduleParams }) {
         </div>
       </div>
 
-      {showForm && <Form />}
+      {/* {showForm && <Form />} */}
     </div>
   );
 }
