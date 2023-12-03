@@ -7,16 +7,19 @@ import ptBR from "date-fns/locale/pt-BR";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 
-import { useDispatch } from "react-redux";
-import { fetchSchedulesAsync } from "../../../features/schedules/scheduleSlice";
 import { useTranslation } from "react-i18next";
+
+type RangeType = {
+  startDate: Date;
+  endDate: Date;
+  key: string;
+}[];
 
 const DateRangeComp = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
 
   // date state
-  const [range, setRange] = useState([
+  const [range, setRange] = useState<RangeType>([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -28,26 +31,26 @@ const DateRangeComp = () => {
   const [open, setOpen] = useState(false);
 
   // get the target element to toggle
-  const refOne = useRef(null);
-
-  // hide dropdown on ESC press
-  const hideOnEscape = (e) => {
-    // console.log(e.key)
-    if (e.key === "Escape") {
-      setOpen(false);
-    }
-  };
-
-  // Hide on outside click
-  const hideOnClickOutside = (e) => {
-    // console.log(refOne.current)
-    // console.log(e.target)
-    if (refOne.current && !refOne.current.contains(e.target)) {
-      setOpen(false);
-    }
-  };
+  const refOne = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
+    // hide dropdown on ESC press
+    const hideOnEscape = (e: KeyboardEvent) => {
+      // console.log(e.key)
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    // Hide on outside click
+    const hideOnClickOutside = (e: MouseEvent) => {
+      // console.log(refOne.current)
+      // console.log(e.target)
+      if (refOne.current && !refOne.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+
     // event listeners
     document.addEventListener("keydown", hideOnEscape, true);
     document.addEventListener("click", hideOnClickOutside, true);
@@ -63,12 +66,12 @@ const DateRangeComp = () => {
   function getSchedules() {
     if (open) return;
 
-    const dateRange = {
-      startDate: range[0].startDate,
-      endDate: range[0].endDate,
-    };
+    // const dateRange = {
+    //   startDate: range[0].startDate,
+    //   endDate: range[0].endDate,
+    // };
 
-    dispatch(fetchSchedulesAsync(dateRange));
+    // dispatch(fetchSchedulesAsync(dateRange));
   }
 
   return (
@@ -100,7 +103,18 @@ const DateRangeComp = () => {
         {open && (
           <DateRange
             locale={ptBR}
-            onChange={(item) => setRange([item.selection])}
+            onChange={(item) => {
+              if (item.selection.startDate && item.selection.endDate) {
+                const newRange = [
+                  {
+                    startDate: item.selection.startDate,
+                    endDate: item.selection.endDate,
+                    key: "selection",
+                  },
+                ];
+                setRange(newRange);
+              }
+            }}
             editableDateInputs={true}
             moveRangeOnFirstSelection={false}
             ranges={range}
