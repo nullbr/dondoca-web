@@ -1,14 +1,9 @@
 import { InstagramIcon } from "../../assets/icons/icons";
 import TitleBg from "../../assets/images/shared/paint-stroke-gold.svg";
-// import { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { fetchWorkersAsync } from "../../features/workers/workerSlice";
 import { WorkerParams } from "../../types/worker";
-import {
-  formatDate,
-  formatPhoneNumber,
-} from "../../features/workers/workerSlice";
 import { TProp } from "../../i18n";
+import { formatPhoneNumber } from "../../lib/formatPhoneNumber";
+import { formatDate } from "../../lib/formatDate";
 
 const payload: WorkerParams[] = [
   {
@@ -158,7 +153,9 @@ const workers = payload.map((worker) => {
     id: worker.id,
     firstName: worker.first_name,
     lastName: worker.last_name,
-    phoneNumber: formatPhoneNumber(worker.phone_number?.toString()),
+    phoneNumber: !!worker.phone_number
+      ? formatPhoneNumber(worker.phone_number?.toString())
+      : "",
     job: worker.job,
     instagram: worker.instagram,
     created_at: formatDate(worker.created_at),

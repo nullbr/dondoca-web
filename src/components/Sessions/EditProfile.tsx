@@ -2,7 +2,6 @@ import "./Styles.css";
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { resetErrorState } from "../../features/sessions/sessionSlice";
 import { PAGE_HEADER_Y } from "../../lib/constants";
 import { useTranslation } from "react-i18next";
 import { setScrollY } from "../../features/navbar/navbarSlice";
@@ -32,9 +31,6 @@ const EditProfile = () => {
 
     // Focus on email input
     document?.getElementById("email")?.focus();
-
-    // reset error messages
-    dispatch(resetErrorState());
   }, [dispatch, t]);
 
   // Sign up user

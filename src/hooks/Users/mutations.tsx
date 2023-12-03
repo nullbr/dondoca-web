@@ -48,10 +48,10 @@ export const useLogoutUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { refreshToken } = useSelector((store: RootState) => store.sessions);
+  const { session } = useSelector((store: RootState) => store.app);
 
   return useMutation({
-    mutationFn: () => logoutUserWithToken(refreshToken || ""),
+    mutationFn: () => logoutUserWithToken(session?.refresh_token || ""),
     onSuccess: () => {
       dispatch(deleteSession());
 
