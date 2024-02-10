@@ -3,7 +3,7 @@ import { CloseIcon } from "../../assets/icons/icons";
 import { TFunction } from "i18next";
 
 interface MobileNavProps {
-  toggleMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleMobileNav: () => void;
   mobileNav: boolean;
   t: TFunction<"translation", undefined, "translation">;
   admin: boolean;
@@ -24,7 +24,7 @@ const MobileNav = ({
       <div className="flex">
         <div
           className="close-nav-div cursor-pointer"
-          onClick={() => toggleMobileNav}
+          onClick={toggleMobileNav}
         ></div>
         <div className="flex w-[20rem] max-w-full justify-end h-screen bg-slightly-transparent py-[3rem] pr-[3rem]">
           {/* links */}
@@ -32,7 +32,7 @@ const MobileNav = ({
             <button
               className="text-primary w-full flex justify-end"
               type="button"
-              onClick={() => toggleMobileNav}
+              onClick={toggleMobileNav}
             >
               <CloseIcon className="h-6" />
             </button>
@@ -40,7 +40,7 @@ const MobileNav = ({
             {admin ? (
               <>
                 {/* admin nav Links */}
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="services"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -49,7 +49,7 @@ const MobileNav = ({
                     {t("admin.nav.schedule")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="workers"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -58,7 +58,7 @@ const MobileNav = ({
                     {t("admin.nav.workers")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="clients"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -71,7 +71,7 @@ const MobileNav = ({
             ) : (
               <>
                 {/* Client nav Links */}
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="home"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -80,7 +80,7 @@ const MobileNav = ({
                     {t("nav.home")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="about"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -89,7 +89,7 @@ const MobileNav = ({
                     {t("nav.about")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="gallery"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -98,7 +98,7 @@ const MobileNav = ({
                     {t("nav.gallery")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="contact"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
@@ -107,7 +107,7 @@ const MobileNav = ({
                     {t("nav.contact")}
                   </NavLink>
                 </li>
-                <li onClick={() => toggleMobileNav}>
+                <li onClick={toggleMobileNav}>
                   <NavLink
                     id="services"
                     className="text-[2rem] font-medium hover:text-primary ease-in duration-200"
